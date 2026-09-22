@@ -3,18 +3,16 @@
 import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
-const ratioClass = {
-  portrait: "aspect-[4/5]",
-  landscape: "aspect-[16/10]",
-  tall: "aspect-[3/4]",
-} as const;
+/** Uniform image ratio — every card resolves to the same height. */
+const CARD_RATIO = "aspect-[4/3]";
 
 /**
  * GalleryCard — editorial project card.
- * The image sits at the top (cinematic zoom on hover), with the project
- * metadata on a soft card body below: category, title, year and a view
- * arrow. When `onSelect` is provided the card opens the project in a
- * lightbox; otherwise it renders as a static card (service pages).
+ * All cards share one uniform image ratio and card body so the grid reads
+ * as a clean, equal-height system. Image zooms cinematically on hover; the
+ * body carries category, title, year and a view arrow. When `onSelect` is
+ * provided the card opens the project in a lightbox; otherwise it renders
+ * as a static card (service pages).
  */
 export function GalleryCard({
   project,
@@ -27,8 +25,8 @@ export function GalleryCard({
 }) {
   const inner = (
     <>
-      {/* Image stage */}
-      <div className={`${ratioClass[project.ratio]} relative overflow-hidden`}>
+      {/* Image stage — uniform 4/3 on every card */}
+      <div className={`${CARD_RATIO} relative overflow-hidden`}>
         <div className="absolute inset-0 scale-[1.03] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]">
           <FestiveImage
             image={project.image}
