@@ -13,6 +13,7 @@ import { Signature } from "@/components/sections/signature";
 import { Audiences } from "@/components/sections/audiences";
 import { GallerySection } from "@/components/sections/gallery";
 import { ProcessSection } from "@/components/sections/process";
+import { PackagesSection } from "@/components/sections/packages";
 import { WhyUs } from "@/components/sections/why-us";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
@@ -80,6 +81,7 @@ export default function Home() {
         <Audiences />
         <GallerySection />
         <ProcessSection />
+        <PackagesSection />
         <WhyUs />
         <Testimonials />
         <FAQ />

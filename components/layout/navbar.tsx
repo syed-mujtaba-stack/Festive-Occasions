@@ -11,6 +11,7 @@ import { siteConfig, whatsappLink } from "@/lib/site";
 const navLinks = [
   { label: "Christmas", href: "/christmas-decoration-dubai" },
   { label: "Services", href: "/#services" },
+  { label: "Packages", href: "/packages" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
   { label: "Other Occasions", href: "/other-occasions" },

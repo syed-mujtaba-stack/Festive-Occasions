@@ -15,6 +15,7 @@ const footerColumns = [
   {
     title: "Company",
     links: [
+      { label: "Packages", href: "/packages" },
       { label: "Gallery", href: "/gallery" },
       { label: "About", href: "/about" },
       { label: "Areas We Serve", href: "/areas-we-serve" },
