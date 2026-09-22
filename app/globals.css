@@ -364,6 +364,39 @@ html.lenis body {
   }
 }
 
+/* ============================================================
+   PRELOADER — "The Seal Opens"
+   ============================================================ */
+
+/* Initial hidden states: SSR paints the loader (ivory curtains + seam),
+   GSAP reveals each element from here. Prevents a flash of the
+   "finished" layout before the intro timeline is built. */
+.fo-preloader [data-seal-ring],
+.fo-preloader [data-seal-ring-inner] {
+  stroke-dashoffset: 1;
+}
+.fo-preloader [data-seal-letters],
+.fo-preloader [data-seal-sparkle],
+.fo-preloader [data-seal-glow],
+.fo-preloader [data-pl-eyebrow] {
+  opacity: 0;
+  visibility: hidden;
+}
+.fo-preloader [data-pl-line] {
+  transform: translateY(115%);
+}
+.fo-preloader [data-pl-progress] {
+  transform: scaleX(0);
+}
+
+/* Reduced motion: the loader is purely decorative — never show it.
+   (Global 0.01ms rules don't stop GSAP, so hide explicitly.) */
+@media (prefers-reduced-motion: reduce) {
+  .fo-preloader {
+    display: none !important;
+  }
+}
+
 /* Focus visible (accessibility) */
 :focus-visible {
   outline: 2px solid var(--color-champagne);

@@ -6,6 +6,7 @@ import { FestiveImage } from "@/components/ui/festive-image";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { whatsappLink } from "@/lib/site";
+import { preloaderDone } from "@/lib/preloader";
 
 /**
  * Homepage hero — cinematic GSAP timeline per spec.
@@ -31,7 +32,10 @@ export function Hero() {
         linesClass: "overflow-hidden",
       });
 
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      const tl = gsap.timeline({
+        paused: true,
+        defaults: { ease: "power4.out" },
+      });
 
       tl.fromTo(
         q("[data-hero-media]"),
@@ -82,7 +86,22 @@ export function Hero() {
           1.6
         );
 
-      return () => split.revert();
+      // Start the intro the moment the preloader's curtains begin to lift.
+      // A hard fallback timer guarantees the hero can never be stuck
+      // invisible — even if the preloader path is skipped entirely.
+      let played = false;
+      const play = () => {
+        if (played) return;
+        played = true;
+        tl.play();
+      };
+      const fallback = window.setTimeout(play, 4000);
+      preloaderDone.then(play).catch(play);
+
+      return () => {
+        window.clearTimeout(fallback);
+        split.revert();
+      };
     },
     { scope }
   );

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { Preloader } from "@/components/ui/preloader";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -66,6 +68,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
+        {/* Preloader gates run before hydration:
+            1) repeat visit → hide instantly (injected <style> — React
+               never touches it, even across hydration)
+            2) no-JS → hide (noscript style)
+            Reduced-motion hide lives in globals.css under a media query. */}
+        <Script
+          id="fo-preloader-gate"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('fo:preloader-seen')==='1'){var s=document.createElement('style');s.textContent='.fo-preloader{display:none!important}';document.head.appendChild(s)}}catch(e){}`,
+          }}
+        />
+        <noscript>
+          <style>{`.fo-preloader{display:none !important}`}</style>
+        </noscript>
+        {/* First-impression preloader (SSR-rendered, client-driven) */}
+        <Preloader />
         {/* Cinematic film grain — subtle texture overlay (decorative) */}
         <div aria-hidden className="grain" />
         <a
