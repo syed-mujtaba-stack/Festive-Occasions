@@ -3,43 +3,17 @@
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { faqEntries, type FaqEntry } from "@/lib/faqs";
 
 /**
  * FAQ — answers must be based on actual services (spec 30).
  * Placeholder answers are intentionally conservative; client verifies.
+ * Q/A pairs shared from lib/faqs.ts so the visible accordion always
+ * matches the FAQPage schema rendered on the homepage.
  */
-const faqs = [
-  {
-    q: "What Christmas decoration services do you offer in Dubai?",
-    a: "We design and install bespoke Christmas decoration for homes, villas, offices and commercial spaces — including tree styling, interior schemes, outdoor lighting and full property transformations.",
-  },
-  {
-    q: "Do you decorate villas for Christmas?",
-    a: "Yes. Villa decoration is one of our core services — entrance, living areas, dining, staircase, garden and outdoor lighting composed into one cohesive scheme.",
-  },
-  {
-    q: "Do you decorate offices and commercial spaces?",
-    a: "Yes. We decorate office lobbies, receptions, meeting areas and employee spaces, and we deliver branded installations for corporate venues and events.",
-  },
-  {
-    q: "Can you create a custom Christmas theme?",
-    a: "Yes. Every project begins with your space and style. We design custom palettes and themes rather than applying a fixed template.",
-  },
-  {
-    q: "Do you provide installation and removal?",
-    a: "Yes. Our team handles the full cycle — installation on schedule and careful removal after the festive period.",
-  },
-  {
-    q: "How early should I book Christmas decoration?",
-    a: "We recommend booking as early as possible, while capacity is available. Contact us to check availability for your dates.",
-  },
-  {
-    q: "Which areas in Dubai do you serve?",
-    a: "We serve Dubai and surrounding UAE areas. Get in touch with your location and we will confirm whether we cover it.",
-  },
-];
+const faqs: FaqEntry[] = faqEntries;
 
-export function FAQ({ questions = faqs }: { questions?: typeof faqs }) {
+export function FAQ({ questions = faqs }: { questions?: FaqEntry[] }) {
   return (
     <Section id="faq" tone="cream">
       <Container>

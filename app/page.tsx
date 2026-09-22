@@ -19,8 +19,9 @@ import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site";
+import { faqEntries } from "@/lib/faqs";
 
-/** Organization + WebSite schema — home only (single source NAP via site.ts). */
+/** Organization + WebSite + FAQPage schema — home only (single source NAP via site.ts). */
 function homeJsonLd(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -48,6 +49,15 @@ function homeJsonLd(): Record<string, unknown> {
         name: siteConfig.name,
         url: siteConfig.url,
         publisher: { "@id": `${siteConfig.url}/#business` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.url}/#faq`,
+        mainEntity: faqEntries.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
     ],
   };

@@ -13,7 +13,7 @@ invented addresses, reviews, ratings, or prices (brief §20, §37).
 | `FAQPage` | service-page FAQs (mirrors visible accordion) | ✅ done |
 | `BreadcrumbList` | each service page (Home → Pillar → page) | ✅ done |
 | `Organization` + `WebSite` | homepage (`@graph`) | ✅ done |
-| FAQPage (homepage FAQ) | `/` matches home FAQ block | ⏳ optional add |
+| FAQPage (homepage FAQ) | `/` matches home FAQ block — Q/As shared from `lib/faqs.ts` (single source with visible accordion) | ✅ done |
 
 ## Service schema shape (planned)
 
