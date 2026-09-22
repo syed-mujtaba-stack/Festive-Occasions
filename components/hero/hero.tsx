@@ -74,6 +74,12 @@ export function Hero() {
           { opacity: 0, scaleX: 0.4 },
           { opacity: 1, scaleX: 1, duration: 0.9, ease: "power3.inOut" },
           1.3
+        )
+        .fromTo(
+          q("[data-hero-scroll]"),
+          { yPercent: -120 },
+          { yPercent: 360, duration: 2.2, repeat: -1, ease: "power1.inOut" },
+          1.6
         );
 
       return () => split.revert();
@@ -153,6 +159,19 @@ export function Hero() {
           <span className="flex-1 border-t hairline-dark" />
           <span className="text-warm-gray text-sm italic">Dubai · UAE</span>
           <span className="flex-1 border-t hairline-dark" />
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2" aria-hidden>
+        <div className="flex flex-col items-center gap-2.5">
+          <span className="text-label text-ivory/50">Scroll</span>
+          <span className="relative block h-12 w-px overflow-hidden bg-ivory/15">
+            <span
+              data-hero-scroll
+              className="absolute inset-x-0 top-0 h-4 w-px bg-champagne"
+            />
+          </span>
         </div>
       </div>
     </section>
