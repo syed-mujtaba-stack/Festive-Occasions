@@ -276,6 +276,31 @@ html.lenis body {
   }
 }
 
+/* Process — the sticky step counter is desktop+JS only; otherwise each
+   timeline row carries its own inline step number. */
+.process-num-stage {
+  display: none;
+}
+.process-row-num {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .js-enabled .process-num-stage {
+    display: block;
+  }
+  .js-enabled .process-row-num {
+    display: none;
+  }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .js-enabled .process-num-stage {
+    display: none;
+  }
+  .js-enabled .process-row-num {
+    display: block;
+  }
+}
+
 /* Marquee ticker — infinite editorial scroll, disabled for reduced motion. */
 @keyframes marquee {
   from {
