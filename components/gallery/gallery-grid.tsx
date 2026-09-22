@@ -88,22 +88,13 @@ export function GalleryGrid() {
         </p>
       </div>
 
-      {/* Masonry grid — key remounts so tiles stagger-reveal on filter change */}
+      {/* Card grid — key remounts so cards stagger-reveal on filter change */}
       <div
         key={active}
-        className="grid auto-rows-[minmax(240px,auto)] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
         {items.map((project, i) => (
-          <div
-            key={project.id}
-            className={
-              i === 1 || i === 4
-                ? "lg:col-span-2 lg:row-span-1"
-                : i === 2
-                  ? "lg:row-span-2"
-                  : ""
-            }
-          >
+          <div key={project.id} className="h-full">
             <ScrollReveal y={28} delay={i * 0.06}>
               <div className="h-full">
                 <GalleryCard

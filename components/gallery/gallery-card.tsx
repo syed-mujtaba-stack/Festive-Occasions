@@ -10,11 +10,11 @@ const ratioClass = {
 } as const;
 
 /**
- * GalleryCard — editorial project tile.
- * Caption is always visible (bottom gradient), hover adds a cinematic zoom,
- * a deep veil and an arrow nudge. When `onSelect` is provided the tile is a
- * button that opens the project in a lightbox; otherwise it renders as a
- * static figure (used on service pages).
+ * GalleryCard — editorial project card.
+ * The image sits at the top (cinematic zoom on hover), with the project
+ * metadata on a soft card body below: category, title, year and a view
+ * arrow. When `onSelect` is provided the card opens the project in a
+ * lightbox; otherwise it renders as a static card (service pages).
  */
 export function GalleryCard({
   project,
@@ -27,64 +27,64 @@ export function GalleryCard({
 }) {
   const inner = (
     <>
-      <div className={ratioClass[project.ratio]}>
-        <div className="absolute inset-0 scale-[1.03] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.09]">
+      {/* Image stage */}
+      <div className={`${ratioClass[project.ratio]} relative overflow-hidden`}>
+        <div className="absolute inset-0 scale-[1.03] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]">
           <FestiveImage
             image={project.image}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-      </div>
-
-      {/* Veil — always visible, deepens on hover */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-night/85 via-night/15 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-100"
-      />
-
-      {/* Project number — top left */}
-      {index !== undefined && (
-        <span
+        {/* Grounding veil */}
+        <div
           aria-hidden
-          className="absolute left-5 top-4 font-display text-lg italic leading-none text-ivory/60 transition-colors duration-500 group-hover:text-champagne"
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      )}
-      <span
-        aria-hidden
-        className="absolute right-5 top-4 h-[3px] w-[3px] -translate-y-1/2 rotate-45 bg-champagne/90"
-      />
+          className="absolute inset-0 bg-gradient-to-t from-night/45 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-90"
+        />
 
-      {/* Caption — always visible */}
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-        <div>
-          <p className="text-label text-champagne transition-colors duration-500 group-hover:text-champagne-soft">
-            {project.category}
-          </p>
-          <p className="mt-2 font-display text-2xl leading-tight text-ivory transition-transform duration-500 group-hover:-translate-y-0.5">
-            {project.title}
-          </p>
-          <p className="mt-1.5 text-sm text-ivory/60">{project.year}</p>
-        </div>
-        {onSelect && (
+        {/* Project number — top left */}
+        {index !== undefined && (
           <span
             aria-hidden
-            className="mb-1 grid h-10 w-10 shrink-0 translate-y-2 place-items-center rounded-full border border-ivory/25 text-champagne opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+            className="absolute left-4 top-3.5 font-display text-base italic leading-none text-ivory/70 transition-colors duration-500 group-hover:text-champagne"
           >
-            ↗
+            {String(index + 1).padStart(2, "0")}
           </span>
         )}
+        <span
+          aria-hidden
+          className="absolute right-4 top-4 h-[3px] w-[3px] -translate-y-1/2 rotate-45 bg-champagne"
+        />
+      </div>
+
+      {/* Card body */}
+      <div className="flex flex-1 flex-col gap-1.5 p-6">
+        <p className="text-label text-champagne transition-colors duration-500 group-hover:text-champagne-soft">
+          {project.category}
+        </p>
+        <h3 className="font-display text-[1.35rem] leading-snug text-espresso transition-colors duration-500 group-hover:text-cocoa">
+          {project.title}
+        </h3>
+        <div className="mt-auto flex items-end justify-between gap-4 pt-3">
+          <p className="text-sm text-cocoa/60">{project.year}</p>
+          {onSelect && (
+            <span
+              aria-hidden
+              className="grid h-9 w-9 place-items-center rounded-full border border-espresso/15 text-champagne transition-all duration-500 group-hover:border-champagne group-hover:bg-champagne group-hover:text-espresso"
+            >
+              ↗
+            </span>
+          )}
+        </div>
       </div>
     </>
   );
 
+  const cardClasses =
+    "group flex h-full w-full flex-col overflow-hidden rounded-2xl border hairline bg-white/60 text-left shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-champagne/60 hover:shadow-card";
+
   if (!onSelect) {
     return (
-      <figure
-        className="group relative block h-full w-full overflow-hidden rounded-2xl shadow-card"
-        style={{ contain: "layout paint" }}
-      >
+      <figure className={cardClasses} style={{ contain: "layout paint" }}>
         {inner}
       </figure>
     );
@@ -95,7 +95,7 @@ export function GalleryCard({
       type="button"
       onClick={() => onSelect(index ?? 0)}
       aria-label={`${project.title} — ${project.category}, open in lightbox`}
-      className="group relative block h-full w-full overflow-hidden rounded-2xl text-left shadow-card outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+      className={`${cardClasses} outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ivory`}
       style={{ contain: "layout paint" }}
     >
       {inner}

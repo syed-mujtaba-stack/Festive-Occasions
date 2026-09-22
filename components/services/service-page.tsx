@@ -274,15 +274,10 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
             />
           </ScrollReveal>
           <ScrollReveal y={30} delay={0.1}>
-            <div className="mt-12 grid auto-rows-[minmax(240px,auto)] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {galleryProjects.slice(0, 6).map((project, i) => (
-                <div
-                  key={project.id}
-                  className={i === 1 || i === 4 ? "lg:col-span-2" : i === 2 ? "lg:row-span-2" : ""}
-                >
-                  <div className="h-full">
-                    <GalleryCard project={project} />
-                  </div>
+                <div key={project.id} className="h-full">
+                  <GalleryCard project={project} index={i} />
                 </div>
               ))}
             </div>
