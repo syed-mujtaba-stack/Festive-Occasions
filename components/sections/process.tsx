@@ -124,7 +124,7 @@ export function ProcessSection() {
   );
 
   return (
-    <Section id="process" tone="cream" className="overflow-hidden">
+    <Section id="process" tone="cream">
       <Container>
         <div
           ref={scope}
@@ -143,7 +143,7 @@ export function ProcessSection() {
                 description="A clear five-step process that keeps your home or business running while we transform it."
               />
 
-              <div className="process-num-stage relative mt-12 h-32">
+              <div className="process-num-stage relative mt-12 h-40 overflow-hidden">
                 {steps.map((s, i) => (
                   <div
                     key={s.n}

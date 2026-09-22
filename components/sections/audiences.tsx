@@ -89,7 +89,7 @@ export function Audiences() {
   );
 
   return (
-    <Section id="who-we-decorate-for" className="overflow-hidden">
+    <Section id="who-we-decorate-for">
       <Container>
         <ScrollReveal>
           <SectionHeading
