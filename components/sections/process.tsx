@@ -1,19 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { gsap, useGSAP, prefersReducedMotion } from "@/animations/registry";
+import {
+  gsap,
+  useGSAP,
+  ScrollTrigger,
+  prefersReducedMotion,
+} from "@/animations/registry";
+import { cn } from "@/lib/utils";
 
 /**
  * Process — editorial vertical timeline with a scroll-driven step counter.
  *
- * Desktop: the left column is sticky — a large champagne step number
- * (01 → 05) crossfades as you scroll through the steps, while the right
- * timeline draws a gold line and ignites each step dot.
- * Mobile + reduced-motion: rows carry their own inline numbers; no
- * counter stage, no scrub.
+ * Desktop: the left sticky column hosts a large champagne step number
+ * (01 → 05). Only ONE number is ever mounted as visible (React state +
+ * ScrollTrigger onUpdate), so numbers can never collide. The right
+ * timeline draws a gold line and ignites each step dot with the same
+ * timeline.
+ * Mobile + reduced-motion: rows carry their own inline numbers.
  * Steps are placeholders to be confirmed by the client.
  */
 const steps = [
@@ -45,7 +52,8 @@ const steps = [
 ];
 
 export function ProcessSection() {
-  const scope = useRef<HTMLOListElement>(null);
+  const scope = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
 
   useGSAP(
     () => {
@@ -54,21 +62,22 @@ export function ProcessSection() {
       if (!el) return;
       const q = gsap.utils.selector(el);
 
+      const timeline = q("[data-process-timeline]")[0] as HTMLElement;
       const rows = gsap.utils.toArray<HTMLElement>("[data-step]", el);
-      const nums = gsap.utils.toArray<HTMLElement>("[data-step-num]", el);
-      if (!rows.length) return;
+      if (!timeline || rows.length === 0) return;
 
-      const fill = q("[data-step-fill]")[0] as HTMLElement;
+      const fill = q("[data-step-fill]")[0] as HTMLElement | undefined;
       const N = rows.length;
       const win = 1 / N;
 
-      // First counter number starts visible.
-      if (nums.length) gsap.set(nums[0], { autoAlpha: 1, scale: 1 });
-      if (fill) gsap.set(fill, { scaleY: 0 });
+      if (!fill) return;
 
+      gsap.set(fill, { scaleY: 0 });
+
+      // Gold line draws down the timeline + dots ignite per row.
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: el,
+          trigger: timeline,
           start: "top 72%",
           end: "bottom 55%",
           scrub: 1,
@@ -76,27 +85,11 @@ export function ProcessSection() {
         defaults: { ease: "none" },
       });
 
-      // Gold line draws down the timeline.
       tl.fromTo(fill, { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0);
 
-      // Counter crossfade: 01 → 02 → … → 05
-      nums.forEach((num, i) => {
-        if (i === 0) return;
-        tl.fromTo(
-          num,
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: win * 0.5, ease: "power2.out" },
-          i * win
-        ).to(
-          num,
-          { autoAlpha: 0, y: -24, duration: win * 0.5, ease: "power2.in" },
-          (i + 1) * win - win * 0.5
-        );
-      });
-
-      // Step dots ignite as their row enters.
       rows.forEach((row, i) => {
         const dot = row.querySelector("[data-step-dot]");
+        if (!dot) return;
         const inPos = i * win;
         const outPos = (i + 1) * win;
         tl.fromTo(
@@ -106,6 +99,26 @@ export function ProcessSection() {
           inPos
         ).to(dot, { scale: 1, duration: win * 0.3 }, outPos - win * 0.3);
       });
+
+      // Drive the step counter from scroll progress — the single source
+      // of truth for which number is visible.
+      const st = ScrollTrigger.create({
+        trigger: timeline,
+        start: "top 72%",
+        end: "bottom 55%",
+        onUpdate: (self) => {
+          const idx = Math.min(
+            N - 1,
+            Math.max(0, Math.floor(self.progress * N))
+          );
+          setActive(idx);
+        },
+      });
+
+      // Set the correct start state immediately (page may load mid-section).
+      return () => {
+        st.kill();
+      };
     },
     { scope }
   );
@@ -113,7 +126,10 @@ export function ProcessSection() {
   return (
     <Section id="process" tone="cream" className="overflow-hidden">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24">
+        <div
+          ref={scope}
+          className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24"
+        >
           {/* Sticky left: heading + scroll-driven step counter */}
           <ScrollReveal>
             <div className="lg:sticky lg:top-28">
@@ -128,11 +144,16 @@ export function ProcessSection() {
               />
 
               <div className="process-num-stage relative mt-12 h-32">
-                {steps.map((s) => (
+                {steps.map((s, i) => (
                   <div
                     key={s.n}
-                    data-step-num
-                    className="absolute inset-0 flex flex-col justify-end"
+                    aria-hidden={active !== i}
+                    className={cn(
+                      "absolute inset-0 flex flex-col justify-end transition-all duration-500 ease-out",
+                      active === i
+                        ? "translate-y-0 opacity-100 delay-100"
+                        : "translate-y-6 opacity-0"
+                    )}
                   >
                     <span className="font-display text-[clamp(5rem,8vw,7.5rem)] italic leading-none text-champagne">
                       {s.n}
@@ -151,7 +172,7 @@ export function ProcessSection() {
           </ScrollReveal>
 
           {/* Timeline */}
-          <ol ref={scope} className="relative">
+          <ol data-process-timeline className="relative">
             <div
               aria-hidden
               className="absolute bottom-0 left-[1.08rem] top-0 w-px bg-champagne/25"
@@ -180,7 +201,14 @@ export function ProcessSection() {
                     <p className="process-row-num text-label text-champagne">
                       Step {s.n}
                     </p>
-                    <h3 className="mt-2 font-display text-[1.75rem] leading-tight text-espresso lg:text-3xl">
+                    <h3
+                      className={cn(
+                        "mt-2 font-display text-[1.75rem] leading-tight transition-colors duration-500 lg:text-3xl",
+                        active === i
+                          ? "text-espresso lg:text-cocoa"
+                          : "text-espresso lg:text-espresso/45"
+                      )}
+                    >
                       {s.title}
                     </h3>
                     <p className="mt-3 max-w-md text-lead text-cocoa">
