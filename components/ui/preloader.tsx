@@ -4,10 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap, prefersReducedMotion } from "@/animations/registry";
 import { finishPreloader } from "@/lib/preloader";
 
-const SEEN_KEY = "fo:preloader-seen";
-
 /**
- * Preloader — "The Seal Opens" (3-act cinematic intro, first visit only).
+ * Preloader — "The Seal Opens" (3-act cinematic intro on every full load).
  *
  *  Act 1 (0.0s)  FO monogram seal: champagne ring draws in, hairline inner
  *                ring follows, four-point sparkle pops, soft glow blooms.
@@ -18,9 +16,9 @@ const SEEN_KEY = "fo:preloader-seen";
  *
  * Rendering / safety gates (brief rules):
  *  - SSR renders the overlay so the first painted frame IS the loader
- *    (no content flash). A tiny inline script in the layout adds
- *    `fo-preloader-done` to <html> when this session already saw it,
- *    hiding the loader before first paint via CSS.
+ *    (no content flash).
+ *  - Plays on every fresh page load (client-side navigation never remounts
+ *    the root layout, so it only re-appears on reloads).
  *  - No-JS → <noscript> style in layout hides the overlay (never stuck).
  *  - Reduced motion → CSS media query hides instantly; effect also
  *    releases the hero promise.
@@ -33,15 +31,8 @@ export function Preloader() {
   const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    // Skip paths: reduced motion, or already seen this session.
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem(SEEN_KEY) === "1";
-    } catch {
-      /* privacy mode — treat as not seen */
-    }
-
-    if (prefersReducedMotion() || seen) {
+    // Reduced motion → never show the loader, release the hero instantly.
+    if (prefersReducedMotion()) {
       finishPreloader();
       setGone(true);
       return;
@@ -140,11 +131,6 @@ export function Preloader() {
         2.2
       )
       .add(() => {
-        try {
-          sessionStorage.setItem(SEEN_KEY, "1");
-        } catch {
-          /* ignore */
-        }
         document.body.style.overflow = prevOverflow;
         setGone(true);
       }, 3.2);
