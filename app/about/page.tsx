@@ -3,6 +3,7 @@ import { Container, Section } from "@/components/ui/section";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
+import { FestiveImage } from "@/components/ui/festive-image";
 import { WhyUs } from "@/components/sections/why-us";
 import { ProcessSection } from "@/components/sections/process";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -40,6 +41,21 @@ const values = [
   },
 ];
 
+const promises = [
+  {
+    n: "I",
+    text: "Clear scoping before any work begins — the scheme, the schedule and the cost set in writing.",
+  },
+  {
+    n: "II",
+    text: "Careful installation and removal — your property treated with the same respect as the décor.",
+  },
+  {
+    n: "III",
+    text: "Honest documentation of every project — the spaces we decorate, and how we decorate them.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <PageShell>
@@ -50,18 +66,25 @@ export default function AboutPage() {
         image="outdoorHouseLights"
       />
 
-      {/* Story */}
+      {/* Story — editorial manifesto */}
       <Section>
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-            <ScrollReveal>
-              <h2 className="font-display text-[2.4rem] leading-tight text-espresso">
+          <ScrollReveal>
+            <div className="max-w-4xl">
+              <p className="eyebrow text-champagne">The Story</p>
+              <h2 className="mt-10 font-display text-[clamp(2.4rem,5.6vw,4.8rem)] leading-[1.02] tracking-[-0.015em] text-espresso">
                 Christmas, composed
-                <em className="block text-champagne not-italic">around your space.</em>
+                <em className="block text-champagne not-italic">
+                  around your space.
+                </em>
               </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <div className="space-y-5 text-[1.02rem] leading-relaxed text-cocoa">
+            </div>
+          </ScrollReveal>
+
+          <div className="mt-16 grid items-start gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+            {/* Body + pull-quote */}
+            <div>
+              <div className="space-y-5 text-[1.05rem] leading-relaxed text-cocoa">
                 <p>
                   Most festive decoration is applied to a space.
                   We believe it should be composed with it — tree proportions,
@@ -73,38 +96,116 @@ export default function AboutPage() {
                   transformation, we handle the complete cycle: consultation,
                   design, installation and careful removal after the season.
                 </p>
-                <p>
-                  Every project is documented honestly — the spaces we decorate,
-                  and how we decorate them.
-                </p>
               </div>
+
+              {/* Pull-quote */}
+              <ScrollReveal delay={0.1}>
+                <blockquote className="mt-12 border-l-2 border-champagne pl-6">
+                  <p className="font-display text-2xl italic leading-snug text-espresso lg:text-[1.9rem]">
+                    &ldquo;Decoration dresses a room.
+                    We shape the mood of the whole season.&rdquo;
+                  </p>
+                </blockquote>
+              </ScrollReveal>
+            </div>
+
+            {/* Portrait image — composed, honest caption */}
+            <ScrollReveal delay={0.15} y={36}>
+              <figure className="group relative overflow-hidden rounded-2xl shadow-card">
+                <div className="relative aspect-[4/5]">
+                  <div className="absolute inset-0 scale-[1.02] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]">
+                    <FestiveImage
+                      image="livingroomFireplace"
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                    />
+                  </div>
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-night/30 via-transparent to-transparent"
+                  />
+                </div>
+                <figcaption className="absolute bottom-4 left-4 rounded-full border hairline-dark bg-night/60 px-4 py-1.5 text-label text-ivory/80 backdrop-blur-sm">
+                  Composed around its space — not applied to it
+                </figcaption>
+              </figure>
             </ScrollReveal>
           </div>
         </Container>
       </Section>
 
-      {/* Values */}
+      {/* Values — editorial numbered rows, not cards */}
       <Section id="values" tone="cream">
         <Container>
-          <ScrollReveal>
-            <h2 className="text-h2 text-espresso">What guides the work</h2>
-          </ScrollReveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            {values.map((v, i) => (
-              <ScrollReveal key={v.title} y={24} delay={i * 0.05}>
-                <article className="h-full border hairline bg-white/60 p-8 transition-all duration-500 hover:border-champagne/50 hover:shadow-soft">
-                  <span className="text-label text-champagne">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 font-display text-[1.5rem] text-espresso">
-                    {v.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cocoa">
-                    {v.copy}
-                  </p>
-                </article>
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20">
+            <ScrollReveal>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow text-champagne">What Guides the Work</p>
+                <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,3.6rem)] leading-tight text-espresso">
+                  Four principles, held{" "}
+                  <em className="text-champagne not-italic">on every project.</em>
+                </h2>
+                <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-cocoa">
+                  Small enough to care, precise enough to finish — these are
+                  the values every scheme is measured against.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ol className="flex flex-col">
+              {values.map((v, i) => (
+                <ScrollReveal key={v.title} as="li" y={20} delay={i * 0.05}>
+                  <div className="group flex items-baseline gap-6 border-t hairline py-8 transition-colors duration-500 first:border-t-0 lg:gap-10 lg:py-9">
+                    <span className="font-display text-3xl italic leading-none text-champagne/70 transition-colors duration-500 group-hover:text-champagne lg:text-4xl">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-display text-2xl text-espresso transition-colors duration-500 group-hover:text-cocoa lg:text-[1.7rem]">
+                        {v.title}
+                      </h3>
+                      <p className="mt-2 max-w-lg text-[0.95rem] leading-relaxed text-cocoa">
+                        {v.copy}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </ol>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Working promise — dark editorial band */}
+      <Section tone="dark" className="relative overflow-hidden bg-night text-ivory">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_50%_at_85%_10%,rgba(198,161,91,0.10),transparent_70%)]"
+        />
+        <Container className="relative py-16 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+            <div>
+              <ScrollReveal>
+                <p className="eyebrow text-champagne">A Working Promise</p>
+                <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,3.4rem)] leading-tight text-ivory">
+                  The standard we hold{" "}
+                  <em className="text-champagne not-italic">ourselves to.</em>
+                </h2>
               </ScrollReveal>
-            ))}
+            </div>
+
+            <ol className="flex flex-col">
+              {promises.map((p, i) => (
+                <ScrollReveal key={p.n} as="li" delay={i * 0.06}>
+                  <div className="flex items-start gap-6 border-t hairline-dark py-7 first:border-t-0 lg:gap-10">
+                    <span className="font-display text-2xl italic leading-none text-champagne">
+                      {p.n}
+                    </span>
+                    <p className="max-w-md text-[1.02rem] leading-relaxed text-ivory/75">
+                      {p.text}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </ol>
           </div>
         </Container>
       </Section>
