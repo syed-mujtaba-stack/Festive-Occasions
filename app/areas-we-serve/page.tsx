@@ -25,12 +25,12 @@ export const metadata: Metadata = {
 
 const coverage = [
   {
-    title: "Dubai",
-    copy: "Our home base. Residential villas, apartments, offices and venues across the city.",
+    title: "Sharjah",
+    copy: "Our registered base — the business is located in Sharjah Publishing City Free Zone, and installations are planned and dispatched from here.",
   },
   {
-    title: "Dubai Communities",
-    copy: "Villas, maids and staff quarters, entrances, gardens and outdoor spaces — decorated on schedule, around your day.",
+    title: "Dubai",
+    copy: "Residential villas, apartments, offices and venues across the city — confirmed coverage and dates on enquiry.",
   },
   {
     title: "Wider UAE",

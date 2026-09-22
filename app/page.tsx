@@ -39,7 +39,8 @@ function homeJsonLd(): Record<string, unknown> {
         },
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Dubai",
+          streetAddress: "Business Centre, Sharjah Publishing City Free Zone",
+          addressLocality: "Sharjah",
           addressCountry: "AE",
         },
         areaServed: siteConfig.serviceArea,

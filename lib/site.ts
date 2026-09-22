@@ -5,17 +5,19 @@ export const siteConfig = {
   url: "https://festiveoccasions.ae",
   tagline: "Premium Christmas Decoration in Dubai",
 
-  // ⚠️ VERIFY WITH CLIENT — never publish wrong contact details
-  phone: "+971 50 000 0000", // TODO: verify client phone
-  phoneDisplay: "+971 50 000 0000",
-  whatsapp: "971500000000", // TODO: verify client WhatsApp (digits only, country code)
+  // ✅ CLIENT-VERIFIED 2026-09-23
+  phone: "+971 56 428 4444",
+  phoneDisplay: "+971 56 428 4444",
+  whatsapp: "971564284444", // digits only, country code
+  // ⚠️ Email still unverified — client hasn't confirmed; keep placeholder until verified.
   email: "hello@festiveoccasions.ae", // TODO: verify client email
-  addressLine: "Dubai, United Arab Emirates",
-  serviceArea: ["Dubai", "UAE"],
+  addressLine:
+    "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
+  serviceArea: ["Dubai", "Sharjah", "UAE"],
   hours: "Available daily · 9:00 AM – 9:00 PM", // TODO: verify
 
   social: {
-    instagram: "https://instagram.com/", // TODO: verify
+    instagram: "https://www.instagram.com/festive_ocassions", // ✅ client-verified
     facebook: "https://facebook.com/", // TODO: verify future use
   },
 
