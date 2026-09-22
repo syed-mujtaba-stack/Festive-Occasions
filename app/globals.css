@@ -251,6 +251,31 @@ html.lenis body {
   }
 }
 
+/* Audiences — sticky image panel is desktop+JS only; otherwise the
+   inline image inside each row is shown (mobile, no-JS, reduced-motion). */
+.aud-sticky {
+  display: none;
+}
+.aud-inline-img {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .js-enabled .aud-sticky {
+    display: block;
+  }
+  .js-enabled .aud-inline-img {
+    display: none;
+  }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .js-enabled .aud-sticky {
+    display: none;
+  }
+  .js-enabled .aud-inline-img {
+    display: block;
+  }
+}
+
 /* Marquee ticker — infinite editorial scroll, disabled for reduced motion. */
 @keyframes marquee {
   from {
