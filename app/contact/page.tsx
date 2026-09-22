@@ -99,22 +99,30 @@ export default function ContactPage() {
                 description="The fastest way to reach us is WhatsApp — our team responds directly with availability and next steps."
               />
 
-              <div className="mt-10 flex flex-col gap-4">
-                {contactMethods.map((m) => {
+              <div className="mt-10 flex flex-col">
+                {contactMethods.map((m, i) => {
                   const Icon = m.icon;
                   const inner = (
                     <>
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-champagne/15 text-champagne">
+                      <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-champagne/30 bg-white/70 text-champagne transition-colors duration-500 group-hover:bg-champagne group-hover:text-espresso">
                         <Icon className="h-5 w-5" aria-hidden />
                       </span>
-                      <span className="min-w-0">
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-warm-gray">
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-xs font-semibold uppercase tracking-wider text-warm-gray transition-colors duration-500 group-hover:text-champagne">
                           {m.label}
                         </span>
-                        <span className="block truncate text-[0.98rem] font-medium text-espresso">
+                        <span className="mt-0.5 block truncate text-[1.02rem] font-medium text-espresso">
                           {m.value}
                         </span>
                       </span>
+                      {m.href && (
+                        <span
+                          aria-hidden
+                          className="text-champagne/0 transition-all duration-500 group-hover:translate-x-0 group-hover:text-champagne"
+                        >
+                          →
+                        </span>
+                      )}
                     </>
                   );
                   return m.href ? (
@@ -124,21 +132,23 @@ export default function ContactPage() {
                       {...(m.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="group flex items-center gap-4 rounded-lg border hairline bg-white/60 p-5 transition-all duration-300 hover:border-champagne hover:shadow-soft"
+                      className="group border-b hairline py-6 first:border-t first:pt-0 last:border-b-0 transition-colors duration-500 hover:border-champagne/60"
                     >
-                      {inner}
+                      <span className="flex items-center gap-5">
+                        {inner}
+                      </span>
                     </a>
                   ) : (
                     <div
                       key={m.label}
-                      className="flex items-center gap-4 rounded-lg border hairline bg-white/60 p-5"
+                      className="flex items-center gap-5 border-b hairline py-6 first:border-t first:pt-0 last:border-b-0"
                     >
                       {inner}
                     </div>
                   );
                 })}
 
-                <div className="mt-2 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap gap-3">
                   <Button variant="whatsapp" href={whatsappLink()} external size="lg">
                     <FaWhatsapp className="h-4 w-4" aria-hidden />
                     WhatsApp Us Now

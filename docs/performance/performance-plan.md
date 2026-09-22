@@ -47,10 +47,23 @@ Baseline benchmark to be recorded during Phase 11.
 
 ## Measurement plan (Phase 11)
 - Lighthouse (mobile + desktop) on `/`, one service page, `/gallery`.
+  **⏳ Blocked — desktop browser not connected to this session**; plan stands.
 - Record scores + Web Vitals into `docs/qa/` run log.
 - Check: no horizontal overflow, no layout shift on scroll (pinned section),
   no console errors, reduced-motion has no perf hit.
 - Re-measure after client images swap.
+
+## Code-level groundwork done (2026-09-22, pre-Lighthouse)
+- **Fonts:** Cormorant Garamond trimmed `300/400/500/600/700` → **`400/500`
+  (normal + italic, 4 files instead of 10)**; Manrope `400/500/600/700/800` →
+  **`400/500/600` (3 files)**. Verified against actual usage: no `font-light`,
+  `font-bold`/`font-extrabold`, or `300/700` utilities anywhere in the repo.
+- **Image formats:** `next.config.ts` `images.formats = ["image/avif","image/webp"]`
+  — Next serves best-compression format first for every `FestiveImage`.
+- **Headers:** `poweredByHeader: false`.
+- **Verify after change:** production build passes (20 routes); dev server
+  serves fonts/images without error. Lighthouse run still required for real
+  scores (blocked, see above).
 
 ## Keep-outs
 - No multi-megabyte hero video unless client supplies optimized mp4 + poster

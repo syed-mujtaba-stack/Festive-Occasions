@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
+import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { whatsappLink } from "@/lib/site";
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
 export default function OtherOccasionsPage() {
   return (
     <PageShell>
+      <PageBreadcrumbSchema name="Other Occasions" path="/other-occasions" />
       <PageHero
         eyebrow="Other Occasions"
         title="The season doesn't end at Christmas."
@@ -84,7 +86,7 @@ export default function OtherOccasionsPage() {
       <Section tone="cream">
         <Container>
           <ScrollReveal>
-            <div className="flex flex-col items-start justify-between gap-6 rounded-lg border hairline bg-white/60 p-8 lg:flex-row lg:items-center">
+            <div className="flex flex-col items-start justify-between gap-6 border-y hairline py-10 lg:flex-row lg:items-center lg:gap-16">
               <div>
                 <h3 className="font-display text-2xl text-espresso">
                   Tell us your date and space.

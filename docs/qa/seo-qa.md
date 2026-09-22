@@ -37,4 +37,22 @@ Run during Phase 12 for **every indexable page**. Reference: brief §41,
 ## Log (run results)
 | Date | Page | Title | Canonical | Schema | Result |
 |---|---|---|---|---|---|
-| — | — | — | — | — | to be filled in Phase 12 |
+| 2026-09-22 | all 14 pages | ✅ unique, template `%s \| Festive Occasions` | ✅ own URL, https-consistent | ✅ 2 scripts/page (home = Organization+WebSite; contact = LocalBusiness; services = Service+FAQPage+Breadcrumb; about/gallery/areas/other = BreadcrumbList) | ✅ 200, 0 failures |
+| 2026-09-22 | `/` | ✅ | ✅ | ✅ valid JSON (parse-checked) | ✅ |
+| 2026-09-22 | service ×8 | ✅ | ✅ | ✅ valid JSON (spot-checked `/christmas-villa-decoration-dubai`) | ✅ |
+| 2026-09-22 | /about · /gallery · /areas-we-serve · /other-occasions | ✅ | ✅ | ✅ **added honest BreadcrumbList** (`PageBreadcrumbSchema`) | ✅ |
+
+### Sweep summary (2026-09-22, dev server localhost:3000)
+- Routes checked: `/`, `/about`, `/areas-we-serve`, `/gallery`, `/contact`, `/other-occasions`, 8 × service pages, `/robots.txt`, `/sitemap.xml` → **16/16 = 200, FAIL COUNT 0**
+- Canonical: present on every HTML page
+- H1: exactly one per page
+- JSON-LD: all parse as valid JSON; no markup for anything unverified (no reviews/ratings — spec §20, §37)
+- Images: `lib/images.ts` references **21 files, 0 missing** from `public/images/christmas`
+- sitemap.xml lists all 14 content routes; robots.txt allow-all + sitemap ref
+- Remaining (blocked, needs browser/client): visual QA per animations/reponsive checklists, Lighthouse run, 404 status verification over HTTP, broken-internal-link crawl
+
+## Pending (needs browser or client data)
+- [ ] Browse JS-disabled — content readable (needs manual/browser pass)
+- [ ] Crawl all `<a href>` from nav/footer/pages for broken links (script, can run when a browser/Lighthouse is available)
+- [ ] Validator pass (Rich Results / Schema.org) on the 3 schema shapes
+- [ ] LocalBusiness NAP — replace placeholders in `lib/site.ts` with client-verified data first

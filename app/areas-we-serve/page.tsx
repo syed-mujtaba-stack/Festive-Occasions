@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
+import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, siteConfig } from "@/lib/site";
 import { FaWhatsapp } from "react-icons/fa";
@@ -40,6 +41,7 @@ const coverage = [
 export default function AreasWeServePage() {
   return (
     <PageShell>
+      <PageBreadcrumbSchema name="Areas We Serve" path="/areas-we-serve" />
       <PageHero
         eyebrow="Areas We Serve"
         title="Serving Dubai and the UAE."
@@ -88,7 +90,7 @@ export default function AreasWeServePage() {
       <Section tone="cream">
         <Container>
           <ScrollReveal>
-            <div className="flex flex-col items-start justify-between gap-6 rounded-lg border hairline bg-white/60 p-8 lg:flex-row lg:items-center">
+            <div className="flex flex-col items-start justify-between gap-6 border-y hairline py-10 lg:flex-row lg:items-center lg:gap-16">
               <div>
                 <h3 className="font-display text-2xl text-espresso">
                   Not sure if we cover your area?

@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { WhyUs } from "@/components/sections/why-us";
 import { ProcessSection } from "@/components/sections/process";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -59,6 +60,7 @@ const promises = [
 export default function AboutPage() {
   return (
     <PageShell>
+      <PageBreadcrumbSchema name="About" path="/about" />
       <PageHero
         eyebrow="About"
         title="A studio for the season's finest details."
