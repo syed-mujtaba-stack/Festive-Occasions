@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, SplitText, prefersReducedMotion } from "@/animations/registry";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { whatsappLink } from "@/lib/site";
@@ -89,11 +89,11 @@ export function Hero() {
     >
       {/* Media */}
       <div className="absolute inset-0" data-hero-media>
-        <PremiumPlaceholder
-          seed="hero-dubai"
-          theme="champagne"
-          variant="wide"
-          label="Signature Christmas Project — Dubai"
+        <FestiveImage
+          image="hero"
+          priority
+          sizes="100vw"
+          imgClassName="object-cover"
         />
       </div>
 

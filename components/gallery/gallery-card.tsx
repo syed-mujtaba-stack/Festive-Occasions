@@ -1,17 +1,10 @@
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
 const ratioClass = {
   portrait: "aspect-[4/5]",
   landscape: "aspect-[16/10]",
   tall: "aspect-[3/4]",
-} as const;
-
-const themeMap = {
-  champagne: "champagne",
-  burgundy: "burgundy",
-  evergreen: "evergreen",
-  night: "night",
 } as const;
 
 export function GalleryCard({ project }: { project: GalleryProject }) {
@@ -21,17 +14,9 @@ export function GalleryCard({ project }: { project: GalleryProject }) {
       style={{ contain: "layout paint" }}
     >
       <div className={ratioClass[project.ratio]}>
-        <PremiumPlaceholder
-          seed={`gallery-${project.id}`}
-          theme={themeMap[project.theme]}
-          label={project.category}
-          variant={
-            project.ratio === "landscape"
-              ? "wide"
-              : project.ratio === "tall"
-                ? "portrait"
-                : "portrait"
-          }
+        <FestiveImage
+          image={project.image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 

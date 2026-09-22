@@ -4,7 +4,7 @@ import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 
 export function Intro() {
   return (
@@ -71,12 +71,7 @@ export function Intro() {
           <ScrollReveal y={24} className="relative">
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-card">
-                <PremiumPlaceholder
-                  seed="studio-space"
-                  theme="evergreen"
-                  variant="portrait"
-                  label="Bespoke space transformation — Dubai"
-                />
+                <FestiveImage image="livingroomCozyTree" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               {/* Offset champagne frame */}
               <div

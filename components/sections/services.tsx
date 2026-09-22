@@ -5,13 +5,7 @@ import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { services } from "@/lib/services";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
-
-const themeMap = {
-  champagne: "champagne" as const,
-  burgundy: "burgundy" as const,
-  evergreen: "evergreen" as const,
-};
+import { FestiveImage } from "@/components/ui/festive-image";
 
 export function ServicesSection() {
   return (
@@ -60,12 +54,7 @@ export function ServicesSection() {
                 {/* Image reveal on hover */}
                 <div className="pointer-events-none relative hidden h-24 w-40 overflow-hidden rounded-md opacity-0 transition-all duration-500 group-hover:opacity-100 lg:block">
                   <div className="absolute inset-0 scale-105 transition-transform duration-700 group-hover:scale-100">
-                    <PremiumPlaceholder
-                      seed={`svc-${service.id}`}
-                      theme={themeMap[service.theme]}
-                      variant="wide"
-                      label={service.section}
-                    />
+                    <FestiveImage image={service.image} sizes="160px" />
                   </div>
                 </div>
 

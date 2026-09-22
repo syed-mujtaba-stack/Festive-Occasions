@@ -6,15 +6,17 @@ export type GalleryProject = {
   year: string;
   ratio: "portrait" | "landscape" | "tall";
   theme: "champagne" | "burgundy" | "evergreen" | "night";
-  /** Flag: all entries are placeholders until real client photos are supplied. */
+  image: "livingroomTree" | "outdoorHouseLights" | "officeLobbyTree" | "treeRedBaubles" | "stringLightsBokeh" | "tableSetting" | "livingroomFireplace" | "treeGoldBaubles";
+  /** Transitional: decorative imagery until real client project photos arrive. */
   placeholder: true;
 };
 
 /**
- * GALLERY — PLACEHOLDER DATA
- * Every entry is a locally-generated preview. No real project names or
- * locations are fabricated. Replace `title`/`category`/`year` with verified
- * client project details and swap images via `app/gallery` when available.
+ * GALLERY — TRANSITIONAL IMAGERY
+ * Current images are high-quality Unsplash Christmas photography used to
+ * demonstrate the editorial layout. NO real project names or locations are
+ * claimed. Replace titles/details and swap images (lib/images.ts) once client
+ * project photos are supplied.
  */
 export const galleryProjects: GalleryProject[] = [
   {
@@ -24,6 +26,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2026",
     ratio: "portrait",
     theme: "burgundy",
+    image: "livingroomTree",
     placeholder: true,
   },
   {
@@ -33,6 +36,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2026",
     ratio: "landscape",
     theme: "evergreen",
+    image: "outdoorHouseLights",
     placeholder: true,
   },
   {
@@ -42,6 +46,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2025",
     ratio: "tall",
     theme: "night",
+    image: "officeLobbyTree",
     placeholder: true,
   },
   {
@@ -51,6 +56,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2025",
     ratio: "portrait",
     theme: "champagne",
+    image: "treeRedBaubles",
     placeholder: true,
   },
   {
@@ -60,6 +66,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2025",
     ratio: "landscape",
     theme: "evergreen",
+    image: "stringLightsBokeh",
     placeholder: true,
   },
   {
@@ -69,6 +76,7 @@ export const galleryProjects: GalleryProject[] = [
     year: "Season 2024",
     ratio: "portrait",
     theme: "night",
+    image: "tableSetting",
     placeholder: true,
   },
 ];

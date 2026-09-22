@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger, prefersReducedMotion } from "@/animations/registry";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
  * Signature transformation — pinned scroll experience.
@@ -78,11 +78,10 @@ export function Signature() {
           className="absolute inset-0 will-change-[clip-path]"
           style={{ clipPath: "inset(18% 24% 22% 24% round 24px)" }}
         >
-          <PremiumPlaceholder
-            seed="signature-transformation"
-            theme="champagne"
-            variant="wide"
-            label="Signature transformation — villa, Dubai"
+          <FestiveImage
+            image="livingroomFireplace"
+            priority
+            sizes="100vw"
           />
         </div>
 

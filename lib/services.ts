@@ -8,6 +8,7 @@ export type Service = {
   description: string;
   items: string[];
   theme: "champagne" | "burgundy" | "evergreen";
+  image: "treeWithBaubles" | "treeRedBaubles" | "livingroomTree" | "livingroomFireplace" | "officeLobbyTree" | "tableSetting" | "stringLightsBokeh" | "outdoorHouseLights";
 };
 
 /** Only services the client actually provides should be enabled. */
@@ -23,6 +24,7 @@ export const services: Service[] = [
       "End-to-end Christmas decoration designed around your space — from a single statement piece to a full property transformation.",
     items: ["Homes", "Villas", "Offices", "Commercial spaces"],
     theme: "champagne",
+    image: "treeWithBaubles",
   },
   {
     id: "christmas-tree",
@@ -35,6 +37,7 @@ export const services: Service[] = [
       "Signature trees styled by hand — from intimate tabletops to grand statement installations, dressed in curated themes.",
     items: ["Small trees", "Large trees", "Luxury trees", "Commercial trees"],
     theme: "evergreen",
+    image: "treeRedBaubles",
   },
   {
     id: "villa-decoration",
@@ -47,6 +50,7 @@ export const services: Service[] = [
       "Complete villa styling — entrance, living spaces, staircase, garden and outdoor lighting given one cohesive festive identity.",
     items: ["Entrance", "Living & dining", "Staircase", "Garden & outdoor"],
     theme: "burgundy",
+    image: "livingroomTree",
   },
   {
     id: "home-decoration",
@@ -59,6 +63,7 @@ export const services: Service[] = [
       "Considered home decoration that makes every room feel festive — layered, warm and elegantly understated.",
     items: ["Living room", "Entrance", "Fireplace & windows", "Ambient lighting"],
     theme: "champagne",
+    image: "livingroomFireplace",
   },
   {
     id: "office-decoration",
@@ -71,6 +76,7 @@ export const services: Service[] = [
       "Lobby, reception and workspace styling that welcomes clients and lifts the team — installed around your working day.",
     items: ["Lobby & reception", "Meeting areas", "Employee areas", "Corporate branding"],
     theme: "evergreen",
+    image: "officeLobbyTree",
   },
   {
     id: "corporate-decoration",
@@ -83,6 +89,7 @@ export const services: Service[] = [
       "Large-scale festive installations for corporate events, hotels and commercial venues — branded, precise and professionally executed.",
     items: ["Corporate events", "Hotels", "Commercial venues", "Large installations"],
     theme: "burgundy",
+    image: "tableSetting",
   },
   {
     id: "christmas-lighting",
@@ -95,6 +102,7 @@ export const services: Service[] = [
       "Facade, garden and entrance lighting that transforms a property after dark — warm, cinematic and beautifully composed.",
     items: ["Facade", "Garden", "Entrance & driveway", "Commercial lighting"],
     theme: "evergreen",
+    image: "stringLightsBokeh",
   },
   {
     id: "outdoor-decoration",
@@ -107,6 +115,7 @@ export const services: Service[] = [
       "Entrances, gardens and outdoor entertaining spaces dressed for the season — designed to welcome from the first glance.",
     items: ["Entrance styling", "Garden", "Outdoor entertaining", "Wayfinding lights"],
     theme: "champagne",
+    image: "outdoorHouseLights",
   },
 ] as const;
 

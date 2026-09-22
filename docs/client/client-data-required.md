@@ -32,10 +32,13 @@ Everything below must be **verified by the client before launch**. Never fabrica
 
 ## Placeholder policy
 
-- ALL images currently on the site are **locally-generated elegant placeholders**.
-- No stock/downloadable images were used.
+- ALL images currently on the site are **transitional Unsplash imagery** (freely
+  licensed, verified before download) — see `docs/audit/assets.md` for the source
+  record and the exact swap procedure.
+- These are placeholders, NOT the client's real work. The portfolio, gallery and
+  hero must show real client project photos before launch.
 - No fake project names, fake locations, fake reviews, fake ratings.
-- Gallery items are clearly marked "placeholder" until client photos arrive.
+- Gallery items remain marked "placeholder" until client photos arrive.
 
 ## Analytics
 

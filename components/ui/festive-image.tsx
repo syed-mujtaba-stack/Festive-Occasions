@@ -1,0 +1,60 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { images, type ImageKey } from "@/lib/images";
+
+/**
+ * FestiveImage — ready-to-swap image slot.
+ * Uses next/image (optimized, responsive, lazy) with object-cover.
+ * Swap the manifest entry in lib/images.ts to use real client photos.
+ */
+export function FestiveImage({
+  image,
+  alt,
+  className,
+  imgClassName,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  priority = false,
+  fill = true,
+}: {
+  image: ImageKey | { src: string; alt: string };
+  alt?: string;
+  className?: string;
+  imgClassName?: string;
+  sizes?: string;
+  priority?: boolean;
+  fill?: boolean;
+}) {
+  const resolved =
+    typeof image === "string" ? images[image] : image;
+  const altText = alt ?? resolved.alt;
+
+  if (!fill) {
+    return (
+      <Image
+        src={resolved.src}
+        alt={altText}
+        className={cn("h-full w-full object-cover", imgClassName)}
+        sizes={sizes}
+        priority={priority}
+        width={1600}
+        height={1200}
+      />
+    );
+  }
+
+  return (
+    <div className={cn("relative h-full w-full overflow-hidden", className)}>
+      <Image
+        src={resolved.src}
+        alt={altText}
+        className={cn(
+          "object-cover transition-transform duration-700 ease-out",
+          imgClassName
+        )}
+        sizes={sizes}
+        priority={priority}
+        fill
+      />
+    </div>
+  );
+}

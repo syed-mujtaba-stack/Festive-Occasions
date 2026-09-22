@@ -3,7 +3,7 @@
 import { Container, Section } from "@/components/ui/section";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 import { whatsappLink } from "@/lib/site";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -15,13 +15,8 @@ export function FinalCTA() {
     <Section id="quote" tone="dark" className="relative overflow-hidden">
       {/* Backdrop */}
       <div className="absolute inset-0" aria-hidden>
-        <PremiumPlaceholder
-          seed="final-cta-dubai"
-          theme="night"
-          variant="wide"
-          label="Festive Occasions — project, Dubai"
-        />
-        <div className="absolute inset-0 bg-night/72" />
+        <FestiveImage image="treeGoldBaubles" sizes="100vw" />
+        <div className="absolute inset-0 bg-night/82" />
       </div>
 
       <Container className="relative z-10">

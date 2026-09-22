@@ -4,27 +4,24 @@ import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { PremiumPlaceholder } from "@/components/placeholder/premium-visual";
+import { FestiveImage } from "@/components/ui/festive-image";
 
 /** Homes & villas · Corporate & commercial · Hospitality — audience pillars. */
 const audiences = [
   {
     title: "Homes & Villas",
     copy: "Living rooms, entrances, staircases and gardens — polished, warm and unmistakably festive.",
-    seed: "audience-homes",
-    theme: "burgundy" as const,
+    image: "livingroomCandles" as const,
   },
   {
     title: "Corporate & Commercial",
     copy: "Lobbies, offices and branded installations that impress clients and lift the whole team.",
-    seed: "audience-corporate",
-    theme: "evergreen" as const,
+    image: "officeLobbyTree" as const,
   },
   {
     title: "Hospitality & Retail",
     copy: "Hotels, restaurants, cafés and retail spaces — Instagrammable festive moments your guests remember.",
-    seed: "audience-hospitality",
-    theme: "champagne" as const,
+    image: "tableSetting" as const,
   },
 ];
 
@@ -50,12 +47,7 @@ export function Audiences() {
               <article className="group flex h-full flex-col overflow-hidden rounded-lg bg-cream">
                 <div className="aspect-[4/3] overflow-hidden">
                   <div className="h-full w-full transition-transform duration-700 group-hover:scale-[1.03]">
-                    <PremiumPlaceholder
-                      seed={a.seed}
-                      theme={a.theme}
-                      variant="wide"
-                      label={a.title}
-                    />
+                    <FestiveImage image={a.image} sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-7">

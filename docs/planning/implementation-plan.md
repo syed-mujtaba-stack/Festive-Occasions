@@ -21,10 +21,13 @@
 | Phase | Status |
 |---|---|
 | 0 Safety | ✅ branch + deps |
-| 1-3 Audit/Research/Planning | 🔄 docs creation in progress |
-| 4 Design Foundation | ⏳ next |
-| 5 Homepage | ⏳ |
-| 6+ | ⏳ |
+| 1-3 Audit/Research/Planning | ✅ docs complete |
+| 4 Design Foundation | ✅ tokens + utilities |
+| 5 Homepage | ✅ built & committed (3edfe48) — reviewed |
+| 6 Polish Homepage | 🔄 real imagery integrated; polish pass in progress |
+| 7 Service Pages | 🔄 pillar + 7 service pages built, routes live |
+| 8 Supporting Pages | ⏳ next |
+| 9+ | ⏳ |
 
 ## Definition of done (checked at end)
 
