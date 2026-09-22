@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { servicePages } from "@/lib/service-pages";
+import { blogPosts } from "@/lib/blog";
 
 /**
  * Static sitemap — every indexable route.
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }[] = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: "/contact", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/packages", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
     { path: "/gallery", priority: 0.7, changeFrequency: "monthly" },
     { path: "/areas-we-serve", priority: 0.6, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" },
@@ -29,7 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticRoutes, ...serviceRoutes].map((route) => ({
+  const blogRoutes = blogPosts.map((post) => ({
+    path: `/blog/${post.slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes].map((route) => ({
     url: route.path === "/" ? base : `${base}${route.path}`,
     lastModified: now,
     changeFrequency: route.changeFrequency,
