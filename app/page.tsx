@@ -3,7 +3,9 @@ import { SmoothScroll } from "@/components/animations/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { FloatingActions } from "@/components/layout/floating-actions";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 import { Hero } from "@/components/hero/hero";
+import { Statement } from "@/components/sections/statement";
 import { Intro } from "@/components/sections/intro";
 import { ServicesSection } from "@/components/sections/services";
 import { Signature } from "@/components/sections/signature";
@@ -59,6 +61,7 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <Statement />
         <Intro />
         <ServicesSection />
         <Signature />
@@ -71,6 +74,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <FloatingActions />
+      <CustomCursor />
       <Footer />
     </>
   );

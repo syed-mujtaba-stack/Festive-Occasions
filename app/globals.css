@@ -224,6 +224,33 @@ html.lenis body {
   border-color: color-mix(in srgb, var(--color-ivory) 14%, transparent);
 }
 
+/* Services pinned showcase — JS-gated, desktop only.
+   List is the default (no-JS safe); the pinned stage replaces it
+   when JS runs on wide screens, and reduced-motion users keep the
+   static editorial list instead of the pinned stage. */
+.svc-pinned {
+  display: none;
+}
+.svc-list {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .js-enabled .svc-pinned {
+    display: block;
+  }
+  .js-enabled .svc-list {
+    display: none;
+  }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .js-enabled .svc-pinned {
+    display: none;
+  }
+  .js-enabled .svc-list {
+    display: block;
+  }
+}
+
 /* Reveal helper — initial hidden state set by GSAP. Without JS the
    content stays fully visible (progressive enhancement). */
 .js-enabled [data-reveal] {

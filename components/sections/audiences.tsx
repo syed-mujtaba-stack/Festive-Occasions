@@ -1,12 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { FestiveImage } from "@/components/ui/festive-image";
 
-/** Homes & villas · Corporate & commercial · Hospitality — audience pillars. */
+/**
+ * Who We Decorate For — typography + image interaction (brief §08).
+ * Oversized display rows; the adjacent image swaps to the active audience.
+ * Reduced motion: rows are static, image follows focus (no motion loops).
+ */
 const audiences = [
   {
     title: "Homes & Villas",
@@ -26,6 +31,8 @@ const audiences = [
 ];
 
 export function Audiences() {
+  const [active, setActive] = useState(0);
+
   return (
     <Section id="who-we-decorate-for">
       <Container>
@@ -41,34 +48,77 @@ export function Audiences() {
           />
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {audiences.map((a, i) => (
-            <ScrollReveal key={a.title} y={30} delay={i * 0.08}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-lg bg-cream">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <div className="h-full w-full transition-transform duration-700 group-hover:scale-[1.03]">
-                    <FestiveImage image={a.image} sizes="(max-width: 768px) 100vw, 33vw" />
-                  </div>
-                </div>
-                <div className="flex flex-1 flex-col gap-3 p-7">
-                  <h3 className="font-display text-2xl text-espresso">
-                    {a.title}
-                  </h3>
-                  <p className="flex-1 text-sm leading-relaxed text-cocoa">
-                    {a.copy}
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="md"
-                    href="/christmas-decoration-dubai"
-                    className="self-start"
+        <div className="mt-16 grid gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
+          {/* Typography rows */}
+          <div
+            aria-label="Audiences we decorate for"
+            className="flex flex-col"
+          >
+            {audiences.map((a, i) => (
+              <ScrollReveal key={a.title} y={24} delay={i * 0.05}>
+                <button
+                  type="button"
+                  aria-pressed={active === i}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "group flex w-full items-baseline justify-between gap-6 border-t hairline py-7 text-left transition-colors duration-500 lg:py-8",
+                    i === audiences.length - 1 && "border-b hairline",
+                    active === i ? "border-champagne/40" : "border-espresso/10"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "font-display text-[clamp(2.2rem,4.5vw,3.9rem)] leading-[1.02] tracking-[-0.015em] transition-all duration-500",
+                      active === i
+                        ? "text-espresso"
+                        : "text-espresso/45 group-hover:text-espresso/75"
+                    )}
                   >
-                    Explore
-                  </Button>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
+                    {a.title}
+                  </span>
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "text-label text-champagne transition-all duration-500",
+                      active === i ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                    )}
+                  >
+                    0{i + 1}
+                  </span>
+                </button>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Interactive image */}
+          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-2xl lg:block">
+            {audiences.map((a, i) => (
+              <div
+                key={a.title}
+                aria-hidden={active !== i}
+                className={cn(
+                  "absolute inset-0 transition-all duration-700 ease-out",
+                  active === i
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-[1.04]"
+                )}
+              >
+                <FestiveImage image={a.image} sizes="40vw" />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-night/40 via-transparent to-transparent"
+                />
+              </div>
+            ))}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-6 left-6 text-label text-ivory"
+            >
+              {audiences[active].title}
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

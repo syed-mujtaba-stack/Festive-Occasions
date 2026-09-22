@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 
 /**
- * Why Festive Occasions — pillars.
+ * Why Festive Occasions — editorial numbered list (brief §30: NOT a card grid).
  * Only claims we can stand behind; client will verify/expand with specifics.
  */
 const pillars = [
@@ -21,32 +21,45 @@ export function WhyUs() {
   return (
     <Section id="why-us">
       <Container>
-        <ScrollReveal>
-          <SectionHeading
-            eyebrow="Why Festive Occasions"
-            title={
-              <>
-                Built on craft, delivered <em className="text-champagne not-italic">on time.</em>
-              </>
-            }
-            description="We treat every space like a commission — measured, composed and finished to a high standard."
-          />
-        </ScrollReveal>
-
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((p, i) => (
-            <ScrollReveal key={p.title} y={24} delay={i * 0.05}>
-              <article className="group h-full border hairline bg-white/60 p-8 transition-all duration-500 hover:border-champagne/50 hover:shadow-soft">
-                <span className="text-label text-champagne">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 font-display text-[1.5rem] text-espresso">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cocoa">{p.copy}</p>
-              </article>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20">
+          <div>
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Why Festive Occasions"
+                title={
+                  <>
+                    Built on craft, delivered <em className="text-champagne not-italic">on time.</em>
+                  </>
+                }
+                description="We treat every space like a commission — measured, composed and finished to a high standard."
+              />
             </ScrollReveal>
-          ))}
+            <ScrollReveal delay={0.12}>
+              <p className="mt-8 hidden max-w-sm text-[0.95rem] leading-relaxed text-cocoa lg:block">
+                No cardboard baubles, no rushed installs. Every project passes
+                through the same hands — ours — from the first sketch to the
+                final walkthrough.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <ol className="flex flex-col">
+            {pillars.map((p, i) => (
+              <ScrollReveal key={p.title} as="li" y={20} delay={i * 0.04}>
+                <div className="group flex items-baseline gap-6 border-t hairline py-6 transition-colors duration-500 first:border-t-0 lg:gap-10 lg:py-7">
+                  <span className="text-label text-champagne/70 transition-colors duration-500 group-hover:text-champagne">
+                    0{i + 1}
+                  </span>
+                  <h3 className="w-[38%] shrink-0 font-display text-xl text-espresso transition-colors duration-500 group-hover:text-cocoa lg:text-2xl">
+                    {p.title}
+                  </h3>
+                  <p className="text-[0.95rem] leading-relaxed text-cocoa">
+                    {p.copy}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </ol>
         </div>
       </Container>
     </Section>

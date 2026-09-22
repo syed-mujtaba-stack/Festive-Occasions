@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/animations/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { FloatingActions } from "@/components/layout/floating-actions";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 /**
  * PageShell — consistent chrome for every inner page:
@@ -18,6 +19,7 @@ export function PageShell({ children }: { children: ReactNode }) {
       <Navbar />
       <main id="main-content">{children}</main>
       <FloatingActions />
+      <CustomCursor />
       <Footer />
     </>
   );
