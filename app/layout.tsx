@@ -32,8 +32,16 @@ export const metadata: Metadata = {
   keywords: [
     "Christmas Decoration Dubai",
     "Christmas Decorators Dubai",
-    "Christmas Tree Decoration Dubai",
-    "Villa Christmas Decoration Dubai",
+    "Christmas Decorators in Dubai",
+    "Christmas Decorators near me",
+    "Christmas Decorator Dubai",
+    "Christmas Decoration Company Dubai",
+    "Christmas Decoration Services Dubai",
+    "Professional Christmas Decorators Dubai",
+    "Christmas Tree Decorators Dubai",
+    "Villa Christmas Decorators Dubai",
+    "Office Christmas Decorators Dubai",
+    "Luxury Christmas Decoration Dubai",
     "Festive Occasions",
   ],
   openGraph: {

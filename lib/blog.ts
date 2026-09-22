@@ -39,6 +39,97 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-to-choose-christmas-decorators-dubai",
+    title: "How to Choose Christmas Decorators in Dubai — A Buyer’s Guide",
+    category: "Choosing a Decorator",
+    published: "2026-09-21",
+    readingMinutes: 6,
+    metaDescription:
+      "How to choose Christmas decorators in Dubai — what to check before booking, what a good quote includes, and how to compare decorators fairly for your home, villa or office.",
+    heroImage: "client01",
+    lead: "Searching for Christmas decorators near you in Dubai? The landscape is busy around the season, and the difference between a good install and a great one is usually decided before you book. Here is what to check first — and what a fair quote should include.",
+    sections: [
+      {
+        type: "p",
+        text: "Christmas decoration is a seasonal, space-specific service — the right decorators for a one-bedroom apartment may be the wrong fit for a full villa. Before comparing prices, it helps to compare scope: what is installed, what is included, and how the team works on site.",
+      },
+      {
+        type: "h2",
+        text: "What a good Christmas decorator in Dubai should offer",
+      },
+      {
+        type: "ul",
+        items: [
+          "Design around your space — a scheme proposed for your rooms, ceiling height and light, not a fixed template.",
+          "A clear package or quote — tree size, garlands, wreaths and styling listed explicitly, with installation and removal included.",
+          "On-site installation by the same team, scheduled around your access and dates.",
+          "Removal after the season — the space handed back exactly as it was found.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Questions to ask before you book",
+      },
+      {
+        type: "p",
+        text: "A short WhatsApp or phone call settles most of it. Useful questions are practical ones:",
+      },
+      {
+        type: "ul",
+        items: [
+          "What tree sizes do you work with, and what does my ceiling height allow?",
+          "Are installation and removal both included in the price?",
+          "Do you install outdoor lighting and entrance decoration, or interior only?",
+          "Can I see examples of real installations in Dubai (not stock photos)?",
+          "What do you need from me to confirm an accurate quote — photos of the space?",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Comparing prices fairly",
+      },
+      {
+        type: "p",
+        text: "Prices are usually from-quotes: a starting figure for a defined scope, with the final number confirmed against your actual space. In Dubai, Christmas decorators typically begin around a few thousand dirhams for a single tree scheme and scale up with tree size, rooms dressed and outdoor elements. Our own packages run from AED 6,000 + VAT for Christmas Cheers to AED 25,000 + VAT for Christmas Luxury — compare what each includes before assuming cost equates to quality.",
+      },
+      {
+        type: "h2",
+        text: "Red flags to avoid",
+      },
+      {
+        type: "ul",
+        items: [
+          "A price quoted without knowing anything about your space or dates.",
+          "Stock photos presented as their own recent work — ask for their real installations.",
+          "Decorators who promise a fixed price far below a reasonable from-quote, then add on site.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you would like a straight answer for your own space, send photos and your preferred dates on WhatsApp — we will confirm what your setting needs and what it should cost before you commit.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are you Christmas decorators in Dubai?",
+        a: "Yes — Festive Occasions is a Christmas decoration studio in Dubai, designing and installing festive schemes for homes, villas, offices and commercial spaces across Dubai and the UAE.",
+      },
+      {
+        q: "Do you decorate near me?",
+        a: "We decorate across Dubai and the wider UAE. Share your community or building and we will confirm coverage and availability for your dates on enquiry.",
+      },
+      {
+        q: "How much do Christmas decorators in Dubai charge?",
+        a: "Our packages start from AED 6,000 + VAT (Christmas Cheers) up to AED 25,000 + VAT (Christmas Luxury), with bespoke quotes on request — the final figure depends on your space, scale and styling direction.",
+      },
+    ],
+    related: [
+      { label: "Compare packages", href: "/packages" },
+      { label: "Christmas decoration service", href: "/christmas-decoration-dubai" },
+      { label: "Areas we serve", href: "/areas-we-serve" },
+    ],
+  },
+  {
     slug: "christmas-decoration-packages-dubai",
     title: "Christmas Decoration Packages in Dubai — Prices & What’s Included",
     category: "Packages & Pricing",

@@ -6,6 +6,10 @@
  */
 export const faqEntries = [
   {
+    q: "Are you Christmas decorators in Dubai?",
+    a: "Yes — Festive Occasions is a Christmas decoration studio in Dubai. We design and install bespoke festive schemes for homes, villas, offices and commercial spaces across Dubai and the UAE.",
+  },
+  {
     q: "What Christmas decoration services do you offer in Dubai?",
     a: "We design and install bespoke Christmas decoration for homes, villas, offices and commercial spaces — including tree styling, interior schemes, outdoor lighting and full property transformations.",
   },

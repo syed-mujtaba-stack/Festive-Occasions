@@ -17,10 +17,60 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { services } from "@/lib/services";
 
 /** Static metadata for a service page (slug is fixed at build time). */
+const pageKeywords: Record<string, string[]> = {
+  "christmas-decoration-dubai": [
+    "Christmas Decorators Dubai",
+    "Christmas Decorators in Dubai",
+    "Christmas Decorators near me",
+    "Christmas Decoration Company Dubai",
+    "Christmas Decoration Services Dubai",
+    "Professional Christmas Decorators Dubai",
+  ],
+  "christmas-tree-decoration-dubai": [
+    "Christmas Tree Decorators Dubai",
+    "Christmas Tree Decoration Dubai",
+    "Christmas Tree Decoration Service Dubai",
+  ],
+  "christmas-villa-decoration-dubai": [
+    "Villa Christmas Decorators Dubai",
+    "Villa Christmas Decoration Dubai",
+    "Villa Christmas Decoration Services",
+  ],
+  "christmas-home-decoration-dubai": [
+    "Home Christmas Decoration Dubai",
+    "Christmas Home Decorators Dubai",
+    "Christmas Decorators near me",
+  ],
+  "christmas-office-decoration-dubai": [
+    "Office Christmas Decorators Dubai",
+    "Office Christmas Decoration Dubai",
+    "Corporate Christmas Decoration Dubai",
+  ],
+  "christmas-corporate-decoration-dubai": [
+    "Corporate Christmas Decorators Dubai",
+    "Corporate Christmas Decoration Dubai",
+    "Christmas Decoration Company Dubai",
+  ],
+  "christmas-lighting-dubai": [
+    "Christmas Lighting Dubai",
+    "Christmas Lights Decoration Dubai",
+    "Outdoor Christmas Lights Dubai",
+  ],
+  "outdoor-christmas-decoration-dubai": [
+    "Outdoor Christmas Decoration Dubai",
+    "Outdoor Christmas Decorators Dubai",
+    "Christmas Decorators near me",
+  ],
+};
+
 export function servicePageMetadata(page: ServicePage): Metadata {
   return {
     title: page.title,
     description: page.metaDescription,
+    keywords: pageKeywords[page.slug] ?? [
+      "Christmas Decoration Dubai",
+      "Christmas Decorators Dubai",
+    ],
     alternates: { canonical: `/${page.slug}` },
     openGraph: {
       title: `${page.title} | Festive Occasions`,

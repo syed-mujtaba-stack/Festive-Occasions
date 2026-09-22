@@ -40,11 +40,11 @@ export const servicePages: Record<string, ServicePage> = {
     title: "Christmas Decoration in Dubai",
     eyebrow: "The Complete Service",
     metaDescription:
-      "Bespoke Christmas decoration in Dubai — homes, villas, offices and commercial spaces designed, styled and installed by Festive Occasions. Request a consultation.",
+      "Christmas decorators in Dubai — bespoke Christmas decoration for homes, villas, offices and commercial spaces, designed, styled and installed by Festive Occasions. Request a consultation.",
     heroImage: "hero",
     intro: {
       heading: "One studio. Every festive space in Dubai.",
-      body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. We design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation. Every project is composed around the space itself, its architecture, light and character.",
+      body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. As professional Christmas decorators we design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation. Every project is composed around the space itself, its architecture, light and character, and matched to the right scale and style for your own setting.",
     },
     whatWeDecorate: {
       heading: "What we decorate",
@@ -79,6 +79,14 @@ export const servicePages: Record<string, ServicePage> = {
     ],
     styles: ["Classic", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
     faqs: [
+      {
+        q: "Are you Christmas decorators in Dubai?",
+        a: "Yes — Festive Occasions is a Christmas decoration studio in Dubai. We design and install bespoke festive schemes for homes, villas, offices and commercial spaces across Dubai and the UAE.",
+      },
+      {
+        q: "Do you decorate homes near me in Dubai?",
+        a: "We decorate across Dubai and the wider UAE. Share your community or building and we will confirm coverage and availability for your dates on enquiry.",
+      },
       {
         q: "What Christmas decoration services do you offer in Dubai?",
         a: "We design and install bespoke Christmas decoration for homes, villas, offices and commercial spaces — from tree styling to full property transformations.",
