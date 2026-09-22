@@ -49,16 +49,22 @@ export default function GalleryPage() {
       <Section tone="cream">
         <Container>
           <ScrollReveal>
-            <div className="flex flex-col items-start justify-between gap-6 rounded-lg border hairline bg-white/60 p-8 lg:flex-row lg:items-center">
-              <div>
-                <h3 className="font-display text-2xl text-espresso">
-                  A note on this gallery
-                </h3>
-                <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-cocoa">
+            <div className="flex flex-col gap-8 border-t hairline pt-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+              <p className="font-display text-4xl italic leading-tight text-espresso lg:text-5xl">
+                A note on
+                <br />
+                this gallery
+              </p>
+              <div className="max-w-2xl">
+                <p className="text-[1.05rem] leading-relaxed text-cocoa">
                   The images above are curated festive imagery used to
-                  demonstrate our editorial treatment. Once your project photos
-                  are ready, this gallery is replaced with your real completed
-                  work — each scheme documented and verified.
+                  demonstrate our editorial treatment — space, light and tone
+                  composed the way we approach every project.
+                </p>
+                <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa/80">
+                  Once your project photos are ready, this gallery is replaced
+                  with your real completed work — each scheme documented and
+                  verified by the studio.
                 </p>
               </div>
             </div>
