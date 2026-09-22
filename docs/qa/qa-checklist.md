@@ -1,6 +1,6 @@
 # QA Checklist — Festive Occasions
 
-## Responsive (`docs/qa/responsive.md`)
+## Responsive (`docs/qa/responsive-qa.md`)
 
 Test widths: 375, 390, 414, 768, 1024, 1280, 1440, 1920.
 Check: no horizontal overflow, no broken layouts, intentionally designed mobile compositions.
