@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
 const navLinks = [
@@ -15,6 +16,14 @@ const navLinks = [
   { label: "Other Occasions", href: "/other-occasions" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** True when the given nav href represents the current page. */
+function isActive(href: string, pathname: string): boolean {
+  if (href.startsWith("/#")) return pathname === "/";
+  if (href === "/christmas-decoration-dubai")
+    return pathname === href || pathname.startsWith("/christmas-");
+  return pathname === href;
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -73,44 +82,61 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="group flex flex-col leading-none"
+            className="group flex items-center gap-3"
             aria-label="Festive Occasions — Home"
           >
-            <span
-              className={cn(
-                "font-display text-[1.35rem] tracking-tight transition-colors",
-                solid ? "text-ivory" : "text-ivory"
-              )}
-            >
-              Festive&nbsp;Occasions
-            </span>
-            <span
-              className={cn(
-                "text-label mt-1 transition-colors",
-                solid ? "text-champagne" : "text-champagne/90"
-              )}
-            >
-              Christmas Decoration · Dubai
+            <LogoMark />
+            <span className="flex flex-col leading-none">
+              <span
+                className={cn(
+                  "flex items-baseline font-display text-[1.3rem] tracking-tight transition-colors",
+                  solid ? "text-ivory" : "text-ivory"
+                )}
+              >
+                Festive&nbsp;
+                <span className="italic text-champagne-soft transition-colors duration-500 group-hover:text-champagne">
+                  Occasions
+                </span>
+              </span>
+              <span
+                className={cn(
+                  "text-label mt-1.5 flex items-center gap-2 transition-colors",
+                  solid ? "text-champagne" : "text-champagne/90"
+                )}
+              >
+                <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
+                Christmas Decoration · Dubai
+              </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
           <nav
-            className="hidden items-center gap-8 lg:flex"
+            className="hidden items-center gap-7 lg:flex"
             aria-label="Primary"
           >
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={cn(
-                  "text-[0.8rem] font-medium tracking-[0.08em] uppercase transition-colors",
-                  solid ? "text-ivory/75 hover:text-champagne" : "text-ivory/85 hover:text-champagne"
-                )}
-              >
-                {l.label}
-              </Link>
-            ))}
+            {navLinks.map((l) => {
+              const active = isActive(l.href, pathname);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "group/link relative text-[0.8rem] font-medium uppercase tracking-[0.08em] transition-colors",
+                    "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-champagne after:transition-transform after:duration-500 after:ease-out",
+                    "group-hover/link:after:scale-x-100",
+                    active
+                      ? "text-champagne after:scale-x-100"
+                      : solid
+                        ? "text-ivory/75 hover:text-champagne"
+                        : "text-ivory/85 hover:text-champagne"
+                  )}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
             <Button variant="primary" size="md" href="/#quote">
               Get a Quote
             </Button>
@@ -156,7 +182,27 @@ export function Navbar() {
         )}
         aria-hidden={!menuOpen}
       >
-        <div className="container-site flex flex-1 flex-col justify-center gap-2 pb-24 pt-28">
+        <div className="container-site flex flex-1 flex-col pb-24 pt-6">
+          {/* Brand row — monogram + wordmark */}
+          <div
+            className={cn(
+              "flex items-center gap-3 border-b hairline-dark pb-6 transition-all duration-500",
+              menuOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+            )}
+            style={{ transitionDelay: menuOpen ? "40ms" : "0ms" }}
+          >
+            <LogoMark className="h-10 w-10" />
+            <div className="flex flex-col leading-none">
+              <span className="font-display text-xl text-ivory">
+                Festive&nbsp;
+                <span className="italic text-champagne-soft">Occasions</span>
+              </span>
+              <span className="text-label mt-1.5 text-champagne">
+                Christmas Decoration · Dubai
+              </span>
+            </div>
+          </div>
+
           {[{ label: "Home", href: "/" }, ...navLinks].map((l, i) => (
             <Link
               key={l.href}

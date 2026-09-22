@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/section";
+import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
 
@@ -30,12 +31,25 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div>
-            <p className="font-display text-2xl tracking-tight">
-              Festive&nbsp;Occasions
-            </p>
-            <p className="text-label mt-2 text-champagne">
-              Christmas Decoration · Dubai
-            </p>
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-3"
+              aria-label="Festive Occasions — Home"
+            >
+              <LogoMark />
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-2xl tracking-tight text-ivory">
+                  Festive&nbsp;
+                  <span className="italic text-champagne-soft transition-colors duration-500 group-hover:text-champagne">
+                    Occasions
+                  </span>
+                </span>
+                <span className="text-label mt-2 flex items-center gap-2 text-champagne">
+                  <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
+                  Christmas Decoration · Dubai
+                </span>
+              </span>
+            </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/60">
               A premium Christmas &amp; festive decoration studio serving homes,
               villas, offices and commercial spaces across Dubai and the UAE.
