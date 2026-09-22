@@ -18,11 +18,17 @@ const navLinks = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 32);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -53,6 +59,16 @@ export function Navbar() {
             : "border-b border-transparent bg-transparent"
         )}
       >
+        {/* Scroll progress — champagne hairline that fills the page width */}
+        <span
+          aria-hidden
+          className="absolute bottom-0 left-0 h-px bg-champagne"
+          style={{
+            width: `${progress * 100}%`,
+            opacity: solid && progress > 0.02 ? 1 : 0,
+            transition: "opacity 500ms, width 120ms linear",
+          }}
+        />
         <div className="container-site flex h-[72px] items-center justify-between">
           {/* Logo */}
           <Link

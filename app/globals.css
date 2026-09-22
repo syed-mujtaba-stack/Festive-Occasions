@@ -251,6 +251,24 @@ html.lenis body {
   }
 }
 
+/* Marquee ticker — infinite editorial scroll, disabled for reduced motion. */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Reveal helper — initial hidden state set by GSAP. Without JS the
    content stays fully visible (progressive enhancement). */
 .js-enabled [data-reveal] {

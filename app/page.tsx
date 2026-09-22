@@ -6,6 +6,7 @@ import { FloatingActions } from "@/components/layout/floating-actions";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { Hero } from "@/components/hero/hero";
 import { Statement } from "@/components/sections/statement";
+import { Marquee } from "@/components/sections/marquee";
 import { Intro } from "@/components/sections/intro";
 import { ServicesSection } from "@/components/sections/services";
 import { Signature } from "@/components/sections/signature";
@@ -62,6 +63,7 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Statement />
+        <Marquee />
         <Intro />
         <ServicesSection />
         <Signature />
