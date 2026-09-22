@@ -25,9 +25,9 @@
 | 4 Design Foundation | ✅ tokens + utilities |
 | 5 Homepage | ✅ built & committed (3edfe48) — reviewed |
 | 6 Polish Homepage | 🔄 real imagery integrated; polish pass in progress |
-| 7 Service Pages | 🔄 pillar + 7 service pages built, routes live |
-| 8 Supporting Pages | ⏳ next |
-| 9+ | ⏳ |
+| 7 Service Pages | ✅ pillar + 7 service pages built |
+| 8 Supporting Pages | ✅ gallery (filters), about, contact (quote form + schema), areas-we-serve, other-occasions |
+| 9+ | ⏳ next |
 
 ## Definition of done (checked at end)
 

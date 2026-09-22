@@ -2,11 +2,28 @@ export type GalleryProject = {
   id: string;
   /** Title shown under the image. Neutral + honest until client photos arrive. */
   title: string;
-  category: string;
+  category:
+    | "Villa Decoration"
+    | "Home Decoration"
+    | "Office Decoration"
+    | "Christmas Tree"
+    | "Lighting & Outdoor"
+    | "Corporate & Hospitality";
   year: string;
   ratio: "portrait" | "landscape" | "tall";
   theme: "champagne" | "burgundy" | "evergreen" | "night";
-  image: "livingroomTree" | "outdoorHouseLights" | "officeLobbyTree" | "treeRedBaubles" | "stringLightsBokeh" | "tableSetting" | "livingroomFireplace" | "treeGoldBaubles";
+  image:
+    | "livingroomTree"
+    | "outdoorHouseLights"
+    | "officeLobbyTree"
+    | "treeRedBaubles"
+    | "stringLightsBokeh"
+    | "tableSetting"
+    | "livingroomFireplace"
+    | "treeGoldBaubles"
+    | "treeGreenLarge"
+    | "goldenBaubleTree"
+    | "treeManyOrnaments";
   /** Transitional: decorative imagery until real client project photos arrive. */
   placeholder: true;
 };
@@ -77,6 +94,46 @@ export const galleryProjects: GalleryProject[] = [
     ratio: "portrait",
     theme: "night",
     image: "tableSetting",
+    placeholder: true,
+  },
+  {
+    id: "p7",
+    title: "Luxury Tree Detail — Champagne Gold",
+    category: "Christmas Tree",
+    year: "Season 2024",
+    ratio: "landscape",
+    theme: "champagne",
+    image: "goldenBaubleTree",
+    placeholder: true,
+  },
+  {
+    id: "p8",
+    title: "Grand Tree — Full-Height Installation",
+    category: "Christmas Tree",
+    year: "Season 2024",
+    ratio: "portrait",
+    theme: "evergreen",
+    image: "treeGreenLarge",
+    placeholder: true,
+  },
+  {
+    id: "p9",
+    title: "Fireplace Scheme — Warm Living",
+    category: "Home Decoration",
+    year: "Season 2023",
+    ratio: "landscape",
+    theme: "burgundy",
+    image: "livingroomFireplace",
+    placeholder: true,
+  },
+  {
+    id: "p10",
+    title: "Ornament Detail — Twinkling Lights",
+    category: "Christmas Tree",
+    year: "Season 2023",
+    ratio: "portrait",
+    theme: "night",
+    image: "treeManyOrnaments",
     placeholder: true,
   },
 ];

@@ -1,0 +1,160 @@
+import type { Metadata } from "next";
+import { Container, Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageHero } from "@/components/ui/page-hero";
+import { QuoteForm } from "@/components/contact/quote-form";
+import { Button } from "@/components/ui/button";
+import { siteConfig, whatsappLink } from "@/lib/site";
+import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Contact & Quote | Festive Occasions Dubai",
+  description:
+    "Contact Festive Occasions for Christmas decoration in Dubai — request a quote via WhatsApp, phone or email for homes, villas, offices and commercial spaces.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Festive Occasions | Christmas Decoration Dubai",
+    description:
+      "Request a quote for bespoke Christmas decoration in Dubai — WhatsApp, call or email.",
+    url: "/contact",
+    type: "website",
+  },
+};
+
+const contactMethods = [
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    value: siteConfig.phoneDisplay,
+    href: whatsappLink(),
+    external: true,
+  },
+  {
+    icon: FaPhone,
+    label: "Call",
+    value: siteConfig.phoneDisplay,
+    href: `tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`,
+  },
+  {
+    icon: FaEnvelope,
+    label: "Email",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+  },
+  {
+    icon: FaClock,
+    label: "Hours",
+    value: siteConfig.hours,
+  },
+  {
+    icon: FaMapMarkerAlt,
+    label: "Service area",
+    value: siteConfig.serviceArea.join(" · "),
+  },
+];
+
+export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    name: siteConfig.legalName,
+    url: siteConfig.url,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dubai",
+      addressCountry: "AE",
+    },
+    areaServed: siteConfig.serviceArea,
+    openingHours: "Mo-Su 09:00-21:00",
+    priceRange: "$$",
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PageHero
+        eyebrow="Contact"
+        title="Let's plan your festive space."
+        lead="Tell us about your home, villa, office or venue — we'll design a bespoke Christmas scheme around it and share a clear proposal."
+        image="officeLobbyTree"
+      />
+
+      <Section id="contact">
+        <Container>
+          <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
+            {/* Left — contact methods */}
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Reach us"
+                title="Every conversation starts here."
+                description="The fastest way to reach us is WhatsApp — our team responds directly with availability and next steps."
+              />
+
+              <div className="mt-10 flex flex-col gap-4">
+                {contactMethods.map((m) => {
+                  const Icon = m.icon;
+                  const inner = (
+                    <>
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-champagne/15 text-champagne">
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-xs font-semibold uppercase tracking-wider text-warm-gray">
+                          {m.label}
+                        </span>
+                        <span className="block truncate text-[0.98rem] font-medium text-espresso">
+                          {m.value}
+                        </span>
+                      </span>
+                    </>
+                  );
+                  return m.href ? (
+                    <a
+                      key={m.label}
+                      href={m.href}
+                      {...(m.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="group flex items-center gap-4 rounded-lg border hairline bg-white/60 p-5 transition-all duration-300 hover:border-champagne hover:shadow-soft"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div
+                      key={m.label}
+                      className="flex items-center gap-4 rounded-lg border hairline bg-white/60 p-5"
+                    >
+                      {inner}
+                    </div>
+                  );
+                })}
+
+                <div className="mt-2 flex flex-wrap gap-3">
+                  <Button variant="whatsapp" href={whatsappLink()} external size="lg">
+                    <FaWhatsapp className="h-4 w-4" aria-hidden />
+                    WhatsApp Us Now
+                  </Button>
+                  <Button variant="outline" href={`tel:${siteConfig.phone}`} size="lg">
+                    <FaPhone className="h-4 w-4" aria-hidden />
+                    Call Us
+                  </Button>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right — form */}
+            <ScrollReveal y={30} delay={0.1}>
+              <QuoteForm />
+            </ScrollReveal>
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
+}

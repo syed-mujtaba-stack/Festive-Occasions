@@ -1,0 +1,118 @@
+import type { Metadata } from "next";
+import { Container, Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageHero } from "@/components/ui/page-hero";
+import { Button } from "@/components/ui/button";
+import { whatsappLink, siteConfig } from "@/lib/site";
+import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Areas We Serve | Christmas Decoration Dubai & UAE",
+  description:
+    "Festive Occasions provides Christmas decoration across Dubai and the UAE. Confirm whether we cover your area on enquiry.",
+  alternates: { canonical: "/areas-we-serve" },
+  openGraph: {
+    title: "Areas We Serve | Festive Occasions",
+    description:
+      "Christmas decoration across Dubai and the UAE — confirm coverage for your area on enquiry.",
+    url: "/areas-we-serve",
+    type: "website",
+  },
+};
+
+const coverage = [
+  {
+    title: "Dubai",
+    copy: "Our home base. Residential villas, apartments, offices and venues across the city.",
+  },
+  {
+    title: "Dubai Communities",
+    copy: "Villas, maids and staff quarters, entrances, gardens and outdoor spaces — decorated on schedule, around your day.",
+  },
+  {
+    title: "Wider UAE",
+    copy: "Projects across the Emirates are handled on enquiry, so the schedule and logistics are planned properly.",
+  },
+];
+
+export default function AreasWeServePage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Areas We Serve"
+        title="Serving Dubai and the UAE."
+        lead="We work across Dubai and the Emirates. Tell us where your property is and we'll confirm coverage for your dates."
+        image="outdoorHouseLights"
+      />
+
+      <Section>
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Coverage"
+                title="Where we decorate."
+                description="Every project is scheduled around your space — confirmed coverage and dates on enquiry."
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <div className="flex flex-col">
+                {coverage.map((c, i) => (
+                  <div
+                    key={c.title}
+                    className="border-b hairline py-7 first:pt-0"
+                  >
+                    <div className="flex items-baseline gap-4">
+                      <span className="text-label text-champagne">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="font-display text-2xl text-espresso">
+                          {c.title}
+                        </h3>
+                        <p className="mt-2 max-w-lg text-[0.95rem] leading-relaxed text-cocoa">
+                          {c.copy}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="cream">
+        <Container>
+          <ScrollReveal>
+            <div className="flex flex-col items-start justify-between gap-6 rounded-lg border hairline bg-white/60 p-8 lg:flex-row lg:items-center">
+              <div>
+                <h3 className="font-display text-2xl text-espresso">
+                  Not sure if we cover your area?
+                </h3>
+                <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-cocoa">
+                  Just ask — share your community or building address and we
+                  will confirm coverage and availability for your dates. No
+                  pressure, clear answer.
+                </p>
+              </div>
+              <Button
+                variant="whatsapp"
+                size="lg"
+                href={whatsappLink(
+                  `Hi Festive Occasions, do you cover ${siteConfig.serviceArea[0]} for Christmas decoration?`
+                )}
+                external
+              >
+                <FaWhatsapp className="h-4 w-4" aria-hidden />
+                Ask About Your Area
+              </Button>
+            </div>
+          </ScrollReveal>
+        </Container>
+      </Section>
+    </>
+  );
+}
