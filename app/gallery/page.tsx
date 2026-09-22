@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
 import { FAQ } from "@/components/sections/faq";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <>
+    <PageShell>
       <PageHero
         eyebrow="Portfolio"
         title="Festive transformations, by space."
@@ -67,6 +68,6 @@ export default function GalleryPage() {
 
       <FAQ />
       <FinalCTA />
-    </>
+    </PageShell>
   );
 }

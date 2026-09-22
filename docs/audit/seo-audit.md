@@ -20,21 +20,24 @@ areas-we-serve, other-occasions. Root layout also sets `keywords`, `twitter`,
   name, url, phone, email, serviceArea, openingHours. NAP values are placeholders.
 - No Service, FAQPage, BreadcrumbList, Organization, or WebSite schema yet.
 
-## Missing (to build in SEO phase)
+## Missing (Phase 9 — completed 2026-09-22)
 
-| Item | Where | Priority |
-|---|---|---|
-| `app/sitemap.ts` | all routes + siteConfig.url, static | High |
-| `app/robots.ts` | allow all, sitemap ref | High |
-| `app/not-found.tsx` | premium branded 404 page | High |
-| favicon / icon (app/icon) | branded mark | Medium |
-| Service JSON-LD | each service page (serviceType, areaServed, provider, offers→contact) | High |
-| FAQPage JSON-LD | pages with FAQ (home, service pages) | High |
-| BreadcrumbList JSON-LD | service + inner pages | Medium |
-| Organization / LocalBusiness on `/` | home | Medium |
-| Internal-linking pass | homepage→pillar→services, footer, contextual text links | High |
-| Heading audit | exactly one H1 per page, logical H2/H3 | QA |
-| Alt text audit | all images have descriptive alt | QA |
+| Item | Where | Priority | Status |
+|---|---|---|---|
+| `app/sitemap.ts` | all routes + siteConfig.url, static | High | ✅ done |
+| `app/robots.ts` | allow all, sitemap ref | High | ✅ done |
+| `app/not-found.tsx` | premium branded 404 | High | ✅ done |
+| `app/icon.svg` | branded sparkle favicon | Medium | ✅ done |
+| Service JSON-LD | each service page (serviceType, areaServed, provider, offers→contact) | High | ✅ done |
+| FAQPage JSON-LD | pages with FAQ (home, service pages) | High | ✅ done (service pages) |
+| BreadcrumbList JSON-LD | service + inner pages | Medium | ✅ done (service pages) |
+| Organization / WebSite JSON-LD on `/` | home | Medium | ✅ done |
+| LocalBusiness `@id` alignment | `/contact` now shares `/#business` with home graph | — | ✅ done |
+| Internal-linking pass | breadcrumbs + related-services block on all service pages | High | ✅ done |
+| **Navbar/Footer on inner pages** | **gallery, about, contact, areas, other-occasions + all service pages were missing chrome — fixed via shared `PageShell`** | Critical | ✅ done |
+| Skip-link + `main-content` targets | root layout + all pages | Medium | ✅ done |
+| Heading audit | exactly one H1 per page, logical H2/H3 | QA | ⏳ Phase 12 |
+| Alt text audit | all images have descriptive alt | QA | ⏳ Phase 12 |
 
 ## Known caution
 - No fake ratings, reviews, addresses, or hours. Schema must only reflect

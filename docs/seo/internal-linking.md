@@ -39,10 +39,10 @@ Homepage
   services (breadcrumb-friendly).
 - Contact/WhatsApp reachable from every page.
 
-## To polish (SEO phase)
+## To polish (SEO phase — completed 2026-09-22)
 
-- Breadcrumb nav component on service pages (visual + BreadcrumbList schema).
-- "Explore related services" block on the pillar page linking all 7 children.
-- Contextual in-copy links (e.g. villa page → outdoor lighting page where
-  relevant) — natural only, no forced links.
-- Verify no dead links after any URL change (`docs/seo/url-migration.md`).
+- [x] Breadcrumb nav component on service pages (visual + BreadcrumbList schema).
+- [x] "Explore related services" block on every service page (4 sibling links).
+- [x] Contextual in-copy links — sibling services linked from each page's
+  related-services block; pillar-up links in breadcrumbs.
+- [ ] Verify no dead links after any URL change (`docs/seo/url-migration.md`).

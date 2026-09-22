@@ -14,14 +14,50 @@ import { WhyUs } from "@/components/sections/why-us";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { JsonLd } from "@/components/seo/json-ld";
+import { siteConfig } from "@/lib/site";
+
+/** Organization + WebSite schema — home only (single source NAP via site.ts). */
+function homeJsonLd(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.url}/#business`,
+        name: siteConfig.name,
+        legalName: siteConfig.legalName,
+        url: siteConfig.url,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteConfig.url}/icon.svg`,
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Dubai",
+          addressCountry: "AE",
+        },
+        areaServed: siteConfig.serviceArea,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        name: siteConfig.name,
+        url: siteConfig.url,
+        publisher: { "@id": `${siteConfig.url}/#business` },
+      },
+    ],
+  };
+}
 
 export default function Home() {
   return (
     <>
       <JsDriver />
       <SmoothScroll />
+      <JsonLd data={homeJsonLd()} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Intro />
         <ServicesSection />

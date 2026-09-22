@@ -27,7 +27,7 @@
 | 6 Polish Homepage | ✅ real imagery integrated (Unsplash manifest, 9.5 MB set) — polish pass pending |
 | 7 Service Pages | ✅ pillar + 7 service pages built (ServicePageTemplate + lib/service-pages.ts) |
 | 8 Supporting Pages | ✅ gallery (filters), about, contact (quote form + LocalBusiness schema), areas-we-serve, other-occasions |
-| 9 SEO | ⏳ **next** — sitemap.ts, robots.ts, 404, favicon, Service/FAQPage/Breadcrumb JSON-LD, internal-linking polish |
+| 9 SEO | ✅ **done (committed next)** — sitemap.ts, robots.ts, branded 404, icon.svg, Service/FAQPage/Breadcrumb JSON-LD per service page, Organization+WebSite JSON-LD home, breadcrumbs + related-services, **fixed missing Navbar/Footer on all inner pages (PageShell)**, skip-link |
 | 10 Local SEO | ⏳ pending client data (GBP = client action; NAP placeholders in lib/site.ts) |
 | 11 Performance | ⏳ Lighthouse benchmark to run |
 | 12 QA | ⏳ per docs/qa/* checklists |

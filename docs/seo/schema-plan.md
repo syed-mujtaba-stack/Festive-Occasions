@@ -8,12 +8,12 @@ invented addresses, reviews, ratings, or prices (brief §20, §37).
 
 | Schema | Where | Status |
 |---|---|---|
-| `HomeAndConstructionBusiness` (LocalBusiness type) | `/contact` | ✅ exists (NAP placeholders) |
-| `Service` | each of the 8 service pages | ⏳ to add |
-| `FAQPage` | homepage FAQ + service-page FAQs | ⏳ to add |
-| `BreadcrumbList` | service pages + inner pages | ⏳ to add |
-| `Organization` | homepage / global | ⏳ to add |
-| `WebSite` | global (SearchAction optional) | ⏳ optional |
+| `HomeAndConstructionBusiness` (LocalBusiness type) | `/contact` — now `@id /#business` in same graph | ✅ exists |
+| `Service` | each of the 8 service pages (`@graph` with FAQPage + BreadcrumbList) | ✅ done |
+| `FAQPage` | service-page FAQs (mirrors visible accordion) | ✅ done |
+| `BreadcrumbList` | each service page (Home → Pillar → page) | ✅ done |
+| `Organization` + `WebSite` | homepage (`@graph`) | ✅ done |
+| FAQPage (homepage FAQ) | `/` matches home FAQ block | ⏳ optional add |
 
 ## Service schema shape (planned)
 

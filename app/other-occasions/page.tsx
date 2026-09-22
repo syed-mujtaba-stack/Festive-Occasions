@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { Button } from "@/components/ui/button";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function OtherOccasionsPage() {
   return (
-    <>
+    <PageShell>
       <PageHero
         eyebrow="Other Occasions"
         title="The season doesn't end at Christmas."
@@ -110,6 +111,6 @@ export default function OtherOccasionsPage() {
       </Section>
 
       <FinalCTA />
-    </>
+    </PageShell>
   );
 }

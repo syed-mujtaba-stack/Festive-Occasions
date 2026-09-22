@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, siteConfig } from "@/lib/site";
@@ -38,7 +39,7 @@ const coverage = [
 
 export default function AreasWeServePage() {
   return (
-    <>
+    <PageShell>
       <PageHero
         eyebrow="Areas We Serve"
         title="Serving Dubai and the UAE."
@@ -113,6 +114,6 @@ export default function AreasWeServePage() {
           </ScrollReveal>
         </Container>
       </Section>
-    </>
+    </PageShell>
   );
 }

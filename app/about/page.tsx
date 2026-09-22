@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { WhyUs } from "@/components/sections/why-us";
 import { ProcessSection } from "@/components/sections/process";
@@ -41,7 +42,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <>
+    <PageShell>
       <PageHero
         eyebrow="About"
         title="A studio for the season's finest details."
@@ -111,6 +112,6 @@ export default function AboutPage() {
       <WhyUs />
       <ProcessSection />
       <FinalCTA />
-    </>
+    </PageShell>
   );
 }

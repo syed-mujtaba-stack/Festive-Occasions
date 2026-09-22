@@ -31,9 +31,11 @@ layout: `"%s | Festive Occasions"`.
 - [x] Single H1 (editorial, matches intent)
 - [x] Logical H2/H3 hierarchy
 - [x] OpenGraph + Twitter (root layout provides)
-- [ ] Service JSON-LD — **to add** (serviceType, areaServed, provider, offers)
-- [ ] FAQPage JSON-LD — **to add** where FAQ content exists
-- [ ] BreadcrumbList JSON-LD — **to add** on service pages
+- [x] Service JSON-LD — 8 service pages (serviceType, areaServed, provider, offers)
+- [x] FAQPage JSON-LD — service pages (mirrors visible FAQ)
+- [x] BreadcrumbList JSON-LD — service pages
+- [x] Organization + WebSite JSON-LD — homepage
+- [x] Navbar/Footer chrome on every route (PageShell) — fixed missing nav on inner pages
 - [ ] Descriptive alt text (audit during QA)
 
 ## Not doing

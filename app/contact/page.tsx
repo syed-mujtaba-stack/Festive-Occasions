@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { QuoteForm } from "@/components/contact/quote-form";
 import { Button } from "@/components/ui/button";
@@ -58,6 +59,7 @@ export default function ContactPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
+    "@id": `${siteConfig.url}/#business`,
     name: siteConfig.legalName,
     url: siteConfig.url,
     telephone: siteConfig.phone,
@@ -70,10 +72,11 @@ export default function ContactPage() {
     areaServed: siteConfig.serviceArea,
     openingHours: "Mo-Su 09:00-21:00",
     priceRange: "$$",
+    sameAs: Object.values(siteConfig.social).filter((u) => !u.endsWith("/")),
   };
 
   return (
-    <>
+    <PageShell>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -155,6 +158,6 @@ export default function ContactPage() {
           </div>
         </Container>
       </Section>
-    </>
+    </PageShell>
   );
 }

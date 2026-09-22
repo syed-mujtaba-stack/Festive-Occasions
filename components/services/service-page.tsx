@@ -2,15 +2,19 @@ import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { PageShell } from "@/components/layout/page-shell";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
 import type { ServicePage } from "@/lib/service-pages";
-import { whatsappLink } from "@/lib/site";
+import { siteConfig, whatsappLink } from "@/lib/site";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { FaWhatsapp } from "react-icons/fa";
 import type { Metadata } from "next";
+import Link from "next/link";
+import { JsonLd } from "@/components/seo/json-ld";
+import { services } from "@/lib/services";
 
 /** Static metadata for a service page (slug is fixed at build time). */
 export function servicePageMetadata(page: ServicePage): Metadata {
@@ -27,9 +31,80 @@ export function servicePageMetadata(page: ServicePage): Metadata {
   };
 }
 
+/** schema.org graph for a service page — Service, FAQPage, BreadcrumbList. */
+function servicePageJsonLd(page: ServicePage): Record<string, unknown> {
+  const pageUrl = `${siteConfig.url}/${page.slug}`;
+  const isPillar = page.slug === "christmas-decoration-dubai";
+  const breadcrumb = [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+    ...(isPillar
+      ? []
+      : [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Christmas Decoration Dubai",
+            item: `${siteConfig.url}/christmas-decoration-dubai`,
+          },
+        ]),
+    {
+      "@type": "ListItem",
+      position: isPillar ? 2 : 3,
+      name: page.title,
+      item: pageUrl,
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: page.title,
+        serviceType: "Christmas Decoration",
+        description: page.metaDescription,
+        url: pageUrl,
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": `${siteConfig.url}/#business`,
+          name: siteConfig.name,
+          url: siteConfig.url,
+        },
+        areaServed: { "@type": "City", name: "Dubai" },
+        audience: {
+          "@type": "Audience",
+          audienceType: "Homes, villas, offices and commercial spaces",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: breadcrumb,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: page.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ],
+  };
+}
+
 export function ServicePageTemplate({ page }: { page: ServicePage }) {
+  const related = services
+    .filter((s) => s.href !== `/${page.slug}`)
+    .slice(0, 4);
+
   return (
-    <>
+    <PageShell>
+      {/* Structured data — Service + FAQPage + BreadcrumbList */}
+      <JsonLd data={servicePageJsonLd(page)} />
+
       {/* Hero */}
       <section className="relative flex min-h-[72svh] items-end overflow-hidden bg-night">
         <div className="absolute inset-0">
@@ -37,6 +112,39 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/45 to-[#171312]/20" />
         <Container className="relative z-10 pb-20 pt-40">
+          <nav aria-label="Breadcrumb" className="mb-7">
+            <ol className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-ivory/60">
+              <li>
+                <Link
+                  href="/"
+                  className="transition-colors hover:text-champagne"
+                >
+                  Home
+                </Link>
+              </li>
+              {page.slug !== "christmas-decoration-dubai" && (
+                <>
+                  <li aria-hidden="true" className="text-champagne/60">
+                    /
+                  </li>
+                  <li>
+                    <Link
+                      href="/christmas-decoration-dubai"
+                      className="transition-colors hover:text-champagne"
+                    >
+                      Christmas Decoration
+                    </Link>
+                  </li>
+                </>
+              )}
+              <li aria-hidden="true" className="text-champagne/60">
+                /
+              </li>
+              <li aria-current="page" className="text-champagne">
+                {page.title}
+              </li>
+            </ol>
+          </nav>
           <p className="text-label mb-5 flex items-center gap-4 text-champagne">
             <span className="h-px w-10 bg-champagne" aria-hidden />
             Festive Occasions · {page.eyebrow}
@@ -182,11 +290,48 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
         </Container>
       </Section>
 
+      {/* Related services — internal linking */}
+      <Section id="related-services" tone="cream">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Explore"
+              title="More festive services."
+              description="Every service can stand alone or be composed into one complete festive transformation."
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {related.map((s) => (
+                <Link
+                  key={s.id}
+                  href={s.href}
+                  className="group flex items-center justify-between gap-4 rounded-lg border hairline bg-background p-6 transition-all duration-300 hover:border-champagne hover:shadow-soft"
+                >
+                  <div>
+                    <p className="text-label text-champagne">{s.number}</p>
+                    <h3 className="mt-2 font-display text-xl leading-tight text-espresso group-hover:text-espresso">
+                      {s.title} {s.subtitle}
+                    </h3>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="text-champagne transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
+        </Container>
+      </Section>
+
       {/* FAQ */}
       <FAQ questions={page.faqs} />
 
       {/* CTA */}
       <FinalCTA />
-    </>
+    </PageShell>
   );
 }
