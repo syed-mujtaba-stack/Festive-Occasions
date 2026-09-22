@@ -42,3 +42,8 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Client source photos (raw camera exports) — only the selected, cleaned
+# copies under public/images/client/ are used by the site.
+/public/images/Client Provider/
+/public/images/christmas/Client Provider/

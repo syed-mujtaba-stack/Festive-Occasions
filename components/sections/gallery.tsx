@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 /**
  * Portfolio preview (homepage) — editorial project presentations (brief §06):
  * large alternating image rows with project number, type and location.
- * Imagery is placeholder until client photos arrive.
+ * Uses real client project photos.
  */
 export function GallerySection() {
   const featured = galleryProjects.slice(0, 4);
@@ -44,7 +44,10 @@ export function GallerySection() {
         <div className="mt-16 flex flex-col gap-24 lg:gap-32">
           {featured.map((project, i) => {
             const reverse = i % 2 === 1;
-            const size = i === 0 ? "aspect-[16/10]" : "aspect-[4/3] lg:aspect-[16/11]";
+            const size =
+              i === 0
+                ? "aspect-[4/5] lg:aspect-[3/4]"
+                : "aspect-[4/5] lg:aspect-[3/4]";
             return (
               <ScrollReveal key={project.id} y={36}>
                 <article className="group grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
@@ -85,8 +88,8 @@ export function GallerySection() {
                       {project.title}
                     </h3>
                     <p className="mt-4 max-w-md text-[0.95rem] leading-relaxed text-ivory/60">
-                      {project.year} — a seasonal scheme composed around its
-                      space, from statement tree to final styling detail.
+                      A festive scheme composed around its space — from
+                      statement tree to final styling detail.
                     </p>
                     <Link
                       href="/gallery"

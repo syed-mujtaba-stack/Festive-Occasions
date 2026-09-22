@@ -31,7 +31,7 @@ export default function GalleryPage() {
         eyebrow="Portfolio"
         title="Festive transformations, by space."
         lead="A selection of schemes across villas, homes, offices and commercial settings — each designed around its architecture, light and character."
-        image="livingroomTree"
+        image="hero"
       />
 
       <Section id="gallery">
@@ -40,7 +40,7 @@ export default function GalleryPage() {
             <SectionHeading
               eyebrow="The Work"
               title="Every space, composed differently."
-              description="Filter by space type to see the range — from a single signature tree to complete villa and office transformations."
+              description="A selection of festive schemes from recent installations — from a single signature tree to complete villa and office transformations."
             />
           </ScrollReveal>
           <GalleryGrid />
@@ -59,14 +59,13 @@ export default function GalleryPage() {
               </p>
               <div className="max-w-2xl">
                 <p className="text-[1.05rem] leading-relaxed text-cocoa">
-                  The images above are curated festive imagery used to
-                  demonstrate our editorial treatment — space, light and tone
-                  composed the way we approach every project.
+                  The projects shown here are real Festive Occasions
+                  installations — each scheme composed around its space, from
+                  statement tree to final styling detail.
                 </p>
                 <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa/80">
-                  Once your project photos are ready, this gallery is replaced
-                  with your real completed work — each scheme documented and
-                  verified by the studio.
+                  Captions and categories are being confirmed with the studio;
+                  every project shown is documented and verified by our team.
                 </p>
               </div>
             </div>

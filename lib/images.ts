@@ -1,19 +1,69 @@
 /**
  * IMAGE MANIFEST — Festive Occasions
  *
- * All images are high-quality Christmas decoration photos downloaded from
- * Unsplash (Unsplash License: free for commercial use). Each has been
- * verified against Unsplash's own alt metadata.
- *
- * ⚠️ These are PLACEHOLDERS until the client supplies real project photos.
- * Swap the `src` values below with client assets — filenames are already
- * descriptive (e.g. luxury-christmas-villa-decoration-dubai.webp).
+ * `client*` entries are the client-supplied project photos (public/images/client/)
+ * — real Festive Occasions installations. The remaining `christmas/*` Unsplash
+ * images are atmospheric scene-builders still used on service pages.
  */
 
 export const images = {
+  /** Homepage hero — client landscape installation photo. */
   hero: {
-    src: "/images/christmas/outdoor-house-lights.jpg",
-    alt: "Stone house with outdoor Christmas string lights glowing in a garden at night",
+    src: "/images/client/client-hero.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  /** Intro media — client portrait installation photo. */
+  clientIntro: {
+    src: "/images/client/client-01.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client01: {
+    src: "/images/client/client-01.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client02: {
+    src: "/images/client/client-02.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client03: {
+    src: "/images/client/client-03.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client04: {
+    src: "/images/client/client-04.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client05: {
+    src: "/images/client/client-05.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client06: {
+    src: "/images/client/client-06.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client07: {
+    src: "/images/client/client-07.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client08: {
+    src: "/images/client/client-08.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client09: {
+    src: "/images/client/client-09.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client10: {
+    src: "/images/client/client-10.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client11: {
+    src: "/images/client/client-11.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
+  },
+  client12: {
+    src: "/images/client/client-12.jpg",
+    alt: "Christmas decoration installation by Festive Occasions",
   },
   treeGreenLarge: {
     src: "/images/christmas/tree-green-large.jpg",

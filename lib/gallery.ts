@@ -23,117 +23,126 @@ export type GalleryProject = {
     | "treeGoldBaubles"
     | "treeGreenLarge"
     | "goldenBaubleTree"
-    | "treeManyOrnaments";
-  /** Transitional: decorative imagery until real client project photos arrive. */
-  placeholder: true;
+    | "treeManyOrnaments"
+    | "client01"
+    | "client02"
+    | "client03"
+    | "client04"
+    | "client05"
+    | "client06"
+    | "client07"
+    | "client08"
+    | "client09"
+    | "client10";
+  /** Real client-supplied project photo. */
+  placeholder: boolean;
 };
 
 /**
- * GALLERY — TRANSITIONAL IMAGERY
- * Current images are high-quality Unsplash Christmas photography used to
- * demonstrate the editorial layout. NO real project names or locations are
- * claimed. Replace titles/details and swap images (lib/images.ts) once client
- * project photos are supplied.
+ * GALLERY — CLIENT PROJECT PHOTOS
+ * The gallery is now populated with real Festive Occasions installation
+ * photos supplied by the client (public/images/client/*). Titles/categories
+ * are neutral until the client confirms per-photo captions.
  */
 export const galleryProjects: GalleryProject[] = [
   {
     id: "p1",
-    title: "Private Villa — Christmas Living",
+    title: "Festive Scheme — Christmas Installation",
     category: "Villa Decoration",
-    year: "Season 2026",
+    year: "Recent Work",
     ratio: "portrait",
     theme: "burgundy",
-    image: "livingroomTree",
-    placeholder: true,
+    image: "client01",
+    placeholder: false,
   },
   {
     id: "p2",
-    title: "Residential Entrance — Festive Welcome",
+    title: "Residential Scheme — Festive Welcome",
     category: "Home Decoration",
-    year: "Season 2026",
-    ratio: "landscape",
+    year: "Recent Work",
+    ratio: "portrait",
     theme: "evergreen",
-    image: "outdoorHouseLights",
-    placeholder: true,
+    image: "client02",
+    placeholder: false,
   },
   {
     id: "p3",
-    title: "Office Lobby — Corporate Christmas",
+    title: "Commercial Scheme — Corporate Christmas",
     category: "Office Decoration",
-    year: "Season 2025",
-    ratio: "tall",
+    year: "Recent Work",
+    ratio: "portrait",
     theme: "night",
-    image: "officeLobbyTree",
-    placeholder: true,
+    image: "client03",
+    placeholder: false,
   },
   {
     id: "p4",
     title: "Signature Tree — Statement Installation",
     category: "Christmas Tree",
-    year: "Season 2025",
+    year: "Recent Work",
     ratio: "portrait",
     theme: "champagne",
-    image: "treeRedBaubles",
-    placeholder: true,
+    image: "client04",
+    placeholder: false,
   },
   {
     id: "p5",
     title: "Garden & Outdoor — Evening Illumination",
     category: "Lighting & Outdoor",
-    year: "Season 2025",
-    ratio: "landscape",
+    year: "Recent Work",
+    ratio: "portrait",
     theme: "evergreen",
-    image: "stringLightsBokeh",
-    placeholder: true,
+    image: "client05",
+    placeholder: false,
   },
   {
     id: "p6",
-    title: "Hotel Reception — Hospitality Styling",
+    title: "Hospitality Scheme — Festive Styling",
     category: "Corporate & Hospitality",
-    year: "Season 2024",
+    year: "Recent Work",
     ratio: "portrait",
     theme: "night",
-    image: "tableSetting",
-    placeholder: true,
+    image: "client06",
+    placeholder: false,
   },
   {
     id: "p7",
-    title: "Luxury Tree Detail — Champagne Gold",
+    title: "Tree Detail — Festive Finishing",
     category: "Christmas Tree",
-    year: "Season 2024",
-    ratio: "landscape",
+    year: "Recent Work",
+    ratio: "portrait",
     theme: "champagne",
-    image: "goldenBaubleTree",
-    placeholder: true,
+    image: "client07",
+    placeholder: false,
   },
   {
     id: "p8",
     title: "Grand Tree — Full-Height Installation",
     category: "Christmas Tree",
-    year: "Season 2024",
+    year: "Recent Work",
     ratio: "portrait",
     theme: "evergreen",
-    image: "treeGreenLarge",
-    placeholder: true,
+    image: "client08",
+    placeholder: false,
   },
   {
     id: "p9",
-    title: "Fireplace Scheme — Warm Living",
+    title: "Living Scheme — Warm Christmas",
     category: "Home Decoration",
-    year: "Season 2023",
-    ratio: "landscape",
+    year: "Recent Work",
+    ratio: "portrait",
     theme: "burgundy",
-    image: "livingroomFireplace",
-    placeholder: true,
+    image: "client09",
+    placeholder: false,
   },
   {
     id: "p10",
     title: "Ornament Detail — Twinkling Lights",
     category: "Christmas Tree",
-    year: "Season 2023",
+    year: "Recent Work",
     ratio: "portrait",
     theme: "night",
-    image: "treeManyOrnaments",
-    placeholder: true,
+    image: "client10",
+    placeholder: false,
   },
 ];

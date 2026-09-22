@@ -3,8 +3,12 @@
 import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
-/** Uniform image ratio — every card resolves to the same height. */
-const CARD_RATIO = "aspect-[4/3]";
+/** Ratio-aware card image stage — portrait 3/4, landscape 4/3, tall 3/5. */
+const CARD_RATIO: Record<GalleryProject["ratio"], string> = {
+  portrait: "aspect-[3/4]",
+  landscape: "aspect-[4/3]",
+  tall: "aspect-[3/5]",
+};
 
 /**
  * GalleryCard — editorial project card.
@@ -25,8 +29,8 @@ export function GalleryCard({
 }) {
   const inner = (
     <>
-      {/* Image stage — uniform 4/3 on every card */}
-      <div className={`${CARD_RATIO} relative overflow-hidden`}>
+      {/* Image stage — ratio follows the project data */}
+      <div className={`${CARD_RATIO[project.ratio]} relative overflow-hidden`}>
         <div className="absolute inset-0 scale-[1.03] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]">
           <FestiveImage
             image={project.image}

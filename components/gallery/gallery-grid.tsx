@@ -23,7 +23,8 @@ type Filter = (typeof filters)[number];
  * GalleryGrid — editorial filterable projects.
  * Hairline underline tabs with index numerals + live result count; tiles
  * re-reveal in a stagger when the filter changes; clicking a tile opens a
- * full-screen lightbox (keyboard navigable). Data remains placeholder-tagged.
+ * full-screen lightbox (keyboard navigable). Data now uses real client
+ * project photos (public/images/client/*).
  */
 export function GalleryGrid() {
   const [active, setActive] = useState<Filter>("All");
