@@ -70,7 +70,8 @@ export default function ContactPage() {
       addressCountry: "AE",
     },
     areaServed: siteConfig.serviceArea,
-    openingHours: "Mo-Su 09:00-21:00",
+    // openingHours: only added once the client confirms fixed hours
+    // (schema-plan rule — never publish placeholder/unverified hours).
     priceRange: "$$",
     sameAs: Object.values(siteConfig.social).filter((u) => !u.endsWith("/")),
   };
