@@ -119,16 +119,20 @@ export const blogPosts: BlogPost[] = [
     ],
     faqs: [
       {
-        q: "Are you Christmas decorators in Dubai?",
-        a: "Yes — Festive Occasions is a Christmas decoration studio in Dubai, designing and installing festive schemes for homes, villas, offices and commercial spaces across Dubai and the UAE.",
+        q: "What should I check before booking Christmas decorators in Dubai?",
+        a: "Compare scope, not just price: what is installed, what is included, how the team works on site, and whether removal after the season is part of the service.",
       },
       {
-        q: "Do you decorate near me?",
-        a: "We decorate across Dubai and the wider UAE. Share your community or building and we will confirm coverage and availability for your dates on enquiry.",
+        q: "How do I compare quotes from different decorators fairly?",
+        a: "Ask each studio for the same information — tree size and type, rooms or areas covered, timeline, and removal — so the prices are comparing the same scope.",
       },
       {
         q: "How much do Christmas decorators in Dubai charge?",
         a: "Our packages start from AED 6,000 + VAT (Christmas Cheers) up to AED 25,000 + VAT (Christmas Luxury), with bespoke quotes on request — the final figure depends on your space, scale and styling direction.",
+      },
+      {
+        q: "When should I start asking decorators for quotes?",
+        a: "Seasonal capacity fills early, so the earlier you compare the more choice you have. Definitive 2026 dates are confirmed with the studio on enquiry.",
       },
     ],
     related: [

@@ -13,7 +13,9 @@ export const siteConfig = {
   addressLine:
     "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
   serviceArea: ["Dubai", "Sharjah", "UAE"],
-  hours: "Available daily · 9:00 AM – 9:00 PM", // TODO: verify
+  // Hours not yet client-verified — display scheduling guidance instead of
+  // invented opening times. TODO: replace with verified hours + openingHours schema.
+  hours: "Enquiries & bookings via WhatsApp or email",
 
   social: {
     instagram: "https://www.instagram.com/festive_ocassions", // ✅ client-verified

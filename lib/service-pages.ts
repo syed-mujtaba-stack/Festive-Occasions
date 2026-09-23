@@ -80,28 +80,24 @@ export const servicePages: Record<string, ServicePage> = {
     styles: ["Classic", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
     faqs: [
       {
-        q: "Are you Christmas decorators in Dubai?",
-        a: "Yes — Festive Occasions is a Christmas decoration studio in Dubai. We design and install bespoke festive schemes for homes, villas, offices and commercial spaces across Dubai and the UAE.",
+        q: "What does a full Christmas decoration service include?",
+        a: "A complete festive scheme for your property — design around your space, tree and interior styling, entrance and outdoor elements where relevant, professional installation on schedule and careful removal after the season.",
       },
       {
-        q: "Do you decorate homes near me in Dubai?",
-        a: "We decorate across Dubai and the wider UAE. Share your community or building and we will confirm coverage and availability for your dates on enquiry.",
+        q: "How does the design process work for a bespoke scheme?",
+        a: "We start with your space, not a template — we look at your architecture, proportions and light, then propose a palette, theme and layout before any installation begins.",
       },
       {
-        q: "What Christmas decoration services do you offer in Dubai?",
-        a: "We design and install bespoke Christmas decoration for homes, villas, offices and commercial spaces — from tree styling to full property transformations.",
+        q: "Can one studio decorate both my home and my office?",
+        a: "Yes. We style homes, villas, offices and commercial venues, and a single studio can plan residential and business schemes together if you manage both.",
       },
       {
-        q: "How early should I book?",
-        a: "We recommend booking as early as possible while seasonal capacity is available. Contact us to check availability for your dates.",
+        q: "What happens to the decoration after Christmas?",
+        a: "Our team removes everything carefully after the festive period and leaves the property exactly as we found it — removal is part of the service.",
       },
       {
-        q: "Which areas in Dubai do you serve?",
-        a: "We serve Dubai and surrounding UAE areas. Share your location and we will confirm coverage.",
-      },
-      {
-        q: "Do you provide installation and removal?",
-        a: "Yes. Our team handles the full cycle — professional installation and careful removal after the festive period.",
+        q: "How do I get a quote for my space?",
+        a: "Send us photos and your preferred dates on WhatsApp or by email, and we will confirm the right scale and a clear quote for your property before you commit.",
       },
     ],
   },

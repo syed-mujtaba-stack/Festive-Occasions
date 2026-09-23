@@ -123,10 +123,25 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.domain}
           </p>
-          <p className="flex items-center gap-2">
-            <span className="text-label text-ivory/40">Bespoke festive decoration</span>
-            <span className="text-champagne">DUBAI · UAE</span>
-          </p>
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <li>
+              <Link
+                href="/privacy-policy"
+                className="transition-colors hover:text-champagne"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="transition-colors hover:text-champagne">
+                Terms of Service
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-label text-ivory/40">Bespoke festive decoration</span>
+              <span className="text-champagne">DUBAI · UAE</span>
+            </li>
+          </ul>
         </div>
       </Container>
     </footer>
