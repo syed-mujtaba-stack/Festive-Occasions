@@ -15,27 +15,34 @@ import type { FaqEntry } from "@/lib/faqs";
 import { FaWhatsapp } from "react-icons/fa";
 
 /**
- * Christmas Decoration UAE — regional coverage page (page-plan: /christmas-decoration-uae).
- * Distinct from the Dubai pillar: this is about nationwide logistics, Emirates
- * coverage and multi-location projects. Honest: coverage confirmed on enquiry.
+ * Christmas Decoration UAE — nationwide coverage page (page-plan: /christmas-decoration-uae).
+ * Distinct from the Dubai pillar: this is about nationwide logistics, coverage of
+ * ALL seven Emirates + key communities/areas, and multi-location projects.
+ * Honest: coverage confirmed on enquiry; no area is claimed that cannot be scheduled.
  * FAQs are this page's own — no overlap with home/pillar/service/blog FAQ sets.
  */
 export const metadata: Metadata = {
-  title: "Christmas Decoration UAE",
+  title: "Christmas Decoration UAE — All Emirates",
   description:
-    "Christmas decorators serving the wider UAE — villas, hotels, offices and venues across the Emirates, planned and installed by Festive Occasions. Confirm coverage for your area on enquiry.",
+    "Christmas decorators across all seven Emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — plus every major community and area. Villas, hotels, offices and venues, planned from our Sharjah base. Confirm coverage for your area on enquiry.",
   alternates: { canonical: "/christmas-decoration-uae" },
   keywords: [
     "Christmas decoration UAE",
     "Christmas decorators UAE",
-    "Christmas decorations across Emirates",
     "Christmas decoration Abu Dhabi",
-    "Decorators outside Dubai",
+    "Christmas decoration Sharjah",
+    "Christmas decoration Ajman",
+    "Christmas decoration Ras Al Khaimah",
+    "Christmas decoration Fujairah",
+    "Christmas decoration Umm Al Quwain",
+    "Christmas decoration Palm Jumeirah",
+    "Christmas decoration Al Ain",
+    "Decorators across all Emirates",
   ],
   openGraph: {
-    title: "Christmas Decoration UAE | Festive Occasions",
+    title: "Christmas Decoration UAE — All Emirates & Cities",
     description:
-      "Nationwide Christmas decoration across the Emirates — planned from our Sharjah base, coverage confirmed on enquiry.",
+      "Nationwide Christmas decoration across all seven Emirates and every major area — planned from our Sharjah base, coverage confirmed on enquiry.",
     type: "website",
     images: [
       {
@@ -48,29 +55,93 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christmas Decoration UAE | Festive Occasions",
+    title: "Christmas Decoration UAE — All Emirates & Cities",
     description:
-      "Nationwide Christmas decoration across the Emirates — planned from our Sharjah base, coverage confirmed on enquiry.",
+      "Nationwide Christmas decoration across all seven Emirates and every major area — planned from our Sharjah base, coverage confirmed on enquiry.",
     images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
   },
 };
 
 const emirates = [
   {
-    name: "Sharjah",
-    copy: "Our registered base — projects are planned and dispatched from Sharjah Publishing City Free Zone.",
-  },
-  {
     name: "Dubai",
-    copy: "Homes, villas, offices and venues across the city — coverage and dates confirmed on enquiry.",
+    copy: "Homes, villas, offices and venues across the city — from Palm Jumeirah to Mirdif — coverage and dates confirmed on enquiry.",
   },
   {
     name: "Abu Dhabi",
-    copy: "Villa estates, residences and commercial spaces in the capital — scheduled on enquiry.",
+    copy: "The capital and its surroundings — villas in Khalifa City, island residences on Saadiyat and Al Reem, plus Al Ain — scheduled on enquiry.",
   },
   {
-    name: "Northern Emirates",
-    copy: "Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — considered on a project-by-project basis.",
+    name: "Sharjah",
+    copy: "Our registered base — projects are planned and dispatched from Sharjah Publishing City Free Zone, so local installations start on familiar ground.",
+  },
+  {
+    name: "Ajman",
+    copy: "Homes overlooking the corniche and communities like Al Zorah — handled on enquiry with the same planning as any other project.",
+  },
+  {
+    name: "Ras Al Khaimah",
+    copy: "Coastal and resort-facing residences around Al Marjan, Al Hamra and Mina Al Arab — scheduled on enquiry.",
+  },
+  {
+    name: "Fujairah",
+    copy: "East-coast properties from Fujairah City to Dibba and Al Aqah — travel and dates confirmed on enquiry.",
+  },
+  {
+    name: "Umm Al Quwain",
+    copy: "Projects across Umm Al Quwain City and its coastal communities — considered with confirmed logistics on enquiry.",
+  },
+];
+
+const areas = [
+  {
+    group: "Dubai communities",
+    items: [
+      "Palm Jumeirah",
+      "Jumeirah",
+      "Emirates Hills",
+      "Arabian Ranches",
+      "Dubai Marina",
+      "Downtown Dubai",
+      "Business Bay",
+      "Dubai Hills Estate",
+      "Al Barari",
+      "Mirdif",
+      "Jumeirah Golf Estates",
+      "Damac Hills",
+    ],
+  },
+  {
+    group: "Abu Dhabi areas",
+    items: [
+      "Saadiyat Island",
+      "Yas Island",
+      "Al Reem Island",
+      "Al Raha Beach",
+      "Khalifa City",
+      "Al Ain",
+    ],
+  },
+  {
+    group: "Sharjah areas",
+    items: [
+      "Al Majaz",
+      "Al Khan",
+      "Sharjah Publishing City Free Zone",
+      "Muwaileh",
+    ],
+  },
+  {
+    group: "Northern Emirates",
+    items: [
+      "Al Zorah (Ajman)",
+      "Al Marjan Island (RAK)",
+      "Al Hamra Village (RAK)",
+      "Mina Al Arab (RAK)",
+      "Dibba (Fujairah)",
+      "Al Aqah (Fujairah)",
+      "Umm Al Quwain City",
+    ],
   },
 ];
 
@@ -94,6 +165,10 @@ const scope = [
 ];
 
 const uaeFaqs: FaqEntry[] = [
+  {
+    q: "Do you cover every city and area in the UAE?",
+    a: "The client takes on projects across all seven Emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — and in communities from Palm Jumeirah to Al Ain. Tell us your exact location and dates and we will confirm coverage on enquiry.",
+  },
   {
     q: "Can you install Christmas decoration in Abu Dhabi or other Emirates?",
     a: "Yes — we take on projects across the UAE. Tell us your location and dates and we will confirm coverage and scheduling on enquiry.",
@@ -123,7 +198,16 @@ function uaeJsonLd() {
         name: "Christmas Decoration UAE",
         description: metadata.description,
         provider: { "@id": `${siteConfig.url}/#business` },
-        areaServed: ["UAE", "Sharjah", "Abu Dhabi", "Dubai", "Northern Emirates"],
+        areaServed: [
+          "UAE",
+          "Dubai",
+          "Abu Dhabi",
+          "Sharjah",
+          "Ajman",
+          "Ras Al Khaimah",
+          "Fujairah",
+          "Umm Al Quwain",
+        ],
       },
       {
         "@type": "BreadcrumbList",
@@ -226,6 +310,48 @@ export default function ChristmasDecorationUaePage() {
               </ScrollReveal>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      {/* Areas & communities — all key locations */}
+      <Section id="areas">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="All Areas & Communities"
+              title="If it is in the UAE, we can talk about it."
+              description="The list below covers the communities we are most often asked about — Palm Jumeirah to Dibba. Your area not named? We still take it on enquiry, because the client works across all emirates and areas."
+            />
+          </ScrollReveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {areas.map((group, gi) => (
+              <ScrollReveal key={group.group} delay={gi * 0.05}>
+                <div className="h-full rounded-lg border hairline bg-background p-7">
+                  <h3 className="font-display text-xl text-espresso">
+                    {group.group}
+                  </h3>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-full border hairline px-4 py-2 text-sm font-medium text-cocoa"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal delay={0.15}>
+            <p className="mt-8 text-sm text-cocoa/70">
+              Every area shown is confirmed on enquiry — we do not publish
+              coverage we cannot actually schedule. If your community is not
+              listed, ask anyway: the client takes on projects across all
+              Emirates, and dates are confirmed with a clear answer either way.
+            </p>
+          </ScrollReveal>
         </Container>
       </Section>
 
