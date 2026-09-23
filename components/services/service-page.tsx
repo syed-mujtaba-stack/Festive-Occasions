@@ -9,6 +9,7 @@ import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
 import type { ServicePage } from "@/lib/service-pages";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { images } from "@/lib/images";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { FaWhatsapp } from "react-icons/fa";
 import type { Metadata } from "next";
@@ -64,6 +65,7 @@ const pageKeywords: Record<string, string[]> = {
 };
 
 export function servicePageMetadata(page: ServicePage): Metadata {
+  const ogImage = `${siteConfig.url}${images[page.heroImage].src}`;
   return {
     title: page.title,
     description: page.metaDescription,
@@ -77,6 +79,20 @@ export function servicePageMetadata(page: ServicePage): Metadata {
       description: page.metaDescription,
       url: `/${page.slug}`,
       type: "website",
+      images: [
+        {
+          url: ogImage,
+          alt: images[page.heroImage].alt,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${page.title} | Festive Occasions`,
+      description: page.metaDescription,
+      images: [ogImage],
     },
   };
 }

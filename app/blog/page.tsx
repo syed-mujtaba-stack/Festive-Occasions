@@ -9,6 +9,8 @@ import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { FestiveImage } from "@/components/ui/festive-image";
 import { blogPosts } from "@/lib/blog";
+import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Christmas Decoration Guides & Inspiration | Festive Occasions Dubai",
@@ -21,6 +23,21 @@ export const metadata: Metadata = {
       "Practical, honest guides to Christmas decoration in Dubai — packages, villas, trees, offices and lighting.",
     url: "/blog",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.treeStringLights.src}`,
+        alt: images.treeStringLights.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christmas Decoration Guides | Festive Occasions",
+    description:
+      "Practical, honest guides to Christmas decoration in Dubai — packages, villas, trees, offices and lighting.",
+    images: [`${siteConfig.url}${images.treeStringLights.src}`],
   },
 };
 

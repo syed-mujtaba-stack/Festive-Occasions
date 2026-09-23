@@ -7,6 +7,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { QuoteForm } from "@/components/contact/quote-form";
 import { Button } from "@/components/ui/button";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { images } from "@/lib/images";
 import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -20,6 +21,21 @@ export const metadata: Metadata = {
       "Request a quote for bespoke Christmas decoration in Dubai — WhatsApp, call or email.",
     url: "/contact",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.officeLobbyTree.src}`,
+        alt: images.officeLobbyTree.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Festive Occasions | Christmas Decoration Dubai",
+    description:
+      "Request a quote for bespoke Christmas decoration in Dubai — WhatsApp, call or email.",
+    images: [`${siteConfig.url}${images.officeLobbyTree.src}`],
   },
 };
 

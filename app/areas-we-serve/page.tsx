@@ -7,6 +7,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, siteConfig } from "@/lib/site";
+import { images } from "@/lib/images";
 import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -20,6 +21,21 @@ export const metadata: Metadata = {
       "Christmas decoration across Dubai and the UAE — confirm coverage for your area on enquiry.",
     url: "/areas-we-serve",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.outdoorHouseLights.src}`,
+        alt: images.outdoorHouseLights.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Areas We Serve | Festive Occasions",
+    description:
+      "Christmas decoration across Dubai and the UAE — confirm coverage for your area on enquiry.",
+    images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
   },
 };
 

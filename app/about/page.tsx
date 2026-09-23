@@ -8,6 +8,8 @@ import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { WhyUs } from "@/components/sections/why-us";
 import { ProcessSection } from "@/components/sections/process";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About | Festive Occasions Dubai Christmas Decoration Studio",
@@ -20,6 +22,21 @@ export const metadata: Metadata = {
       "A premium Christmas decoration studio in Dubai — bespoke schemes designed around every space.",
     url: "/about",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.outdoorHouseLights.src}`,
+        alt: images.outdoorHouseLights.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Festive Occasions",
+    description:
+      "A premium Christmas decoration studio in Dubai — bespoke schemes designed around every space.",
+    images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
   },
 };
 

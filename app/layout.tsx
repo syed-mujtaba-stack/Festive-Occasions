@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { images } from "@/lib/images";
 import { Preloader } from "@/components/ui/preloader";
 
 const cormorant = Cormorant_Garamond({
@@ -52,12 +53,21 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "en_AE",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.hero.src}`,
+        alt: images.hero.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Christmas Decoration Dubai | Festive Occasions",
     description:
       "Bespoke Christmas decoration for homes, villas, offices and commercial spaces across Dubai.",
+    images: [`${siteConfig.url}${images.hero.src}`],
   },
   robots: {
     index: true,

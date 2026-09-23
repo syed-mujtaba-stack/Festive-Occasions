@@ -6,8 +6,12 @@ import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
+import { JsonLd } from "@/components/seo/json-ld";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { galleryProjects } from "@/lib/gallery";
+import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Christmas Decoration Portfolio | Festive Occasions Dubai",
@@ -20,13 +24,56 @@ export const metadata: Metadata = {
       "Festive schemes for villas, homes, offices and commercial spaces — styled around their space.",
     url: "/gallery",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.hero.src}`,
+        alt: images.hero.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christmas Decoration Portfolio | Festive Occasions",
+    description:
+      "Festive schemes for villas, homes, offices and commercial spaces — styled around their space.",
+    images: [`${siteConfig.url}${images.hero.src}`],
   },
 };
+
+/** ImageGallery + ImageObject schema — one ImageObject per project photo. */
+function galleryJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: "Festive Occasions Christmas Decoration Portfolio",
+    description:
+      "Real Festive Occasions Christmas decoration installations — villas, homes, offices and commercial settings in Dubai and the UAE.",
+    url: `${siteConfig.url}/gallery`,
+    isAccessibleForFree: true,
+    image: galleryProjects.map((project) => {
+      const img = images[project.image];
+      return {
+        "@type": "ImageObject",
+        contentUrl: `${siteConfig.url}${img.src}`,
+        caption: project.title,
+        representativeOfPage: false,
+      };
+    }),
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+}
 
 export default function GalleryPage() {
   return (
     <PageShell>
       <PageBreadcrumbSchema name="Gallery" path="/gallery" />
+      <JsonLd data={galleryJsonLd()} />
       <PageHero
         eyebrow="Portfolio"
         title="Festive transformations, by space."

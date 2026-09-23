@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { blogPosts, getBlogPost, type BlogSection } from "@/lib/blog";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { images } from "@/lib/images";
 
 export const dynamicParams = false;
 
@@ -37,6 +38,20 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.published,
       ...(post.updated ? { modifiedTime: post.updated } : {}),
+      images: [
+        {
+          url: `${siteConfig.url}${images[post.heroImage].src}`,
+          alt: images[post.heroImage].alt,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.metaDescription,
+      images: [`${siteConfig.url}${images[post.heroImage].src}`],
     },
   };
 }
@@ -88,7 +103,7 @@ function articleJsonLd(post: (typeof blogPosts)[number]) {
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: `${siteConfig.url}/icon.svg`,
+    image: `${siteConfig.url}${images[post.heroImage].src}`,
     datePublished: post.published,
     ...(post.updated ? { dateModified: post.updated } : {}),
     author: {

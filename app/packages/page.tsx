@@ -8,6 +8,8 @@ import { PackagesSection } from "@/components/sections/packages";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/seo/json-ld";
+import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Christmas Decoration Packages & Prices | Festive Occasions Dubai",
@@ -20,6 +22,21 @@ export const metadata: Metadata = {
       "Price-anchored Christmas collections from AED 6,000 + VAT — Cheers, Fancy and Luxury, with bespoke styling on request.",
     url: "/packages",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.hero.src}`,
+        alt: images.hero.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christmas Decoration Packages | Festive Occasions",
+    description:
+      "Price-anchored Christmas collections from AED 6,000 + VAT — Cheers, Fancy and Luxury, with bespoke styling on request.",
+    images: [`${siteConfig.url}${images.hero.src}`],
   },
 };
 

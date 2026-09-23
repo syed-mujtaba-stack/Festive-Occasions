@@ -10,60 +10,60 @@ export const images = {
   /** Homepage hero — client landscape installation photo. */
   hero: {
     src: "/images/client/client-hero.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas decoration installation in Dubai — decorated villa interior",
   },
   /** Intro media — client portrait installation photo. */
   clientIntro: {
     src: "/images/client/client-01.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas tree decor Dubai by Festive Occasions — decorated living space",
   },
   client01: {
     src: "/images/client/client-01.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas tree decoration in Dubai — styled living room",
   },
   client02: {
     src: "/images/client/client-02.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas decoration installation in Dubai by Festive Occasions — decorated home",
   },
   client03: {
     src: "/images/client/client-03.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Villa Christmas decoration in Dubai by Festive Occasions — festive interior",
   },
   client04: {
     src: "/images/client/client-04.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas decorators Dubai — Festive Occasions decorative scheme in a home",
   },
   client05: {
     src: "/images/client/client-05.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas decoration in Dubai — decorated room with tree",
   },
   client06: {
     src: "/images/client/client-06.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas tree decoration service Dubai — Festive Occasions styled tree",
   },
   client07: {
     src: "/images/client/client-07.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas decor in Dubai — festive table and room styling",
   },
   client08: {
     src: "/images/client/client-08.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas decoration company Dubai — Festive Occasions home installation",
   },
   client09: {
     src: "/images/client/client-09.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Villa Christmas decorators Dubai — Festive Occasions festive scheme",
   },
   client10: {
     src: "/images/client/client-10.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas decoration in Dubai — decorated interior view",
   },
   client11: {
     src: "/images/client/client-11.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Festive Occasions Christmas tree and room decoration in Dubai",
   },
   client12: {
     src: "/images/client/client-12.jpg",
-    alt: "Christmas decoration installation by Festive Occasions",
+    alt: "Christmas decorators in Dubai — Festive Occasions installation detail",
   },
   treeGreenLarge: {
     src: "/images/christmas/tree-green-large.jpg",

@@ -9,8 +9,7 @@ export const siteConfig = {
   phone: "+971 56 428 4444",
   phoneDisplay: "+971 56 428 4444",
   whatsapp: "971564284444", // digits only, country code
-  // ⚠️ Email still unverified — client hasn't confirmed; keep placeholder until verified.
-  email: "hello@festiveoccasions.ae", // TODO: verify client email
+  email: "info@festiveoccasions.ae", // ✅ client-verified
   addressLine:
     "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
   serviceArea: ["Dubai", "Sharjah", "UAE"],

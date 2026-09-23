@@ -8,6 +8,8 @@ import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { whatsappLink } from "@/lib/site";
+import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -21,6 +23,21 @@ export const metadata: Metadata = {
       "Festive styling for occasions beyond Christmas, confirmed on enquiry.",
     url: "/other-occasions",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${images.ornamentsTwinkling.src}`,
+        alt: images.ornamentsTwinkling.alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Other Occasions | Festive Occasions",
+    description:
+      "Festive styling for occasions beyond Christmas, confirmed on enquiry.",
+    images: [`${siteConfig.url}${images.ornamentsTwinkling.src}`],
   },
 };
 
