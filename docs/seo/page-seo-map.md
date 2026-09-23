@@ -17,6 +17,7 @@ layout: `"%s | Festive Occasions"`.
 | `/christmas-corporate-decoration-dubai` | Corporate | Christmas Corporate Decoration Dubai | ✅ |
 | `/christmas-lighting-dubai` | Lighting | Christmas Lighting Dubai | ✅ |
 | `/outdoor-christmas-decoration-dubai` | Outdoor | Outdoor Christmas Decoration Dubai | ✅ |
+| `/christmas-decoration-uae` | Regional (UAE-wide) | Christmas Decoration UAE | ✅ |
 | `/gallery` | Portfolio | Gallery — Festive Occasions | ✅ |
 | `/about` | Brand story | About | ✅ |
 | `/contact` | Conversion | Contact / Get a Quote | ✅ |

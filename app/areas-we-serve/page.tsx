@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
@@ -99,6 +100,15 @@ export default function AreasWeServePage() {
                         <p className="mt-2 max-w-lg text-[0.95rem] leading-relaxed text-cocoa">
                           {c.copy}
                         </p>
+                        {c.title === "Wider UAE" && (
+                          <Link
+                            href="/christmas-decoration-uae"
+                            className="mt-3 inline-flex items-center gap-2 text-label text-champagne transition-colors hover:text-espresso"
+                          >
+                            Nationwide projects
+                            <span aria-hidden>→</span>
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>

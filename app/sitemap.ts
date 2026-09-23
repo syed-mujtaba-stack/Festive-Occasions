@@ -59,6 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ["outdoorHouseLights"],
     },
     {
+      path: "/christmas-decoration-uae",
+      priority: 0.7,
+      changeFrequency: "monthly",
+      images: ["outdoorHouseLights"],
+    },
+    {
       path: "/about",
       priority: 0.6,
       changeFrequency: "monthly",

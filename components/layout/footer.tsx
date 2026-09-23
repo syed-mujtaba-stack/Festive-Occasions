@@ -21,6 +21,7 @@ const footerColumns = [
       { label: "Blog", href: "/blog" },
       { label: "About", href: "/about" },
       { label: "Areas We Serve", href: "/areas-we-serve" },
+      { label: "Christmas Decoration UAE", href: "/christmas-decoration-uae" },
       { label: "Other Occasions", href: "/other-occasions" },
       { label: "Contact", href: "/contact" },
     ],
