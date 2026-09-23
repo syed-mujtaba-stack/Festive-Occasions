@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   description:
     "Festive Occasions provides Christmas decoration across Dubai and the UAE. Confirm whether we cover your area on enquiry.",
   alternates: { canonical: "/areas-we-serve" },
+  keywords: [
+    "Christmas decoration Dubai coverage",
+    "Christmas decorators Sharjah",
+    "Christmas decoration service areas UAE",
+    "Christmas decorators near me Dubai",
+  ],
   openGraph: {
     title: "Areas We Serve | Festive Occasions",
     description:

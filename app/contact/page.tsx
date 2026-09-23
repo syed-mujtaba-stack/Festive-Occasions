@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   description:
     "Contact Festive Occasions for Christmas decoration in Dubai — request a quote via WhatsApp, phone or email for homes, villas, offices and commercial spaces.",
   alternates: { canonical: "/contact" },
+  keywords: [
+    "Contact Festive Occasions",
+    "Christmas decoration quote Dubai",
+    "Get a Christmas decoration quote UAE",
+    "Christmas decorators contact",
+  ],
   openGraph: {
     title: "Contact Festive Occasions | Christmas Decoration Dubai",
     description:

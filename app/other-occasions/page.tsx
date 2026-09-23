@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   description:
     "Beyond Christmas — festive styling for other occasions on enquiry. Tell us about your celebration and we'll confirm how we can help.",
   alternates: { canonical: "/other-occasions" },
+  keywords: [
+    "Other festive occasions decoration",
+    "New Year decoration Dubai",
+    "Private celebration styling UAE",
+    "Venue festive decoration Dubai",
+  ],
   openGraph: {
     title: "Other Occasions | Festive Occasions",
     description:

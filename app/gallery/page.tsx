@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description:
     "A selection of festive Christmas decoration schemes — villas, homes, offices and commercial settings styled around their space by Festive Occasions Dubai.",
   alternates: { canonical: "/gallery" },
+  keywords: [
+    "Christmas decoration gallery Dubai",
+    "Christmas decoration portfolio UAE",
+    "Festive install photos Dubai",
+    "Christmas decoration inspiration Dubai",
+  ],
   openGraph: {
     title: "Christmas Decoration Portfolio | Festive Occasions",
     description:

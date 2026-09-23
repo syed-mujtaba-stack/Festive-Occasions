@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   description:
     "Christmas decoration packages in Dubai — Christmas Cheers from AED 6,000, Fancy from AED 15,000 and Luxury from AED 25,000, plus bespoke styling. Prices exclude VAT.",
   alternates: { canonical: "/packages" },
+  keywords: [
+    "Christmas decoration packages Dubai",
+    "Christmas decoration prices Dubai",
+    "Festive decoration collections UAE",
+    "Christmas installation cost Dubai",
+  ],
   openGraph: {
     title: "Christmas Decoration Packages | Festive Occasions",
     description:

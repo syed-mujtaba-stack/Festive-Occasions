@@ -37,6 +37,8 @@ function homeJsonLd(): Record<string, unknown> {
           "@type": "ImageObject",
           url: `${siteConfig.url}/icon.svg`,
         },
+        telephone: siteConfig.phone,
+        email: siteConfig.email,
         address: {
           "@type": "PostalAddress",
           streetAddress: "Business Centre, Sharjah Publishing City Free Zone",
@@ -44,12 +46,14 @@ function homeJsonLd(): Record<string, unknown> {
           addressCountry: "AE",
         },
         areaServed: siteConfig.serviceArea,
+        sameAs: [siteConfig.social.instagram],
       },
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
         name: siteConfig.name,
         url: siteConfig.url,
+        inLanguage: "en-AE",
         publisher: { "@id": `${siteConfig.url}/#business` },
       },
       {
@@ -82,7 +86,7 @@ export default function Home() {
         <Audiences />
         <GallerySection />
         <ProcessSection />
-        <PackagesSection />
+        <PackagesSection linkToPage />
         <WhyUs />
         <Testimonials />
         <FAQ />

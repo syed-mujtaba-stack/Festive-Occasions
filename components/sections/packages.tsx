@@ -18,10 +18,13 @@ import { cn } from "@/lib/utils";
 export function PackagesSection({
   id = "packages",
   compact = false,
+  linkToPage = false,
 }: {
   id?: string;
   /** Compact intro heading for inner pages. */
   compact?: boolean;
+  /** Add an internal link to the /packages page (homepage usage). */
+  linkToPage?: boolean;
 }) {
   return (
     <Section id={id}>
@@ -38,13 +41,18 @@ export function PackagesSection({
               description="Fixed collections with considered styling, from a single signature tree to a complete seasonal setting. Custom colour themes and larger installations are quoted on request."
             />
           </ScrollReveal>
-          {!compact && (
-            <ScrollReveal delay={0.1}>
-              <p className="text-label text-cocoa">
-                From AED 6,000 + VAT
-              </p>
-            </ScrollReveal>
-          )}
+          <ScrollReveal delay={0.1}>
+            <div className="flex flex-col items-start gap-3 md:items-end">
+              {!compact && (
+                <p className="text-label text-cocoa">From AED 6,000 + VAT</p>
+              )}
+              {linkToPage && (
+                <Button variant="outline" size="md" href="/packages">
+                  Compare all packages
+                </Button>
+              )}
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Package rows */}

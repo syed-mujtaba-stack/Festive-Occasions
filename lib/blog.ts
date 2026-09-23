@@ -28,6 +28,8 @@ export type BlogPost = {
   updated?: string;
   readingMinutes: number;
   metaDescription: string;
+  /** Per-post keyword variants — same concept, different wording (anti-cannibalization). */
+  keywords: string[];
   heroImage: ImageKey;
   /** Lead paragraph under the H1 */
   lead: string;
@@ -46,6 +48,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 6,
     metaDescription:
       "How to choose Christmas decorators in Dubai — what to check before booking, what a good quote includes, and how to compare decorators fairly for your home, villa or office.",
+    keywords: [
+      "How to choose Christmas decorators in Dubai",
+      "Hiring Christmas decorators UAE",
+      "What to ask a Christmas decoration company",
+      "Christmas decorators near me comparison",
+    ],
     heroImage: "client01",
     lead: "Searching for Christmas decorators near you in Dubai? The landscape is busy around the season, and the difference between a good install and a great one is usually decided before you book. Here is what to check first — and what a fair quote should include.",
     sections: [
@@ -137,6 +145,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     metaDescription:
       "Christmas decoration packages in Dubai — Christmas Cheers from AED 6,000, Fancy from AED 15,000 and Luxury from AED 25,000 (+VAT). See what each includes.",
+    keywords: [
+      "Christmas decoration packages Dubai",
+      "Christmas decoration cost Dubai",
+      "Christmas decorators price list UAE",
+      "Festive decoration packages cost",
+    ],
     heroImage: "hero",
     lead: "Festive Occasions offers three fixed Christmas collections for homes, villas and offices in Dubai — plus bespoke design. Here is exactly what each one includes, what affects the final quote, and how to get an accurate price for your space.",
     sections: [
@@ -213,6 +227,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 6,
     metaDescription:
       "A complete guide to villa Christmas decoration in Dubai — entrance, living spaces, staircase garlands, garden lighting and the packages that suit a full residence.",
+    keywords: [
+      "Villa Christmas decoration Dubai",
+      "Christmas decorators for villas",
+      "Luxury villa festive styling UAE",
+      "Residence Christmas decoration guide",
+    ],
     heroImage: "client03",
     lead: "A villa is not a single room — it is an entrance, a staircase, living spaces and a garden that should feel like one continuous festive scene. Here is how we approach a full residence, and which packages suit it.",
     sections: [
@@ -285,6 +305,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     metaDescription:
       "Christmas tree decoration in Dubai — choosing the right tree size (6 ft to 10 ft), the styles we dress, and how the tree fits into each Festive Occasions package.",
+    keywords: [
+      "Christmas tree decoration Dubai",
+      "Christmas tree decorators UAE",
+      "Tree sizes and styles Dubai",
+      "Festive tree styling service",
+    ],
     heroImage: "treeWithBaubles",
     lead: "The tree is the centrepiece of almost every festive scheme. This guide covers the sizes used across our packages, the styling directions we offer, and how the tree fits into a full installation.",
     sections: [
@@ -356,6 +382,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     metaDescription:
       "Office and corporate Christmas decoration in Dubai — lobbies, receptions and workspaces styled around your brand and building, with packages from AED 6,000 (+VAT).",
+    keywords: [
+      "Office Christmas decoration Dubai",
+      "Corporate festive decoration UAE",
+      "Workplace Christmas decorators Dubai",
+      "Business Christmas decoration service",
+    ],
     heroImage: "officeLobbyTree",
     lead: "An office lobby greets clients, visitors and staff every working day in December. Corporate Christmas decoration should elevate that arrival — on-brand, unfussy, and consistent across the spaces people actually use.",
     sections: [
@@ -420,6 +452,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     metaDescription:
       "Outdoor Christmas decoration and lighting in Dubai — garden trees, entrance garlands, façade and pathway lighting, and how outdoor elements fit villa schemes.",
+    keywords: [
+      "Outdoor Christmas decoration Dubai",
+      "Christmas lights installation UAE",
+      "Garden festive lighting Dubai",
+      "Exterior Christmas decorators",
+    ],
     heroImage: "outdoorHouseLights",
     lead: "Outdoor decoration is what makes a villa feel festive before anyone sets foot inside. In Dubai’s mild December evenings, the garden and entrance become natural gathering spaces — lighting is the key that unlocks them.",
     sections: [
@@ -484,6 +522,12 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 4,
     metaDescription:
       "When to book Christmas decoration in Dubai for the 2026 season — how lead times work, what determines your install window, and how to lock in your preferred dates.",
+    keywords: [
+      "When to book Christmas decoration Dubai",
+      "Christmas decorators booking window",
+      "Festive installation timeline UAE",
+      "Best time to hire Christmas decorators",
+    ],
     heroImage: "client06",
     lead: "December in Dubai is a short, concentrated season — and install teams book up well in advance. Here is an honest look at how lead times work and what actually determines your installation window.",
     sections: [

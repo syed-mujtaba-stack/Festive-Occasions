@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   description:
     "Festive Occasions is a premium Christmas decoration studio in Dubai — designing, styling and installing festive schemes for homes, villas, offices and commercial spaces.",
   alternates: { canonical: "/about" },
+  keywords: [
+    "About Festive Occasions",
+    "Christmas decoration studio Dubai",
+    "Festive decoration specialists UAE",
+    "Christmas decorators company Dubai",
+  ],
   openGraph: {
     title: "About Festive Occasions",
     description:

@@ -30,6 +30,7 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Festive Occasions Dubai`,
     description: post.metaDescription,
+    keywords: post.keywords,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,

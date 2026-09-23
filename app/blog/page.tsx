@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   description:
     "Practical guides on Christmas decoration in Dubai — packages and pricing, villa schemes, trees, office styling, outdoor lighting and when to book.",
   alternates: { canonical: "/blog" },
+  keywords: [
+    "Christmas decoration guide Dubai",
+    "Festive decoration tips UAE",
+    "Christmas decoration ideas Dubai",
+    "Christmas decorators advice",
+  ],
   openGraph: {
     title: "Christmas Decoration Guides | Festive Occasions",
     description:
