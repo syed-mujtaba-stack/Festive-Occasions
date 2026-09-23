@@ -11,7 +11,7 @@ import { images } from "@/lib/images";
 import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "Contact & Quote | Festive Occasions Dubai",
+  title: "Contact Festive Occasions — Quote & Enquiry",
   description:
     "Contact Festive Occasions for Christmas decoration in Dubai — request a quote via WhatsApp, phone or email for homes, villas, offices and commercial spaces.",
   alternates: { canonical: "/contact" },

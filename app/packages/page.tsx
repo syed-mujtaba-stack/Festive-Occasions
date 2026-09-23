@@ -12,7 +12,7 @@ import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Christmas Decoration Packages & Prices | Festive Occasions Dubai",
+  title: "Christmas Decoration Packages & Prices in Dubai",
   description:
     "Christmas decoration packages in Dubai — Christmas Cheers from AED 6,000, Fancy from AED 15,000 and Luxury from AED 25,000, plus bespoke styling. Prices exclude VAT.",
   alternates: { canonical: "/packages" },

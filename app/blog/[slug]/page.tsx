@@ -28,7 +28,7 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Festive Occasions Dubai`,
+    title: post.title,
     description: post.metaDescription,
     keywords: post.keywords,
     alternates: { canonical: `/blog/${post.slug}` },

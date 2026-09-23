@@ -14,7 +14,7 @@ import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Christmas Decoration Portfolio | Festive Occasions Dubai",
+  title: "Christmas Decoration Portfolio & Gallery",
   description:
     "A selection of festive Christmas decoration schemes — villas, homes, offices and commercial settings styled around their space by Festive Occasions Dubai.",
   alternates: { canonical: "/gallery" },

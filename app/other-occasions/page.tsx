@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "Other Occasions | Festive Occasions Dubai",
+  title: "Other Occasions & Festive Styling",
   description:
     "Beyond Christmas — festive styling for other occasions on enquiry. Tell us about your celebration and we'll confirm how we can help.",
   alternates: { canonical: "/other-occasions" },

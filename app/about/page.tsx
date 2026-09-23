@@ -12,7 +12,7 @@ import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About | Festive Occasions Dubai Christmas Decoration Studio",
+  title: "About — Christmas Decoration Studio Dubai",
   description:
     "Festive Occasions is a premium Christmas decoration studio in Dubai — designing, styling and installing festive schemes for homes, villas, offices and commercial spaces.",
   alternates: { canonical: "/about" },
