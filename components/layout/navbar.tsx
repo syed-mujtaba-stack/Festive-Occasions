@@ -7,24 +7,48 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { services } from "@/lib/services";
 
-const navLinks = [
-  { label: "Christmas", href: "/christmas-decoration-dubai" },
-  { label: "Services", href: "/#services" },
+/**
+ * Navigation rebuild — Services dropdown.
+ * Top level is now compact (6 links + CTA); the "Services" dropdown groups:
+ *   the Dubai pillar, the UAE-wide coverage page, and all 7 service pages.
+ * Active state covers /christmas-* so the dropdown stays highlighted across
+ * pillar, UAE and service pages. Mobile menu groups the same structure.
+ */
+
+const mainLinks = [
   { label: "Packages", href: "/packages" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Other Occasions", href: "/other-occasions" },
   { label: "Contact", href: "/contact" },
 ];
 
-/** True when the given nav href represents the current page. */
+const featuredLinks = [
+  {
+    label: "Christmas Decoration",
+    href: "/christmas-decoration-dubai",
+    note: "Dubai",
+  },
+  {
+    label: "Christmas Decoration UAE",
+    href: "/christmas-decoration-uae",
+    note: "All 7 Emirates — Nationwide",
+    badge: true,
+  },
+];
+
+const allServices = services.filter((s) => s.id !== "christmas-decoration");
+
+/** True when the given href represents the current page. */
 function isActive(href: string, pathname: string): boolean {
-  if (href.startsWith("/#")) return pathname === "/";
-  if (href === "/christmas-decoration-dubai")
-    return pathname === href || pathname.startsWith("/christmas-");
   return pathname === href;
+}
+
+/** Services dropdown is active across the pillar, UAE and service pages. */
+function isServicesActive(pathname: string): boolean {
+  return pathname === "/christmas-decoration-dubai" || pathname.startsWith("/christmas-");
 }
 
 export function Navbar() {
@@ -89,35 +113,118 @@ export function Navbar() {
           >
             <LogoMark />
             <span className="flex flex-col leading-none">
-              <span
-                className={cn(
-                  "flex items-baseline font-display text-[1.3rem] tracking-tight transition-colors",
-                  solid ? "text-ivory" : "text-ivory"
-                )}
-              >
+              <span className="flex items-baseline font-display text-[1.3rem] tracking-tight text-ivory">
                 Festive&nbsp;
                 <span className="italic text-champagne-soft transition-colors duration-500 group-hover:text-champagne">
                   Occasions
                 </span>
               </span>
-              <span
-                className={cn(
-                  "text-label mt-1.5 flex items-center gap-2 transition-colors",
-                  solid ? "text-champagne" : "text-champagne/90"
-                )}
-              >
+              <span className="text-label mt-1.5 flex items-center gap-2 text-champagne">
                 <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
-                Christmas Decoration · Dubai
+                Christmas Decoration · Dubai &amp; UAE
               </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
           <nav
-            className="hidden items-center gap-7 lg:flex"
+            className="hidden items-center gap-6 lg:flex xl:gap-8"
             aria-label="Primary"
           >
-            {navLinks.map((l) => {
+            {/* Services — dropdown */}
+            <div className="group relative">
+              <Link
+                href="/christmas-decoration-dubai"
+                aria-haspopup="true"
+                aria-current={isServicesActive(pathname) ? "page" : undefined}
+                className={cn(
+                  "group/link relative flex items-center gap-1.5 text-[0.8rem] font-medium uppercase tracking-[0.08em] transition-colors",
+                  "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-champagne after:transition-transform after:duration-500 after:ease-out",
+                  "group-hover/link:after:scale-x-100",
+                  isServicesActive(pathname)
+                    ? "text-champagne after:scale-x-100"
+                    : solid
+                      ? "text-ivory/75 hover:text-champagne"
+                      : "text-ivory/85 hover:text-champagne"
+                )}
+              >
+                Services
+                <svg
+                  aria-hidden
+                  viewBox="0 0 12 12"
+                  className="h-2.5 w-2.5 transition-transform duration-300 group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path d="M2 4l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+
+              {/* Dropdown panel — visible on hover + focus-within */}
+              <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="w-[320px] translate-y-2 rounded-xl border hairline-dark bg-night/95 p-2 shadow-2xl backdrop-blur-xl transition-transform duration-300 group-hover:translate-y-0">
+                  {/* Featured — pillar + UAE */}
+                  {featuredLinks.map((f) => (
+                    <Link
+                      key={f.href}
+                      href={f.href}
+                      className={cn(
+                        "group/item flex items-center justify-between gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-ivory/5",
+                        f.href === pathname && "bg-ivory/5"
+                      )}
+                    >
+                      <span className="flex flex-col">
+                        <span className="font-display text-lg leading-tight text-ivory transition-colors group-hover/item:text-champagne">
+                          {f.label}
+                        </span>
+                        <span className="text-label mt-1 text-champagne/80">{f.note}</span>
+                      </span>
+                      {f.badge && (
+                        <span className="rounded-full border border-champagne/40 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-champagne">
+                          Nationwide
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+
+                  {/* Divider */}
+                  <div aria-hidden className="my-2 h-px bg-ivory/10" />
+
+                  {/* All services */}
+                  <p className="text-label px-4 pb-1 pt-2 text-ivory/50">All services</p>
+                  <div className="flex flex-col">
+                    {allServices.map((s) => (
+                      <Link
+                        key={s.id}
+                        href={s.href}
+                        className={cn(
+                          "group/item flex items-center justify-between gap-3 rounded-lg px-4 py-2 transition-colors hover:bg-ivory/5",
+                          s.href === pathname && "bg-ivory/5"
+                        )}
+                      >
+                        <span className="text-[0.82rem] font-medium text-ivory/85 transition-colors group-hover/item:text-champagne">
+                          {s.title} {s.subtitle}
+                        </span>
+                        <svg
+                          aria-hidden
+                          viewBox="0 0 12 12"
+                          className="h-2.5 w-2.5 text-champagne/50 transition-transform duration-300 group-hover/item:translate-x-0.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        >
+                          <path d="M3 1.5l4.5 4.5L3 10.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Remaining top-level links */}
+            {mainLinks.map((l) => {
               const active = isActive(l.href, pathname);
               return (
                 <Link
@@ -184,7 +291,7 @@ export function Navbar() {
         )}
         aria-hidden={!menuOpen}
       >
-        <div className="container-site flex flex-1 flex-col pb-24 pt-6">
+        <div className="container-site flex flex-1 flex-col overflow-y-auto pb-24 pt-6">
           {/* Brand row — monogram + wordmark */}
           <div
             className={cn(
@@ -200,37 +307,94 @@ export function Navbar() {
                 <span className="italic text-champagne-soft">Occasions</span>
               </span>
               <span className="text-label mt-1.5 text-champagne">
-                Christmas Decoration · Dubai
+                Christmas Decoration · Dubai &amp; UAE
               </span>
             </div>
           </div>
 
-          {[{ label: "Home", href: "/" }, ...navLinks].map((l, i) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className={cn(
-                "group flex items-baseline gap-4 border-b hairline-dark py-4 transition-all duration-500",
-                menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              )}
-              style={{ transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms" }}
-            >
-              <span className="text-label text-champagne">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="font-display text-3xl text-ivory transition-colors group-hover:text-champagne">
-                {l.label}
-              </span>
-            </Link>
-          ))}
-
+          {/* Services — featured */}
           <div
             className={cn(
-              "mt-8 flex flex-col gap-3 transition-all duration-500",
+              "pt-6 transition-all duration-500",
               menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             )}
-            style={{ transitionDelay: menuOpen ? "420ms" : "0ms" }}
+            style={{ transitionDelay: menuOpen ? "100ms" : "0ms" }}
+          >
+            <p className="text-label text-champagne/70">Services</p>
+            <div className="mt-3 flex flex-col">
+              {featuredLinks.map((f, i) => (
+                <Link
+                  key={f.href}
+                  href={f.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-baseline justify-between gap-4 border-b hairline-dark py-4"
+                >
+                  <span className="flex flex-col">
+                    <span className="font-display text-2xl text-ivory transition-colors group-hover:text-champagne">
+                      {f.label}
+                    </span>
+                    <span className="text-label mt-1 text-champagne/80">{f.note}</span>
+                  </span>
+                  <span className="text-label text-champagne">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            {/* All services — compact links */}
+            <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+              {allServices.map((s) => (
+                <Link
+                  key={s.id}
+                  href={s.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-center justify-between gap-3 border-b hairline-dark py-2.5"
+                >
+                  <span className="text-[0.95rem] font-medium text-ivory/85 transition-colors group-hover:text-champagne">
+                    {s.title} {s.subtitle}
+                  </span>
+                  <span aria-hidden className="text-champagne/50 transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Main pages */}
+          <div
+            className={cn(
+              "mt-8 transition-all duration-500",
+              menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            )}
+            style={{ transitionDelay: menuOpen ? "200ms" : "0ms" }}
+          >
+            <p className="text-label text-champagne/70">Explore</p>
+            {[{ label: "Home", href: "/" }, ...mainLinks, { label: "Other Occasions", href: "/other-occasions" }].map((l, i) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="group flex items-baseline gap-4 border-b hairline-dark py-4"
+              >
+                <span className="text-label text-champagne">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-3xl text-ivory transition-colors group-hover:text-champagne">
+                  {l.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div
+            className={cn(
+              "mt-10 flex flex-col gap-3 transition-all duration-500",
+              menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            )}
+            style={{ transitionDelay: menuOpen ? "320ms" : "0ms" }}
           >
             <Button variant="whatsapp" size="lg" href={whatsappLink()} external>
               WhatsApp Us
