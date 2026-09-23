@@ -44,6 +44,7 @@ next-env.d.ts
 .env*
 
 # Client source photos (raw camera exports) — only the selected, cleaned
-# copies under public/images/client/ are used by the site.
-/public/images/Client Provider/
+# copies under public/images/client/ are used by the site. Originals are kept
+# OUT of the webroot (client-originals/) so they can never be served/deployed.
+/client-originals/
 /public/images/christmas/Client Provider/
