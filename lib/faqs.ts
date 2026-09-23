@@ -34,6 +34,14 @@ export const faqEntries = [
     a: "We recommend booking as early as possible, while capacity is available. Contact us to check availability for your dates.",
   },
   {
+    q: "What does Christmas decoration cost in Dubai?",
+    a: "Our packages start at AED 6,000 (+VAT) for a signature tree and rise with the scale of the property — the Fancy collection from AED 15,000 and the Luxury collection from AED 25,000. Every project is quoted on scope, so the best way to get an accurate price is a short consultation about your space.",
+  },
+  {
+    q: "Can you decorate restaurants, hotels and commercial venues?",
+    a: "Yes — we install Christmas decoration for retail, hospitality and commercial spaces, including branded installations for venues and corporate events.",
+  },
+  {
     q: "Which areas in Dubai do you serve?",
     a: "We serve Dubai and surrounding UAE areas. Get in touch with your location and we will confirm whether we cover it.",
   },

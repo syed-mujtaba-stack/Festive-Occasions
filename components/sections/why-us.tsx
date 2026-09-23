@@ -53,7 +53,7 @@ export function WhyUs() {
                   <h3 className="w-[38%] shrink-0 font-display text-xl text-espresso transition-colors duration-500 group-hover:text-cocoa lg:text-2xl">
                     {p.title}
                   </h3>
-                  <p className="text-[0.95rem] leading-relaxed text-cocoa">
+                  <p className="min-w-0 text-[0.95rem] leading-relaxed text-cocoa">
                     {p.copy}
                   </p>
                 </div>

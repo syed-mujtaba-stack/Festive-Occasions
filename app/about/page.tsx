@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About — Christmas Decoration Studio Dubai",
   description:
-    "Festive Occasions is a premium Christmas decoration studio in Dubai — designing, styling and installing festive schemes for homes, villas, offices and commercial spaces.",
+    "Meet Festive Occasions, a Dubai-based Christmas decoration studio. We plan, style and install festive schemes for homes, villas, offices and commercial spaces across the UAE.",
   alternates: { canonical: "/about" },
   keywords: [
     "About Festive Occasions",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Festive Occasions",
     description:
-      "A premium Christmas decoration studio in Dubai — bespoke schemes designed around every space.",
+      "A Dubai-based Christmas decoration studio — festive schemes planned around every space we work with.",
     url: "/about",
     type: "website",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Festive Occasions",
     description:
-      "A premium Christmas decoration studio in Dubai — bespoke schemes designed around every space.",
+      "A Dubai-based Christmas decoration studio — festive schemes planned around every space we work with.",
     images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
   },
 };
@@ -87,7 +87,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="A studio for the season's finest details."
-        lead="Festive Occasions is a premium Christmas decoration studio in Dubai — designing, styling and installing festive schemes around the way you live and work."
+        lead="Festive Occasions is a Christmas decoration studio based in Dubai — planning and installing festive schemes that are composed around the way you live and work."
         image="outdoorHouseLights"
       />
 

@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/section";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
+import { FaInstagram } from "react-icons/fa";
 
 const footerColumns = [
   {
@@ -100,6 +101,21 @@ export function Footer() {
               <li>{siteConfig.addressLine}</li>
               <li className="text-ivory/50">{siteConfig.hours}</li>
             </ul>
+
+            {/* Social — verified channels only (off-page / brand presence) */}
+            <div className="mt-6">
+              <p className="text-label text-ivory/50">Follow</p>
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Festive Occasions on Instagram"
+                className="mt-3 inline-flex items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-champagne"
+              >
+                <FaInstagram aria-hidden className="h-4 w-4" />
+                @festive_ocassions
+              </a>
+            </div>
           </div>
         </div>
 

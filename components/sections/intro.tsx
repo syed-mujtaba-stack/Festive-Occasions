@@ -26,11 +26,11 @@ export function Intro() {
 
             <ScrollReveal delay={0.1}>
               <p className="max-w-xl text-lead text-cocoa">
-                Festive Occasions is a premium decoration studio in Dubai. We
-                design, style and install complete Christmas transformations —
-                not off-the-shelf décor, but considered schemes composed around
-                the architecture, light and character of every property we work
-                with.
+                Festive Occasions is a Christmas decoration studio in Dubai.
+                We plan, style and install complete festive transformations —
+                from a single signature tree to a full villa, office or venue.
+                No catalogue decorations: every scheme is composed around the
+                architecture, light and character of your property.
               </p>
             </ScrollReveal>
 
