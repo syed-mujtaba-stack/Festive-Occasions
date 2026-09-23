@@ -9,8 +9,8 @@ redirects are required today.
 | Route | Notes |
 |---|---|
 | `/` | Home |
-| `/christmas-decoration-dubai` | Pillar |
-| `/christmas-tree-decoration-dubai` | Service |
+| `/christmas-decoration-dubai` | Pillar (absorbs former tree service + its FAQs) |
+| `~~/christmas-tree-decoration-dubai~~` | Retired — 308 → pillar; route + dir removed |
 | `/christmas-villa-decoration-dubai` | Service |
 | `/christmas-home-decoration-dubai` | Service |
 | `/christmas-office-decoration-dubai` | Service |
@@ -40,3 +40,5 @@ redirects are required today.
 | Date | Old | New | Redirect |
 |---|---|---|---|
 | 2026-09-22 | — (none) | current inventory above | n/a |
+| 2026-09-23 | `/christmas-tree-decoration-dubai` | `/christmas-decoration-dubai` (pillar) | 308 permanent (`next.config.ts`) |
+| 2026-09-23 | `/blog/christmas-tree-decoration-dubai-sizes-styles` | `/blog/christmas-decoration-dubai-sizes-styles` | 308 permanent (`next.config.ts`) — "tree decoration" phrasing retired per client |

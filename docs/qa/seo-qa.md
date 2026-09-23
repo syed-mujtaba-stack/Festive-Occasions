@@ -43,6 +43,7 @@ Run during Phase 12 for **every indexable page**. Reference: brief §41,
 | 2026-09-22 | /about · /gallery · /areas-we-serve · /other-occasions | ✅ | ✅ | ✅ **added honest BreadcrumbList** (`PageBreadcrumbSchema`) | ✅ |
 | 2026-09-22 | `/` | ✅ | ✅ | ✅ **added FAQPage** — Q/As shared from `lib/faqs.ts` so schema always matches visible accordion | ✅ 7 entries |
 | 2026-09-22 | `/contact` | ✅ | ✅ | ⚠️ **removed placeholder `openingHours`** (not client-verified; `siteConfig.hours` pending) — re-add when verified | ✅ parse-valid |
+| 2026-09-23 | `/contact` | ✅ | ✅ | ✅ **re-added `openingHoursSpecification`** — client-verified 24/7 online enquiries (office closed Sat & Sun, weekend replies slower); mirrors visible copy + footer | ✅ parse-valid |
 | 2026-09-22 | 404 route (`/nonexistent-page-test`) | returns **404** | — | — | ✅ |
 | 2026-09-22 | all 14 pages | ✅ unique titles (scan: **NONE duplicate**) | ✅ | — | ✅ |
 
@@ -60,4 +61,4 @@ Run during Phase 12 for **every indexable page**. Reference: brief §41,
 - [ ] Crawl all `<a href>` from nav/footer/pages for broken links (script, can run when a browser/Lighthouse is available)
 - [ ] Validator pass (Rich Results / Schema.org) on the 3 schema shapes
 - [ ] LocalBusiness NAP — replace placeholders in `lib/site.ts` with client-verified data first
-- [ ] Re-add LocalBusiness `openingHours` once client confirms fixed opening hours
+- [x] ~~Re-add LocalBusiness `openingHours` once client confirms fixed opening hours~~ ✅ done 2026-09-23 (24/7 online; office Sat–Sun closed)

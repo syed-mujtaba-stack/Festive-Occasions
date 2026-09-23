@@ -71,7 +71,7 @@ export function Intro() {
           <ScrollReveal y={24} className="relative">
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-card">
-                <FestiveImage image="clientIntro" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <FestiveImage image="homeIntro" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               {/* Offset champagne frame */}
               <div

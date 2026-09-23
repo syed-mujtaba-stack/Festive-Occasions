@@ -4,8 +4,7 @@
 
 ```
 /
-├── /christmas-decoration-dubai          (Pillar — Christmas Decoration Dubai)
-├── /christmas-tree-decoration-dubai
+├── /christmas-decoration-dubai          (Pillar — Christmas Decoration Dubai; absorbs former tree service)
 ├── /christmas-villa-decoration-dubai
 ├── /christmas-home-decoration-dubai
 ├── /christmas-office-decoration-dubai
@@ -36,7 +35,7 @@ No thin doorway pages. Service pages only cover services the client actually pro
 | Group | Pages | Intent |
 |---|---|---|
 | Pillar | `/christmas-decoration-dubai` | Commercial "Christmas Decoration Dubai" |
-| Services | tree, villa, home, office, corporate, lighting, outdoor | Service-level intent |
+| Services | villa, home, office, corporate, lighting, outdoor | Service-level intent |
 | Regional | `/christmas-decoration-uae` | UAE-wide search visibility |
 | Trust | gallery, about, areas-we-serve, contact | Brand + conversion |
 | Extended | other-occasions | Wider business range |

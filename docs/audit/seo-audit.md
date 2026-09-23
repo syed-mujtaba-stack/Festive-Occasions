@@ -19,6 +19,9 @@ areas-we-serve, other-occasions. Root layout also sets `keywords`, `twitter`,
 - Only `/contact` has JSON-LD today: `HomeAndConstructionBusiness` schema with
   name, url, phone, email, serviceArea, openingHours. NAP values are placeholders.
 - No Service, FAQPage, BreadcrumbList, Organization, or WebSite schema yet.
+- ✅ Updated 2026-09-23: `openingHoursSpecification` client-verified (24/7 online
+  enquiries; office closed Sat & Sun). See `docs/seo/schema-plan.md` for the
+  full current schema inventory.
 
 ## Missing (Phase 9 — completed 2026-09-22)
 
@@ -46,5 +49,6 @@ areas-we-serve, other-occasions. Root layout also sets `keywords`, `twitter`,
 
 ## URL inventory (stable, no fragile slugs yet)
 - All keys in the home URL structure are already target-optimized slugs
-  (`/christmas-decoration-dubai`, `/christmas-tree-decoration-dubai`, …).
-- `docs/seo/url-migration.md` will record any future rename; today no migration needed.
+  (`/christmas-decoration-dubai`, `/christmas-villa-decoration-dubai`, …).
+- 2026-09-23: `/christmas-tree-decoration-dubai` retired → 308 → pillar; tree
+  phrasing removed per client. Details: `docs/seo/url-migration.md`.

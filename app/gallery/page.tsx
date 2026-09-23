@@ -55,7 +55,7 @@ function galleryJsonLd() {
     "@type": "ImageGallery",
     name: "Festive Occasions Christmas Decoration Portfolio",
     description:
-      "Real Festive Occasions Christmas decoration installations — villas, homes, offices and commercial settings in Dubai and the UAE.",
+      "A curated set of Christmas decoration looks — villas, homes, offices and commercial settings in Dubai and the UAE, composed around each space.",
     url: `${siteConfig.url}/gallery`,
     isAccessibleForFree: true,
     image: galleryProjects.map((project) => {
@@ -112,13 +112,15 @@ export default function GalleryPage() {
               </p>
               <div className="max-w-2xl">
                 <p className="text-[1.05rem] leading-relaxed text-cocoa">
-                  The projects shown here are real Festive Occasions
-                  installations — each scheme composed around its space, from
-                  statement tree to final styling detail.
+                  The gallery mixes real Festive Occasions installation
+                  photos with styling imagery used across the site — every
+                  look is composed around its space, from statement tree to
+                  final styling detail.
                 </p>
                 <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa/80">
-                  Captions and categories are being confirmed with the studio;
-                  every project shown is documented and verified by our team.
+                  Final project photos and captions will replace the styling
+                  imagery as the studio confirms the full set. Everything
+                  shown is verified by our team before publication.
                 </p>
               </div>
             </div>

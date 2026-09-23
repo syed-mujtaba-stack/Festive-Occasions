@@ -75,5 +75,8 @@ content changes; Google re-reads it and it updates automatically.
 - ✅ Every page has unique title, meta description, H1 and canonical.
 - ✅ JSON-LD structured data per page (Organization, WebSite, Service,
   FAQPage, BreadcrumbList, Article, ImageGallery, OfferCatalog).
-- ✅ `openingHours` is intentionally omitted from schema until the client
-  confirms business hours (we never publish unverified data).
+- ✅ `openingHours` was intentionally omitted from schema until the client
+  confirmed business hours (we never publish unverified data).
+- ✅ 2026-09-23: client confirmed — enquiries & bookings 24/7 online; office
+  closed Sat & Sun (weekend replies may be slower). `openingHoursSpecification`
+  mirrors visible copy on `/contact` + footer (`lib/site.ts` hours + hoursDetail).

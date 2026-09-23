@@ -56,3 +56,18 @@ If any section fails this test → redesign it. The failure modes to watch:
 - Screenshot at 1440/1920 and 375/390 — verify art direction per breakpoint.
 - Compare against `docs/design/*` tokens; no off-palette stray colors.
 - Final sign-off requires the client's visual review at localhost.
+
+## Image review — 2026-09-23 (transitional slate, 53/53 slots)
+- All 53 seasonal slots were re-picked from CC0/pdm pools; rejects (military,
+  museum accession numbers, White House repeats, government press photos,
+  phonetography, low-res, church "Hanging of the Greens", off-topic lightpanels)
+  were removed and re-picked from rich cached pools. `audience-venue.jpg`
+  deleted per client, slot re-filled with an on-topic Christmas-market photo.
+- Final sizing run: `DONE ok=53 fail=0` — every slot has a file on disk.
+- ⚠️ This agent cannot visually inspect pixels (read tool returns
+  image-not-supported): quality review is **metadata-based** (titles, tags,
+  dimensions, sources). A human eyeball pass over
+  `public/images/christmas/*.jpg` before final client review is strongly
+  recommended — a printable contact sheet can be generated if desired.
+- All imagery is *placeholder*: swap for client's real project photos per the
+  manifest (`lib/images.ts`) before launch.

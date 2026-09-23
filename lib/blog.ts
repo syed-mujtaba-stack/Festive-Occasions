@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
       "What to ask a Christmas decoration company",
       "Christmas decorators near me comparison",
     ],
-    heroImage: "client01",
+    heroImage: "blog1",
     lead: "Searching for Christmas decorators near you in Dubai? The landscape is busy around the season, and the difference between a good install and a great one is usually decided before you book. Here is what to check first — and what a fair quote should include.",
     sections: [
       {
@@ -155,7 +155,7 @@ export const blogPosts: BlogPost[] = [
       "Christmas decorators price list UAE",
       "Festive decoration packages cost",
     ],
-    heroImage: "hero",
+    heroImage: "blog2",
     lead: "Festive Occasions offers three fixed Christmas collections for homes, villas and offices in Dubai — plus bespoke design. Here is exactly what each one includes, what affects the final quote, and how to get an accurate price for your space.",
     sections: [
       {
@@ -237,7 +237,7 @@ export const blogPosts: BlogPost[] = [
       "Luxury villa festive styling UAE",
       "Residence Christmas decoration guide",
     ],
-    heroImage: "client03",
+    heroImage: "blog3",
     lead: "A villa is not a single room — it is an entrance, a staircase, living spaces and a garden that should feel like one continuous festive scene. Here is how we approach a full residence, and which packages suit it.",
     sections: [
       {
@@ -302,20 +302,20 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: "christmas-tree-decoration-dubai-sizes-styles",
-    title: "Christmas Tree Decoration in Dubai — Sizes, Styles & Themes",
+    slug: "christmas-decoration-dubai-sizes-styles",
+    title: "Christmas Decoration in Dubai — Sizes, Styles & Themes",
     category: "Trees",
     published: "2026-09-17",
     readingMinutes: 5,
     metaDescription:
-      "Christmas tree decoration in Dubai — choosing the right tree size (6 ft to 10 ft), the styles we dress, and how the tree fits into each Festive Occasions package.",
+      "Christmas decoration in Dubai — choosing the right tree size (6 ft to 10 ft), the styles we dress, and how the tree fits into each Festive Occasions package.",
     keywords: [
-      "Christmas tree decoration Dubai",
-      "Christmas tree decorators UAE",
+      "Christmas decoration Dubai",
+      "Christmas decorators UAE",
       "Tree sizes and styles Dubai",
       "Festive tree styling service",
     ],
-    heroImage: "treeWithBaubles",
+    heroImage: "blog4",
     lead: "The tree is the centrepiece of almost every festive scheme. This guide covers the sizes used across our packages, the styling directions we offer, and how the tree fits into a full installation.",
     sections: [
       {
@@ -356,7 +356,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "A single tree can carry a room on its own, but it lands best when the garlands, wreaths and table styling around it speak the same language. Our tree decoration service and the full packages page cover both the single-piece and complete-transform options.",
+        text: "A single tree can carry a room on its own, but it lands best when the garlands, wreaths and table styling around it speak the same language. Our complete decoration service and the full packages page cover both the single-piece and complete-transform options.",
       },
     ],
     faqs: [
@@ -374,7 +374,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     related: [
-      { label: "Christmas tree decoration", href: "/christmas-tree-decoration-dubai" },
+      { label: "Christmas decoration in Dubai", href: "/christmas-decoration-dubai" },
       { label: "Compare packages", href: "/packages" },
     ],
   },
@@ -392,7 +392,7 @@ export const blogPosts: BlogPost[] = [
       "Workplace Christmas decorators Dubai",
       "Business Christmas decoration service",
     ],
-    heroImage: "officeLobbyTree",
+    heroImage: "blog5",
     lead: "An office lobby greets clients, visitors and staff every working day in December. Corporate Christmas decoration should elevate that arrival — on-brand, unfussy, and consistent across the spaces people actually use.",
     sections: [
       {
@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
       "Garden festive lighting Dubai",
       "Exterior Christmas decorators",
     ],
-    heroImage: "outdoorHouseLights",
+    heroImage: "blog6",
     lead: "Outdoor decoration is what makes a villa feel festive before anyone sets foot inside. In Dubai’s mild December evenings, the garden and entrance become natural gathering spaces — lighting is the key that unlocks them.",
     sections: [
       {
@@ -532,7 +532,7 @@ export const blogPosts: BlogPost[] = [
       "Festive installation timeline UAE",
       "Best time to hire Christmas decorators",
     ],
-    heroImage: "client06",
+    heroImage: "blog7",
     lead: "December in Dubai is a short, concentrated season — and install teams book up well in advance. Here is an honest look at how lead times work and what actually determines your installation window.",
     sections: [
       {

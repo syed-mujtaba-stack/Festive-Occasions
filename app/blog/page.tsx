@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.treeStringLights.src}`,
-        alt: images.treeStringLights.alt,
+        url: `${siteConfig.url}${images.pageBlog.src}`,
+        alt: images.pageBlog.alt,
         width: 1200,
         height: 630,
       },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Christmas Decoration Guides | Festive Occasions",
     description:
       "Practical, honest guides to Christmas decoration in Dubai — packages, villas, trees, offices and lighting.",
-    images: [`${siteConfig.url}${images.treeStringLights.src}`],
+    images: [`${siteConfig.url}${images.pageBlog.src}`],
   },
 };
 
@@ -55,7 +55,7 @@ export default function BlogIndexPage() {
         eyebrow="Journal"
         title="Christmas decoration, explained."
         lead="Practical guides on packages and pricing, villa schemes, trees, office styling, outdoor lighting and when to book — written around how we actually work."
-        image="treeStringLights"
+        image="pageBlog"
       />
 
       <Section id="blog">

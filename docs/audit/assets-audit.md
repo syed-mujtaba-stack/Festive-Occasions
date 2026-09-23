@@ -1,53 +1,98 @@
 # Image Assets — Festive Occasions
 
-## Status: Transitional imagery (Unsplash)
+## Status: Transitional imagery (CC0 / public domain)
 
-All site images are currently high-quality Christmas decoration photos
-downloaded from **Unsplash** and verified against Unsplash's own alt metadata
-before download. Unsplash's license permits free commercial use without
-attribution.
+All site images are currently high-quality festive decoration photos
+downloaded from **Openverse** (CC0 / public-domain search pool; downloads come
+from the source CDN, e.g. `live.staticflickr.com`). No attribution is
+required, and the source + license per file is recorded in
+`.unsplash-cache/openverse/downloads-record.json`.
 
 > ⚠️ **These are placeholders, not the client's real work.**
-> Swap with real client project photos before final launch. Filenames are
-> already descriptive (e.g. a villa living shot → `villa-living-christmas.webp`).
+> Swap with real client project photos before final launch. Every section has
+> its own dedicated image slot — no section reuses another's photos. Update the
+> `src` per slot in `lib/images.ts` and every section, gallery and card updates
+> from that single source.
+
+## Downloader quality pipeline (`scripts/download-christmas-images.js`)
+
+- Queries target the **Christmas-decoration niche** per slot, with alt queries
+  for thin result pools (Openverse cc0/pdm often returns 0 for long tail).
+- `BAD_TITLE` regex rejects obviously unrelated/archival subjects (military,
+  museums, lakes, plants, shops, monks, courthouses, etc.).
+- `GOOD_TITLE` regex **prefers** candidates whose title/tags carry festive
+  keywords (christmas, xmas, wreath, bauble, lights, etc.); falls back to any
+  non-BAD pick so thin pools still fill.
+- Every file is transcoded through sharp (max 2400px, q82) and validated with
+  a minimum 900px edge; tiny product shots are rejected and the next candidate
+  tried.
+- The runs are resumable: existing files are skipped, and the `used` source set
+  (from `downloads-record.json`) prevents re-picking the same image across
+  slots/runs.
+- `search()` caches up to **3 pages (60 results)** per query under
+  `.unsplash-cache/openverse/` (git-ignored) so rich queries aren't exhausted at
+  20 results; per-query caches are deleted + refetched when a thin pool is
+  exhausted.
+- Review runs (~5 total, 2026-09-23) re-picked every slot until on-disk titles
+  carried festive keywords. Slots exhausted by the `used` set are pointed at
+  richer cached pools (`christmas party decoration`, `christmas lights street
+  evening`) with spread offsets — confirmed workable candidates are dumped via
+  `scripts/list-candidates.js` (read-only metadata review since this toolchain
+  cannot visually inspect images).
+
+## Current slate (2026-09-23)
+
+- 53 image slots (hero, intro, CTA, audiences, packages, services, detail strip,
+  blogs, support pages) + 12 client photos.
+- **All 53 slots populated** — `DONE ok=53 fail=0` on the final sizing run.
+  Re-picks for the last 6 gaps + 6 questionable files came from the rich cached
+  `christmas party decoration` / `christmas lights street evening` pools
+  (e.g. Carnaby Street lights, Faneuil Hall, Madrid Alcalá/Plaza Mayor,
+  rawpixel "Free Christmas …" product shots).
+- Client-requested `audience-venue.jpg` was **deleted**; slot re-filled with an
+  on-topic Christmas-market photo (transitional placeholder — client swaps later).
+- Record note: 41 of 53 slots have `downloads-record.json` entries. The 12
+  "(no record)" files (hero, intro, CTA, some pkg/svc/pillar slots) predate the
+  record-writing downloader — they are verified on disk and pass size checks.
+- 24/7 hours + weekend-closed wording verified and used in `lib/site.ts`,
+  contact JSON-LD and footer (see `docs/seo/schema-plan.md`, `docs/qa/seo-qa.md`).
+- Diagnostics: `scripts/diag-images.js` (53-slot state dump) and
+  `scripts/list-candidates.js` (dump pickable cached candidates) — keep both;
+  they are read-only and useful for future image swaps.
 
 ## Where images live
 
 - Manifest: `lib/images.ts` (single place to swap `src` per slot)
-- Files: `public/images/christmas/*.jpg`
+- Transitional files: `public/images/christmas/*.jpg` (CC0 / public domain)
+- Real client photos: `public/images/client/client-01.jpg … client-12.jpg`
 
-## Source record (for client transparency)
+## Section → image slot map
 
-| File | Source (Unsplash photo) | Alt (verified) |
-|---|---|---|
-| outdoor-house-lights.jpg | photo-1788619371179-b3031f2cbe23 | Stone house with string lights in a garden at night |
-| tree-green-large.jpg | photo-1543258103-a62bdc069871 | Green Christmas tree |
-| tree-string-lights.jpg | photo-1514377006585-6e7975371bd6 | Christmas tree with string lights |
-| tree-baubles-closeup.jpg | photo-1482517967863-00e15c9b44be | Close-up of baubles on a Christmas tree |
-| tree-gold-baubles.jpg | photo-1608132055071-aea9bf8e121e | Gold baubles on a Christmas tree |
-| tree-red-baubles.jpg | photo-1606916928892-3e15e20c5c0c | Green Christmas tree with red baubles |
-| tree-with-baubles.jpg | photo-1544863308-ec385bbf5caa | Christmas tree with baubles |
-| tree-many-ornaments.jpg | photo-1639686767840-1204e5c294b8 | Christmas tree with many ornaments |
-| tree-silver-baubles.jpg | photo-1602521879046-b994fcd56190 | Silver baubles on a green Christmas tree |
-| gold-baubles-set.jpg | photo-1542144145443-e64d1e186d4d | Gold Christmas baubles |
-| golden-bauble-tree.jpg | photo-1766054093603-289593c48cdf | Golden bauble on a decorated Christmas tree |
-| livingroom-fireplace.jpg | photo-1642335911245-238e13dcabf2 | Living room decorated for Christmas with a fireplace |
-| livingroom-tree.jpg | photo-1640159750488-051fa6815bd4 | Living room with furniture and a Christmas tree |
-| livingroom-candles.jpg | photo-1703163073537-3259fcffdc1e | Living room decorated for Christmas with candles |
-| livingroom-cozy-tree.jpg | photo-1766422646106-ed7e4b288fd8 | Living room decorated for Christmas with a tree |
-| office-lobby-tree.jpg | photo-1770360462071-6d62a9a6bc25 | Decorated Christmas tree in a modern lobby |
-| table-setting-festive.jpg | photo-1764425505349-5a55345a660f | Christmas table setting with festive decorations and lights |
-| ornaments-twinkling.jpg | photo-1763728566422-7611951eaccd | Festive Christmas ornaments with twinkling lights |
-| string-lights-bokeh.jpg | photo-1544438369-a34666f8ff77 | String lights with bokeh light background |
-| string-lights-shallow.jpg | photo-1496957677336-9936cf0132b4 | Close-up string lights |
-| tree-string-lights-green.jpg | photo-1612979168796-bcae1575b8c5 | Green Christmas tree with string lights |
+| Section / page | Manifest key (file) |
+|---|---|
+| Hero (home + internal) | `hero` (`hero-signature.jpg`) |
+| Home intro | `homeIntro` (`home-intro.jpg`) |
+| Signature details | `signatureDetails` (`signature-details.jpg`) |
+| Final CTA glow | `finalCtaGlow` (`final-cta-glow.jpg`) |
+| Audiences — villa | `audienceVilla` (`audience-villa.jpg`) |
+| Audiences — office | `audienceOffice` (`audience-office.jpg`) |
+| Audiences — venue | `audienceVenue` (`audience-venue.jpg`) |
+| Package cards | `pkgCheers` / `pkgFancy` / `pkgLuxury` |
+| Services index + heroes | `svcComplete` … `svcOutdoor` (7) |
+| Service page details | `detailPillar1-3` … `detailOutdoor1-3` (21) |
+| Blog covers | `blog1` … `blog8` |
+| Support page heroes | `pageAreas`, `pageAbout`, `pageAboutPortrait`, `pageContact`, `pageOther`, `pageUae`, `pageBlog` |
+| Gallery (client) | `client01` … `client12` |
 
 ## Replacing with client photos
 
 1. Client supplies real project photos (see `docs/client/client-data-required.md`).
-2. Save to `public/images/` (e.g. `villa-entrance-christmas.webp`).
-3. Update the matching entry in `lib/images.ts`.
-4. Remove the Unsplash file from `public/images/christmas/` once swapped.
+2. Save to `public/images/` (e.g. `public/images/client/client-13.jpg`).
+3. Update the matching entry in `lib/images.ts` (`src` → new file) — gallery
+   and every section update automatically.
+4. Add up to 35 total gallery entries in `lib/gallery.ts` (client photos lead
+   the set; styling imagery stays only as transitional fills).
+5. Remove the transitional file from `public/images/christmas/` once swapped.
 
-**Do not** publish the site with Unsplash imagery alone — the portfolio and
-gallery must show the client's actual verified work.
+**Do not** publish the site with transitional styling imagery alone — the
+portfolio and gallery must show the client's actual verified work.

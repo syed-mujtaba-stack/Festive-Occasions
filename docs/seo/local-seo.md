@@ -26,7 +26,7 @@ No mass-generated doorway pages. Google emphasizes helpful, people-first content
 
 | Schema | Where | Notes |
 |---|---|---|
-| `LocalBusiness` (or `ProfessionalService`/`HomeAndConstructionBusiness`) | `/` + `/contact` | name, url, phone, email, geo/serviceArea, openingHours, sameAs |
+| `LocalBusiness` (or `ProfessionalService`/`HomeAndConstructionBusiness`) | `/` + `/contact` | name, url, phone, email, geo/serviceArea, openingHours, sameAs — ✅ openingHours client-verified 2026-09-23 (24/7 online; office Sat–Sun closed) |
 | `Organization` | `/` | brand foundation |
 | `WebSite` | `/` | name, url, potentialAction SearchAction (if search exists) |
 | `WebPage` | all pages | via Next metadata |

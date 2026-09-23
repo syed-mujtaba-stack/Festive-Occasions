@@ -10,7 +10,7 @@ layout: `"%s | Festive Occasions"`.
 |---|---|---|---|
 | `/` | Brand + broad "Christmas decoration Dubai" | Festive Occasions — luxury editorial | ✅ |
 | `/christmas-decoration-dubai` | Pillar: Christmas Decoration Dubai | Christmas Decoration Company Dubai | ✅ |
-| `/christmas-tree-decoration-dubai` | Tree decoration | Christmas Tree Decoration Dubai | ✅ |
+| `~~/christmas-tree-decoration-dubai~~` | Folded into pillar (308 redirect) | — | ✅ merged |
 | `/christmas-villa-decoration-dubai` | Villa styling | Christmas Villa Decoration Dubai | ✅ |
 | `/christmas-home-decoration-dubai` | Homes | Christmas Home Decoration Dubai | ✅ |
 | `/christmas-office-decoration-dubai` | Offices | Christmas Office Decoration Dubai | ✅ |
@@ -32,7 +32,7 @@ layout: `"%s | Festive Occasions"`.
 - [x] Single H1 (editorial, matches intent)
 - [x] Logical H2/H3 hierarchy
 - [x] OpenGraph + Twitter (root layout provides)
-- [x] Service JSON-LD — 8 service pages (serviceType, areaServed, provider, offers)
+- [x] Service JSON-LD — 7 service pages (serviceType, areaServed, provider, offers)
 - [x] FAQPage JSON-LD — service pages (mirrors visible FAQ)
 - [x] BreadcrumbList JSON-LD — service pages
 - [x] Organization + WebSite JSON-LD — homepage

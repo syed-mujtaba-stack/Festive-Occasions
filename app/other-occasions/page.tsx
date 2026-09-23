@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.ornamentsTwinkling.src}`,
-        alt: images.ornamentsTwinkling.alt,
+        url: `${siteConfig.url}${images.pageOther.src}`,
+        alt: images.pageOther.alt,
         width: 1200,
         height: 630,
       },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Other Occasions | Festive Occasions",
     description:
       "Festive styling for occasions beyond Christmas, confirmed on enquiry.",
-    images: [`${siteConfig.url}${images.ornamentsTwinkling.src}`],
+    images: [`${siteConfig.url}${images.pageOther.src}`],
   },
 };
 
@@ -55,7 +55,7 @@ export default function OtherOccasionsPage() {
         eyebrow="Other Occasions"
         title="The season doesn't end at Christmas."
         lead="From New Year to private celebrations, a festive space makes the moment. Tell us about your occasion and we'll confirm what we can style for you."
-        image="ornamentsTwinkling"
+        image="pageOther"
       />
 
       <Section>

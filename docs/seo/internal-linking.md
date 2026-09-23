@@ -8,7 +8,6 @@ orphan pages — every route reachable from nav + at least one contextual link.
 ```
 Homepage
  └─▶ /christmas-decoration-dubai   (pillar — linked from hero, services, "Christmas" nav)
-      ├─▶ /christmas-tree-decoration-dubai
       ├─▶ /christmas-villa-decoration-dubai
       ├─▶ /christmas-home-decoration-dubai
       ├─▶ /christmas-office-decoration-dubai
@@ -33,7 +32,7 @@ Homepage
 
 ## Anchor-text rules
 
-- Descriptive, keyword-relevant but natural: "Christmas Tree Decoration Dubai",
+- Descriptive, keyword-relevant but natural: "Christmas Decoration Dubai",
   "Villa Christmas Styling" — never "click here".
 - Every service page links **up** to the pillar page and **across** to sibling
   services (breadcrumb-friendly).

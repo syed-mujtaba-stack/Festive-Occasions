@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
 
 /** Package card visuals — atmospheric scene images matched to each package. */
 const packageCardImages: Record<string, ImageKey> = {
-  cheers: "livingroomCozyTree",
-  fancy: "livingroomTree",
-  luxury: "outdoorHouseLights",
+  cheers: "pkgCheers",
+  fancy: "pkgFancy",
+  luxury: "pkgLuxury",
 };
 
 /**

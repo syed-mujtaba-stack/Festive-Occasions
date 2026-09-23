@@ -12,15 +12,14 @@ on `http://localhost:3000` — all routes return 200 with correct H1s.
 | Route | Type | Status |
 |---|---|---|
 | `/` | Homepage | ✅ cinematic hero, intro, services list, signature pin, audiences, gallery, process, why-us, FAQ, final CTA |
-| `/christmas-decoration-dubai` | Pillar service | ✅ |
-| `/christmas-tree-decoration-dubai` | Service | ✅ |
+| `/christmas-decoration-dubai` | Pillar service | ✅ absorbs former tree service |
 | `/christmas-villa-decoration-dubai` | Service | ✅ |
 | `/christmas-home-decoration-dubai` | Service | ✅ |
 | `/christmas-office-decoration-dubai` | Service | ✅ |
 | `/christmas-corporate-decoration-dubai` | Service | ✅ |
 | `/christmas-lighting-dubai` | Service | ✅ |
 | `/outdoor-christmas-decoration-dubai` | Service | ✅ |
-| `/gallery` | Portfolio | ✅ filterable grid (10 transitional entries) |
+| `/gallery` | Portfolio | ✅ numbered editorial grid (35 looks) |
 | `/about` | Brand | ✅ |
 | `/areas-we-serve` | Local | ✅ honest coverage copy |
 | `/contact` | Lead gen | ✅ WhatsApp quote form + LocalBusiness JSON-LD |

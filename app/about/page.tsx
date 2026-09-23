@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.outdoorHouseLights.src}`,
-        alt: images.outdoorHouseLights.alt,
+        url: `${siteConfig.url}${images.pageAbout.src}`,
+        alt: images.pageAbout.alt,
         width: 1200,
         height: 630,
       },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "About Festive Occasions",
     description:
       "A Dubai-based Christmas decoration studio — festive schemes planned around every space we work with.",
-    images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
+    images: [`${siteConfig.url}${images.pageAbout.src}`],
   },
 };
 
@@ -88,7 +88,7 @@ export default function AboutPage() {
         eyebrow="About"
         title="A studio for the season's finest details."
         lead="Festive Occasions is a Christmas decoration studio based in Dubai — planning and installing festive schemes that are composed around the way you live and work."
-        image="outdoorHouseLights"
+        image="pageAbout"
       />
 
       {/* Story — editorial manifesto */}
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/5]">
                   <div className="absolute inset-0 scale-[1.02] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]">
                     <FestiveImage
-                      image="livingroomFireplace"
+                      image="pageAboutPortrait"
                       sizes="(max-width: 1024px) 100vw, 42vw"
                     />
                   </div>

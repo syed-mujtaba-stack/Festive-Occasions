@@ -27,11 +27,6 @@ const pageKeywords: Record<string, string[]> = {
     "Christmas Decoration Services Dubai",
     "Professional Christmas Decorators Dubai",
   ],
-  "christmas-tree-decoration-dubai": [
-    "Christmas Tree Decorators Dubai",
-    "Christmas Tree Decoration Dubai",
-    "Christmas Tree Decoration Service Dubai",
-  ],
   "christmas-villa-decoration-dubai": [
     "Villa Christmas Decorators Dubai",
     "Villa Christmas Decoration Dubai",

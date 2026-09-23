@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/contact",
       priority: 0.9,
       changeFrequency: "monthly",
-      images: ["officeLobbyTree"],
+      images: ["pageContact"],
     },
     {
       path: "/packages",
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/blog",
       priority: 0.7,
       changeFrequency: "weekly",
-      images: ["treeStringLights"],
+      images: ["pageBlog"],
     },
     {
       path: "/gallery",
@@ -56,25 +56,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/areas-we-serve",
       priority: 0.6,
       changeFrequency: "monthly",
-      images: ["outdoorHouseLights"],
+      images: ["pageAreas"],
     },
     {
       path: "/christmas-decoration-uae",
       priority: 0.7,
       changeFrequency: "monthly",
-      images: ["outdoorHouseLights"],
+      images: ["pageUae"],
     },
     {
       path: "/about",
       priority: 0.6,
       changeFrequency: "monthly",
-      images: ["outdoorHouseLights"],
+      images: ["pageAbout"],
     },
     {
       path: "/other-occasions",
       priority: 0.6,
       changeFrequency: "monthly",
-      images: ["ornamentsTwinkling"],
+      images: ["pageOther"],
     },
   ];
 

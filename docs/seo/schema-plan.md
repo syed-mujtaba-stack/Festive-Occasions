@@ -40,6 +40,9 @@ Q/As (matches Google guidelines).
 - `name`, `url`, `telephone`, `email`, `address` (only if client provides),
   `areaServed`, `openingHours` (only client-verified hours), `sameAs` (only
   real social accounts).
+- ✅ 2026-09-23: `openingHoursSpecification` added — enquiries/bookings 24/7
+  online (opens 00:00–closes 23:59 all days); office closed Sat & Sun, weekend
+  replies may be slower. Mirrors visible contact-page copy.
 - No `aggregateRating` / review markup until real Google reviews exist.
 
 ## Rules

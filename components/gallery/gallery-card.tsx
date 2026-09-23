@@ -11,12 +11,11 @@ const CARD_RATIO: Record<GalleryProject["ratio"], string> = {
 };
 
 /**
- * GalleryCard — editorial project card.
- * All cards share one uniform image ratio and card body so the grid reads
- * as a clean, equal-height system. Image zooms cinematically on hover; the
- * body carries category, title, year and a view arrow. When `onSelect` is
- * provided the card opens the project in a lightbox; otherwise it renders
- * as a static card (service pages).
+ * GalleryCard — numbered editorial project card.
+ * Each card leads with a large index numeral over the image, then a minimal
+ * caption (category + title) and an explicit "Explore Look ↗" CTA. The whole
+ * card is a button that opens the project in the lightbox when `onSelect` is
+ * provided; otherwise it renders as a static card (service pages).
  */
 export function GalleryCard({
   project,
@@ -43,11 +42,11 @@ export function GalleryCard({
           className="absolute inset-0 bg-gradient-to-t from-night/45 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-90"
         />
 
-        {/* Project number — top left */}
+        {/* Project number — large editorial numeral, top left */}
         {index !== undefined && (
           <span
             aria-hidden
-            className="absolute left-4 top-3.5 font-display text-base italic leading-none text-ivory/70 transition-colors duration-500 group-hover:text-champagne"
+            className="absolute left-4 top-3 font-display text-2xl italic leading-none text-ivory transition-colors duration-500 group-hover:text-champagne"
           >
             {String(index + 1).padStart(2, "0")}
           </span>
@@ -58,25 +57,25 @@ export function GalleryCard({
         />
       </div>
 
-      {/* Card body */}
+      {/* Minimal caption + CTA */}
       <div className="flex flex-1 flex-col gap-1.5 p-6">
-        <p className="text-label text-champagne transition-colors duration-500 group-hover:text-champagne-soft">
-          {project.category}
-        </p>
         <h3 className="font-display text-[1.35rem] leading-snug text-espresso transition-colors duration-500 group-hover:text-cocoa">
           {project.title}
         </h3>
-        <div className="mt-auto flex items-end justify-between gap-4 pt-3">
-          <p className="text-sm text-cocoa/60">{project.year}</p>
-          {onSelect && (
+        <p className="mt-1 text-sm text-cocoa/60">
+          {project.category} · {project.year}
+        </p>
+        {onSelect && (
+          <span className="mt-auto inline-flex items-center gap-2.5 pt-4 text-label text-champagne transition-colors duration-500 group-hover:text-espresso">
+            Explore Look
             <span
               aria-hidden
-              className="grid h-9 w-9 place-items-center rounded-full border border-espresso/15 text-champagne transition-all duration-500 group-hover:border-champagne group-hover:bg-champagne group-hover:text-espresso"
+              className="transition-transform duration-500 group-hover:translate-x-1"
             >
               ↗
             </span>
-          )}
-        </div>
+          </span>
+        )}
       </div>
     </>
   );
@@ -96,7 +95,7 @@ export function GalleryCard({
     <button
       type="button"
       onClick={() => onSelect(index ?? 0)}
-      aria-label={`${project.title} — ${project.category}, open in lightbox`}
+      aria-label={`${project.title} — ${project.category}, explore look in lightbox`}
       className={`${cardClasses} outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ivory`}
       style={{ contain: "layout paint" }}
     >

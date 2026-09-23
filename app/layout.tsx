@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     "Christmas Decoration Company Dubai",
     "Christmas Decoration Services Dubai",
     "Professional Christmas Decorators Dubai",
-    "Christmas Tree Decorators Dubai",
     "Villa Christmas Decorators Dubai",
     "Office Christmas Decorators Dubai",
     "Luxury Christmas Decoration Dubai",

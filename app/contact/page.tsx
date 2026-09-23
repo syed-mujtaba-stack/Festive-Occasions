@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.officeLobbyTree.src}`,
-        alt: images.officeLobbyTree.alt,
+        url: `${siteConfig.url}${images.pageContact.src}`,
+        alt: images.pageContact.alt,
         width: 1200,
         height: 630,
       },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Contact Festive Occasions | Christmas Decoration Dubai",
     description:
       "Request a quote for bespoke Christmas decoration in Dubai — WhatsApp, call or email.",
-    images: [`${siteConfig.url}${images.officeLobbyTree.src}`],
+    images: [`${siteConfig.url}${images.pageContact.src}`],
   },
 };
 
@@ -69,6 +69,7 @@ const contactMethods = [
     icon: FaClock,
     label: "Hours",
     value: siteConfig.hours,
+    detail: siteConfig.hoursDetail,
   },
   {
     icon: FaMapMarkerAlt,
@@ -93,8 +94,24 @@ export default function ContactPage() {
       addressCountry: "AE",
     },
     areaServed: siteConfig.serviceArea,
-    // openingHours: only added once the client confirms fixed hours
-    // (schema-plan rule — never publish placeholder/unverified hours).
+    // ✅ Client-verified 2026-09-23: enquiries & bookings 24/7 (online);
+    // physical office closed Sat & Sun — weekend replies may be slower.
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      description:
+        "Enquiries and bookings via WhatsApp and email — open 24 hours, 7 days a week. Office closed Saturday & Sunday; weekend replies may be slower.",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
     priceRange: "$$",
     sameAs: Object.values(siteConfig.social).filter((u) => !u.endsWith("/")),
   };
@@ -109,7 +126,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Let's plan your festive space."
         lead="Tell us about your home, villa, office or venue — we'll design a bespoke Christmas scheme around it and share a clear proposal."
-        image="officeLobbyTree"
+        image="pageContact"
       />
 
       <Section id="contact">
@@ -138,6 +155,11 @@ export default function ContactPage() {
                         <span className="mt-0.5 block truncate text-[1.02rem] font-medium text-espresso">
                           {m.value}
                         </span>
+                        {m.detail && (
+                          <span className="mt-0.5 block text-[0.9rem] text-cocoa/75">
+                            {m.detail}
+                          </span>
+                        )}
                       </span>
                       {m.href && (
                         <span

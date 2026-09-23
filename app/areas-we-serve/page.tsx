@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.outdoorHouseLights.src}`,
-        alt: images.outdoorHouseLights.alt,
+        url: `${siteConfig.url}${images.pageAreas.src}`,
+        alt: images.pageAreas.alt,
         width: 1200,
         height: 630,
       },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Areas We Serve | Festive Occasions",
     description:
       "Christmas decoration across Dubai and the UAE — confirm coverage for your area on enquiry.",
-    images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
+    images: [`${siteConfig.url}${images.pageAreas.src}`],
   },
 };
 
@@ -69,7 +69,7 @@ export default function AreasWeServePage() {
         eyebrow="Areas We Serve"
         title="Serving Dubai and the UAE."
         lead="We work across Dubai and the Emirates. Tell us where your property is and we'll confirm coverage for your dates."
-        image="outdoorHouseLights"
+        image="pageAreas"
       />
 
       <Section>

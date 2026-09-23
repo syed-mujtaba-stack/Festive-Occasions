@@ -11,8 +11,8 @@
 
 ```
 /  (HOMEPAGE — brand statement + journey)
-├── Christmas section   ──▶ /christmas-decoration-dubai   (PILLAR)
-│     ├── /christmas-tree-decoration-dubai
+├── Christmas section   ──▶ /christmas-decoration-dubai   (PILLAR; tree service folded in)
+│     ├── /christmas-villa-decoration-dubai
 │     ├── /christmas-villa-decoration-dubai
 │     ├── /christmas-home-decoration-dubai
 │     ├── /christmas-office-decoration-dubai

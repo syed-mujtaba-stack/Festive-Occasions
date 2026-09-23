@@ -48,3 +48,8 @@ next-env.d.ts
 # OUT of the webroot (client-originals/) so they can never be served/deployed.
 /client-originals/
 /public/images/christmas/Client Provider/
+
+# Openverse search caches — transient rate-limit bypass. Keep only the
+# downloads-record.json (audit trail: file -> source URL + license).
+.unsplash-cache/openverse/*.json
+!.unsplash-cache/openverse/downloads-record.json

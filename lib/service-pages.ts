@@ -41,7 +41,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Complete Service",
     metaDescription:
       "Christmas decorators in Dubai — bespoke Christmas decoration for homes, villas, offices and commercial spaces, designed, styled and installed by Festive Occasions. Request a consultation.",
-    heroImage: "hero",
+    heroImage: "svcComplete",
     intro: {
       heading: "One studio. Every festive space in Dubai.",
       body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. As professional Christmas decorators we design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation. Every project is composed around the space itself, its architecture, light and character, and matched to the right scale and style for your own setting.",
@@ -62,19 +62,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Bespoke design",
         body: "We begin with your space, not a template. Measure, photograph and study the architecture, then propose a palette, theme and layout that belongs there.",
-        image: "livingroomCozyTree",
+        image: "detailPillar1",
       },
       {
         number: "02",
         title: "Styling & finishing",
         body: "Trees, garlands, table dressing, entrance styling and ambient lighting — layered and finished by hand to a premium standard.",
-        image: "treeWithBaubles",
+        image: "detailPillar2",
       },
       {
         number: "03",
         title: "Installation & removal",
         body: "A professional team installs on schedule and removes carefully after the season, leaving the space exactly as we found it.",
-        image: "officeLobbyTree",
+        image: "detailPillar3",
       },
     ],
     styles: ["Classic", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
@@ -96,57 +96,6 @@ export const servicePages: Record<string, ServicePage> = {
         a: "Our team removes everything carefully after the festive period and leaves the property exactly as we found it — removal is part of the service.",
       },
       {
-        q: "How do I get a quote for my space?",
-        a: "Send us photos and your preferred dates on WhatsApp or by email, and we will confirm the right scale and a clear quote for your property before you commit.",
-      },
-    ],
-  },
-
-  "christmas-tree-decoration-dubai": {
-    slug: "christmas-tree-decoration-dubai",
-    title: "Christmas Tree Decoration in Dubai",
-    eyebrow: "The Centrepiece",
-    metaDescription:
-      "Professional Christmas tree decoration in Dubai — small, large and luxury trees styled by Festive Occasions in curated themes. Request a consultation.",
-    heroImage: "treeGreenLarge",
-    intro: {
-      heading: "Your tree, styled by hand.",
-      body: "The Christmas tree is the heart of any festive interior. We source and style trees of every scale — from intimate tabletops to grand statement installations — dressing them in curated themes with premium ornaments, ribbon, lighting and finishing touches.",
-    },
-    whatWeDecorate: {
-      heading: "Tree styles we deliver",
-      items: [
-        "Small & tabletop trees",
-        "Full-height family trees",
-        "Grand statement trees",
-        "Luxury themed trees",
-        "Commercial & lobby trees",
-        "Outdoor trees",
-      ],
-    },
-    details: [
-      {
-        number: "01",
-        title: "Tree sourcing & setup",
-        body: "Premium artificial or fresh trees supplied and assembled, correctly proportioned for the space and ceiling height.",
-        image: "treeStringLightsGreen",
-      },
-      {
-        number: "02",
-        title: "Theme dressing",
-        body: "Baubles, garlands, ribbon, toppers and ambient lighting — dressed in a cohesive palette matched to your interior.",
-        image: "treeGoldBaubles",
-      },
-      {
-        number: "03",
-        title: "Finishing touches",
-        body: "Gifts, tree skirts, skirt wraps and vignette styling around the base to complete the scene.",
-        image: "treeRedBaubles",
-      },
-    ],
-    styles: ["Classic & Traditional", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
-    faqs: [
-      {
         q: "Do you provide the Christmas tree?",
         a: "Yes — we supply and assemble premium artificial trees (and can source fresh trees on request) as part of a full styling service.",
       },
@@ -159,8 +108,8 @@ export const servicePages: Record<string, ServicePage> = {
         a: "Yes. We style large and statement trees for lobbies, hotels, restaurants and retail spaces.",
       },
       {
-        q: "Do you handle removal after Christmas?",
-        a: "Yes — undecorating, packing and removal are included in our full-cycle service.",
+        q: "How do I get a quote for my space?",
+        a: "Send us photos and your preferred dates on WhatsApp or by email, and we will confirm the right scale and a clear quote for your property before you commit.",
       },
     ],
   },
@@ -171,7 +120,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Full Residence",
     metaDescription:
       "Complete Christmas villa decoration in Dubai — entrance, living spaces, staircase, garden and outdoor lighting composed into one cohesive scheme by Festive Occasions.",
-    heroImage: "livingroomTree",
+    heroImage: "svcVilla",
     intro: {
       heading: "A villa dressed as one home.",
       body: "Villas have scale, and scale deserves a designed scheme. We style the entrance, living and dining spaces, staircase, garden and outdoor areas so the whole villa reads as one warm, festive composition.",
@@ -192,19 +141,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Entrance & foyer",
         body: "First impressions — garlands, statement pieces, lighting and scent set the tone the moment the door opens.",
-        image: "treeStringLights",
+        image: "detailVilla1",
       },
       {
         number: "02",
         title: "Living & dining",
         body: "Trees, mantel styling, table settings and ambient layers that make every gathering feel festive.",
-        image: "livingroomFireplace",
+        image: "detailVilla2",
       },
       {
         number: "03",
         title: "Garden & outdoor",
         body: "Entrance lights, garden dressing and poolside touches to make the exterior equally magical after dark.",
-        image: "outdoorHouseLights",
+        image: "detailVilla3",
       },
     ],
     styles: ["Classic", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
@@ -234,7 +183,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Warm Detail",
     metaDescription:
       "Considered home Christmas decoration in Dubai — living rooms, entrances, windows and ambient lighting styled elegantly by Festive Occasions.",
-    heroImage: "livingroomCozyTree",
+    heroImage: "svcHome",
     intro: {
       heading: "A home that feels festively yours.",
       body: "Home decoration is about warmth and detail. We style living rooms, entrances, windows and mantels with a layered, elegant hand — festive without being heavy, premium without being cold.",
@@ -255,19 +204,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Living room",
         body: "A hero tree, layered vignettes and soft lighting that make the main room feel optimally festive.",
-        image: "livingroomTree",
+        image: "detailHome1",
       },
       {
         number: "02",
         title: "Entrance & hallway",
         body: "Greenery, garlands and a warm welcome the moment you step inside.",
-        image: "treeGreenLarge",
+        image: "detailHome2",
       },
       {
         number: "03",
         title: "Dining & windows",
         body: "Table dressing, window displays and festive details that carry the theme through the home.",
-        image: "tableSetting",
+        image: "detailHome3",
       },
     ],
     styles: ["Classic", "Winter Wonderland", "Pure White", "Modern Minimal", "Luxury Gold", "Custom"],
@@ -293,7 +242,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Impressive Workspace",
     metaDescription:
       "Office Christmas decoration in Dubai — lobby, reception, meeting and employee areas styled professionally by Festive Occasions around your working day.",
-    heroImage: "officeLobbyTree",
+    heroImage: "svcOffice",
     intro: {
       heading: "A workspace that welcomes the season.",
       body: "Offices deserve festive styling that impresses clients and lifts the team. We decorate lobbies, receptions, meeting areas and employee spaces — planned and installed around your working day, with minimal disruption.",
@@ -314,19 +263,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Lobby & reception",
         body: "A statement tree and reception styling that greet clients the moment they arrive.",
-        image: "officeLobbyTree",
+        image: "detailOffice1",
       },
       {
         number: "02",
         title: "Meeting & employee areas",
         body: "Subtle festive touches in shared spaces — balanced so the office stays professional.",
-        image: "treeWithBaubles",
+        image: "detailOffice2",
       },
       {
         number: "03",
         title: "Working-day installation",
         body: "We schedule installation to avoid disrupting your business hours wherever possible.",
-        image: "stringLightsShallow",
+        image: "detailOffice3",
       },
     ],
     styles: ["Classic", "Modern Minimal", "Corporate Palette", "Winter Wonderland", "Custom"],
@@ -356,7 +305,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Branded Experience",
     metaDescription:
       "Corporate Christmas decoration in Dubai — branded festive installations, event styling and large-scale displays for offices, hotels and venues by Festive Occasions.",
-    heroImage: "tableSetting",
+    heroImage: "svcCorporate",
     intro: {
       heading: "Festive, on-brand, impeccably executed.",
       body: "Corporate spaces and events need decoration that is impressive yet on-brand. We deliver large-scale festive installations for offices, hotels, restaurants and commercial venues — designed, built and professionally installed.",
@@ -377,19 +326,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Branded design",
         body: "We design schemes that carry your brand colours and identity into a premium festive expression.",
-        image: "officeLobbyTree",
+        image: "detailCorporate1",
       },
       {
         number: "02",
         title: "Large installations",
         body: "Statement trees, branded displays and big-scene decoration executed to venue scale.",
-        image: "treeManyOrnaments",
+        image: "detailCorporate2",
       },
       {
         number: "03",
         title: "Professional execution",
         body: "Proposals, scheduling, installation and removal handled by one accountable team.",
-        image: "tableSetting",
+        image: "detailCorporate3",
       },
     ],
     styles: ["Brand Colours", "Luxury Gold", "Classic", "Modern Minimal", "Custom"],
@@ -419,7 +368,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Outdoor Glow",
     metaDescription:
       "Professional Christmas lighting in Dubai — villa facades, gardens, entrances and commercial lighting installed and styled by Festive Occasions.",
-    heroImage: "stringLightsBokeh",
+    heroImage: "svcLighting",
     intro: {
       heading: "Light your property, brilliantly.",
       body: "Festive lighting transforms a property after dark. We design and install warm, cinematic lighting for villa facades, gardens, entrances and commercial spaces — beautifully composed, safe and energy-conscious.",
@@ -440,19 +389,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Design",
         body: "A lighting scheme composed for your architecture — placement, warmth and balance designed first.",
-        image: "stringLightsShallow",
+        image: "detailLighting1",
       },
       {
         number: "02",
         title: "Installation",
         body: "Careful, professional installation — safely fixed and neatly routed, with energy-conscious lighting.",
-        image: "outdoorHouseLights",
+        image: "detailLighting2",
       },
       {
         number: "03",
         title: "After the season",
         body: "Clean removal and storage so your façade returns exactly as it was.",
-        image: "treeStringLightsGreen",
+        image: "detailLighting3",
       },
     ],
     styles: ["Warm Classic", "Crisp White", "Gold Glow", "Colour Accent", "Custom"],
@@ -482,7 +431,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Exterior Story",
     metaDescription:
       "Outdoor Christmas decoration in Dubai — entrances, gardens and outdoor entertaining spaces styled to welcome by Festive Occasions.",
-    heroImage: "outdoorHouseLights",
+    heroImage: "svcOutdoor",
     intro: {
       heading: "Welcome them from the first glance.",
       body: "The exterior is the first scene your guests see. We style entrances, gardens and outdoor entertaining spaces — greenery, lighting and festive moments that make arriving feel like part of the celebration.",
@@ -503,19 +452,19 @@ export const servicePages: Record<string, ServicePage> = {
         number: "01",
         title: "Entrance styling",
         body: "Doorway greenery, wreaths, statement pieces and warm lighting that set the tone on arrival.",
-        image: "treeGreenLarge",
+        image: "detailOutdoor1",
       },
       {
         number: "02",
         title: "Garden & poolside",
         body: "Festive dressing that turns gardens and terraces into places to gather after dark.",
-        image: "outdoorHouseLights",
+        image: "detailOutdoor2",
       },
       {
         number: "03",
         title: "Lighting & path",
         body: "Pathway and tree lights that guide and welcome — designed for the Dubai climate.",
-        image: "stringLightsBokeh",
+        image: "detailOutdoor3",
       },
     ],
     styles: ["Classic", "Winter Wonderland", "Warm Glow", "Modern Sculptural", "Custom"],

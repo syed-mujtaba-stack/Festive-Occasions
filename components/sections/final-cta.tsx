@@ -15,7 +15,7 @@ export function FinalCTA() {
     <Section id="quote" tone="dark" className="relative overflow-hidden">
       {/* Backdrop */}
       <div className="absolute inset-0" aria-hidden>
-        <FestiveImage image="treeGoldBaubles" sizes="100vw" />
+        <FestiveImage image="finalCtaGlow" sizes="100vw" />
         <div className="absolute inset-0 bg-night/82" />
       </div>
 

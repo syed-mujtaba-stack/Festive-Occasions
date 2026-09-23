@@ -79,7 +79,7 @@ export function Signature() {
           style={{ clipPath: "inset(18% 24% 22% 24% round 24px)" }}
         >
           <FestiveImage
-            image="livingroomFireplace"
+            image="signatureDetails"
             priority
             sizes="100vw"
           />

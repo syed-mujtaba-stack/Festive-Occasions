@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.outdoorHouseLights.src}`,
-        alt: images.outdoorHouseLights.alt,
+        url: `${siteConfig.url}${images.pageUae.src}`,
+        alt: images.pageUae.alt,
         width: 1200,
         height: 630,
       },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Christmas Decoration UAE — All Emirates & Cities",
     description:
       "Nationwide Christmas decoration across all seven Emirates and every major area — planned from our Sharjah base, coverage confirmed on enquiry.",
-    images: [`${siteConfig.url}${images.outdoorHouseLights.src}`],
+    images: [`${siteConfig.url}${images.pageUae.src}`],
   },
 };
 
@@ -244,7 +244,7 @@ export default function ChristmasDecorationUaePage() {
         eyebrow="Nationwide"
         title="Christmas decoration across the UAE."
         lead="One studio, every festive space in the Emirates — planned from our Sharjah base and installed wherever your property is."
-        image="outdoorHouseLights"
+        image="pageUae"
       />
 
       {/* Intro — why nationwide */}
