@@ -117,7 +117,7 @@ export default function GalleryPage() {
                   look is composed around its space, from statement tree to
                   final styling detail.
                 </p>
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa/80">
+                <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa">
                   Final project photos and captions will replace the styling
                   imagery as the studio confirms the full set. Everything
                   shown is verified by our team before publication.

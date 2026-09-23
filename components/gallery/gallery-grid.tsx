@@ -1,10 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { galleryProjects } from "@/lib/gallery";
 import { GalleryCard } from "@/components/gallery/gallery-card";
-import { GalleryLightbox } from "@/components/gallery/gallery-lightbox";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
+
+/**
+ * Lightbox is only ever needed after a click — load it lazily (client-only)
+ * so react-icons / its keyboard handling never touch the initial bundle.
+ */
+const GalleryLightbox = dynamic(
+  () =>
+    import("@/components/gallery/gallery-lightbox").then(
+      (m) => m.GalleryLightbox
+    ),
+  { ssr: false }
+);
 
 /**
  * GalleryGrid — numbered editorial gallery.
@@ -23,7 +35,7 @@ export function GalleryGrid() {
       <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
         <p className="text-label text-cocoa">
           The set —{" "}
-          <span className="text-champagne">
+          <span className="text-champagne-deep">
             {String(galleryProjects.length).padStart(2, "0")}
           </span>{" "}
           looks, numbered in order

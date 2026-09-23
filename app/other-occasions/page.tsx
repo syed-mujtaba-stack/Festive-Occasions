@@ -86,7 +86,7 @@ export default function OtherOccasionsPage() {
                 ].map((o, i) => (
                   <div key={o.title} className="border-b hairline py-7 first:pt-0">
                     <div className="flex items-baseline gap-4">
-                      <span className="text-label text-champagne">
+                      <span className="text-label text-champagne-deep">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>

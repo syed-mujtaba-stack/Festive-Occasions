@@ -21,7 +21,7 @@ export function Eyebrow({
         aria-hidden
         className="h-px w-10 bg-champagne"
       />
-      <span className="text-warm-gray">{children}</span>
+      <span className={cn(tone === "dark" ? "text-warm-gray" : "text-warm-gray-deep")}>{children}</span>
     </span>
   );
 }

@@ -1,13 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { galleryProjects } from "@/lib/gallery";
 import { GalleryCard } from "@/components/gallery/gallery-card";
-import { GalleryLightbox } from "@/components/gallery/gallery-lightbox";
+
+/**
+ * Lightbox is only ever needed after a click — load it lazily (client-only)
+ * so react-icons / its keyboard handling never touch the initial bundle.
+ */
+const GalleryLightbox = dynamic(
+  () =>
+    import("@/components/gallery/gallery-lightbox").then(
+      (m) => m.GalleryLightbox
+    ),
+  { ssr: false }
+);
 
 /**
  * Portfolio preview (homepage) — editorial numbered grid.

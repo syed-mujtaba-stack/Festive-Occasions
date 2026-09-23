@@ -28,7 +28,7 @@ export function WhyUs() {
                 eyebrow="Why Festive Occasions"
                 title={
                   <>
-                    Built on craft, delivered <em className="text-champagne not-italic">on time.</em>
+                    Built on craft, delivered <em className="text-champagne-deep not-italic">on time.</em>
                   </>
                 }
                 description="We treat every space like a commission — measured, composed and finished to a high standard."
@@ -47,7 +47,7 @@ export function WhyUs() {
             {pillars.map((p, i) => (
               <ScrollReveal key={p.title} as="li" y={20} delay={i * 0.04}>
                 <div className="group flex items-baseline gap-6 border-t hairline py-6 transition-colors duration-500 first:border-t-0 lg:gap-10 lg:py-7">
-                  <span className="text-label text-champagne/70 transition-colors duration-500 group-hover:text-champagne">
+                  <span className="text-label text-champagne-deep transition-colors duration-500 group-hover:text-champagne">
                     0{i + 1}
                   </span>
                   <h3 className="w-[38%] shrink-0 font-display text-xl text-espresso transition-colors duration-500 group-hover:text-cocoa lg:text-2xl">

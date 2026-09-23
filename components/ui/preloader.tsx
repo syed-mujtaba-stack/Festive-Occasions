@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap, prefersReducedMotion } from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 import { finishPreloader } from "@/lib/preloader";
 
 /**
@@ -38,16 +38,36 @@ export function Preloader() {
       return;
     }
 
-    const scopeEl = scope.current;
-    const counterEl = counterRef.current;
-    if (!scopeEl || !counterEl) return;
+    // GSAP is code-split (perf: it must not block first hydration). The
+    // overlay is SSR-painted, so its first frame shows statically; the
+    // timeline takes over the instant the chunk arrives. Any failure falls
+    // back to releasing the hero and removing the overlay immediately.
+    let cancelled = false;
+    let cleanup: (() => void) | null = null;
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    (async () => {
+      try {
+        const { gsap } = await import("@/animations/registry");
+        if (cancelled) return;
 
-    const q = gsap.utils.selector(scopeEl);
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    const count = { n: 0 };
+        const scopeEl = scope.current;
+        const counterEl = counterRef.current;
+        if (!scopeEl || !counterEl) {
+          finishPreloader();
+          setGone(true);
+          return;
+        }
+
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        const q = gsap.utils.selector(scopeEl);
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        const count = { n: 0 };
+        cleanup = () => {
+          document.body.style.overflow = prevOverflow;
+          tl.kill();
+        };
 
     // ── Act 1 — the seal ─────────────────────────────────────────────
     tl.fromTo(
@@ -134,10 +154,16 @@ export function Preloader() {
         document.body.style.overflow = prevOverflow;
         setGone(true);
       }, 3.2);
+      } catch {
+        if (cancelled) return;
+        finishPreloader();
+        setGone(true);
+      }
+    })();
 
     return () => {
-      document.body.style.overflow = prevOverflow;
-      tl.kill();
+      cancelled = true;
+      cleanup?.();
     };
   }, []);
 

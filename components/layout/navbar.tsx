@@ -58,15 +58,28 @@ export function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // rAF-batched scroll handler: reads geometry + writes state at most
+    // once per frame instead of per scroll event (kills scroll-reflow
+    // thrash — `scrollHeight` reads are the only layout-triggering call
+    // and happen once per frame).
+    let rafId = 0;
     const onScroll = () => {
-      setScrolled(window.scrollY > 32);
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        const y = window.scrollY;
+        setScrolled(y > 32);
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        setProgress(max > 0 ? Math.min(1, y / max) : 0);
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   // Lock scroll when full-screen menu is open

@@ -24,7 +24,7 @@ export function FAQ({ questions = faqs }: { questions?: FaqEntry[] }) {
                 eyebrow="Questions"
                 title={
                   <>
-                    Everything you might <em className="text-champagne not-italic">ask.</em>
+                    Everything you might <em className="text-champagne-deep not-italic">ask.</em>
                   </>
                 }
               />

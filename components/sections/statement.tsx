@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, prefersReducedMotion } from "@/animations/registry";
+import { gsap, useGSAP } from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 
 /**
  * The Statement — oversized editorial brand moment (brief §02).

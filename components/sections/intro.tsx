@@ -18,7 +18,7 @@ export function Intro() {
                 eyebrow="The Studio"
                 title={
                   <>
-                    Christmas decoration, designed around <em className="text-champagne not-italic font-display">your space</em>.
+                    Christmas decoration, designed around <em className="text-champagne-deep not-italic font-display">your space</em>.
                   </>
                 }
               />

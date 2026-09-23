@@ -48,7 +48,7 @@ export function PackagesSection({
               eyebrow="The Collection"
               title={
                 <>
-                  A package for <em className="text-champagne not-italic">your space.</em>
+                  A package for <em className="text-champagne-deep not-italic">your space.</em>
                 </>
               }
               description="Fixed collections with considered styling, from a single signature tree to a complete seasonal setting. Custom colour themes and larger installations are quoted on request."
@@ -153,7 +153,7 @@ export function PackagesSection({
                 >
                   {/* Identity */}
                   <div>
-                    <p className="flex items-center gap-3 text-label text-champagne">
+                    <p className="flex items-center gap-3 text-label text-champagne-deep">
                       <span aria-hidden className="h-px w-8 bg-champagne/60" />
                       {String(i + 1).padStart(2, "0")} · {pkg.tree}
                     </p>
@@ -164,7 +164,7 @@ export function PackagesSection({
                       {pkg.blurb}
                     </p>
                     {pkg.featured && (
-                      <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-champagne/50 px-4 py-1.5 text-label text-champagne">
+                      <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-champagne/50 px-4 py-1.5 text-label text-champagne-deep">
                         Most requested
                       </p>
                     )}
@@ -237,7 +237,7 @@ export function PackagesSection({
           </ScrollReveal>
 
           <ScrollReveal delay={0.05}>
-            <p className="mt-6 text-sm text-cocoa/70">
+            <p className="mt-6 text-sm text-cocoa">
               Prices exclude VAT. Custom colour themes, add-ons and larger
               installations are quoted on request — final quote depends on
               your space, scale and styling direction.

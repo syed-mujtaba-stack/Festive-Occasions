@@ -107,7 +107,7 @@ export default function PackagesPage() {
                   final quote reflects the exact scale, colour direction and
                   proportions of your property.
                 </p>
-                <p className="text-[0.95rem] leading-relaxed text-cocoa/80">
+                <p className="text-[0.95rem] leading-relaxed text-cocoa">
                   Send a few photos of your space and your preferred dates on
                   WhatsApp — we&apos;ll confirm the right package (or shape a
                   bespoke quote) for your setting before you commit.

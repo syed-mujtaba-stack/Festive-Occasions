@@ -297,7 +297,7 @@ export default function ChristmasDecorationUaePage() {
             {emirates.map((e, i) => (
               <ScrollReveal key={e.name} delay={i * 0.05}>
                 <div className="h-full rounded-lg border hairline bg-background p-7">
-                  <p className="text-label text-champagne">
+                  <p className="text-label text-champagne-deep">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-3 font-display text-2xl text-espresso">
@@ -345,7 +345,7 @@ export default function ChristmasDecorationUaePage() {
             ))}
           </div>
           <ScrollReveal delay={0.15}>
-            <p className="mt-8 text-sm text-cocoa/70">
+            <p className="mt-8 text-sm text-cocoa">
               Every area shown is confirmed on enquiry — we do not publish
               coverage we cannot actually schedule. If your community is not
               listed, ask anyway: the client takes on projects across all
@@ -371,7 +371,7 @@ export default function ChristmasDecorationUaePage() {
                 {scope.map((s, i) => (
                   <div key={s.title} className="border-b hairline py-7 first:pt-0">
                     <div className="flex items-baseline gap-4">
-                      <span className="text-label text-champagne">
+                      <span className="text-label text-champagne-deep">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>

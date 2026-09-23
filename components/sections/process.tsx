@@ -1,15 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import {
-  gsap,
-  useGSAP,
-  ScrollTrigger,
-  prefersReducedMotion,
-} from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -55,73 +50,92 @@ export function ProcessSection() {
   const scope = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
-  useGSAP(
-    () => {
-      if (prefersReducedMotion()) return;
-      const el = scope.current;
-      if (!el) return;
-      const q = gsap.utils.selector(el);
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const el = scope.current;
+    if (!el) return;
 
-      const timeline = q("[data-process-timeline]")[0] as HTMLElement;
-      const rows = gsap.utils.toArray<HTMLElement>("[data-step]", el);
-      if (!timeline || rows.length === 0) return;
+    // GSAP/ScrollTrigger load lazily so /about (and any other inner page)
+    // never pulls the animation core into its initial bundle. The
+    // scroll-driven counter is progressive enhancement only — the static
+    // markup is fully styled without it.
+    let cancelled = false;
+    let kill: (() => void) | null = null;
 
-      const fill = q("[data-step-fill]")[0] as HTMLElement | undefined;
-      const N = rows.length;
-      const win = 1 / N;
+    (async () => {
+      try {
+        const { gsap, ScrollTrigger } = await import("@/animations/registry");
+        if (cancelled) return;
 
-      if (!fill) return;
+        const q = gsap.utils.selector(el);
 
-      gsap.set(fill, { scaleY: 0 });
+        const timeline = q("[data-process-timeline]")[0] as HTMLElement;
+        const rows = gsap.utils.toArray<HTMLElement>("[data-step]", el);
+        if (!timeline || rows.length === 0) return;
 
-      // Gold line draws down the timeline + dots ignite per row.
-      const tl = gsap.timeline({
-        scrollTrigger: {
+        const fill = q("[data-step-fill]")[0] as HTMLElement | undefined;
+        const N = rows.length;
+        const win = 1 / N;
+
+        if (!fill) return;
+
+        gsap.set(fill, { scaleY: 0 });
+
+        // Gold line draws down the timeline + dots ignite per row.
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: timeline,
+            start: "top 72%",
+            end: "bottom 55%",
+            scrub: 1,
+          },
+          defaults: { ease: "none" },
+        });
+
+        tl.fromTo(fill, { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0);
+
+        rows.forEach((row, i) => {
+          const dot = row.querySelector("[data-step-dot]");
+          if (!dot) return;
+          const inPos = i * win;
+          const outPos = (i + 1) * win;
+          tl.fromTo(
+            dot,
+            { autoAlpha: 0.35, scale: 1 },
+            { autoAlpha: 1, scale: 1.35, duration: win * 0.4, ease: "power2.out" },
+            inPos
+          ).to(dot, { scale: 1, duration: win * 0.3 }, outPos - win * 0.3);
+        });
+
+        // Drive the step counter from scroll progress — the single source
+        // of truth for which number is visible.
+        const st = ScrollTrigger.create({
           trigger: timeline,
           start: "top 72%",
           end: "bottom 55%",
-          scrub: 1,
-        },
-        defaults: { ease: "none" },
-      });
+          onUpdate: (self) => {
+            const idx = Math.min(
+              N - 1,
+              Math.max(0, Math.floor(self.progress * N))
+            );
+            setActive(idx);
+          },
+        });
 
-      tl.fromTo(fill, { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0);
+        kill = () => {
+          st.kill();
+          tl.kill();
+        };
+      } catch {
+        // Static markup is fully styled — the animation simply never runs.
+      }
+    })();
 
-      rows.forEach((row, i) => {
-        const dot = row.querySelector("[data-step-dot]");
-        if (!dot) return;
-        const inPos = i * win;
-        const outPos = (i + 1) * win;
-        tl.fromTo(
-          dot,
-          { autoAlpha: 0.35, scale: 1 },
-          { autoAlpha: 1, scale: 1.35, duration: win * 0.4, ease: "power2.out" },
-          inPos
-        ).to(dot, { scale: 1, duration: win * 0.3 }, outPos - win * 0.3);
-      });
-
-      // Drive the step counter from scroll progress — the single source
-      // of truth for which number is visible.
-      const st = ScrollTrigger.create({
-        trigger: timeline,
-        start: "top 72%",
-        end: "bottom 55%",
-        onUpdate: (self) => {
-          const idx = Math.min(
-            N - 1,
-            Math.max(0, Math.floor(self.progress * N))
-          );
-          setActive(idx);
-        },
-      });
-
-      // Set the correct start state immediately (page may load mid-section).
-      return () => {
-        st.kill();
-      };
-    },
-    { scope }
-  );
+    return () => {
+      cancelled = true;
+      kill?.();
+    };
+  }, []);
 
   return (
     <Section id="process" tone="cream">
@@ -137,7 +151,7 @@ export function ProcessSection() {
                 eyebrow="How It Works"
                 title={
                   <>
-                    From first hello to <em className="text-champagne not-italic">Christmas ready.</em>
+                    From first hello to <em className="text-champagne-deep not-italic">Christmas ready.</em>
                   </>
                 }
                 description="A clear five-step process that keeps your home or business running while we transform it."
@@ -155,17 +169,17 @@ export function ProcessSection() {
                         : "translate-y-6 opacity-0"
                     )}
                   >
-                    <span className="font-display text-[clamp(5rem,8vw,7.5rem)] italic leading-none text-champagne">
+                    <span className="font-display text-[clamp(5rem,8vw,7.5rem)] italic leading-none text-champagne-deep">
                       {s.n}
                     </span>
-                    <span className="mt-3 text-label text-warm-gray">
+                    <span className="mt-3 text-label text-warm-gray-deep">
                       Step {s.n} of 05
                     </span>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-6 hidden text-[0.9rem] tracking-wide text-cocoa/60 lg:block">
+              <p className="mt-6 hidden text-[0.9rem] tracking-wide text-cocoa lg:block">
                 Design &middot; Styling &middot; Installation &middot; Removal
               </p>
             </div>
@@ -198,7 +212,7 @@ export function ProcessSection() {
                   </span>
 
                   <div>
-                    <p className="process-row-num text-label text-champagne">
+                    <p className="process-row-num text-label text-champagne-deep">
                       Step {s.n}
                     </p>
                     <h3

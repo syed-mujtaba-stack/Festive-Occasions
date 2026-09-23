@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { gsap, useGSAP, prefersReducedMotion } from "@/animations/registry";
+import { gsap, useGSAP } from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
@@ -117,7 +118,7 @@ export function ServicesSection() {
             eyebrow="What We Do"
             title={
               <>
-                Eight ways to make it <em className="text-champagne not-italic">unforgettable.</em>
+                Eight ways to make it <em className="text-champagne-deep not-italic">unforgettable.</em>
               </>
             }
             description="Every service can be delivered on its own or composed into a single, cohesive Christmas transformation."
@@ -146,7 +147,7 @@ export function ServicesSection() {
               >
                 {/* Left: copy */}
                 <div data-svc-text className="max-w-xl">
-                  <p className="flex items-baseline gap-4 text-label text-champagne">
+                  <p className="flex items-baseline gap-4 text-label text-champagne-deep">
                     <span className="font-display text-6xl leading-none tracking-normal text-espresso/15">
                       {service.number}
                     </span>
@@ -241,7 +242,7 @@ export function ServicesSection() {
                   className="group flex flex-col gap-5 border-t hairline pt-8"
                 >
                   <div className="flex items-baseline justify-between gap-6">
-                    <span className="text-label text-champagne">
+                    <span className="text-label text-champagne-deep">
                       {service.number} — {service.section}
                     </span>
                     <span

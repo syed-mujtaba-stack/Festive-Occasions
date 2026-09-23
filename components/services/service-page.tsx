@@ -277,7 +277,7 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
                     i % 2 === 1 ? "lg:order-2" : ""
                   }`}
                 >
-                  <p className="text-label text-champagne">{d.number}</p>
+                  <p className="text-label text-champagne-deep">{d.number}</p>
                   <h3 className="mt-3 font-display text-[2rem] text-espresso">
                     {d.title}
                   </h3>
@@ -365,7 +365,7 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
                   className="group flex items-center justify-between gap-4 rounded-lg border hairline bg-background p-6 transition-all duration-300 hover:border-champagne hover:shadow-soft"
                 >
                   <div>
-                    <p className="text-label text-champagne">{s.number}</p>
+                    <p className="text-label text-champagne-deep">{s.number}</p>
                     <h3 className="mt-2 font-display text-xl leading-tight text-espresso group-hover:text-espresso">
                       {s.title} {s.subtitle}
                     </h3>

@@ -90,7 +90,7 @@ export default function AreasWeServePage() {
                     className="border-b hairline py-7 first:pt-0"
                   >
                     <div className="flex items-baseline gap-4">
-                      <span className="text-label text-champagne">
+                      <span className="text-label text-champagne-deep">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
@@ -103,7 +103,7 @@ export default function AreasWeServePage() {
                         {c.title === "Wider UAE" && (
                           <Link
                             href="/christmas-decoration-uae"
-                            className="mt-3 inline-flex items-center gap-2 text-label text-champagne transition-colors hover:text-espresso"
+                            className="mt-3 inline-flex items-center gap-2 text-label text-champagne-deep transition-colors hover:text-espresso"
                           >
                             Nationwide projects
                             <span aria-hidden>→</span>

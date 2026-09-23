@@ -58,11 +58,11 @@ export function GalleryCard({
         <h3 className="font-display text-[1.35rem] leading-snug text-espresso transition-colors duration-500 group-hover:text-cocoa">
           {project.title}
         </h3>
-        <p className="mt-1 text-sm text-cocoa/60">
+        <p className="mt-1 text-sm text-cocoa">
           {project.category} · {project.year}
         </p>
         {onSelect && (
-          <span className="mt-auto inline-flex items-center gap-2.5 pt-4 text-label text-champagne transition-colors duration-500 group-hover:text-espresso">
+          <span className="mt-auto inline-flex items-center gap-2.5 pt-4 text-label text-champagne-deep transition-colors duration-500 group-hover:text-espresso">
             Explore Look
             <span
               aria-hidden

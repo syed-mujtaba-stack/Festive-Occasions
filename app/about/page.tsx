@@ -96,10 +96,10 @@ export default function AboutPage() {
         <Container>
           <ScrollReveal>
             <div className="max-w-4xl">
-              <p className="eyebrow text-champagne">The Story</p>
+              <p className="eyebrow text-champagne-deep">The Story</p>
               <h2 className="mt-10 font-display text-[clamp(2.4rem,5.6vw,4.8rem)] leading-[1.02] tracking-[-0.015em] text-espresso">
                 Christmas, composed
-                <em className="block text-champagne not-italic">
+                <em className="block text-champagne-deep not-italic">
                   around your space.
                 </em>
               </h2>
@@ -164,10 +164,10 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.2fr] lg:gap-20">
             <ScrollReveal>
               <div className="lg:sticky lg:top-28">
-                <p className="eyebrow text-champagne">What Guides the Work</p>
+                <p className="eyebrow text-champagne-deep">What Guides the Work</p>
                 <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,3.6rem)] leading-tight text-espresso">
                   Four principles, held{" "}
-                  <em className="text-champagne not-italic">on every project.</em>
+                  <em className="text-champagne-deep not-italic">on every project.</em>
                 </h2>
                 <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-cocoa">
                   Small enough to care, precise enough to finish — these are
@@ -180,7 +180,7 @@ export default function AboutPage() {
               {values.map((v, i) => (
                 <ScrollReveal key={v.title} as="li" y={20} delay={i * 0.05}>
                   <div className="group flex items-baseline gap-6 border-t hairline py-8 transition-colors duration-500 first:border-t-0 lg:gap-10 lg:py-9">
-                    <span className="font-display text-3xl italic leading-none text-champagne/70 transition-colors duration-500 group-hover:text-champagne lg:text-4xl">
+                    <span className="font-display text-3xl italic leading-none text-champagne-deep transition-colors duration-500 group-hover:text-champagne lg:text-4xl">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">

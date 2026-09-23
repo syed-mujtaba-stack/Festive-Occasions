@@ -1,4 +1,4 @@
-import { JsDriver } from "@/animations/registry";
+import { JsDriver } from "@/lib/motion";
 import { SmoothScroll } from "@/components/animations/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";

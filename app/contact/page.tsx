@@ -145,18 +145,18 @@ export default function ContactPage() {
                   const Icon = m.icon;
                   const inner = (
                     <>
-                      <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-champagne/30 bg-white/70 text-champagne transition-colors duration-500 group-hover:bg-champagne group-hover:text-espresso">
+                      <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-champagne/30 bg-white/70 text-champagne-deep transition-colors duration-500 group-hover:bg-champagne group-hover:text-espresso">
                         <Icon className="h-5 w-5" aria-hidden />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-warm-gray transition-colors duration-500 group-hover:text-champagne">
+                        <span className="block text-xs font-semibold uppercase tracking-wider text-warm-gray-deep transition-colors duration-500 group-hover:text-champagne">
                           {m.label}
                         </span>
                         <span className="mt-0.5 block truncate text-[1.02rem] font-medium text-espresso">
                           {m.value}
                         </span>
                         {m.detail && (
-                          <span className="mt-0.5 block text-[0.9rem] text-cocoa/75">
+                          <span className="mt-0.5 block text-[0.9rem] text-cocoa">
                             {m.detail}
                           </span>
                         )}

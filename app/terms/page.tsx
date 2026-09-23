@@ -56,7 +56,7 @@ export default function TermsPage() {
       <section className="relative flex min-h-[42svh] items-end overflow-hidden bg-night">
         <div className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/85 to-[#171312]/60" />
         <Container className="relative z-10 pb-14 pt-36">
-          <p className="text-label mb-5 flex items-center gap-4 text-champagne">
+          <p className="text-label mb-5 flex items-center gap-4 text-champagne-deep">
             <span className="h-px w-10 bg-champagne" aria-hidden />
             Festive Occasions · Terms
           </p>
@@ -81,7 +81,7 @@ export default function TermsPage() {
                 </p>
               </div>
             ))}
-            <p className="mt-8 text-xs text-warm-gray">
+            <p className="mt-8 text-xs text-warm-gray-deep">
               Last updated: September 2026. We will update this page if our
               working terms change, and will always reflect what is confirmed
               in writing with your project.

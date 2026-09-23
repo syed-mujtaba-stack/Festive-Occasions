@@ -30,7 +30,7 @@ export function Testimonials() {
             eyebrow="Client Words"
             title={
               <>
-                What our clients <em className="text-champagne not-italic">say.</em>
+                What our clients <em className="text-champagne-deep not-italic">say.</em>
               </>
             }
             align="center"
@@ -48,7 +48,7 @@ export function Testimonials() {
                 </blockquote>
                 <figcaption className="mt-6 border-t hairline pt-5">
                   <p className="text-sm font-semibold text-espresso">{r.name}</p>
-                  <p className="text-label mt-1 text-warm-gray">{r.detail}</p>
+                  <p className="text-label mt-1 text-warm-gray-deep">{r.detail}</p>
                 </figcaption>
               </figure>
             </ScrollReveal>

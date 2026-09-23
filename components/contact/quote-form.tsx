@@ -56,7 +56,7 @@ export function QuoteForm() {
       onSubmit={handleSubmit}
       className="rounded-xl border hairline bg-white/70 p-7 shadow-soft sm:p-9"
     >
-      <p className="text-label text-champagne">Request a quote</p>
+      <p className="text-label text-champagne-deep">Request a quote</p>
       <h3 className="mt-2 font-display text-2xl text-espresso">
         Tell us about your space.
       </h3>
@@ -121,7 +121,7 @@ export function QuoteForm() {
         </label>
         <label className="block sm:col-span-2">
           <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-espresso">
-            Notes <span className="font-normal text-cocoa/60">(optional)</span>
+            Notes <span className="font-normal text-cocoa">(optional)</span>
           </span>
           <textarea
             value={notes}

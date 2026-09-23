@@ -2,30 +2,20 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import { useEffect } from "react";
-
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
-
-export { gsap, ScrollTrigger, SplitText, useGSAP };
 
 /**
- * Marks <html> as js-enabled so [data-reveal] initial hidden states
- * apply only when JS is active (progressive enhancement + no flash).
+ * GSAP animation core.
+ *
+ * NOTE: SplitText deliberately does NOT register here — it is the single
+ * heaviest GSAP plugin and is only used by the homepage hero. It gets a
+ * direct `gsap/SplitText` import + local registration so every other page
+ * (blog, about, contact, gallery, packages, terms, …) ships zero SplitText.
+ *
+ * `prefersReducedMotion` and `JsDriver` now live in `@/lib/motion` (a
+ * dependency-free module) so scroll-reveal / smooth-scroll / preloader
+ * don't drag GSAP into the entry bundle.
  */
-export function JsDriver() {
-  useEffect(() => {
-    document.documentElement.classList.add("js-enabled");
-  }, []);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-  return null;
-}
-
-/** Respect reduced motion globally for ScrollTrigger-driven effects. */
-export function prefersReducedMotion() {
-  return (
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-}
+export { gsap, ScrollTrigger, useGSAP };

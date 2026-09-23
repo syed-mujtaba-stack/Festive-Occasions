@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, ScrollTrigger, prefersReducedMotion } from "@/animations/registry";
+import { gsap, useGSAP, ScrollTrigger } from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 
 /**

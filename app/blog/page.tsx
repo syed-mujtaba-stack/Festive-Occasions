@@ -95,7 +95,7 @@ export default function BlogIndexPage() {
                     <p className="max-w-prose text-[0.95rem] leading-relaxed text-cocoa">
                       {post.metaDescription}
                     </p>
-                    <span className="mt-2 inline-flex items-center gap-2 text-label text-champagne">
+                    <span className="mt-2 inline-flex items-center gap-2 text-label text-champagne-deep">
                       Read guide
                       <span
                         aria-hidden

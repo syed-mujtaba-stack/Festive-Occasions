@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { gsap, useGSAP, prefersReducedMotion } from "@/animations/registry";
+import { gsap, useGSAP } from "@/animations/registry";
+import { prefersReducedMotion } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
@@ -96,7 +97,7 @@ export function Audiences() {
             eyebrow="Who We Decorate For"
             title={
               <>
-                One studio. Every kind of <em className="text-champagne not-italic">space.</em>
+                One studio. Every kind of <em className="text-champagne-deep not-italic">space.</em>
               </>
             }
             description="We work across residential, corporate and hospitality environments — from a single statement tree to a full property transformation."
@@ -127,7 +128,7 @@ export function Audiences() {
                     </h3>
                   </div>
 
-                  <p className="mt-4 max-w-xl text-lead text-cocoa/80">
+                  <p className="mt-4 max-w-xl text-lead text-cocoa">
                     {a.copy}
                   </p>
 

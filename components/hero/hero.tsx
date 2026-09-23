@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, SplitText, prefersReducedMotion } from "@/animations/registry";
+import { gsap, useGSAP } from "@/animations/registry";
+import { SplitText } from "gsap/SplitText";
+import { prefersReducedMotion } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
@@ -26,81 +28,113 @@ export function Hero() {
     () => {
       if (prefersReducedMotion()) return;
 
-      const q = gsap.utils.selector(scope);
-      const split = new SplitText(q("[data-split]"), {
-        type: "lines,words",
-        linesClass: "overflow-hidden",
-      });
+      const scopeEl = scope.current;
+      if (!scopeEl) return;
 
-      const tl = gsap.timeline({
-        paused: true,
-        defaults: { ease: "power4.out" },
-      });
+      // SplitText is the single most expensive layout operation on the
+      // homepage (it measures every wrapped word → forced reflows). The
+      // timeline is built inside a double-rAF so those reads happen after
+      // the critical hydration window. Visually identical — the timeline
+      // stays paused until the preloader's curtains start to lift.
+      let split: SplitText | null = null;
+      let tl: gsap.core.Timeline | null = null;
+      let started = false;
+      let fallbackTimer = 0;
 
-      tl.fromTo(
-        q("[data-hero-media]"),
-        { scale: 1.08 },
-        { scale: 1, duration: 2.4, ease: "power2.out", delay: 0.0 }
-      )
-        .fromTo(
-          q("[data-hero-overlay]"),
-          { opacity: 0 },
-          { opacity: 1, duration: 1.1, ease: "power2.out" },
-          0.2
-        )
-        .fromTo(
-          q("[data-hero-eyebrow]"),
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          0.4
-        )
-        // split lines: first line, then second
-        .fromTo(
-          split.lines,
-          { yPercent: 110 },
-          { yPercent: 0, duration: 1.15, stagger: 0.12 },
-          0.55
-        )
-        .fromTo(
-          q("[data-hero-lead]"),
-          { opacity: 0, y: 28 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          0.95
-        )
-        .fromTo(
-          q("[data-hero-cta]"),
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-          1.1
-        )
-        .fromTo(
-          q("[data-hero-decor]"),
-          { opacity: 0, scaleX: 0.4 },
-          { opacity: 1, scaleX: 1, duration: 0.9, ease: "power3.inOut" },
-          1.3
-        )
-        .fromTo(
-          q("[data-hero-scroll]"),
-          { yPercent: -120 },
-          { yPercent: 360, duration: 2.2, repeat: -1, ease: "power1.inOut" },
-          1.6
-        );
+      const build = () => {
+        if (started) return;
+        started = true;
 
-      // Start the intro the moment the preloader's curtains begin to lift.
-      // A hard fallback timer guarantees the hero can never be stuck
-      // invisible — even if the preloader path is skipped entirely.
-      let played = false;
-      const play = () => {
-        if (played) return;
-        played = true;
-        tl.play();
+        const q = gsap.utils.selector(scope);
+        gsap.registerPlugin(SplitText);
+        const splitText = new SplitText(q("[data-split]"), {
+          type: "lines,words",
+          linesClass: "overflow-hidden",
+        });
+        split = splitText;
+
+        const nextTl = gsap.timeline({
+          paused: true,
+          defaults: { ease: "power4.out" },
+        });
+        tl = nextTl;
+
+        nextTl
+          .fromTo(
+            q("[data-hero-media]"),
+            { scale: 1.08 },
+            { scale: 1, duration: 2.4, ease: "power2.out", delay: 0.0 }
+          )
+          .fromTo(
+            q("[data-hero-overlay]"),
+            { opacity: 0 },
+            { opacity: 1, duration: 1.1, ease: "power2.out" },
+            0.2
+          )
+          .fromTo(
+            q("[data-hero-eyebrow]"),
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.9 },
+            0.4
+          )
+          // split lines: first line, then second
+          .fromTo(
+            splitText.lines,
+            { yPercent: 110 },
+            { yPercent: 0, duration: 1.15, stagger: 0.12 },
+            0.55
+          )
+          .fromTo(
+            q("[data-hero-lead]"),
+            { opacity: 0, y: 28 },
+            { opacity: 1, y: 0, duration: 0.9 },
+            0.95
+          )
+          .fromTo(
+            q("[data-hero-cta]"),
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
+            1.1
+          )
+          .fromTo(
+            q("[data-hero-decor]"),
+            { opacity: 0, scaleX: 0.4 },
+            { opacity: 1, scaleX: 1, duration: 0.9, ease: "power3.inOut" },
+            1.3
+          )
+          .fromTo(
+            q("[data-hero-scroll]"),
+            { yPercent: -120 },
+            { yPercent: 360, duration: 2.2, repeat: -1, ease: "power1.inOut" },
+            1.6
+          );
+
+        // Start the intro the moment the preloader's curtains begin to lift.
+        // A hard fallback timer guarantees the hero can never be stuck
+        // invisible — even if the preloader path is skipped entirely.
+        let played = false;
+        const play = () => {
+          if (played) return;
+          played = true;
+          nextTl.play();
+        };
+        fallbackTimer = window.setTimeout(play, 4000);
+        preloaderDone.then(play).catch(play);
       };
-      const fallback = window.setTimeout(play, 4000);
-      preloaderDone.then(play).catch(play);
+
+      // Defer the heavy build off the hydration path; safety fallback for
+      // throttled rAF (backgrounded tabs) so the hero can never block.
+      const buildRaf = requestAnimationFrame(() =>
+        requestAnimationFrame(build)
+      );
+      const safety = window.setTimeout(build, 1500);
 
       return () => {
-        window.clearTimeout(fallback);
-        split.revert();
+        cancelAnimationFrame(buildRaf);
+        window.clearTimeout(safety);
+        window.clearTimeout(fallbackTimer);
+        split?.revert();
+        tl?.kill();
       };
     },
     { scope }
@@ -138,10 +172,10 @@ export function Hero() {
         </div>
 
         <h1 className="text-hero max-w-5xl text-ivory">
-          <span data-split className="block">
+          <span data-split role="text" className="block">
             Christmas,
           </span>
-          <span data-split className="block">
+          <span data-split role="text" className="block">
             reimagined.
           </span>
         </h1>
