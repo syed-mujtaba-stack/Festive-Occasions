@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <span
-      aria-hidden
       className={cn(
         "relative grid h-11 w-11 shrink-0 place-items-center rounded-full border border-champagne/70 bg-transparent transition-colors duration-500 group-hover:border-champagne group-hover:bg-champagne",
         className

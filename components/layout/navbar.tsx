@@ -122,7 +122,6 @@ export function Navbar() {
           <Link
             href="/"
             className="group flex items-center gap-3"
-            aria-label="Festive Occasions"
           >
             <LogoMark />
             <span className="flex flex-col leading-none">
@@ -132,10 +131,7 @@ export function Navbar() {
                   Occasions
                 </span>
               </span>
-              <span
-                aria-hidden
-                className="text-label mt-1.5 flex items-center gap-2 text-champagne"
-              >
+              <span className="text-label mt-1.5 flex items-center gap-2 text-champagne">
                 <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
                 Christmas Decoration · Dubai &amp; UAE
               </span>
