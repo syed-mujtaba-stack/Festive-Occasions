@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/animations/registry";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
@@ -14,6 +14,7 @@ import { FestiveImage } from "@/components/ui/festive-image";
  */
 export function Signature() {
   const scope = useRef<HTMLDivElement>(null);
+  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
@@ -21,46 +22,61 @@ export function Signature() {
         // Reduced motion: show final state, no pin.
         return;
       }
+      const el = scope.current;
+      if (!el) return;
 
+      // Pinned section below the fold — build the pin + timeline only as
+      // the stage approaches (positive margin), never during initial load.
       const ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: scope.current,
-            start: "top top",
-            end: "+=160%",
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-          },
-          defaults: { ease: "none" },
-        });
+        stopProximity = whenNearViewport(
+          el,
+          () => {
+            ctx.add(() => {
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top top",
+                  end: "+=160%",
+                  scrub: 1,
+                  pin: true,
+                  anticipatePin: 1,
+                },
+                defaults: { ease: "none" },
+              });
 
-        tl.fromTo(
-          "[data-sig-frame]",
-          { clipPath: "inset(18% 24% 22% 24% round 24px)" },
-          { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.2 }
-        )
-          .fromTo(
-            "[data-sig-title-item]",
-            { opacity: 0, y: 60 },
-            { opacity: 1, y: 0, duration: 0.28, stagger: 0.12 },
-            0
-          )
-          .fromTo(
-            "[data-sig-copy]",
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.2 },
-            0.9
-          )
-          .fromTo(
-            "[data-sig-decor]",
-            { opacity: 0, scale: 0.85 },
-            { opacity: 1, scale: 1, duration: 0.25, stagger: 0.08 },
-            1.15
-          );
+              tl.fromTo(
+                "[data-sig-frame]",
+                { clipPath: "inset(18% 24% 22% 24% round 24px)" },
+                { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.2 }
+              )
+                .fromTo(
+                  "[data-sig-title-item]",
+                  { opacity: 0, y: 60 },
+                  { opacity: 1, y: 0, duration: 0.28, stagger: 0.12 },
+                  0
+                )
+                .fromTo(
+                  "[data-sig-copy]",
+                  { opacity: 0, y: 30 },
+                  { opacity: 1, y: 0, duration: 0.2 },
+                  0.9
+                )
+                .fromTo(
+                  "[data-sig-decor]",
+                  { opacity: 0, scale: 0.85 },
+                  { opacity: 1, scale: 1, duration: 0.25, stagger: 0.08 },
+                  1.15
+                );
+            });
+          },
+          700
+        );
       }, scope);
 
-      return () => ctx.revert();
+      return () => {
+        stopProximity?.();
+        ctx.revert();
+      };
     },
     { scope }
   );

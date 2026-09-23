@@ -261,6 +261,14 @@ html.lenis body {
   }
 }
 
+/* Scroll-stage slides (services pin, audiences sticky panel): hidden until
+   the approach-gated setup reveals the first and crossfades the rest, so
+   stacked slides never show before the (lazy) trigger initialises. */
+.js-enabled .svc-pinned [data-svc-slide],
+.js-enabled .aud-sticky [data-aud-img] {
+  opacity: 0;
+}
+
 /* Audiences — sticky image panel is desktop+JS only; otherwise the
    inline image inside each row is shown (mobile, no-JS, reduced-motion). */
 .aud-sticky {

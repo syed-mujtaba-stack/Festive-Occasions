@@ -38,7 +38,7 @@ export function Footer() {
             <Link
               href="/"
               className="group inline-flex items-center gap-3"
-              aria-label="Festive Occasions — Home"
+              aria-label="Festive Occasions"
             >
               <LogoMark />
               <span className="flex flex-col leading-none">
@@ -48,7 +48,10 @@ export function Footer() {
                     Occasions
                   </span>
                 </span>
-                <span className="text-label mt-2 flex items-center gap-2 text-champagne">
+                <span
+                  aria-hidden
+                  className="text-label mt-2 flex items-center gap-2 text-champagne"
+                >
                   <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
                   Christmas Decoration · Dubai
                 </span>
@@ -101,7 +104,7 @@ export function Footer() {
               </li>
               <li>{siteConfig.addressLine}</li>
               <li className="text-ivory/50">{siteConfig.hours}</li>
-              <li className="text-ivory/40">{siteConfig.hoursDetail}</li>
+              <li className="text-ivory/70">{siteConfig.hoursDetail}</li>
             </ul>
 
             {/* Social — verified channels only (off-page / brand presence) */}
@@ -111,7 +114,7 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Festive Occasions on Instagram"
+                aria-label="@festive_ocassions on Instagram"
                 className="mt-3 inline-flex items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-champagne"
               >
                 <FaInstagram aria-hidden className="h-4 w-4" />
@@ -121,7 +124,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t hairline-dark pt-8 text-xs text-ivory/40 sm:flex-row sm:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t hairline-dark pt-8 text-xs text-ivory/70 sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.domain}
           </p>
@@ -140,7 +143,7 @@ export function Footer() {
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-label text-ivory/40">Bespoke festive decoration</span>
+              <span className="text-label text-ivory/70">Bespoke festive decoration</span>
               <span className="text-champagne">DUBAI · UAE</span>
             </li>
           </ul>

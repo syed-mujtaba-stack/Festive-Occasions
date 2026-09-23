@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { gsap, useGSAP } from "@/animations/registry";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
@@ -19,6 +19,7 @@ import { FestiveImage } from "@/components/ui/festive-image";
  */
 export function ServicesSection() {
   const scope = useRef<HTMLDivElement>(null);
+  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
@@ -29,83 +30,100 @@ export function ServicesSection() {
       const el = scope.current;
       if (!el) return;
 
-      const q = gsap.utils.selector(el);
-      const stage = q("[data-svc-stage]")[0] as HTMLElement;
-      const slides = gsap.utils.toArray<HTMLElement>("[data-svc-slide]", el);
-      if (!stage || slides.length === 0) return;
+      // Pinned stage sits thousands of pixels below the fold — build the
+      // pin + timeline as it approaches (positive margin), never at load.
+      const ctx = gsap.context(() => {
+        stopProximity = whenNearViewport(
+          el,
+          () => {
+            ctx.add(() => {
+              const q = gsap.utils.selector(el);
+              const stage = q("[data-svc-stage]")[0] as HTMLElement;
+              const slides = gsap.utils.toArray<HTMLElement>("[data-svc-slide]", el);
+              if (!stage || slides.length === 0) return;
 
-      const N = slides.length;
+              const N = slides.length;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: stage,
-          start: "top top",
-          end: "+=380%",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-        defaults: { ease: "none" },
-      });
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: stage,
+                  start: "top top",
+                  end: "+=380%",
+                  scrub: 1,
+                  pin: true,
+                  anticipatePin: 1,
+                  invalidateOnRefresh: true,
+                },
+                defaults: { ease: "none" },
+              });
 
-      // Vertical progress rail
-      tl.fromTo(
-        q("[data-svc-rail]")[0],
-        { scaleY: 0 },
-        { scaleY: 1, duration: 1, ease: "none" },
-        0
-      );
+              // Vertical progress rail
+              tl.fromTo(
+                q("[data-svc-rail]")[0],
+                { scaleY: 0 },
+                { scaleY: 1, duration: 1, ease: "none" },
+                0
+              );
 
-      // Step dots
-      const dots = gsap.utils.toArray<HTMLElement>("[data-svc-dot]", el);
-      dots.forEach((dot, i) => {
-        const inPos = i / N;
-        const outPos = (i + 1) / N;
-        tl.fromTo(
-          dot,
-          { autoAlpha: 0.22, scale: 1 },
-          { autoAlpha: 1, scale: 1.35, duration: 0.35 / N },
-          inPos
-        ).to(dot, { autoAlpha: 0.22, scale: 1, duration: 0.3 / N }, outPos - 0.3 / N);
-      });
+              // Step dots
+              const dots = gsap.utils.toArray<HTMLElement>("[data-svc-dot]", el);
+              dots.forEach((dot, i) => {
+                const inPos = i / N;
+                const outPos = (i + 1) / N;
+                tl.fromTo(
+                  dot,
+                  { autoAlpha: 0.22, scale: 1 },
+                  { autoAlpha: 1, scale: 1.35, duration: 0.35 / N },
+                  inPos
+                ).to(dot, { autoAlpha: 0.22, scale: 1, duration: 0.3 / N }, outPos - 0.3 / N);
+              });
 
-      slides.forEach((slide, i) => {
-        const inPos = i / N;
-        const outPos = (i + 1) / N;
-        const fade = 0.55 / N;
+              slides.forEach((slide, i) => {
+                const inPos = i / N;
+                const outPos = (i + 1) / N;
+                const fade = 0.55 / N;
 
-        const img = slide.querySelector<HTMLElement>("[data-svc-zoom]");
+                const img = slide.querySelector<HTMLElement>("[data-svc-zoom]");
 
-        if (i === 0) {
-          gsap.set(slide, { autoAlpha: 1, y: 0 });
-        } else {
-          gsap.set(slide, { autoAlpha: 0, y: 56 });
-        }
+                if (i === 0) {
+                  gsap.set(slide, { autoAlpha: 1, y: 0 });
+                } else {
+                  gsap.set(slide, { autoAlpha: 0, y: 56 });
+                }
 
-        if (i > 0) {
-          tl.fromTo(
-            slide,
-            { autoAlpha: 0, y: 64 },
-            { autoAlpha: 1, y: 0, duration: fade * 1.7, ease: "power2.out" },
-            inPos
-          );
-        }
-        tl.to(
-          slide,
-          { autoAlpha: 0, y: -64, duration: fade * 1.7, ease: "power2.in" },
-          outPos - fade * 1.7
+                if (i > 0) {
+                  tl.fromTo(
+                    slide,
+                    { autoAlpha: 0, y: 64 },
+                    { autoAlpha: 1, y: 0, duration: fade * 1.7, ease: "power2.out" },
+                    inPos
+                  );
+                }
+                tl.to(
+                  slide,
+                  { autoAlpha: 0, y: -64, duration: fade * 1.7, ease: "power2.in" },
+                  outPos - fade * 1.7
+                );
+
+                if (img) {
+                  tl.fromTo(
+                    img,
+                    { scale: 1.18 },
+                    { scale: 1, duration: fade * 2.6, ease: "power2.out" },
+                    i === 0 ? 0 : inPos
+                  );
+                }
+              });
+            });
+          },
+          700
         );
+      }, scope);
 
-        if (img) {
-          tl.fromTo(
-            img,
-            { scale: 1.18 },
-            { scale: 1, duration: fade * 2.6, ease: "power2.out" },
-            i === 0 ? 0 : inPos
-          );
-        }
-      });
+      return () => {
+        stopProximity?.();
+        ctx.revert();
+      };
     },
     { scope }
   );

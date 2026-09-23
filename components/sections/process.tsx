@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -58,16 +58,18 @@ export function ProcessSection() {
     // GSAP/ScrollTrigger load lazily so /about (and any other inner page)
     // never pulls the animation core into its initial bundle. The
     // scroll-driven counter is progressive enhancement only — the static
-    // markup is fully styled without it.
+    // markup is fully styled without it. The whole setup is additionally
+    // gated until the section approaches the viewport.
     let cancelled = false;
     let kill: (() => void) | null = null;
 
-    (async () => {
-      try {
-        const { gsap, ScrollTrigger } = await import("@/animations/registry");
-        if (cancelled) return;
+    const start = () => {
+      (async () => {
+        try {
+          const { gsap, ScrollTrigger } = await import("@/animations/registry");
+          if (cancelled) return;
 
-        const q = gsap.utils.selector(el);
+          const q = gsap.utils.selector(el);
 
         const timeline = q("[data-process-timeline]")[0] as HTMLElement;
         const rows = gsap.utils.toArray<HTMLElement>("[data-step]", el);
@@ -129,10 +131,14 @@ export function ProcessSection() {
       } catch {
         // Static markup is fully styled — the animation simply never runs.
       }
-    })();
+      })();
+    };
+
+    const stopProximity = whenNearViewport(el, start, 400);
 
     return () => {
       cancelled = true;
+      stopProximity();
       kill?.();
     };
   }, []);

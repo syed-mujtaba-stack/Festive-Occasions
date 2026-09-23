@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/animations/registry";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 
 /**
  * The Statement — oversized editorial brand moment (brief §02).
@@ -12,40 +12,63 @@ import { prefersReducedMotion } from "@/lib/motion";
  */
 export function Statement() {
   const scope = useRef<HTMLElement>(null);
+  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
-      const q = gsap.utils.selector(scope);
+      const el = scope.current;
+      if (!el) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: scope.current,
-          start: "top 80%",
-          end: "center 58%",
-          scrub: 1,
-        },
-        defaults: { ease: "power3.out" },
-      });
+      // The statement sits exactly one viewport below the hero and is
+      // purely scroll-scrubbed — its trigger/timeline is created once the
+      // user actually starts scrolling (negative margin = fire on the
+      // first scroll tick), so initial-load main-thread time stays free.
+      const ctx = gsap.context(() => {
+        stopProximity = whenNearViewport(
+          el,
+          () => {
+            ctx.add(() => {
+              const q = gsap.utils.selector(el);
 
-      tl.fromTo(
-        q("[data-st-line]"),
-        { yPercent: 115 },
-        { yPercent: 0, duration: 1, stagger: 0.14 },
-        0
-      )
-        .fromTo(
-          q("[data-st-rule]"),
-          { scaleX: 0 },
-          { scaleX: 1, duration: 0.9 },
-          0.55
-        )
-        .fromTo(
-          q("[data-st-meta]"),
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: 0.8 },
-          0.6
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 80%",
+                  end: "center 58%",
+                  scrub: 1,
+                },
+                defaults: { ease: "power3.out" },
+              });
+
+              tl.fromTo(
+                q("[data-st-line]"),
+                { yPercent: 115 },
+                { yPercent: 0, duration: 1, stagger: 0.14 },
+                0
+              )
+                .fromTo(
+                  q("[data-st-rule]"),
+                  { scaleX: 0 },
+                  { scaleX: 1, duration: 0.9 },
+                  0.55
+                )
+                .fromTo(
+                  q("[data-st-meta]"),
+                  { autoAlpha: 0, y: 24 },
+                  { autoAlpha: 1, y: 0, duration: 0.8 },
+                  0.6
+                );
+            });
+          },
+          -2
         );
+      }, scope);
+
+      return () => {
+        stopProximity?.();
+        ctx.revert();
+      };
     },
     { scope }
   );

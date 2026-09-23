@@ -17,7 +17,7 @@ const variants: Record<Variant, string> = {
   "outline-light":
     "border border-ivory/25 text-ivory hover:border-champagne hover:text-champagne",
   whatsapp:
-    "bg-[#1faa55] text-white hover:bg-[#178a45] hover:-translate-y-0.5",
+    "bg-[#0f7a3f] text-white hover:bg-[#0d6b36] hover:-translate-y-0.5",
 };
 
 const sizes: Record<Size, string> = {

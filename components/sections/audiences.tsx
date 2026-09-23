@@ -6,7 +6,7 @@ import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { gsap, useGSAP } from "@/animations/registry";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
@@ -44,6 +44,7 @@ const audiences = [
 
 export function Audiences() {
   const scope = useRef<HTMLDivElement>(null);
+  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
@@ -51,40 +52,57 @@ export function Audiences() {
       const el = scope.current;
       if (!el) return;
 
-      const images = gsap.utils.toArray<HTMLElement>("[data-aud-img]", el);
-      if (images.length === 0) return;
+      // Sticky crossfade lives below the fold — build it as the section
+      // approaches instead of paying for it during initial load.
+      const ctx = gsap.context(() => {
+        stopProximity = whenNearViewport(
+          el,
+          () => {
+            ctx.add(() => {
+              const images = gsap.utils.toArray<HTMLElement>("[data-aud-img]", el);
+              if (images.length === 0) return;
 
-      const N = images.length;
-      const win = 1 / N;
+              const N = images.length;
+              const win = 1 / N;
 
-      // First image starts visible; each following audience crossfades in
-      // as the rows above scroll past the sticky panel.
-      gsap.set(images[0], { autoAlpha: 1, scale: 1 });
+              // First image starts visible; each following audience crossfades in
+              // as the rows above scroll past the sticky panel.
+              gsap.set(images[0], { autoAlpha: 1, scale: 1 });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "top 72%",
-          end: "bottom 68%",
-          scrub: 1,
-        },
-        defaults: { ease: "none" },
-      });
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 72%",
+                  end: "bottom 68%",
+                  scrub: 1,
+                },
+                defaults: { ease: "none" },
+              });
 
-      images.forEach((img, i) => {
-        if (i === 0) return;
-        const inPos = i * win;
-        tl.fromTo(
-          img,
-          { autoAlpha: 0, scale: 1.14 },
-          { autoAlpha: 1, scale: 1, duration: win * 0.55, ease: "power2.out" },
-          inPos
-        ).to(
-          img,
-          { autoAlpha: 0, scale: 1.03, duration: win * 0.5, ease: "power2.in" },
-          (i + 1) * win - win * 0.5
+              images.forEach((img, i) => {
+                if (i === 0) return;
+                const inPos = i * win;
+                tl.fromTo(
+                  img,
+                  { autoAlpha: 0, scale: 1.14 },
+                  { autoAlpha: 1, scale: 1, duration: win * 0.55, ease: "power2.out" },
+                  inPos
+                ).to(
+                  img,
+                  { autoAlpha: 0, scale: 1.03, duration: win * 0.5, ease: "power2.in" },
+                  (i + 1) * win - win * 0.5
+                );
+              });
+            });
+          },
+          400
         );
-      });
+      }, scope);
+
+      return () => {
+        stopProximity?.();
+        ctx.revert();
+      };
     },
     { scope }
   );
