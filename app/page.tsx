@@ -86,7 +86,7 @@ export default function Home() {
         <Audiences />
         <GallerySection />
         <ProcessSection />
-        <PackagesSection linkToPage />
+        <PackagesSection linkToPage cards />
         <WhyUs />
         <Testimonials />
         <FAQ />
