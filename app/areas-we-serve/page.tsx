@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { whatsappLink, siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
 import { FaWhatsapp } from "react-icons/fa";
+import { PackagesSection } from "@/components/sections/packages";
 
 export const metadata: Metadata = {
   title: "Areas We Serve — Christmas Decoration Dubai & UAE",
@@ -148,6 +149,7 @@ export default function AreasWeServePage() {
           </ScrollReveal>
         </Container>
       </Section>
+      <PackagesSection linkToPage cards />
     </PageShell>
   );
 }

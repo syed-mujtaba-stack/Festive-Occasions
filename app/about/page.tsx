@@ -7,6 +7,7 @@ import { FestiveImage } from "@/components/ui/festive-image";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { WhyUs } from "@/components/sections/why-us";
 import { ProcessSection } from "@/components/sections/process";
+import { PackagesSection } from "@/components/sections/packages";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
@@ -235,6 +236,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
+      <PackagesSection linkToPage cards />
       <WhyUs />
       <ProcessSection />
       <FinalCTA />

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FestiveImage } from "@/components/ui/festive-image";
 import { PageShell } from "@/components/layout/page-shell";
 import { FAQ } from "@/components/sections/faq";
+import { PackagesSection } from "@/components/sections/packages";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
@@ -234,6 +235,9 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
           </div>
         </Container>
       </Section>
+
+      {/* Packages */}
+      <PackagesSection linkToPage cards />
 
       {/* What we decorate */}
       <Section id="what-we-decorate" tone="cream">

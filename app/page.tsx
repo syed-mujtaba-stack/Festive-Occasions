@@ -80,13 +80,13 @@ export default function Home() {
         <Hero />
         <Statement />
         <Marquee />
+        <PackagesSection linkToPage cards />
         <Intro />
         <ServicesSection />
         <Signature />
         <Audiences />
         <GallerySection />
         <ProcessSection />
-        <PackagesSection linkToPage cards />
         <WhyUs />
         <Testimonials />
         <FAQ />

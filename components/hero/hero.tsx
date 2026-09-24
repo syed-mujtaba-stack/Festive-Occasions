@@ -1,230 +1,158 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/animations/registry";
-import { SplitText } from "gsap/SplitText";
-import { prefersReducedMotion } from "@/lib/motion";
-import { FestiveImage } from "@/components/ui/festive-image";
-import { Button } from "@/components/ui/button";
-import { FaWhatsapp } from "react-icons/fa";
-import { whatsappLink } from "@/lib/site";
-import { preloaderDone } from "@/lib/preloader";
+import Image from "next/image";
+import Link from "next/link";
+import { FaWhatsapp, FaPhoneAlt, FaStar, FaCheckCircle } from "react-icons/fa";
+import { SnowFall } from "@/components/animations/snow-fall";
+import { FestiveSparkles } from "@/components/animations/festive-sparkles";
+import { siteConfig, whatsappLink, telLink } from "@/lib/site";
+import { images } from "@/lib/images";
 
-/**
- * Homepage hero — cinematic GSAP timeline per spec.
- *  0.0 media scale 1.08 → 1.0
- *  0.2 overlay reveal
- *  0.4 eyebrow
- *  0.6 H1 line 1
- *  0.75 H1 line 2
- *  0.9 description
- *  1.1 CTA
- *  1.3 decorative detail
- */
 export function Hero() {
-  const scope = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      if (prefersReducedMotion()) return;
-
-      const scopeEl = scope.current;
-      if (!scopeEl) return;
-
-      // SplitText is the single most expensive layout operation on the
-      // homepage (it measures every wrapped word → forced reflows). The
-      // timeline is built inside a double-rAF so those reads happen after
-      // the critical hydration window. Visually identical — the timeline
-      // stays paused until the preloader's curtains start to lift.
-      let split: SplitText | null = null;
-      let tl: gsap.core.Timeline | null = null;
-      let started = false;
-      let fallbackTimer = 0;
-
-      const build = () => {
-        if (started) return;
-        started = true;
-
-        const q = gsap.utils.selector(scope);
-        gsap.registerPlugin(SplitText);
-        const splitText = new SplitText(q("[data-split]"), {
-          type: "lines,words",
-          linesClass: "overflow-hidden",
-        });
-        split = splitText;
-
-        const nextTl = gsap.timeline({
-          paused: true,
-          defaults: { ease: "power4.out" },
-        });
-        tl = nextTl;
-
-        nextTl
-          .fromTo(
-            q("[data-hero-media]"),
-            { scale: 1.08 },
-            { scale: 1, duration: 2.4, ease: "power2.out", delay: 0.0 }
-          )
-          .fromTo(
-            q("[data-hero-overlay]"),
-            { opacity: 0 },
-            { opacity: 1, duration: 1.1, ease: "power2.out" },
-            0.2
-          )
-          .fromTo(
-            q("[data-hero-eyebrow]"),
-            { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.9 },
-            0.4
-          )
-          // split lines: first line, then second
-          .fromTo(
-            splitText.lines,
-            { yPercent: 110 },
-            { yPercent: 0, duration: 1.15, stagger: 0.12 },
-            0.55
-          )
-          .fromTo(
-            q("[data-hero-lead]"),
-            { opacity: 0, y: 28 },
-            { opacity: 1, y: 0, duration: 0.9 },
-            0.95
-          )
-          .fromTo(
-            q("[data-hero-cta]"),
-            { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-            1.1
-          )
-          .fromTo(
-            q("[data-hero-decor]"),
-            { opacity: 0, scaleX: 0.4 },
-            { opacity: 1, scaleX: 1, duration: 0.9, ease: "power3.inOut" },
-            1.3
-          )
-          .fromTo(
-            q("[data-hero-scroll]"),
-            { yPercent: -120 },
-            { yPercent: 360, duration: 2.2, repeat: -1, ease: "power1.inOut" },
-            1.6
-          );
-
-        // Start the intro the moment the preloader's curtains begin to lift.
-        // A hard fallback timer guarantees the hero can never be stuck
-        // invisible — even if the preloader path is skipped entirely.
-        let played = false;
-        const play = () => {
-          if (played) return;
-          played = true;
-          nextTl.play();
-        };
-        fallbackTimer = window.setTimeout(play, 4000);
-        preloaderDone.then(play).catch(play);
-      };
-
-      // Defer the heavy build off the hydration path; safety fallback for
-      // throttled rAF (backgrounded tabs) so the hero can never block.
-      const buildRaf = requestAnimationFrame(() =>
-        requestAnimationFrame(build)
-      );
-      const safety = window.setTimeout(build, 1500);
-
-      return () => {
-        cancelAnimationFrame(buildRaf);
-        window.clearTimeout(safety);
-        window.clearTimeout(fallbackTimer);
-        split?.revert();
-        tl?.kill();
-      };
-    },
-    { scope }
-  );
-
   return (
     <section
-      ref={scope}
-      className="relative flex min-h-[100svh] items-end overflow-hidden bg-night"
-      aria-label="Introduction"
+      className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24"
+      aria-label="Festive Occasions Introduction"
     >
-      {/* Media */}
-      <div className="absolute inset-0" data-hero-media>
-        <FestiveImage
-          image="hero"
+      {/* Full-Bleed Luxury Dubai Christmas Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/client-work/project-41.jpg"
+          alt="Luxury Christmas Decoration in Dubai — Festive Occasions"
+          fill
           priority
           sizes="100vw"
-          imgClassName="object-cover"
+          className="object-cover object-top scale-105 transition-transform duration-1000 ease-out"
         />
+        {/* Luxury Vignette & Contrast Overlay so text is crystal clear */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0c] via-transparent to-black/50" />
       </div>
 
-      {/* Overlay / veiling to keep text readable */}
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/45 to-[#171312]/25"
-        data-hero-overlay
-      />
+      {/* Christmas Animations: Falling Snow & Twinkling Sparkles */}
+      <SnowFall flakeCount={46} className="z-10" />
+      <FestiveSparkles className="z-10" />
 
-      {/* Content */}
-      <div className="container-site relative z-10 pb-24 pt-40 sm:pb-28">
-        <div data-hero-eyebrow className="mb-7 flex items-center gap-4">
-          <span className="h-px w-12 bg-champagne" aria-hidden />
-          <p className="text-label text-champagne">
-            Festive Occasions · Christmas Decoration Dubai
-          </p>
-        </div>
+      <div className="container-site relative z-20 w-full">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Left Column: Clear, Professional & High-Converting Pitch */}
+          <div className="lg:col-span-8 flex flex-col items-start text-left">
+            {/* Trust & Seasonal Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#dfba73]/40 text-xs sm:text-sm text-champagne font-medium mb-6 shadow-lg">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Dubai Season Bookings Open · 2026/2027</span>
+              <span className="text-white/40">|</span>
+              <span className="flex items-center gap-1 text-amber-300">
+                <FaStar className="h-3 w-3" /> 5.0 Rated Luxury Decor
+              </span>
+            </div>
+            {/* H1 Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-md">
+              Magical Christmas <br className="hidden sm:inline" />
+              <span className="bg-gradient-to-r from-[#e8c988] via-[#fff1cf] to-[#dfba73] bg-clip-text text-transparent">
+                Decoration in Dubai
+              </span>
+            </h1>
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-white/85 max-w-2xl font-light leading-relaxed mb-8 drop-shadow">
+              Bespoke festive decoration for luxury villas, commercial spaces,
+              corporate offices, and hotels across Dubai & UAE. Fully managed from
+              custom design to professional installation and seamless January takedown.
+            </p>
 
-        <h1 className="text-hero max-w-5xl text-ivory">
-          <span data-split role="text" className="block">
-            Christmas,
-          </span>
-          <span data-split role="text" className="block">
-            reimagined.
-          </span>
-        </h1>
+            {/* Value Points */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-xl mb-9 text-xs sm:text-sm text-white/95">
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                <FaCheckCircle className="text-[#dfba73] shrink-0" />
+                <span>Turnkey Installation</span>
+              </div>
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                <FaCheckCircle className="text-[#dfba73] shrink-0" />
+                <span>Fire-Safe Certified</span>
+              </div>
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                <FaCheckCircle className="text-[#dfba73] shrink-0" />
+                <span>January Takedown</span>
+              </div>
+            </div>
 
-        <div className="mt-8 grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:gap-16">
-          <p data-hero-lead className="max-w-xl text-lead text-ivory/75">
-            Bespoke Christmas decoration for homes, villas, offices and
-            commercial spaces across Dubai — designed, styled and installed
-            around your space.
-          </p>
+            {/* High-Converting Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm sm:text-base shadow-[0_10px_25px_-5px_rgba(16,185,129,0.5)] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <FaWhatsapp className="h-5 w-5" />
+                <span>WhatsApp Instant Quote</span>
+              </a>
 
-          <div data-hero-cta className="flex flex-wrap items-center gap-3">
-            <Button variant="primary" size="lg" href="/#quote">
-              Get a Free Quote
-            </Button>
-            <Button
-              variant="whatsapp"
-              size="lg"
-              href={whatsappLink()}
-              external
-            >
-              <FaWhatsapp className="h-4 w-4" aria-hidden />
-              WhatsApp Us
-            </Button>
+              <Link
+                href="/packages"
+                className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-black/50 hover:bg-black/70 text-white font-semibold text-sm sm:text-base border border-white/25 backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>View Packages & Pricing</span>
+              </Link>
+
+              <a
+                href={telLink()}
+                className="inline-flex sm:hidden items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black/40 text-white/90 text-xs border border-white/15"
+              >
+                <FaPhoneAlt className="h-3.5 w-3.5 text-champagne" />
+                <span>Call {siteConfig.phoneDisplay}</span>
+              </a>
+            </div>
+
+            {/* Trust Footer line */}
+            <p className="mt-4 text-xs text-white/70">
+              ⚡ Instant response via WhatsApp · Free site visit & custom design proposal
+            </p>
           </div>
-        </div>
 
-        {/* Decorative hairline */}
-        <div
-          data-hero-decor
-          className="mt-12 flex items-center gap-4"
-          aria-hidden
-        >
-          <span className="flex-1 border-t hairline-dark" />
-          <span className="text-warm-gray text-sm italic">Dubai · UAE</span>
-          <span className="flex-1 border-t hairline-dark" />
-        </div>
-      </div>
+          {/* Right Column: Luxury Santa Showcase Card with Real Work Badge */}
+          <div className="lg:col-span-4 relative mt-4 lg:mt-0 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[340px]">
+              {/* Santa Luxury Card */}
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] border-2 border-[#dfba73]/50 bg-black/60 backdrop-blur-xl p-3.5 transition-transform duration-500 hover:-translate-y-1">
+                <div className="relative aspect-square w-full rounded-xl overflow-hidden mb-3.5">
+                  <Image
+                    src="/images/client-work/project-35.png"
+                    alt="Luxury Christmas tree with all-red ornaments — Festive Occasions Dubai real client work"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 300px, 340px"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-red-700/90 text-[11px] font-bold text-white uppercase tracking-wider shadow">
+                    Real Client Work
+                  </div>
+                </div>
 
-      {/* Scroll cue */}
-      <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2" aria-hidden>
-        <div className="flex flex-col items-center gap-2.5">
-          <span className="text-label text-ivory/50">Scroll</span>
-          <span className="relative block h-12 w-px overflow-hidden bg-ivory/15">
-            <span
-              data-hero-scroll
-              className="absolute inset-x-0 top-0 h-4 w-px bg-champagne"
-            />
-          </span>
+                <div className="px-1 text-center">
+                  <h3 className="text-base font-serif font-bold text-white">
+                    Luxury Installations
+                  </h3>
+                  <p className="text-xs text-champagne mt-0.5 font-light">
+                    100% Authentic Client Work · Dubai
+                  </p>
+                  <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-white/80">
+                    <span>✨ Bespoke Villas</span>
+                    <span>🎄 Grand Trees</span>
+                    <span>🕯️ Lighting</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 100% Real Client Work Badge */}
+              <div className="absolute -bottom-4 -left-4 rounded-xl bg-stone-900/95 backdrop-blur-md border border-[#dfba73]/50 px-3.5 py-2 shadow-xl flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-white font-medium">
+                  50+ Luxury Villas Transformed
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

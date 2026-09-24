@@ -1,0 +1,371 @@
+[
+  {
+    "original": "IMG_2371 (1).jpg",
+    "clean": "project-01.jpg",
+    "path": "/images/client-work/project-01.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_2373 (1).jpg",
+    "clean": "project-02.jpg",
+    "path": "/images/client-work/project-02.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_2374 (1).jpg",
+    "clean": "project-03.jpg",
+    "path": "/images/client-work/project-03.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_2417 (1).jpg",
+    "clean": "project-04.jpg",
+    "path": "/images/client-work/project-04.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_2546 (1).jpg",
+    "clean": "project-05.jpg",
+    "path": "/images/client-work/project-05.jpg",
+    "width": 5712,
+    "height": 4284,
+    "aspect": "1.33",
+    "orientation": "landscape"
+  },
+  {
+    "original": "IMG_2556 (1).jpg",
+    "clean": "project-06.jpg",
+    "path": "/images/client-work/project-06.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3024.JPG.jpeg",
+    "clean": "project-07.jpg",
+    "path": "/images/client-work/project-07.jpg",
+    "width": 960,
+    "height": 1280,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3081.JPG (1).jpeg",
+    "clean": "project-08.jpg",
+    "path": "/images/client-work/project-08.jpg",
+    "width": 960,
+    "height": 1280,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3097.JPG.jpeg",
+    "clean": "project-09.jpg",
+    "path": "/images/client-work/project-09.jpg",
+    "width": 960,
+    "height": 1280,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3132 (1).png",
+    "clean": "project-10.png",
+    "path": "/images/client-work/project-10.png",
+    "width": 1320,
+    "height": 2868,
+    "aspect": "0.46",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3152 (1).jpg",
+    "clean": "project-11.jpg",
+    "path": "/images/client-work/project-11.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3519 (1).jpg",
+    "clean": "project-12.jpg",
+    "path": "/images/client-work/project-12.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3616 (1).jpg",
+    "clean": "project-13.jpg",
+    "path": "/images/client-work/project-13.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3628 (1).jpg",
+    "clean": "project-14.jpg",
+    "path": "/images/client-work/project-14.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3634 (1).jpg",
+    "clean": "project-15.jpg",
+    "path": "/images/client-work/project-15.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3974 (1).jpg",
+    "clean": "project-16.jpg",
+    "path": "/images/client-work/project-16.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_3986 (1).jpg",
+    "clean": "project-17.jpg",
+    "path": "/images/client-work/project-17.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4633 (1).jpg",
+    "clean": "project-18.jpg",
+    "path": "/images/client-work/project-18.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4652 (1).jpg",
+    "clean": "project-19.jpg",
+    "path": "/images/client-work/project-19.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4682 (1).jpg",
+    "clean": "project-20.jpg",
+    "path": "/images/client-work/project-20.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4684 (1).jpg",
+    "clean": "project-21.jpg",
+    "path": "/images/client-work/project-21.jpg",
+    "width": 3024,
+    "height": 4032,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4722 (1).jpg",
+    "clean": "project-22.jpg",
+    "path": "/images/client-work/project-22.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4808 (1).jpg",
+    "clean": "project-23.jpg",
+    "path": "/images/client-work/project-23.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4898 (1).jpg",
+    "clean": "project-24.jpg",
+    "path": "/images/client-work/project-24.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_4910 (1).jpg",
+    "clean": "project-25.jpg",
+    "path": "/images/client-work/project-25.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5058 (1).jpg",
+    "clean": "project-26.jpg",
+    "path": "/images/client-work/project-26.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5096.JPG (1).jpeg",
+    "clean": "project-27.jpg",
+    "path": "/images/client-work/project-27.jpg",
+    "width": 3000,
+    "height": 4000,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5097.JPG.jpeg",
+    "clean": "project-28.jpg",
+    "path": "/images/client-work/project-28.jpg",
+    "width": 1200,
+    "height": 1600,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5098.JPG (1).jpeg",
+    "clean": "project-29.jpg",
+    "path": "/images/client-work/project-29.jpg",
+    "width": 3000,
+    "height": 4000,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5248 (1).png",
+    "clean": "project-30.png",
+    "path": "/images/client-work/project-30.png",
+    "width": 1086,
+    "height": 1448,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5251(1) (1).png",
+    "clean": "project-31.png",
+    "path": "/images/client-work/project-31.png",
+    "width": 1320,
+    "height": 1747,
+    "aspect": "0.76",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5252(1) (1).png",
+    "clean": "project-32.png",
+    "path": "/images/client-work/project-32.png",
+    "width": 1320,
+    "height": 1619,
+    "aspect": "0.82",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5253(1) (1).png",
+    "clean": "project-33.png",
+    "path": "/images/client-work/project-33.png",
+    "width": 1320,
+    "height": 1752,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5254.PNG",
+    "clean": "project-34.png",
+    "path": "/images/client-work/project-34.png",
+    "width": 1320,
+    "height": 1739,
+    "aspect": "0.76",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5255(1) (1).png",
+    "clean": "project-35.png",
+    "path": "/images/client-work/project-35.png",
+    "width": 1320,
+    "height": 1630,
+    "aspect": "0.81",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5256.PNG",
+    "clean": "project-36.png",
+    "path": "/images/client-work/project-36.png",
+    "width": 1320,
+    "height": 1648,
+    "aspect": "0.80",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5257.PNG",
+    "clean": "project-37.png",
+    "path": "/images/client-work/project-37.png",
+    "width": 1320,
+    "height": 1608,
+    "aspect": "0.82",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5258.PNG",
+    "clean": "project-38.png",
+    "path": "/images/client-work/project-38.png",
+    "width": 1319,
+    "height": 1638,
+    "aspect": "0.81",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_5259.jpg",
+    "clean": "project-39.jpg",
+    "path": "/images/client-work/project-39.jpg",
+    "width": 1320,
+    "height": 1637,
+    "aspect": "0.81",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_6372 (1).jpg",
+    "clean": "project-40.jpg",
+    "path": "/images/client-work/project-40.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "IMG_6394 (1).jpg",
+    "clean": "project-41.jpg",
+    "path": "/images/client-work/project-41.jpg",
+    "width": 4284,
+    "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  }
+]

@@ -1,20 +1,18 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, ScrollTrigger } from "@/animations/registry";
+import { gsap, useGSAP } from "@/animations/registry";
 import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
  * Signature transformation — pinned scroll experience.
  * "AN EMPTY SPACE → (scroll) → TO CHRISTMAS MAGIC"
- *
  * The image starts cropped (clip-path) and minimal; decor elements appear;
  * the frame expands to full as the user scrolls through the pinned section.
  */
 export function Signature() {
   const scope = useRef<HTMLDivElement>(null);
-  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
@@ -24,6 +22,8 @@ export function Signature() {
       }
       const el = scope.current;
       if (!el) return;
+
+      let stopProximity: (() => void) | null = null;
 
       // Pinned section below the fold — build the pin + timeline only as
       // the stage approaches (positive margin), never during initial load.

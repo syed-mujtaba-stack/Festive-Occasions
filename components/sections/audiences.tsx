@@ -44,13 +44,14 @@ const audiences = [
 
 export function Audiences() {
   const scope = useRef<HTMLDivElement>(null);
-  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
       const el = scope.current;
       if (!el) return;
+
+      let stopProximity: (() => void) | null = null;
 
       // Sticky crossfade lives below the fold — build it as the section
       // approaches instead of paying for it during initial load.

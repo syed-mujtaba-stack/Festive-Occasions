@@ -12,14 +12,13 @@ import { FestiveImage } from "@/components/ui/festive-image";
 
 /**
  * Services — cinematic pinned storytelling (brief §04).
- *
+ 
  * Desktop (lg+): a pinned stage steps through every service on scroll —
  * number, typography, description and image crossfade with a progress rail.
  * Mobile + reduced-motion: a clean editorial list (no pin, fully static).
  */
 export function ServicesSection() {
   const scope = useRef<HTMLDivElement>(null);
-  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
@@ -29,6 +28,8 @@ export function ServicesSection() {
       }
       const el = scope.current;
       if (!el) return;
+
+      let stopProximity: (() => void) | null = null;
 
       // Pinned stage sits thousands of pixels below the fold — build the
       // pin + timeline as it approaches (positive margin), never at load.

@@ -34,10 +34,10 @@ export function Preloader() {
     // Reduced motion → never show the loader, release the hero instantly.
     if (prefersReducedMotion()) {
       finishPreloader();
-      setGone(true);
+      queueMicrotask(() => setGone(true));
       return;
     }
-
+  
     // GSAP is code-split (perf: it must not block first hydration). The
     // overlay is SSR-painted, so its first frame shows statically; the
     // timeline takes over the instant the chunk arrives. Any failure falls

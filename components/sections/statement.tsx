@@ -12,13 +12,14 @@ import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
  */
 export function Statement() {
   const scope = useRef<HTMLElement>(null);
-  let stopProximity: (() => void) | null = null;
 
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
       const el = scope.current;
       if (!el) return;
+
+      let stopProximity: (() => void) | null = null;
 
       // The statement sits exactly one viewport below the hero and is
       // purely scroll-scrubbed — its trigger/timeline is created once the

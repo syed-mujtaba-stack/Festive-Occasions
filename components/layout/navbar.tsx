@@ -52,16 +52,18 @@ function isServicesActive(pathname: string): boolean {
 }
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
-    // rAF-batched scroll handler: reads geometry + writes state at most
-    // once per frame instead of per scroll event (kills scroll-reflow
-    // thrash — `scrollHeight` reads are the only layout-triggering call
-    // and happen once per frame).
     let rafId = 0;
     const onScroll = () => {
       if (rafId) return;
@@ -82,7 +84,6 @@ export function Navbar() {
     };
   }, []);
 
-  // Lock scroll when full-screen menu is open
   useEffect(() => {
     if (menuOpen) {
       document.documentElement.classList.add("overflow-hidden");
@@ -91,9 +92,6 @@ export function Navbar() {
     }
     return () => document.documentElement.classList.remove("overflow-hidden");
   }, [menuOpen]);
-
-  // Close menu on navigation
-  useEffect(() => setMenuOpen(false), [pathname]);
 
   const solid = scrolled || menuOpen || pathname !== "/";
 

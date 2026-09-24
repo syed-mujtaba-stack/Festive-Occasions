@@ -141,7 +141,7 @@ export default function ContactPage() {
               />
 
               <div className="mt-10 flex flex-col">
-                {contactMethods.map((m, i) => {
+                {contactMethods.map((m) => {
                   const Icon = m.icon;
                   const inner = (
                     <>
