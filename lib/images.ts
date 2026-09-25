@@ -207,6 +207,22 @@ export const images = {
     src: "/images/client-work/project-14.jpg",
     alt: "Cozy Christmas home styling in Dubai",
   },
+  blog9: {
+    src: "/images/client-work/project-02.jpg",
+    alt: "Apartment Christmas decoration in Dubai — small-space festive styling",
+  },
+  blog10: {
+    src: "/images/client-work/project-03.jpg",
+    alt: "Professional Christmas decoration installation in Dubai",
+  },
+  blog11: {
+    src: "/images/client-work/project-16.jpg",
+    alt: "White and gold luxury Christmas tree theme in Dubai",
+  },
+  blog12: {
+    src: "/images/client-work/project-17.jpg",
+    alt: "Festive occasion decoration styling in Dubai",
+  },
   /** Support-page heroes. */
   pageAreas: {
     src: "/images/client-work/project-15.jpg",

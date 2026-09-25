@@ -3,15 +3,11 @@
 import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
-/** Card image stage — uniform portrait 4/5 so every card is the same size. */
-const CARD_RATIO = "aspect-[4/5]" as const;
-
 /**
- * GalleryCard — numbered editorial project card.
- * Each card leads with a large index numeral over the image, then a minimal
- * caption (category + title) and an explicit "Explore Look ↗" CTA. The whole
- * card is a button that opens the project in the lightbox when `onSelect` is
- * provided; otherwise it renders as a static card (service pages).
+ * GalleryCard — pure image tile for the marquee strip.
+ * No text overlays, no captions. Just the photograph.
+ * Clicking opens the lightbox when `onSelect` is provided; otherwise it
+ * renders as a static tile (used on service-page grids).
  */
 export function GalleryCard({
   project,
@@ -19,70 +15,39 @@ export function GalleryCard({
   onSelect,
 }: {
   project: GalleryProject;
-  index?: number;
+  index: number;
   onSelect?: (index: number) => void;
 }) {
-  const inner = (
+  const tile = (
     <>
-      {/* Image stage — uniform portrait 4/5 so the grid lines up */}
-      <div className={`${CARD_RATIO} relative overflow-hidden`}>
-        <div className="absolute inset-0 scale-[1.03] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]">
-          <FestiveImage
-            image={project.image}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-        {/* Grounding veil */}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-night/45 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-90"
-        />
-
-        {/* Project number — large editorial numeral, top left */}
-        {index !== undefined && (
-          <span
-            aria-hidden
-            className="absolute left-4 top-3 font-display text-2xl italic leading-none text-ivory transition-colors duration-500 group-hover:text-champagne"
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
-        )}
-        <span
-          aria-hidden
-          className="absolute right-4 top-4 h-[3px] w-[3px] -translate-y-1/2 rotate-45 bg-champagne"
+      {/* Image */}
+      <div className="absolute inset-0 scale-100 transition-transform duration-700 ease-out group-hover:scale-110">
+        <FestiveImage
+          image={project.image}
+          sizes="(max-width: 640px) 260px, 300px"
         />
       </div>
 
-      {/* Minimal caption + CTA */}
-      <div className="flex flex-1 flex-col gap-1.5 p-6">
-        <h3 className="font-display text-[1.35rem] leading-snug text-espresso transition-colors duration-500 group-hover:text-cocoa">
-          {project.title}
-        </h3>
-        <p className="mt-1 text-sm text-cocoa">
-          {project.category} · {project.year}
-        </p>
-        {onSelect && (
-          <span className="mt-auto inline-flex items-center gap-2.5 pt-4 text-label text-champagne-deep transition-colors duration-500 group-hover:text-espresso">
-            Explore Look
-            <span
-              aria-hidden
-              className="transition-transform duration-500 group-hover:translate-x-1"
-            >
-              ↗
-            </span>
-          </span>
-        )}
+      {/* Hover overlay: subtle champagne shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-t from-night/60 via-night/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+      {/* Hover: "View" label */}
+      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
+        <span className="rounded-full border border-champagne/60 bg-night/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-champagne backdrop-blur-sm">
+          View
+        </span>
       </div>
     </>
   );
 
-  const cardClasses =
-    "group flex h-full w-full flex-col overflow-hidden rounded-2xl border hairline bg-white/60 text-left shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-champagne/60 hover:shadow-card";
-
   if (!onSelect) {
     return (
-      <figure className={cardClasses} style={{ contain: "layout paint" }}>
-        {inner}
+      <figure
+        aria-hidden
+        className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl"
+        style={{ contain: "layout paint" }}
+      >
+        {tile}
       </figure>
     );
   }
@@ -90,12 +55,12 @@ export function GalleryCard({
   return (
     <button
       type="button"
-      onClick={() => onSelect(index ?? 0)}
-      aria-label={`${project.title} — ${project.category}, explore look in lightbox`}
-      className={`${cardClasses} outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ivory`}
+      onClick={() => onSelect(index)}
+      aria-label={`${project.title} — open in full view`}
+      className="group relative block aspect-[3/4] w-[260px] shrink-0 cursor-pointer overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-night sm:w-[300px]"
       style={{ contain: "layout paint" }}
     >
-      {inner}
+      {tile}
     </button>
   );
 }

@@ -40,7 +40,7 @@ export const servicePages: Record<string, ServicePage> = {
     title: "Christmas Decoration in Dubai",
     eyebrow: "The Complete Service",
     metaDescription:
-      "Christmas decorators in Dubai — bespoke Christmas decoration for homes, villas, offices and commercial spaces, designed, styled and installed by Festive Occasions. Request a consultation.",
+      "Christmas decorators in Dubai — bespoke festive decoration for homes, villas, offices and commercial spaces, styled and installed by Festive Occasions.",
     heroImage: "svcComplete",
     intro: {
       heading: "One studio. Every festive space in Dubai.",
@@ -119,7 +119,7 @@ export const servicePages: Record<string, ServicePage> = {
     title: "Christmas Villa Decoration in Dubai",
     eyebrow: "The Full Residence",
     metaDescription:
-      "Complete Christmas villa decoration in Dubai — entrance, living spaces, staircase, garden and outdoor lighting composed into one cohesive scheme by Festive Occasions.",
+      "Complete villa Christmas decoration in Dubai — entrance, living spaces, staircase, garden and outdoor lighting composed in one cohesive scheme.",
     heroImage: "svcVilla",
     intro: {
       heading: "A villa dressed as one home.",
@@ -304,7 +304,7 @@ export const servicePages: Record<string, ServicePage> = {
     title: "Corporate Christmas Decoration in Dubai",
     eyebrow: "The Branded Experience",
     metaDescription:
-      "Corporate Christmas decoration in Dubai — branded festive installations, event styling and large-scale displays for offices, hotels and venues by Festive Occasions.",
+      "Corporate Christmas decoration in Dubai — branded festive installations and large-scale displays for offices, hotels and venues by Festive Occasions.",
     heroImage: "svcCorporate",
     intro: {
       heading: "Festive, on-brand, impeccably executed.",

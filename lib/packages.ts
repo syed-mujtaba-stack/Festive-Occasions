@@ -20,7 +20,7 @@ export type ChristmasPackage = {
 export const christmasPackages: ChristmasPackage[] = [
   {
     id: "cheers",
-    name: "Christmas Cheers",
+    name: "Christmas Basic Package",
     tree: "6 ft tree",
     fromPrice: 6000,
     blurb: "A warm, classic touch for home or office.",
@@ -32,7 +32,7 @@ export const christmasPackages: ChristmasPackage[] = [
   },
   {
     id: "fancy",
-    name: "Christmas Fancy",
+    name: "Christmas Fancy Package",
     tree: "7–8 ft tree",
     fromPrice: 15000,
     blurb: "Elevated styling with more presence, room to room.",
@@ -45,7 +45,7 @@ export const christmasPackages: ChristmasPackage[] = [
   },
   {
     id: "luxury",
-    name: "Christmas Luxury",
+    name: "Christmas Luxury Package",
     tree: "9–10 ft tree",
     fromPrice: 25000,
     blurb: "The full statement, indoors and at the entrance.",

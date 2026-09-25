@@ -42,12 +42,12 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "how-to-choose-christmas-decorators-dubai",
-    title: "How to Choose Christmas Decorators in Dubai — A Buyer’s Guide",
+    title: "Choosing Christmas Decorators in Dubai",
     category: "Choosing a Decorator",
     published: "2026-09-21",
     readingMinutes: 6,
     metaDescription:
-      "How to choose Christmas decorators in Dubai — what to check before booking, what a good quote includes, and how to compare decorators fairly for your home, villa or office.",
+      "Choosing Christmas decorators in Dubai — what to check before booking, what a good quote includes, and how to compare decorators fairly.",
     keywords: [
       "How to choose Christmas decorators in Dubai",
       "Hiring Christmas decorators UAE",
@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "christmas-decoration-packages-dubai",
-    title: "Christmas Decoration Packages in Dubai — Prices & What’s Included",
+    title: "Christmas Decoration Packages in Dubai",
     category: "Packages & Pricing",
     published: "2026-09-15",
     readingMinutes: 5,
@@ -173,9 +173,9 @@ export const blogPosts: BlogPost[] = [
       {
         type: "ul",
         items: [
-          "Christmas Cheers — from AED 6,000 + VAT. A 6 ft tree with ornaments, one table garland and one basic door wreath. A warm, classic touch for a home or office, in a day.",
-          "Christmas Fancy — from AED 15,000 + VAT. A 7–8 ft tree with ornaments, a staircase garland, a door wreath and table set-up styling. More presence, room to room.",
-          "Christmas Luxury — from AED 25,000 + VAT. A 9–10 ft tree with luxury ornaments, a door wreath with garlands, staircase garlands, table set-up styling, curated seasonal accessories and outdoor entrance garlands. The full statement, indoors and at the entrance.",
+          "Christmas Basic Package — from AED 6,000 + VAT. A 6 ft tree with ornaments, one table garland and one basic door wreath. A warm, classic touch for a home or office, in a day.",
+          "Christmas Fancy Package — from AED 15,000 + VAT. A 7–8 ft tree with ornaments, a staircase garland, a door wreath and table set-up styling. More presence, room to room.",
+          "Christmas Luxury Package — from AED 25,000 + VAT. A 9–10 ft tree with luxury ornaments, a door wreath with garlands, staircase garlands, table set-up styling, curated seasonal accessories and outdoor entrance garlands. The full statement, indoors and at the entrance.",
         ],
       },
       {
@@ -225,12 +225,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "villa-christmas-decoration-dubai-guide",
-    title: "Villa Christmas Decoration in Dubai — A Complete Guide",
+    title: "Villa Christmas Decoration in Dubai",
     category: "Villas",
     published: "2026-09-16",
     readingMinutes: 6,
     metaDescription:
-      "A complete guide to villa Christmas decoration in Dubai — entrance, living spaces, staircase garlands, garden lighting and the packages that suit a full residence.",
+      "A complete guide to villa Christmas decoration in Dubai — entrance, living spaces, staircase garlands and garden lighting, and the packages that suit a residence.",
     keywords: [
       "Villa Christmas decoration Dubai",
       "Christmas decorators for villas",
@@ -303,7 +303,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "christmas-decoration-dubai-sizes-styles",
-    title: "Christmas Decoration in Dubai — Sizes, Styles & Themes",
+    title: "Christmas Decoration Sizes & Styles in Dubai",
     category: "Trees",
     published: "2026-09-17",
     readingMinutes: 5,
@@ -380,12 +380,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "office-corporate-christmas-decoration-dubai",
-    title: "Office & Corporate Christmas Decoration in Dubai",
+    title: "Office & Corporate Christmas Decoration",
     category: "Offices & Corporate",
     published: "2026-09-18",
     readingMinutes: 5,
     metaDescription:
-      "Office and corporate Christmas decoration in Dubai — lobbies, receptions and workspaces styled around your brand and building, with packages from AED 6,000 (+VAT).",
+      "Office and corporate Christmas decoration in Dubai — lobbies, receptions and workspaces styled around your brand, from AED 6,000 (+VAT).",
     keywords: [
       "Office Christmas decoration Dubai",
       "Corporate festive decoration UAE",
@@ -450,7 +450,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "outdoor-christmas-decoration-lighting-dubai",
-    title: "Outdoor Christmas Decoration & Lighting in Dubai",
+    title: "Outdoor Christmas Decoration & Lighting",
     category: "Outdoor & Lighting",
     published: "2026-09-19",
     readingMinutes: 5,
@@ -520,12 +520,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "when-to-book-christmas-decoration-dubai",
-    title: "When to Book Christmas Decoration in Dubai — 2026 Timeline",
+    title: "When to Book Christmas Decoration in Dubai",
     category: "Planning",
     published: "2026-09-20",
     readingMinutes: 4,
     metaDescription:
-      "When to book Christmas decoration in Dubai for the 2026 season — how lead times work, what determines your install window, and how to lock in your preferred dates.",
+      "When to book Christmas decoration in Dubai for 2026 — how lead times work, what sets your install window, and how to lock in dates.",
     keywords: [
       "When to book Christmas decoration Dubai",
       "Christmas decorators booking window",
@@ -584,6 +584,391 @@ export const blogPosts: BlogPost[] = [
     ],
     related: [
       { label: "Compare packages", href: "/packages" },
+      { label: "Contact us", href: "/contact" },
+    ],
+  },
+  {
+    slug: "christmas-tree-decoration-dubai",
+    title: "Christmas Tree Decoration in Dubai",
+    category: "Trees",
+    published: "2026-09-22",
+    readingMinutes: 5,
+    metaDescription:
+      "Christmas tree decoration in Dubai — tree sizes from 6 ft to 10 ft, the themes we dress, ornament layering and on-site finishing.",
+    keywords: [
+      "Christmas tree decoration Dubai",
+      "Christmas tree styling service UAE",
+      "Luxury Christmas tree decorators Dubai",
+      "Christmas tree themes and ornaments",
+    ],
+    heroImage: "blog8",
+    lead: "The tree is where most festive schemes begin — and where they are most judged. This guide covers the sizes we work with, the themes we dress, and how the tree is finished on site as part of every package.",
+    sections: [
+      {
+        type: "p",
+        text: "A well-dressed tree should feel composed rather than decorated: height matched to the ceiling, scale matched to the room, and ornaments layered with intention instead of added until the branches disappear.",
+      },
+      {
+        type: "h2",
+        text: "Finding the right size",
+      },
+      {
+        type: "ul",
+        items: [
+          "6 ft tree — the scale of Christmas Cheers (from AED 6,000 + VAT), right for a living room or office reception.",
+          "7–8 ft tree — the centre of Christmas Fancy (from AED 15,000 + VAT), with presence for a larger room or villa hall.",
+          "9–10 ft tree — the statement piece of Christmas Luxury (from AED 25,000 + VAT), sized for a grand living space, atrium or entrance.",
+          "Ceiling clearance matters — a topper needs headroom, and the tree should never fight the proportions of the room.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Themes we dress",
+      },
+      {
+        type: "p",
+        text: "The same tree can carry entirely different characters. Our styling directions include Classic, Winter Wonderland, Pure White, Modern Minimal, Luxury Gold and fully custom palettes. The choice usually comes down to your interior and how the tree will be seen: a restrained scheme suits a minimal space, while Classic and Luxury Gold give a richer, more traditional sense of occasion.",
+      },
+      {
+        type: "h2",
+        text: "Ornaments and layering",
+      },
+      {
+        type: "p",
+        text: "Ornament sets are composed for each tree rather than bought in bulk — baubles, ribbons, picks and accents are layered in sections so the tree reads as one considered piece from every angle. Finishing is part of every package: the tree arrives, is dressed on site and positioned to suit the light and sightlines of the room.",
+      },
+      {
+        type: "h2",
+        text: "The tree within a full scheme",
+      },
+      {
+        type: "p",
+        text: "A single tree can carry a room on its own, but it lands best when the garlands, wreaths and table styling around it speak the same language. Our complete decoration service and the packages page cover both a single-piece statement and a full festive transform — send a photo of your space on WhatsApp and we will recommend the right scale and theme.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I choose the right tree size for my room?",
+        a: "Match the height to your ceiling with clearance for a topper, and the width to the room around it. Share a photo and your ceiling height on WhatsApp and we will recommend the right scale.",
+      },
+      {
+        q: "Can you dress a tree I already own?",
+        a: "Yes — we can style a tree you already have, or supply and dress one as part of a package. Share the details of your tree with your enquiry.",
+      },
+      {
+        q: "What happens to the tree after the season?",
+        a: "All installations, including the tree, are removed carefully after the season as part of the service — your space is left exactly as we found it.",
+      },
+    ],
+    related: [
+      { label: "Christmas decoration in Dubai", href: "/christmas-decoration-dubai" },
+      { label: "Compare packages", href: "/packages" },
+    ],
+  },
+  {
+    slug: "apartment-christmas-decoration-dubai",
+    title: "Apartment Christmas Decoration in Dubai",
+    category: "Homes",
+    published: "2026-09-23",
+    readingMinutes: 5,
+    metaDescription:
+      "Apartment Christmas decoration in Dubai — how to make a smaller space feel festive without overcrowding, and the package that fits a flat.",
+    keywords: [
+      "Apartment Christmas decoration Dubai",
+      "Small space Christmas decor UAE",
+      "Flat festive decoration Dubai",
+      "Home Christmas decoration Dubai",
+    ],
+    heroImage: "blog9",
+    lead: "An apartment can feel more festive per square metre than a villa — the trick is knowing what to leave out. Here is how we approach smaller spaces, and the package that fits them naturally.",
+    sections: [
+      {
+        type: "p",
+        text: "Small spaces reward restraint. Instead of dressing every corner, the strongest apartment schemes choose two or three focal points and give them real presence: the living room tree, the entrance console, and a dining or table styling touch.",
+      },
+      {
+        type: "h2",
+        text: "The living room tree",
+      },
+      {
+        type: "p",
+        text: "A 6 ft tree is the natural scale for most Dubai apartments — it carries the room without dominating it, and fits comfortably against a wall or in a corner with clearance around it. For a larger living or a townhouse, a 7–8 ft tree bridges into the scale of our Fancy package.",
+      },
+      {
+        type: "h2",
+        text: "Small additions, done properly",
+      },
+      {
+        type: "ul",
+        items: [
+          "An entrance console — a wreath, a few ornaments and warm lighting set the tone the moment the door opens.",
+          "Table and shelf styling — garlands and seasonal accessories on the dining table and key shelves.",
+          "Window and doorway dressing — lights or garlands that read from outside as well as inside.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What to avoid in a smaller space",
+      },
+      {
+        type: "p",
+        text: "The common mistake is adding more rather than choosing better — two competing trees, busy mantles and ornaments on every surface. A disciplined palette and a couple of strong focal points photograph better, feel calmer and actually look more festive.",
+      },
+      {
+        type: "h2",
+        text: "Which package suits an apartment",
+      },
+      {
+        type: "p",
+        text: "Christmas Cheers (from AED 6,000 + VAT) — a 6 ft tree with ornaments, a table garland and a door wreath — was designed for exactly this scale, installed in a day and removed after the season. For more rooms or a bigger tree, Fancy is the next step. Our home decoration service and packages page cover both, and a couple of photos on WhatsApp is all we need to recommend the right scope for your flat.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is apartment decoration delivered in one day?",
+        a: "A single-tree scope like Christmas Cheers is typically completed in a day, including styling. Larger or multi-room schemes may take longer — your timeline is confirmed when you book.",
+      },
+      {
+        q: "Do you decorate rental apartments?",
+        a: "Yes — installations are non-damaging and removed after the season with no permanent changes to the property.",
+      },
+      {
+        q: "What is the smallest scope you take on?",
+        a: "Our packages start at Christmas Cheers from AED 6,000 + VAT; anything smaller is best handled with our guidance or a bespoke enquiry on WhatsApp.",
+      },
+    ],
+    related: [
+      { label: "Home Christmas decoration", href: "/christmas-home-decoration-dubai" },
+      { label: "Compare packages", href: "/packages" },
+      { label: "Contact us", href: "/contact" },
+    ],
+  },
+  {
+    slug: "diy-vs-professional-christmas-decoration-dubai",
+    title: "DIY vs Professional Christmas Decoration",
+    category: "Choosing a Decorator",
+    published: "2026-09-24",
+    readingMinutes: 6,
+    metaDescription:
+      "DIY vs professional Christmas decorators in Dubai — an honest look at cost, time, finish quality, and when hiring a decorator is worth it.",
+    keywords: [
+      "DIY vs professional Christmas decoration",
+      "Hire Christmas decorators Dubai",
+      "Christmas decoration cost DIY",
+      "Professional Christmas decoration UAE",
+    ],
+    heroImage: "blog10",
+    lead: "Should you do it yourself or hire decorators? The honest answer depends on your time, your space and what 'done' looks like to you. Here is a straight comparison — including when going professional is clearly the better call.",
+    sections: [
+      {
+        type: "p",
+        text: "Every December, the same question arrives: is professional decoration worth it? It can be — and sometimes it clearly is not. The fair way to decide is to compare what each option actually costs and delivers, rather than assuming either is 'right'.",
+      },
+      {
+        type: "h2",
+        text: "What DIY really costs",
+      },
+      {
+        type: "p",
+        text: "A quality 6–7 ft tree with a decent ornament set, lights, garlands, wreaths and finishing can easily run into the low thousands of dirhams in Dubai — before your time. Then there are the hours of assembly, dressing, positioning, fixing and eventual removal, usually during the busiest weeks of the year.",
+      },
+      {
+        type: "h2",
+        text: "What a professional install includes",
+      },
+      {
+        type: "ul",
+        items: [
+          "Design — a scheme composed for your space, ceiling and light, not a template.",
+          "Supply and styling — the tree, ornaments, garlands, wreaths and table styling delivered and dressed on site.",
+          "Installation by the same team, scheduled around your access and dates.",
+          "Removal after the season — the space handed back exactly as it was found.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "When DIY makes sense",
+      },
+      {
+        type: "p",
+        text: "For a single small tree you already own, family decorations with sentimental value, or a space where a relaxed, personal look genuinely is the goal, DIY is a reasonable choice. The main costs are your time and whatever you spend on supplies that may only be used once.",
+      },
+      {
+        type: "h2",
+        text: "When hiring wins",
+      },
+      {
+        type: "p",
+        text: "Professional decoration earns its keep when the stakes are higher: a villa where the whole interior should feel continuous, an office or reception that greets clients daily, a grand tree beyond DIY scale, or simply a December where your time is better spent elsewhere. Our packages start from AED 6,000 + VAT for Christmas Cheers — compare what each collection includes on the packages page before you decide.",
+      },
+      {
+        type: "p",
+        text: "The most honest advice we can give: if you have the time and enjoy the process, decorate your tree. If you want a considered, finished result without the work — and the season is short in Dubai — send a few photos of your space on WhatsApp and we will tell you plainly what your property needs and what it would cost.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is professional Christmas decoration in Dubai worth the cost?",
+        a: "It depends on scope and time. For single small trees DIY can make sense; for villas, offices and grand schemes the design, installation and removal included in a package usually justify the cost.",
+      },
+      {
+        q: "How much do professional decorators cost in Dubai?",
+        a: "Our packages run from AED 6,000 + VAT (Christmas Cheers) to AED 25,000 + VAT (Christmas Luxury), with bespoke quotes on request — the final figure reflects your space and scale.",
+      },
+      {
+        q: "Can I hire decorators for just the tree?",
+        a: "Yes — a single-tree installation can be arranged; share the room photos and ceiling height on WhatsApp and we will confirm what fits and what it costs.",
+      },
+    ],
+    related: [
+      { label: "Christmas decoration service", href: "/christmas-decoration-dubai" },
+      { label: "Compare packages", href: "/packages" },
+    ],
+  },
+  {
+    slug: "white-gold-christmas-theme-dubai",
+    title: "White & Gold Christmas Themes in Dubai",
+    category: "Styles",
+    published: "2026-09-25",
+    readingMinutes: 5,
+    metaDescription:
+      "White, gold and rose-gold Christmas themes in Dubai — how each palette changes a room, and how to choose one for your home or villa.",
+    keywords: [
+      "White and gold Christmas theme Dubai",
+      "Rose gold Christmas tree UAE",
+      "Luxury Christmas colour themes",
+      "Modern Christmas decoration Dubai",
+    ],
+    heroImage: "blog11",
+    lead: "Most Dubai interiors do their best work in restrained, light-filled palettes — which is exactly why white, gold and rose-gold Christmas schemes sit so naturally here. Here is how each direction changes a space, and how to choose.",
+    sections: [
+      {
+        type: "p",
+        text: "A festive palette is not decoration trivia — it decides how the whole room reads in December. The same tree, garlands and table styling can feel traditional, contemporary or quietly luxurious depending entirely on the colours you commit to.",
+      },
+      {
+        type: "h2",
+        text: "Pure White & Winter Wonderland",
+      },
+      {
+        type: "p",
+        text: "White schemes — our Pure White and Winter Wonderland directions — lean into the light and airiness of modern villas. They photograph beautifully, keep a room feeling open, and work especially well in living areas with marble, pale joinery or floor-to-ceiling glass.",
+      },
+      {
+        type: "h2",
+        text: "Luxury Gold",
+      },
+      {
+        type: "p",
+        text: "Gold adds warmth and richness without the busyness of a multi-colour scheme. A gold-dressed tree with champagne accents complements darker interiors, evening lighting and formal dining rooms — it is the direction clients most often choose for a statement entrance or a grand living space.",
+      },
+      {
+        type: "h2",
+        text: "Rose-gold and custom palettes",
+      },
+      {
+        type: "p",
+        text: "Rose-gold sits between the two — soft, contemporary and flattering under warm light. Beyond the fixed directions, every scheme can be composed around a custom palette to match your interior, brand or occasion. Ornament sets are built for the palette, so the colour reads consistently from the tree to the garlands and table styling.",
+      },
+      {
+        type: "h2",
+        text: "Choosing for your space",
+      },
+      {
+        type: "p",
+        text: "A simple rule: match the theme to the room you are dressing, not to trends. Browse our gallery to see real installations in each direction — then, when you are ready, send photos of your space on WhatsApp and we will recommend the palette that fits your interior and confirm what it would cost.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are white and gold themes more expensive?",
+        a: "Not inherently — the cost is driven by tree size, scale and the scope of your scheme rather than the palette. Custom palettes are quoted on request.",
+      },
+      {
+        q: "Can I combine white with gold?",
+        a: "Absolutely — the directions are starting points, and many schemes blend champagne, gold and white into one cohesive palette.",
+      },
+      {
+        q: "Where can I see examples of each theme?",
+        a: "Our gallery shows real Festive Occasions installations, and the styles section of each service page lists the directions we craft.",
+      },
+    ],
+    related: [
+      { label: "Christmas decoration in Dubai", href: "/christmas-decoration-dubai" },
+      { label: "View the gallery", href: "/gallery" },
+    ],
+  },
+  {
+    slug: "festive-decoration-other-occasions-dubai",
+    title: "Festive Decoration for Other Occasions in Dubai",
+    category: "Other Occasions",
+    published: "2026-09-26",
+    readingMinutes: 4,
+    metaDescription:
+      "Festive decoration beyond Christmas in Dubai — New Year countdowns, private celebrations and venue styling confirmed on enquiry.",
+    keywords: [
+      "Festive decoration Dubai",
+      "Event decoration company UAE",
+      "New Year decoration Dubai",
+      "Private celebration styling Dubai",
+    ],
+    heroImage: "blog12",
+    lead: "Christmas is our craft and our season — but the same eye for space, light and finishing carries into other celebrations. Here is how we approach festive occasions beyond December, and what to share with us when you enquire.",
+    sections: [
+      {
+        type: "p",
+        text: "Every festive occasion starts the same way: a space that should feel like the moment it is holding. The principles are identical to our Christmas work — a considered focal point, a consistent palette, and finishing that photographs beautifully — applied to the occasion you are hosting.",
+      },
+      {
+        type: "h2",
+        text: "New Year celebrations",
+      },
+      {
+        type: "p",
+        text: "A New Year glow-up is lighting-first: homes, rooftops and venues dressed for the countdown, with illumination and finishing that carry the moment from dusk to midnight.",
+      },
+      {
+        type: "h2",
+        text: "Private celebrations",
+      },
+      {
+        type: "p",
+        text: "Birthdays, anniversaries and family gatherings take a lighter, more personal hand — a styled table, dressed entrance and ambient touches that elevate the occasion without overpowering it.",
+      },
+      {
+        type: "h2",
+        text: "Seasonal & venue styling",
+      },
+      {
+        type: "ul",
+        items: [
+          "Hotels, restaurants and retail spaces given seasonal identity beyond the Christmas window.",
+          "Corporate events and branded installations — see our corporate decoration service for the commercial-scale work.",
+          "Venue dressing for weddings and larger celebrations, styled and finished by our own team.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Scope for non-Christmas occasions is confirmed with you before any commitment — nothing is assumed. Share the occasion, date, location and what you have in mind on WhatsApp, and we will confirm exactly what we can arrange. You can also start on our other occasions page.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you decorate for occasions other than Christmas?",
+        a: "Yes — New Year, private celebrations and seasonal venue styling are offered on enquiry, with scope confirmed before any commitment.",
+      },
+      {
+        q: "Can you handle corporate events and venue decoration?",
+        a: "Yes — commercial-scale installations are covered by our corporate decoration service and quoted individually against the space.",
+      },
+      {
+        q: "What do you need from me to quote another occasion?",
+        a: "The occasion, date, location and what you have in mind — plus a photo if you have one. We will confirm scope and price before you commit.",
+      },
+    ],
+    related: [
+      { label: "Other occasions", href: "/other-occasions" },
+      { label: "Corporate decoration", href: "/christmas-corporate-decoration-dubai" },
       { label: "Contact us", href: "/contact" },
     ],
   },

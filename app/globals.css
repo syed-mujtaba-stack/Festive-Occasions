@@ -432,3 +432,20 @@ html.lenis body {
   outline: 2px solid var(--color-champagne);
   outline-offset: 3px;
 }
+
+/* ============================================================
+   GALLERY MARQUEE — infinite horizontal scroll
+   marquee-ltr: left → right   (Row 1)
+   marquee-rtl: right → left   (Row 2)
+   Items are quadrupled so we shift exactly 25% of total width
+   = one full copy, producing a seamless infinite loop.
+   ============================================================ */
+@keyframes marquee-ltr {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+@keyframes marquee-rtl {
+  0%   { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}

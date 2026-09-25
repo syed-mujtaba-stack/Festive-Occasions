@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About — Christmas Decoration Studio Dubai",
   description:
-    "Meet Festive Occasions, a Dubai-based Christmas decoration studio. We plan, style and install festive schemes for homes, villas, offices and commercial spaces across the UAE.",
+    "Meet Festive Occasions, a Dubai-based Christmas decoration studio. We plan, style and install festive schemes for homes, villas and offices across the UAE.",
   alternates: { canonical: "/about" },
   keywords: [
     "About Festive Occasions",

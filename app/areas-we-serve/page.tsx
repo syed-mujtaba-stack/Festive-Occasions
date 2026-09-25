@@ -13,7 +13,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { PackagesSection } from "@/components/sections/packages";
 
 export const metadata: Metadata = {
-  title: "Areas We Serve — Christmas Decoration Dubai & UAE",
+  title: "Areas We Serve in Dubai & UAE",
   description:
     "Festive Occasions provides Christmas decoration across Dubai and the UAE. Confirm whether we cover your area on enquiry.",
   alternates: { canonical: "/areas-we-serve" },

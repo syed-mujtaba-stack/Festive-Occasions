@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaPhoneAlt, FaStar, FaCheckCircle } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { SnowFall } from "@/components/animations/snow-fall";
 import { FestiveSparkles } from "@/components/animations/festive-sparkles";
 import { siteConfig, whatsappLink, telLink } from "@/lib/site";
-import { images } from "@/lib/images";
+
 
 export function Hero() {
   return (
@@ -37,15 +37,6 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Clear, Professional & High-Converting Pitch */}
           <div className="lg:col-span-8 flex flex-col items-start text-left">
-            {/* Trust & Seasonal Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#dfba73]/40 text-xs sm:text-sm text-champagne font-medium mb-6 shadow-lg">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Dubai Season Bookings Open · 2026/2027</span>
-              <span className="text-white/40">|</span>
-              <span className="flex items-center gap-1 text-amber-300">
-                <FaStar className="h-3 w-3" /> 5.0 Rated Luxury Decor
-              </span>
-            </div>
             {/* H1 Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-md">
               Magical Christmas <br className="hidden sm:inline" />
@@ -59,22 +50,6 @@ export function Hero() {
               corporate offices, and hotels across Dubai & UAE. Fully managed from
               custom design to professional installation and seamless January takedown.
             </p>
-
-            {/* Value Points */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-xl mb-9 text-xs sm:text-sm text-white/95">
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
-                <FaCheckCircle className="text-[#dfba73] shrink-0" />
-                <span>Turnkey Installation</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
-                <FaCheckCircle className="text-[#dfba73] shrink-0" />
-                <span>Fire-Safe Certified</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
-                <FaCheckCircle className="text-[#dfba73] shrink-0" />
-                <span>January Takedown</span>
-              </div>
-            </div>
 
             {/* High-Converting Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
@@ -137,9 +112,9 @@ export function Hero() {
                     100% Authentic Client Work · Dubai
                   </p>
                   <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-white/80">
-                    <span>✨ Bespoke Villas</span>
-                    <span>🎄 Grand Trees</span>
-                    <span>🕯️ Lighting</span>
+                    <span>Bespoke Villas</span>
+                    <span>Grand Trees</span>
+                    <span>Lighting</span>
                   </div>
                 </div>
               </div>

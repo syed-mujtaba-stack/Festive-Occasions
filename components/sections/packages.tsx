@@ -126,7 +126,7 @@ export function PackagesSection({
                         variant={pkg.featured ? "primary" : "whatsapp"}
                         size="md"
                         href={whatsappLink(
-                          `Hi Festive Occasions, I'd like to enquire about the ${pkg.name} package (from AED ${formatPrice(pkg.fromPrice)} + VAT). Could you help me plan it for my space?`
+                          `Hi Festive Occasions, I'd like to enquire about the ${pkg.name} (from AED ${formatPrice(pkg.fromPrice)} + VAT). Could you help me plan it for my space?`
                         )}
                         external
                       >
@@ -197,7 +197,7 @@ export function PackagesSection({
                       variant={pkg.featured ? "primary" : "whatsapp"}
                       size="md"
                       href={whatsappLink(
-                        `Hi Festive Occasions, I'd like to enquire about the ${pkg.name} package (from AED ${formatPrice(pkg.fromPrice)} + VAT). Could you help me plan it for my space?`
+                        `Hi Festive Occasions, I'd like to enquire about the ${pkg.name} (from AED ${formatPrice(pkg.fromPrice)} + VAT). Could you help me plan it for my space?`
                       )}
                       external
                     >

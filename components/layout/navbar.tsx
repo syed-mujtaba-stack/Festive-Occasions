@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { services } from "@/lib/services";
+import { FaWhatsapp } from "react-icons/fa";
 
 /**
  * Navigation rebuild — Services dropdown.
@@ -256,8 +257,14 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <Button variant="primary" size="md" href="/#quote">
-              Get a Quote
+            <Button
+              variant="whatsapp"
+              size="md"
+              href={whatsappLink()}
+              external
+            >
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              WhatsApp Us
             </Button>
           </nav>
 

@@ -24,7 +24,7 @@ import { FaWhatsapp } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "Christmas Decoration UAE — All Emirates",
   description:
-    "Christmas decorators across all seven Emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — plus every major community and area. Villas, hotels, offices and venues, planned from our Sharjah base. Confirm coverage for your area on enquiry.",
+    "Christmas decorators across all seven Emirates — villas, hotels and offices planned from our Sharjah base, with coverage confirmed on enquiry.",
   alternates: { canonical: "/christmas-decoration-uae" },
   keywords: [
     "Christmas decoration UAE",

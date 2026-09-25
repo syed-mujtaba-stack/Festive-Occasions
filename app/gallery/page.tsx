@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { Container, Section } from "@/components/ui/section";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
@@ -87,46 +84,10 @@ export default function GalleryPage() {
         image="hero"
       />
 
-      <Section id="gallery">
-        <Container>
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="The Work"
-              title="Every space, composed differently."
-              description="A selection of festive schemes from recent installations — from a single signature tree to complete villa and office transformations."
-            />
-          </ScrollReveal>
-          <GalleryGrid />
-        </Container>
-      </Section>
-
-      {/* Trust line (honest, per spec 33-34) */}
-      <Section tone="cream">
-        <Container>
-          <ScrollReveal>
-            <div className="flex flex-col gap-8 border-t hairline pt-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-              <p className="font-display text-4xl italic leading-tight text-espresso lg:text-5xl">
-                A note on
-                <br />
-                this gallery
-              </p>
-              <div className="max-w-2xl">
-                <p className="text-[1.05rem] leading-relaxed text-cocoa">
-                  The gallery mixes real Festive Occasions installation
-                  photos with styling imagery used across the site — every
-                  look is composed around its space, from statement tree to
-                  final styling detail.
-                </p>
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-cocoa">
-                  Final project photos and captions will replace the styling
-                  imagery as the studio confirms the full set. Everything
-                  shown is verified by our team before publication.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* Full-width marquee gallery — no container wrap so it bleeds edge to edge */}
+      <section id="gallery" className="bg-night py-16 overflow-hidden">
+        <GalleryGrid />
+      </section>
 
       <FAQ />
       <FinalCTA />

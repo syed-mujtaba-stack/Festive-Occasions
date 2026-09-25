@@ -5,6 +5,7 @@ import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { PackagesSection } from "@/components/sections/packages";
+import { DealCustomPackage } from "@/components/sections/deal-custom-package";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -12,9 +13,9 @@ import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Christmas Decoration Packages & Prices in Dubai",
+  title: "Christmas Decoration Packages in Dubai",
   description:
-    "Christmas decoration packages in Dubai — Christmas Cheers from AED 6,000, Fancy from AED 15,000 and Luxury from AED 25,000, plus bespoke styling. Prices exclude VAT.",
+    "Christmas decoration packages in Dubai — Basic from AED 6,000, Fancy from AED 15,000 and Luxury from AED 25,000, plus bespoke styling. Excludes VAT.",
   alternates: { canonical: "/packages" },
   keywords: [
     "Christmas decoration packages Dubai",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Christmas Decoration Packages | Festive Occasions",
     description:
-      "Price-anchored Christmas collections from AED 6,000 + VAT — Cheers, Fancy and Luxury, with bespoke styling on request.",
+      "Price-anchored Christmas collections from AED 6,000 + VAT — Basic package, Fancy package and Luxury package, with bespoke styling on request.",
     url: "/packages",
     type: "website",
     images: [
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Christmas Decoration Packages | Festive Occasions",
     description:
-      "Price-anchored Christmas collections from AED 6,000 + VAT — Cheers, Fancy and Luxury, with bespoke styling on request.",
+      "Price-anchored Christmas collections from AED 6,000 + VAT — Basic package, Fancy package and Luxury package, with bespoke styling on request.",
     images: [`${siteConfig.url}${images.hero.src}`],
   },
 };
@@ -56,21 +57,21 @@ export default function PackagesPage() {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Christmas Cheers",
+        name: "Christmas Basic Package",
         description: "6 ft Christmas tree with ornaments, one table garland, one basic door wreath.",
         price: "6000",
         priceCurrency: "AED",
       },
       {
         "@type": "Offer",
-        name: "Christmas Fancy",
+        name: "Christmas Fancy Package",
         description: "7–8 ft Christmas tree with ornaments, staircase garland, door wreath, table set-up styling.",
         price: "15000",
         priceCurrency: "AED",
       },
       {
         "@type": "Offer",
-        name: "Christmas Luxury",
+        name: "Christmas Luxury Package",
         description: "9–10 ft tree with luxury ornaments, door wreath with garlands, staircase garlands, table set-up styling, curated seasonal accessories, outdoor entrance garlands.",
         price: "25000",
         priceCurrency: "AED",
@@ -85,11 +86,13 @@ export default function PackagesPage() {
       <PageHero
         eyebrow="Packages"
         title="The Christmas collection."
-        lead="Three considered collections — Cheers, Fancy and Luxury — each styled around your space. Plus bespoke design for spaces that ask for more."
+        lead="Three considered collections — Basic package, Fancy package and Luxury package — each styled around your space. Plus bespoke design for spaces that ask for more."
         image="hero"
       />
 
       <PackagesSection id="packages" />
+
+      <DealCustomPackage />
 
       {/* Why a package, not a quote-free guess — honest reassurance */}
       <Section tone="cream">

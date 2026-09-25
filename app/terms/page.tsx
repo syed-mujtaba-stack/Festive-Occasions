@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/section";
 import { PageShell } from "@/components/layout/page-shell";
+import { BackToHome } from "@/components/ui/back-to-home";
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site";
 
 /**
@@ -53,9 +55,20 @@ const sections = [
 export default function TermsPage() {
   return (
     <PageShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Terms of Service",
+          url: `${siteConfig.url}/terms`,
+          inLanguage: "en-AE",
+          isPartOf: { "@type": "WebSite", name: siteConfig.name, url: siteConfig.url },
+        }}
+      />
       <section className="relative flex min-h-[42svh] items-end overflow-hidden bg-night">
         <div className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/85 to-[#171312]/60" />
         <Container className="relative z-10 pb-14 pt-36">
+          <BackToHome className="mb-6" />
           <p className="text-label mb-5 flex items-center gap-4 text-champagne-deep">
             <span className="h-px w-10 bg-champagne" aria-hidden />
             Festive Occasions · Terms

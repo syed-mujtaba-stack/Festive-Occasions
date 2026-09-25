@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Festive Occasions",
   },
   description:
-    "Festive Occasions provides bespoke Christmas decoration in Dubai for homes, villas, offices and commercial spaces. Request a consultation for your festive setup.",
+    "Bespoke Christmas decoration in Dubai for homes, villas, offices and commercial spaces. Request a consultation for your festive setup.",
   keywords: [
     "Christmas Decoration Dubai",
     "Christmas Decorators Dubai",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-AE"
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">

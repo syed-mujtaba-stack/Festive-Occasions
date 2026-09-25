@@ -6,6 +6,7 @@ import { PageShell } from "@/components/layout/page-shell";
 import { FAQ } from "@/components/sections/faq";
 import { PackagesSection } from "@/components/sections/packages";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { BackToHome } from "@/components/ui/back-to-home";
 import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
 import type { ServicePage } from "@/lib/service-pages";
@@ -174,6 +175,7 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/45 to-[#171312]/20" />
         <Container className="relative z-10 pb-20 pt-40">
+          <BackToHome className="mb-7" />
           <nav aria-label="Breadcrumb" className="mb-7">
             <ol className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-ivory/60">
               <li>
