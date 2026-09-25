@@ -25,11 +25,11 @@ export function Statement() {
       // purely scroll-scrubbed — its trigger/timeline is created once the
       // user actually starts scrolling (negative margin = fire on the
       // first scroll tick), so initial-load main-thread time stays free.
-      const ctx = gsap.context(() => {
+      const ctx = gsap.context((self) => {
         stopProximity = whenNearViewport(
           el,
           () => {
-            ctx.add(() => {
+            self.add(() => {
               const q = gsap.utils.selector(el);
 
               const tl = gsap.timeline({

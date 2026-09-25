@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { services } from "@/lib/services";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaArrowRight } from "react-icons/fa";
 
 /**
  * Navigation rebuild — Services dropdown.
@@ -372,7 +372,7 @@ export function Navbar() {
                     {s.title} {s.subtitle}
                   </span>
                   <span aria-hidden className="text-champagne/50 transition-transform group-hover:translate-x-0.5">
-                    →
+                    <FaArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </Link>
               ))}

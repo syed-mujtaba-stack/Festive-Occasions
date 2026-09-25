@@ -2,7 +2,7 @@
  * IMAGE MANIFEST — Festive Occasions
  *
  * All photos are 100% authentic Festive Occasions installations provided by
- * the client (located in public/images/client-work/ project-01 through project-41),
+ * the client (located in public/images/client-work/ project-01 through project-42),
  * plus an ultra-luxury Santa Claus holiday visual for the hero.
  */
 
@@ -17,10 +17,10 @@ export const images = {
     src: "/images/santa-luxury.jpg",
     alt: "Santa Claus festive celebration — Festive Occasions Dubai Christmas decor",
   },
-  /** Home intro media — styled luxury living space with grand tree & garland. */
+  /** Home intro media (The Studio) — client-provided styled interior, IMG_2546. */
   homeIntro: {
-    src: "/images/client-work/project-05.jpg",
-    alt: "Christmas decoration in Dubai by Festive Occasions — styled luxury living space",
+    src: "/images/client-work/project-42.jpg",
+    alt: "Festive Occasions studio styled interior — Christmas decoration in Dubai by our team",
   },
   /** Signature expanding-frame detail — lavish cascading red ornament detail. */
   signatureDetails: {
@@ -70,8 +70,8 @@ export const images = {
     alt: "Christmas villa decoration in Dubai — grand entrance archway",
   },
   svcHome: {
-    src: "/images/client-work/project-05.jpg",
-    alt: "Christmas home decoration in Dubai — warm luxury living space",
+    src: "/images/client-work/project-42.jpg",
+    alt: "Christmas home decoration in Dubai — styled festive interior",
   },
   svcOffice: {
     src: "/images/client-work/project-01.jpg",
@@ -107,8 +107,8 @@ export const images = {
     alt: "Christmas villa entrance archway decoration in Dubai",
   },
   detailVilla2: {
-    src: "/images/client-work/project-05.jpg",
-    alt: "Christmas villa living room and mantle garland in Dubai",
+    src: "/images/client-work/project-42.jpg",
+    alt: "Christmas villa living room styling in Dubai",
   },
   detailVilla3: {
     src: "/images/client-work/project-40.jpg",
@@ -249,7 +249,7 @@ export const images = {
     alt: "Dubai luxury festive installation",
   },
   pageBlog: {
-    src: "/images/client-work/project-05.jpg",
+    src: "/images/client-work/project-42.jpg",
     alt: "Christmas decoration ideas and styling in Dubai",
   },
   /** Real client project photos (1 to 41). */
@@ -257,7 +257,7 @@ export const images = {
   client02: { src: "/images/client-work/project-02.jpg", alt: "Festive Occasions installation in Dubai" },
   client03: { src: "/images/client-work/project-03.jpg", alt: "Festive Occasions installation in Dubai" },
   client04: { src: "/images/client-work/project-04.jpg", alt: "Festive Occasions installation in Dubai" },
-  client05: { src: "/images/client-work/project-05.jpg", alt: "Festive Occasions installation in Dubai" },
+  client05: { src: "/images/client-work/project-42.jpg", alt: "Festive Occasions installation in Dubai" },
   client06: { src: "/images/client-work/project-06.jpg", alt: "Festive Occasions installation in Dubai" },
   client07: { src: "/images/client-work/project-07.jpg", alt: "Festive Occasions installation in Dubai" },
   client08: { src: "/images/client-work/project-08.jpg", alt: "Festive Occasions installation in Dubai" },

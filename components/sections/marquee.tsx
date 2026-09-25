@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { FaSnowflake } from "react-icons/fa";
 
 /**
  * Marquee — editorial ticker strip (reduced-motion: static, no loop).
@@ -51,7 +52,7 @@ export function Marquee({
                   dark ? "text-champagne" : "text-champagne"
                 )}
               >
-                ✦
+                <FaSnowflake className="h-4 w-4" />
               </span>
             </span>
           ))}

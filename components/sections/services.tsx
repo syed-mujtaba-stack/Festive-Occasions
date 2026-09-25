@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { services } from "@/lib/services";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * Services — cinematic pinned storytelling (brief §04).
@@ -33,11 +34,16 @@ export function ServicesSection() {
 
       // Pinned stage sits thousands of pixels below the fold — build the
       // pin + timeline as it approaches (positive margin), never at load.
-      const ctx = gsap.context(() => {
+      //
+      // `gsap.context` passes itself as the callback's first argument (`self`),
+      // and it must be used here: the inner callback can fire synchronously
+      // (whenNearViewport's immediate rect check) before `ctx` is assigned,
+      // which would otherwise throw "Cannot access 'ctx' before initialization".
+      const ctx = gsap.context((self) => {
         stopProximity = whenNearViewport(
           el,
           () => {
-            ctx.add(() => {
+            self.add(() => {
               const q = gsap.utils.selector(el);
               const stage = q("[data-svc-stage]")[0] as HTMLElement;
               const slides = gsap.utils.toArray<HTMLElement>("[data-svc-slide]", el);
@@ -204,7 +210,7 @@ export function ServicesSection() {
                       aria-hidden
                       className="text-champagne transition-transform duration-500 group-hover:translate-x-1.5"
                     >
-                      →
+                      <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                     </span>
                   </Link>
                 </div>
@@ -268,7 +274,7 @@ export function ServicesSection() {
                       aria-hidden
                       className="text-xl text-warm-gray transition-all duration-500 group-hover:translate-x-1 group-hover:text-champagne"
                     >
-                      →
+                      <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                     </span>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-[1fr_0.85fr] sm:items-center">

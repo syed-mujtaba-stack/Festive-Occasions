@@ -26,11 +26,11 @@ export function Signature() {
 
       let stopProximity: (() => void) | null = null;
 
-      const ctx = gsap.context(() => {
+      const ctx = gsap.context((self) => {
         stopProximity = whenNearViewport(
           el,
           () => {
-            ctx.add(() => {
+            self.add(() => {
               const isMobile = window.innerWidth < 768;
 
               const startClip = isMobile

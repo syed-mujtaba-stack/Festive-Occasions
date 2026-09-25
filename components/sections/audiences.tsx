@@ -8,6 +8,7 @@ import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { gsap, useGSAP } from "@/animations/registry";
 import { prefersReducedMotion, whenNearViewport } from "@/lib/motion";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * Who We Decorate For — editorial audiences (brief §08: typography +
@@ -55,11 +56,11 @@ export function Audiences() {
 
       // Sticky crossfade lives below the fold — build it as the section
       // approaches instead of paying for it during initial load.
-      const ctx = gsap.context(() => {
+      const ctx = gsap.context((self) => {
         stopProximity = whenNearViewport(
           el,
           () => {
-            ctx.add(() => {
+            self.add(() => {
               const images = gsap.utils.toArray<HTMLElement>("[data-aud-img]", el);
               if (images.length === 0) return;
 
@@ -163,7 +164,7 @@ export function Audiences() {
                       aria-hidden
                       className="text-champagne transition-transform duration-500 group-hover:translate-x-1.5"
                     >
-                      →
+                      <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                     </span>
                   </span>
 

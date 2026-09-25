@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt, FaBolt } from "react-icons/fa";
 import { SnowFall } from "@/components/animations/snow-fall";
 import { FestiveSparkles } from "@/components/animations/festive-sparkles";
 import { siteConfig, whatsappLink, telLink } from "@/lib/site";
@@ -81,7 +81,8 @@ export function Hero() {
 
             {/* Trust Footer line */}
             <p className="mt-4 text-xs text-white/70">
-              ⚡ Instant response via WhatsApp · Free site visit & custom design proposal
+              <FaBolt aria-hidden className="mr-1.5 inline-block h-3.5 w-3.5 text-champagne" />
+              Instant response via WhatsApp · Free site visit & custom design proposal
             </p>
           </div>
 

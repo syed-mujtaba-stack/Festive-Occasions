@@ -8,6 +8,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { FaArrowRight } from "react-icons/fa";
 import { blogPosts } from "@/lib/blog";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
@@ -101,7 +102,7 @@ export default function BlogIndexPage() {
                         aria-hidden
                         className="transition-transform duration-300 group-hover:translate-x-1"
                       >
-                        →
+                        <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                       </span>
                     </span>
                   </div>

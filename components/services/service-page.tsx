@@ -13,7 +13,7 @@ import type { ServicePage } from "@/lib/service-pages";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { images } from "@/lib/images";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaArrowRight } from "react-icons/fa";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -380,7 +380,7 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
                     aria-hidden
                     className="text-champagne transition-transform duration-300 group-hover:translate-x-1"
                   >
-                    →
+                    <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                   </span>
                 </Link>
               ))}

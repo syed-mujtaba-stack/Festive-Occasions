@@ -5,22 +5,22 @@ export const siteConfig = {
   url: "https://festiveoccasions.ae",
   tagline: "Premium Christmas Decoration in Dubai",
 
-  // ✅ CLIENT-VERIFIED 2026-09-23
+  // CLIENT-VERIFIED 2026-09-23
   phone: "+971 56 428 4444",
   phoneDisplay: "+971 56 428 4444",
   whatsapp: "971564284444", // digits only, country code
-  email: "info@festiveoccasions.ae", // ✅ client-verified
+  email: "info@festiveoccasions.ae", // client-verified
   addressLine:
     "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
   serviceArea: ["Dubai", "Sharjah", "UAE"],
-  // ✅ CLIENT-VERIFIED 2026-09-23: enquiries & bookings are open 24/7 via
+  // CLIENT-VERIFIED 2026-09-23: enquiries & bookings are open 24/7 via
   // WhatsApp/email; the office itself is closed Sat & Sun, so weekend
   // replies may be slower.
   hours: "Open 24/7 — enquiries via WhatsApp & email",
   hoursDetail: "Office closed Sat & Sun · weekend replies may be slower",
 
   social: {
-    instagram: "https://www.instagram.com/festive_ocassions", // ✅ client-verified
+    instagram: "https://www.instagram.com/festive_ocassions", // client-verified
     facebook: "https://facebook.com/", // TODO: verify future use
   },
 

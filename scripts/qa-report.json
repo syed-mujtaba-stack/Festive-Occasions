@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3000",
-  "generated": "2026-09-25T00:22:12.979Z",
+  "generated": "2026-09-25T02:42:31.653Z",
   "pages": [
     {
       "path": "/",
@@ -19,7 +19,7 @@
       "h1": [
         "Magical Christmas Decoration in Dubai"
       ],
-      "h2Count": 10,
+      "h2Count": 11,
       "jsonLdCount": 1,
       "imgCount": 31,
       "missingAltCount": 0,
@@ -694,7 +694,7 @@
       "status": 200,
       "title": "Privacy Policy | Festive Occasions",
       "titleLen": 34,
-      "descLen": 148,
+      "descLen": 164,
       "canonical": "https://festiveoccasions.ae/privacy-policy",
       "og": {
         "title": true,
@@ -706,7 +706,7 @@
       "h1": [
         "Privacy Policy"
       ],
-      "h2Count": 6,
+      "h2Count": 7,
       "jsonLdCount": 1,
       "imgCount": 0,
       "missingAltCount": 0,
@@ -1587,7 +1587,7 @@
       "h1": [
         "Magical Christmas Decoration in Dubai"
       ],
-      "h2Count": 10,
+      "h2Count": 11,
       "jsonLdCount": 1,
       "imgCount": 31,
       "missingAltCount": 0,

@@ -6,15 +6,16 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site";
 
 /**
- * Privacy Policy — honest, factual, and deliberately light: the site runs
- * no analytics or tracking scripts, so the policy only covers enquiry
+ * Privacy Policy — honest, factual, and deliberately light: the site runs no
+ * cookies and no scripts that identify visitors. It uses Vercel Web Analytics
+ * (anonymous, aggregate, cookieless) so the policy covers that plus enquiry
  * data (WhatsApp, call, email) and installation photos published with
  * permission. Noindexed: it is a trust/compliance page, not a search target.
  */
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Festive Occasions handles enquiry information — WhatsApp, email and call details — and what we do with them. No tracking scripts, no data sales.",
+    "How Festive Occasions handles enquiry information — WhatsApp, email and call details — and what we do with them. Cookieless anonymous analytics only, no data sales.",
   alternates: { canonical: "/privacy-policy" },
   robots: {
     index: false,
@@ -32,8 +33,12 @@ const sections = [
     body: `When you enquire through WhatsApp, phone or email, you choose what to share — typically your name, contact number, property location and the details of your space or project. We use that information only to respond to your enquiry, prepare a quote and, if you proceed, plan and deliver your installation.`,
   },
   {
+    heading: "Website analytics",
+    body: "This website uses Vercel Web Analytics, a privacy-first service that records anonymous, aggregate statistics about site usage — such as the number of visits and the pages viewed. It uses no cookies, does not identify you personally and does not follow you across other websites. The data cannot be used to recognise or reconstruct your identity, and we use it only to understand how visitors use the site so we can improve it. You are not required to accept anything, and no consent banner is needed because no personal data is collected.",
+  },
+  {
     heading: "What we do not do",
-    body: "We do not run analytics or tracking scripts on this website, we do not sell or rent personal information to anyone, and we do not send marketing messages beyond direct replies to enquiries you have started with us.",
+    body: "We do not run cookies, advertising trackers or any script that identifies individual visitors, we do not sell or rent personal information to anyone, and we do not send marketing messages beyond direct replies to enquiries you have started with us.",
   },
   {
     heading: "Installation photos",
@@ -72,8 +77,8 @@ export default function PrivacyPolicyPage() {
           </p>
           <h1 className="text-h1 max-w-3xl text-ivory">Privacy Policy</h1>
           <p className="mt-5 max-w-xl text-lead text-ivory/75">
-            The short version: we only keep what you send us, we do not track
-            you, and we never sell your details.
+            The short version: we only keep what you send us, analytics are
+            anonymous and cookieless, and we never sell your details.
           </p>
         </Container>
       </section>

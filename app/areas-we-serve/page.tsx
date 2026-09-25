@@ -9,7 +9,7 @@ import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaArrowRight } from "react-icons/fa";
 import { PackagesSection } from "@/components/sections/packages";
 
 export const metadata: Metadata = {
@@ -107,7 +107,7 @@ export default function AreasWeServePage() {
                             className="mt-3 inline-flex items-center gap-2 text-label text-champagne-deep transition-colors hover:text-espresso"
                           >
                             Nationwide projects
-                            <span aria-hidden>→</span>
+                            <FaArrowRight aria-hidden className="h-[0.85em] w-[0.85em]" />
                           </Link>
                         )}
                       </div>

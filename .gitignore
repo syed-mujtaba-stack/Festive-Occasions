@@ -49,6 +49,9 @@ next-env.d.ts
 /client-originals/
 /public/images/christmas/Client Provider/
 
+# Runtime review store — created/updated by app/api/reviews (data/reviews.json).
+/data/reviews.json
+
 # Openverse search caches — transient rate-limit bypass. Keep only the
 # downloads-record.json (audit trail: file -> source URL + license).
 .unsplash-cache/openverse/*.json

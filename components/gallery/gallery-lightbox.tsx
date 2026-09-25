@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
@@ -62,7 +63,7 @@ export function GalleryLightbox({
           className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne"
         >
           <span aria-hidden className="text-lg leading-none">
-            ✕
+            <FaTimes className="h-4 w-4" />
           </span>
         </button>
       </div>
@@ -75,7 +76,7 @@ export function GalleryLightbox({
           aria-label="Previous project"
           className="hidden h-12 w-12 shrink-0 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne lg:grid"
         >
-          ←
+          <FaChevronLeft aria-hidden className="h-5 w-5" />
         </button>
 
         <figure className="relative mx-auto h-full w-full max-w-4xl">
@@ -99,7 +100,7 @@ export function GalleryLightbox({
           aria-label="Next project"
           className="hidden h-12 w-12 shrink-0 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne lg:grid"
         >
-          →
+          <FaChevronRight aria-hidden className="h-5 w-5" />
         </button>
       </div>
 
@@ -124,14 +125,16 @@ export function GalleryLightbox({
           onClick={() => onNavigate((index - 1 + items.length) % items.length)}
           className="border hairline-dark rounded-full px-6 py-3 text-sm text-ivory transition-colors hover:text-champagne"
         >
-          ← Previous
+          <FaChevronLeft aria-hidden className="mr-1.5 inline-block h-3 w-3" />
+          Previous
         </button>
         <button
           type="button"
           onClick={() => onNavigate((index + 1) % items.length)}
           className="border hairline-dark rounded-full px-6 py-3 text-sm text-ivory transition-colors hover:text-champagne"
         >
-          Next →
+          Next
+          <FaChevronRight aria-hidden className="ml-1.5 inline-block h-3 w-3" />
         </button>
       </div>
     </div>

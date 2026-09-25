@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
@@ -101,6 +102,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         {children}
+        {/* Vercel Web Analytics — cookieless, anonymous, aggregate traffic
+            stats (see /privacy-policy). Auto-initialised on Vercel deploys. */}
+        <Analytics />
       </body>
     </html>
   );

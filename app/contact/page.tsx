@@ -8,7 +8,7 @@ import { QuoteForm } from "@/components/contact/quote-form";
 import { Button } from "@/components/ui/button";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { images } from "@/lib/images";
-import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Contact Festive Occasions — Quote & Enquiry",
@@ -94,7 +94,7 @@ export default function ContactPage() {
       addressCountry: "AE",
     },
     areaServed: siteConfig.serviceArea,
-    // ✅ Client-verified 2026-09-23: enquiries & bookings 24/7 (online);
+    // Client-verified 2026-09-23: enquiries & bookings 24/7 (online);
     // physical office closed Sat & Sun — weekend replies may be slower.
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -166,7 +166,7 @@ export default function ContactPage() {
                           aria-hidden
                           className="text-champagne/0 transition-all duration-500 group-hover:translate-x-0 group-hover:text-champagne"
                         >
-                          →
+                          <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                         </span>
                       )}
                     </>

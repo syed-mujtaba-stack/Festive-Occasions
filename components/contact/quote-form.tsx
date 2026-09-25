@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 import { whatsappLink } from "@/lib/site";
 
 const propertyTypes = [
@@ -139,7 +140,7 @@ export function QuoteForm() {
       >
         Send request on WhatsApp
         <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
-          →
+          <FaArrowRight className="h-[0.9em] w-[0.9em]" />
         </span>
       </button>
     </form>
