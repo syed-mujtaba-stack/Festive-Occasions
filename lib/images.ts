@@ -50,7 +50,7 @@ export const images = {
   /** Package cards — Cheers, Fancy, Luxury. */
   pkgCheers: {
     src: "/images/client-work/project-04.jpg",
-    alt: "Festive bonsai, nutcracker and reindeer styling — Cheers package",
+    alt: "Festive dining table runner garland with candles, golden pinecones, and napkin styling — Cheers package",
   },
   pkgFancy: {
     src: "/images/client-work/project-23.jpg",
@@ -75,7 +75,7 @@ export const images = {
   },
   svcOffice: {
     src: "/images/client-work/project-01.jpg",
-    alt: "Christmas office and residence shelf decoration in Dubai",
+    alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
   },
   svcCorporate: {
     src: "/images/client-work/project-10.png",
@@ -128,7 +128,7 @@ export const images = {
   },
   detailOffice1: {
     src: "/images/client-work/project-01.jpg",
-    alt: "Festive executive office shelving and nutcrackers in Dubai",
+    alt: "Commercial and office entrance candy cane and ornament garland installation in Dubai",
   },
   detailOffice2: {
     src: "/images/client-work/project-27.jpg",
@@ -136,7 +136,7 @@ export const images = {
   },
   detailOffice3: {
     src: "/images/client-work/project-04.jpg",
-    alt: "Office reception tabletop Christmas installation in Dubai",
+    alt: "Festive dining and reception table garland styling in Dubai",
   },
   detailCorporate1: {
     src: "/images/client-work/project-10.png",
@@ -177,7 +177,7 @@ export const images = {
   /** Blog post covers. */
   blog1: {
     src: "/images/client-work/project-06.jpg",
-    alt: "Choosing Christmas decorators in Dubai — consultation",
+    alt: "Festive Occasions decorator styling a grand champagne and gold Christmas tree with luxury gift boxes",
   },
   blog2: {
     src: "/images/client-work/project-07.jpg",
@@ -201,19 +201,19 @@ export const images = {
   },
   blog7: {
     src: "/images/client-work/project-13.jpg",
-    alt: "Christmas lighting guide for Dubai properties",
+    alt: "Organic pine and red berry villa entrance archway decoration in Dubai",
   },
   blog8: {
     src: "/images/client-work/project-14.jpg",
-    alt: "Cozy Christmas home styling in Dubai",
+    alt: "Snow-flocked champagne and white winter wonderland tree styling in Dubai",
   },
   blog9: {
     src: "/images/client-work/project-02.jpg",
-    alt: "Apartment Christmas decoration in Dubai — small-space festive styling",
+    alt: "Luxury Christmas tree styled with deep crimson velvet ribbons in Dubai residence",
   },
   blog10: {
     src: "/images/client-work/project-03.jpg",
-    alt: "Professional Christmas decoration installation in Dubai",
+    alt: "Cascading rich burgundy ornaments and floating taper candles in luxury Dubai villa",
   },
   blog11: {
     src: "/images/client-work/project-16.jpg",
@@ -226,7 +226,7 @@ export const images = {
   /** Support-page heroes. */
   pageAreas: {
     src: "/images/client-work/project-15.jpg",
-    alt: "Festive decorations styled across Dubai and UAE",
+    alt: "Luxury Dubai villa exterior with illuminated wrapped palm trees and festive doorway archway",
   },
   pageAbout: {
     src: "/images/client-work/project-30.png",
@@ -238,7 +238,7 @@ export const images = {
   },
   pageContact: {
     src: "/images/client-work/project-04.jpg",
-    alt: "Christmas table decor — contact Festive Occasions Dubai",
+    alt: "Festive dining table runner garland with candles — contact Festive Occasions Dubai",
   },
   pageOther: {
     src: "/images/client-work/project-27.jpg",
@@ -253,21 +253,21 @@ export const images = {
     alt: "Christmas decoration ideas and styling in Dubai",
   },
   /** Real client project photos (1 to 41). */
-  client01: { src: "/images/client-work/project-01.jpg", alt: "Festive Occasions installation in Dubai" },
-  client02: { src: "/images/client-work/project-02.jpg", alt: "Festive Occasions installation in Dubai" },
-  client03: { src: "/images/client-work/project-03.jpg", alt: "Festive Occasions installation in Dubai" },
-  client04: { src: "/images/client-work/project-04.jpg", alt: "Festive Occasions installation in Dubai" },
+  client01: { src: "/images/client-work/project-01.jpg", alt: "Commercial entrance candy cane and garland pillar by Festive Occasions" },
+  client02: { src: "/images/client-work/project-02.jpg", alt: "Velvet crimson ribbons and gold Christmas tree by Festive Occasions" },
+  client03: { src: "/images/client-work/project-03.jpg", alt: "Cascading burgundy baubles and floating taper candles by Festive Occasions" },
+  client04: { src: "/images/client-work/project-04.jpg", alt: "Festive dining table runner and candle styling by Festive Occasions" },
   client05: { src: "/images/client-work/project-42.jpg", alt: "Festive Occasions installation in Dubai" },
-  client06: { src: "/images/client-work/project-06.jpg", alt: "Festive Occasions installation in Dubai" },
+  client06: { src: "/images/client-work/project-06.jpg", alt: "Grand champagne tree styling and luxury gift boxes by Festive Occasions" },
   client07: { src: "/images/client-work/project-07.jpg", alt: "Festive Occasions installation in Dubai" },
   client08: { src: "/images/client-work/project-08.jpg", alt: "Festive Occasions installation in Dubai" },
   client09: { src: "/images/client-work/project-09.jpg", alt: "Festive Occasions installation in Dubai" },
   client10: { src: "/images/client-work/project-10.png", alt: "Festive Occasions installation in Dubai" },
   client11: { src: "/images/client-work/project-11.jpg", alt: "Festive Occasions installation in Dubai" },
   client12: { src: "/images/client-work/project-12.jpg", alt: "Festive Occasions installation in Dubai" },
-  client13: { src: "/images/client-work/project-13.jpg", alt: "Festive Occasions installation in Dubai" },
-  client14: { src: "/images/client-work/project-14.jpg", alt: "Festive Occasions installation in Dubai" },
-  client15: { src: "/images/client-work/project-15.jpg", alt: "Festive Occasions installation in Dubai" },
+  client13: { src: "/images/client-work/project-13.jpg", alt: "Organic pine and red berry villa entrance arch by Festive Occasions" },
+  client14: { src: "/images/client-work/project-14.jpg", alt: "Snow-flocked champagne winter wonderland tree by Festive Occasions" },
+  client15: { src: "/images/client-work/project-15.jpg", alt: "Illuminated palm trees and grand villa doorway arch by Festive Occasions" },
   client16: { src: "/images/client-work/project-16.jpg", alt: "Festive Occasions installation in Dubai" },
   client17: { src: "/images/client-work/project-17.jpg", alt: "Festive Occasions installation in Dubai" },
   client18: { src: "/images/client-work/project-18.jpg", alt: "Festive Occasions installation in Dubai" },

@@ -23,8 +23,8 @@ export type GalleryProject = {
 export const galleryProjects: GalleryProject[] = [
   {
     id: "g01",
-    title: "Executive Residence — Festive Shelving",
-    category: "Office Decoration",
+    title: "Commercial Entrance Candy Cane & Garland Pillar",
+    category: "Corporate & Hospitality",
     year: "Recent Work",
     ratio: "portrait",
     image: "client01",
@@ -32,7 +32,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g02",
-    title: "Luxury Villa — Holiday Entrance Styling",
+    title: "Velvet Crimson Ribbons & Gold Christmas Tree",
     category: "Villa Decoration",
     year: "Recent Work",
     ratio: "portrait",
@@ -41,7 +41,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g03",
-    title: "Bespoke Villa — Festive Living Space",
+    title: "Cascading Burgundy Baubles & Floating Taper Candles",
     category: "Villa Decoration",
     year: "Recent Work",
     ratio: "portrait",
@@ -50,7 +50,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g04",
-    title: "Artisanal Tabletop & Nutcracker Decor",
+    title: "Festive Dining Table Runner & Candle Styling",
     category: "Signature Styling",
     year: "Recent Work",
     ratio: "portrait",
@@ -68,7 +68,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g06",
-    title: "Holiday Interior — Residence Scheme",
+    title: "Grand Champagne Tree Styling & Luxury Gift Boxes",
     category: "Home Decoration",
     year: "Recent Work",
     ratio: "portrait",
@@ -131,7 +131,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g13",
-    title: "Festive Lighting & Warm Atmosphere",
+    title: "Organic Pine & Red Berry Villa Entrance Arch",
     category: "Lighting & Outdoor",
     year: "Recent Work",
     ratio: "portrait",
@@ -140,7 +140,7 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g14",
-    title: "Contemporary Home — Festive Touch",
+    title: "Snow-Flocked Champagne Winter Wonderland Tree",
     category: "Home Decoration",
     year: "Recent Work",
     ratio: "portrait",
@@ -149,8 +149,8 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g15",
-    title: "Executive Office — Holiday Styling",
-    category: "Office Decoration",
+    title: "Illuminated Palm Trees & Grand Villa Doorway Arch",
+    category: "Lighting & Outdoor",
     year: "Recent Work",
     ratio: "portrait",
     image: "client15",
