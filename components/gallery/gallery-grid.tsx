@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { galleryProjects } from "@/lib/gallery";
 import { GalleryCard } from "@/components/gallery/gallery-card";
@@ -16,112 +16,57 @@ const GalleryLightbox = dynamic(
   { ssr: false }
 );
 
-// Split projects into two rows
-const half = Math.ceil(galleryProjects.length / 2);
-const rowA = galleryProjects.slice(0, half);   // Row 1: left → right
-const rowB = galleryProjects.slice(half);       // Row 2: right → left
+const INITIAL_COUNT = 30;
 
 /**
- * A single infinite-marquee row.
- * direction: "left" = scrolls right-to-left (standard), "right" = scrolls left-to-right.
- * Pauses on hover and on touch start; resumes on mouse leave / touch end.
- */
-function MarqueeRow({
-  projects,
-  direction,
-  speed = 35,
-  onSelect,
-  projectOffset = 0,
-}: {
-  projects: typeof galleryProjects;
-  direction: "left" | "right";
-  speed?: number;
-  onSelect: (index: number) => void;
-  projectOffset?: number;
-}) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
-
-  // Quadruple the items so the seamless loop has plenty of runway
-  const items = [...projects, ...projects, ...projects, ...projects];
-
-  const pause = useCallback(() => setPaused(true), []);
-  const resume = useCallback(() => setPaused(false), []);
-
-  const animName = direction === "left" ? "marquee-ltr" : "marquee-rtl";
-  // Speed: lower number = faster. 35s for ~half of 41 items feels premium.
-  const duration = `${speed}s`;
-
-  return (
-    <div
-      className="relative w-full overflow-hidden"
-      onMouseEnter={pause}
-      onMouseLeave={resume}
-      onTouchStart={pause}
-      onTouchEnd={resume}
-    >
-      {/* Left/right fade masks */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-night to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-night to-transparent" />
-
-      <div
-        ref={trackRef}
-        className="flex gap-4 will-change-transform"
-        style={{
-          animation: `${animName} ${duration} linear infinite`,
-          animationPlayState: paused ? "paused" : "running",
-        }}
-      >
-        {items.map((project, i) => {
-          // Map back to the real project index for the lightbox
-          const realIndex =
-            (projectOffset + (i % projects.length)) % galleryProjects.length;
-          return (
-            <GalleryCard
-              key={`${project.id}-${i}`}
-              project={project}
-              index={realIndex}
-              onSelect={onSelect}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-/**
- * GalleryGrid — two-row infinite horizontal marquee.
- * Row 1 scrolls left → right, Row 2 scrolls right → left.
- * Hover or touch pauses the row. Click opens the full-screen lightbox.
+ * GalleryGrid — responsive masonry-style grid.
+ * Shows first 30 images by default with a "Load More" button.
+ * Clicking any image opens the full-screen lightbox.
  */
 export function GalleryGrid() {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const visible = showAll
+    ? galleryProjects
+    : galleryProjects.slice(0, INITIAL_COUNT);
+
+  const remaining = galleryProjects.length - INITIAL_COUNT;
 
   return (
-    <div className="mt-10 space-y-4">
-      {/* Row 1 — Left to Right */}
-      <MarqueeRow
-        projects={rowA}
-        direction="left"
-        speed={40}
-        onSelect={setLightbox}
-        projectOffset={0}
-      />
+    <div className="px-4 sm:px-6 lg:px-10">
+      {/* Masonry-style responsive grid */}
+      <div className="columns-2 gap-3 sm:columns-3 lg:columns-4 xl:columns-5">
+        {visible.map((project, i) => (
+          <div key={project.id} className="mb-3 break-inside-avoid">
+            <GalleryCard
+              project={project}
+              index={i}
+              onSelect={setLightbox}
+            />
+          </div>
+        ))}
+      </div>
 
-      {/* Row 2 — Right to Left */}
-      <MarqueeRow
-        projects={rowB}
-        direction="right"
-        speed={38}
-        onSelect={setLightbox}
-        projectOffset={half}
-      />
+      {/* Load More button */}
+      {!showAll && remaining > 0 && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(true)}
+            className="group relative overflow-hidden rounded-full border border-champagne/40 bg-transparent px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-champagne transition-all duration-300 hover:border-champagne hover:bg-champagne hover:text-night"
+          >
+            <span className="relative z-10">
+              Load More — {remaining} more photos
+            </span>
+          </button>
+        </div>
+      )}
 
       {/* Full-screen lightbox */}
       {lightbox !== null && (
         <GalleryLightbox
-          items={galleryProjects}
+          items={visible}
           index={lightbox}
           onClose={() => setLightbox(null)}
           onNavigate={setLightbox}

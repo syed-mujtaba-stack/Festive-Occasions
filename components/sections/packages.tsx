@@ -210,30 +210,43 @@ export function PackagesSection({
             </div>
           </ScrollReveal>
 
-          {/* Bespoke row */}
+          {/* Custom Package row */}
           <ScrollReveal>
-            <div className="flex flex-col gap-6 border-b hairline py-10 md:flex-row md:items-center md:justify-between">
+            <article className="flex flex-col gap-8 border-b hairline py-10 md:flex-row md:items-center md:justify-between">
+              {/* Identity */}
               <div>
-                <h3 className="font-display text-2xl italic text-espresso">
-                  A Christmas that feels like you.
-                </h3>
-                <p className="mt-2 max-w-xl text-[0.95rem] leading-relaxed text-cocoa">
-                  A particular colour palette, an entrance with presence, a
-                  complete festive setting — bespoke concepts are designed
-                  around your space, style and budget.
+                <p className="flex items-center gap-3 text-label text-champagne-deep">
+                  <span aria-hidden className="h-px w-8 bg-champagne/60" />
+                  Custom · Bespoke
                 </p>
+                <h3 className="mt-4 font-display text-3xl leading-tight text-espresso lg:text-4xl">
+                  Custom Package
+                </h3>
               </div>
-              <Button
-                variant="outline"
-                size="md"
-                href={whatsappLink(
-                  "Hi Festive Occasions, I'd like a bespoke Christmas installation. Can we discuss my space, style and budget?"
-                )}
-                external
-              >
-                Discuss a bespoke design
-              </Button>
-            </div>
+
+              {/* WhatsApp CTA */}
+              <div className="flex flex-col items-start gap-5 lg:items-end lg:pt-1">
+                <p className="text-right">
+                  <span className="block font-display text-2xl italic text-espresso lg:text-3xl">
+                    Bespoke
+                  </span>
+                  <span className="text-label text-cocoa">
+                    Quoted on request
+                  </span>
+                </p>
+                <Button
+                  variant="whatsapp"
+                  size="md"
+                  href={whatsappLink(
+                    "Hi Festive Occasions, I'd like a custom Christmas decoration package. Can we discuss my space, style and budget?"
+                  )}
+                  external
+                >
+                  <FaWhatsapp className="h-4 w-4" aria-hidden />
+                  Chat on WhatsApp
+                </Button>
+              </div>
+            </article>
           </ScrollReveal>
 
           <ScrollReveal delay={0.05}>

@@ -79,17 +79,16 @@ export function GalleryLightbox({
           <FaChevronLeft aria-hidden className="h-5 w-5" />
         </button>
 
-        <figure className="relative mx-auto h-full w-full max-w-4xl">
-          <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-card">
+        <figure className="relative mx-auto h-full w-full max-w-5xl">
+          {/* `fit="contain"` — this is the full project view, so the photo must
+              be letterboxed in full, never cropped. `object-cover` was cutting
+              the top and bottom off every portrait shot. */}
+          <div className="relative h-full w-full">
             <FestiveImage
               image={project.image}
               fill
-              sizes="(max-width: 1024px) 100vw, 64vw"
-            />
-            {/* Grounded vignette */}
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-night/40 via-transparent to-transparent"
+              fit="contain"
+              sizes="(max-width: 1024px) 92vw, 64rem"
             />
           </div>
         </figure>

@@ -55,8 +55,12 @@ export function ServicesSection() {
                 scrollTrigger: {
                   trigger: stage,
                   start: "top top",
-                  end: "+=380%",
-                  scrub: 1,
+                  // 7 slides × a readable dwell each. At 100svh per screen
+                  // this is ~6.6 screens of scroll for the whole sequence.
+                  end: "+=560%",
+                  // A little scrub smoothing stops the swap reading as a
+                  // hard cut when the user flicks the wheel.
+                  scrub: 1.2,
                   pin: true,
                   anticipatePin: 1,
                   invalidateOnRefresh: true,
@@ -80,43 +84,54 @@ export function ServicesSection() {
                 tl.fromTo(
                   dot,
                   { autoAlpha: 0.22, scale: 1 },
-                  { autoAlpha: 1, scale: 1.35, duration: 0.35 / N },
+                  { autoAlpha: 1, scale: 1.35, duration: 0.5 / N },
                   inPos
-                ).to(dot, { autoAlpha: 0.22, scale: 1, duration: 0.3 / N }, outPos - 0.3 / N);
+                ).to(dot, { autoAlpha: 0.22, scale: 1, duration: 0.45 / N }, outPos - 0.45 / N);
               });
 
+              /* Each slide owns a 1/N slice of the timeline as its DWELL
+                 window, and the crossfade is placed entirely inside that
+                 window. The previous code used fade = 0.55/N for the
+                 transition but multiplied it by 1.7, giving
+                 0.117 + 0.117 = 0.234 against a dwell of only 1/8 = 0.125 —
+                 so slide N+1 began before slide N had finished arriving, and
+                 a fast flick surfaced slide N+2. Transitions must always be
+                 sized against the dwell, never larger. */
+              const dwell = 1 / N;
+              const fade = dwell * 0.34;   // ~0.043 — inside the window
+              const zoom = dwell * 0.9;    // image settle, still inside
+
               slides.forEach((slide, i) => {
-                const inPos = i / N;
-                const outPos = (i + 1) / N;
-                const fade = 0.55 / N;
+                const inPos = i * dwell;
+                const outPos = (i + 1) * dwell;
 
                 const img = slide.querySelector<HTMLElement>("[data-svc-zoom]");
 
                 if (i === 0) {
                   gsap.set(slide, { autoAlpha: 1, y: 0 });
                 } else {
-                  gsap.set(slide, { autoAlpha: 0, y: 56 });
+                  gsap.set(slide, { autoAlpha: 0, y: 40 });
                 }
 
                 if (i > 0) {
                   tl.fromTo(
                     slide,
-                    { autoAlpha: 0, y: 64 },
-                    { autoAlpha: 1, y: 0, duration: fade * 1.7, ease: "power2.out" },
+                    { autoAlpha: 0, y: 40 },
+                    { autoAlpha: 1, y: 0, duration: fade, ease: "power2.out" },
                     inPos
                   );
                 }
                 tl.to(
                   slide,
-                  { autoAlpha: 0, y: -64, duration: fade * 1.7, ease: "power2.in" },
-                  outPos - fade * 1.7
+                  { autoAlpha: 0, y: -40, duration: fade, ease: "power2.in" },
+                  outPos - fade
                 );
 
                 if (img) {
                   tl.fromTo(
                     img,
-                    { scale: 1.18 },
-                    { scale: 1, duration: fade * 2.6, ease: "power2.out" },
+                    { scale: 1.12 },
+                    { scale: 1, duration: zoom, ease: "power2.out" },
                     i === 0 ? 0 : inPos
                   );
                 }
@@ -143,7 +158,7 @@ export function ServicesSection() {
             eyebrow="What We Do"
             title={
               <>
-                Eight ways to make it <em className="text-champagne-deep not-italic">unforgettable.</em>
+                Seven ways to make it <em className="text-champagne-deep not-italic">unforgettable.</em>
               </>
             }
             description="Every service can be delivered on its own or composed into a single, cohesive Christmas transformation."

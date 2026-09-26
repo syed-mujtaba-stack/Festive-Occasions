@@ -17,7 +17,7 @@ export type GalleryProject = {
 };
 
 /**
- * Curated Gallery of 41 Real Festive Occasions Projects in Dubai & UAE.
+ * Curated Gallery of 39 Real Festive Occasions Projects in Dubai & UAE.
  * 100% authentic client-supplied installation photography. 
  */
 export const galleryProjects: GalleryProject[] = [
@@ -55,15 +55,6 @@ export const galleryProjects: GalleryProject[] = [
     year: "Recent Work",
     ratio: "portrait",
     image: "client04",
-    placeholder: false,
-  },
-  {
-    id: "g05",
-    title: "Grand Villa Living Room & Mantle Garland",
-    category: "Villa Decoration",
-    year: "Recent Work",
-    ratio: "landscape",
-    image: "client05",
     placeholder: false,
   },
   {
@@ -235,15 +226,6 @@ export const galleryProjects: GalleryProject[] = [
     year: "Recent Work",
     ratio: "portrait",
     image: "client24",
-    placeholder: false,
-  },
-  {
-    id: "g25",
-    title: "Emirates Hills Residence Decor",
-    category: "Villa Decoration",
-    year: "Recent Work",
-    ratio: "portrait",
-    image: "client25",
     placeholder: false,
   },
   {

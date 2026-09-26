@@ -5,7 +5,6 @@ import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { PackagesSection } from "@/components/sections/packages";
-import { DealCustomPackage } from "@/components/sections/deal-custom-package";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -57,21 +56,21 @@ export default function PackagesPage() {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Christmas Basic Package",
+        name: "Basic Package",
         description: "6 ft Christmas tree with ornaments, one table garland, one basic door wreath.",
         price: "6000",
         priceCurrency: "AED",
       },
       {
         "@type": "Offer",
-        name: "Christmas Fancy Package",
+        name: "Fancy Package",
         description: "7–8 ft Christmas tree with ornaments, staircase garland, door wreath, table set-up styling.",
         price: "15000",
         priceCurrency: "AED",
       },
       {
         "@type": "Offer",
-        name: "Christmas Luxury Package",
+        name: "Luxury Package",
         description: "9–10 ft tree with luxury ornaments, door wreath with garlands, staircase garlands, table set-up styling, curated seasonal accessories, outdoor entrance garlands.",
         price: "25000",
         priceCurrency: "AED",
@@ -92,9 +91,7 @@ export default function PackagesPage() {
 
       <PackagesSection id="packages" />
 
-      <DealCustomPackage />
-
-      {/* Why a package, not a quote-free guess — honest reassurance */}
+{/* Why a package, not a quote-free guess — honest reassurance */}
       <Section tone="cream">
         <Container>
           <ScrollReveal>

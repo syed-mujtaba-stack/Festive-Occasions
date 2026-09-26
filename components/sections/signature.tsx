@@ -75,11 +75,11 @@ export function Signature() {
                 0.5
               )
 
-              // --- VEIL (deepens smoothly as image expands for text contrast) ---
+              // --- VEIL (deepens as the image opens, to seat the copy) ---
               .fromTo(
                 "[data-sig-veil]",
-                { opacity: 0.15 },
-                { opacity: 0.55, duration: 1, ease: "power1.inOut" },
+                { opacity: 0.7 },
+                { opacity: 1, duration: 1, ease: "power1.inOut" },
                 0
               )
 
@@ -113,13 +113,7 @@ export function Signature() {
                 { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
                 0.58
               )
-              // 5. 01 02 03 04 badges fade in as full bleed finishes (0.68 -> 0.98)
-              .fromTo(
-                "[data-sig-decor]",
-                { opacity: 0, scale: 0.85 },
-                { opacity: 1, scale: 1, duration: 0.3, stagger: 0.05, ease: "power2.out" },
-                0.68
-              );
+              ;
             });
           },
           700
@@ -150,27 +144,30 @@ export function Signature() {
         >
           <FestiveImage
             image="signatureDetails"
-            priority
             sizes="100vw"
           />
         </div>
 
-        {/* Veil */}
+        {/* Veil — a single flat wash, no gradient. The client photos are all
+            high-key (measured centre-band luminance 0.79–1.0), so the copy
+            needs a real even darkening to clear WCAG on large display type.
+            Kept as one flat colour so the photo is never muddied by stops. */}
         <div
           data-sig-veil
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night via-night/45 to-night/40 opacity-15"
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-night/60"
         />
 
         {/* Overlaid editorial copy (completely hidden at start) */}
         <div className="container-site relative z-10 py-24 text-center pointer-events-none">
           <p
             data-sig-eyebrow
-            className="text-label mb-6 text-champagne opacity-0"
+            className="text-label mb-6 text-champagne-soft opacity-0 [text-shadow:0_1px_10px_rgba(23,19,18,0.95)]"
           >
             The Festive Occasions Transformation
           </p>
 
-          <h2 className="text-h1">
+          <h2 className="text-h1 [text-shadow:0_2px_24px_rgba(23,19,18,0.85)]">
             <span
               data-sig-title-1
               className="block opacity-0"
@@ -179,7 +176,7 @@ export function Signature() {
             </span>
             <span
               data-sig-title-2
-              className="mt-2 block text-champagne opacity-0"
+              className="mt-2 block text-champagne-soft opacity-0"
             >
               TO CHRISTMAS MAGIC
             </span>
@@ -187,7 +184,7 @@ export function Signature() {
 
           <p
             data-sig-copy
-            className="mx-auto mt-8 max-w-xl text-lead text-ivory/80 opacity-0"
+            className="mx-auto mt-8 max-w-xl text-lead text-ivory/90 opacity-0 [text-shadow:0_1px_14px_rgba(23,19,18,0.9)]"
           >
             We begin with the space itself — its architecture, light and
             proportions — then dress it in a full, considered Christmas
@@ -195,19 +192,7 @@ export function Signature() {
             light.
           </p>
 
-          <div
-            data-sig-decor
-            className="mt-10 flex justify-center gap-3 opacity-0"
-          >
-            {["01", "02", "03", "04"].map((n) => (
-              <span
-                key={n}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-champagne/40 text-label text-champagne"
-              >
-                {n}
-              </span>
-            ))}
-          </div>
+
         </div>
       </div>
     </section>

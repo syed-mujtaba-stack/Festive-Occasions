@@ -13,11 +13,7 @@ export const siteConfig = {
   addressLine:
     "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
   serviceArea: ["Dubai", "Sharjah", "UAE"],
-  // CLIENT-VERIFIED 2026-09-23: enquiries & bookings are open 24/7 via
-  // WhatsApp/email; the office itself is closed Sat & Sun, so weekend
-  // replies may be slower.
   hours: "Open 24/7 — enquiries via WhatsApp & email",
-  hoursDetail: "Office closed Sat & Sun · weekend replies may be slower",
 
   social: {
     instagram: "https://www.instagram.com/festive_ocassions", // client-verified

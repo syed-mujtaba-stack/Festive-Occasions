@@ -57,7 +57,7 @@ export function GalleryCard({
       type="button"
       onClick={() => onSelect(index)}
       aria-label={`${project.title} — open in full view`}
-      className="group relative block aspect-[3/4] w-[260px] shrink-0 cursor-pointer overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-night sm:w-[300px]"
+      className="group relative block aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-night"
       style={{ contain: "layout paint" }}
     >
       {tile}

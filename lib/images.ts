@@ -22,10 +22,14 @@ export const images = {
     src: "/images/client-work/project-42.jpg",
     alt: "Festive Occasions studio styled interior — Christmas decoration in Dubai by our team",
   },
-  /** Signature expanding-frame detail — lavish cascading red ornament detail. */
+  /** Signature expanding-frame — full-bleed 100vw, so it needs a genuinely
+   *  large file. `project-35.png` (IMG_5255) was only 1320x1630 and the
+   *  optimizer upscaled it (1.45x at 1920, 2.9x on retina) once the frame
+   *  opened past ~1320px wide. IMG_4652 is 4284x5712 (24MP) — a real
+   *  installation, not a low-res transitional fill. */
   signatureDetails: {
-    src: "/images/client-work/project-35.png",
-    alt: "Festive ornament and tree styling detail by Christmas decorators in Dubai",
+    src: "/images/client-work/project-19.jpg",
+    alt: "Festive Occasions Christmas decoration installation in Dubai",
   },
   /** Final CTA glow — candlelit Christmas tree and warm holiday entrance. */
   finalCtaGlow: {
@@ -277,7 +281,6 @@ export const images = {
   client22: { src: "/images/client-work/project-22.jpg", alt: "Festive Occasions installation in Dubai" },
   client23: { src: "/images/client-work/project-23.jpg", alt: "Festive Occasions installation in Dubai" },
   client24: { src: "/images/client-work/project-24.jpg", alt: "Festive Occasions installation in Dubai" },
-  client25: { src: "/images/client-work/project-25.jpg", alt: "Festive Occasions installation in Dubai" },
   client26: { src: "/images/client-work/project-26.jpg", alt: "Festive Occasions installation in Dubai" },
   client27: { src: "/images/client-work/project-27.jpg", alt: "Festive Occasions installation in Dubai" },
   client28: { src: "/images/client-work/project-28.jpg", alt: "Festive Occasions installation in Dubai" },

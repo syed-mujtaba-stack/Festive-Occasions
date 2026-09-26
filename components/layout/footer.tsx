@@ -100,7 +100,7 @@ export function Footer() {
               </li>
               <li>{siteConfig.addressLine}</li>
               <li className="text-ivory/50">{siteConfig.hours}</li>
-              <li className="text-ivory/70">{siteConfig.hoursDetail}</li>
+
             </ul>
 
             {/* Social — verified channels only (off-page / brand presence) */}

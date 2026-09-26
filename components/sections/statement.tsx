@@ -87,11 +87,18 @@ export function Statement() {
       />
 
       <div className="container-site relative py-24 lg:py-36">
-        <div className="grid gap-14 lg:grid-cols-[1.65fr_1fr] lg:gap-24">
+        <div className="grid gap-14 lg:grid-cols-[1.9fr_1fr] lg:gap-20">
           {/* Statement type */}
           <div>
             <p className="eyebrow text-champagne">The Studio Philosophy</p>
-            <h2 className="mt-10 font-display text-[clamp(2.6rem,7.2vw,7rem)] leading-[0.96] tracking-[-0.02em]">
+            {/* The three copy lines are manually broken and each sits in an
+                `overflow-hidden` mask, so the type must resolve to one visual
+                line per span at every breakpoint. The longest line
+                ("SPACES. WE TRANSFORM") measures 10.485em in Cormorant
+                Garamond 400 at tracking -0.02em, and the statement column
+                caps at ~734px once the 1280px container is reached — hence
+                4rem is the ceiling, not a token like .text-display. */}
+            <h2 className="mt-10 font-display text-[clamp(1.65rem,5vw,4rem)] leading-[0.98] tracking-[-0.02em]">
               <span className="block overflow-hidden pb-[0.08em]">
                 <span data-st-line className="block will-change-transform">
                   WE DON&rsquo;T DECORATE

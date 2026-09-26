@@ -15,6 +15,7 @@ export function FestiveImage({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   priority = false,
   fill = true,
+  fit = "cover",
 }: {
   image: ImageKey | { src: string; alt: string };
   alt?: string;
@@ -23,17 +24,22 @@ export function FestiveImage({
   sizes?: string;
   priority?: boolean;
   fill?: boolean;
+  /** `contain` letterboxes the whole photo — required wherever the image
+   *  must be seen uncropped (lightbox / full project view). */
+  fit?: "cover" | "contain";
 }) {
   const resolved =
     typeof image === "string" ? images[image] : image;
   const altText = alt ?? resolved.alt;
+
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
 
   if (!fill) {
     return (
       <Image
         src={resolved.src}
         alt={altText}
-        className={cn("h-full w-full object-cover", imgClassName)}
+        className={cn("h-full w-full", fitClass, imgClassName)}
         sizes={sizes}
         priority={priority}
         width={1600}
@@ -48,7 +54,8 @@ export function FestiveImage({
         src={resolved.src}
         alt={altText}
         className={cn(
-          "object-cover transition-transform duration-700 ease-out",
+          fitClass,
+          "transition-transform duration-700 ease-out",
           imgClassName
         )}
         sizes={sizes}

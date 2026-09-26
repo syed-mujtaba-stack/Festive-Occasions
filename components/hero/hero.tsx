@@ -100,9 +100,7 @@ export function Hero() {
                     sizes="(max-width: 768px) 300px, 340px"
                     className="object-cover object-top"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-red-700/90 text-[11px] font-bold text-white uppercase tracking-wider shadow">
-                    Real Client Work
-                  </div>
+
                 </div>
 
                 <div className="px-1 text-center">
@@ -110,7 +108,7 @@ export function Hero() {
                     Luxury Installations
                   </h3>
                   <p className="text-xs text-champagne mt-0.5 font-light">
-                    100% Authentic Client Work · Dubai
+                    Luxury Christmas Decorations · Dubai
                   </p>
                   <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-white/80">
                     <span>Bespoke Villas</span>

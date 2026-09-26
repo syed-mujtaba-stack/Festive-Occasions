@@ -9,6 +9,16 @@ import { Button } from "@/components/ui/button";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { images } from "@/lib/images";
 import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
+import type { IconType } from "react-icons";
+
+interface ContactMethod {
+  icon: IconType;
+  label: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+  detail?: string;
+}
 
 export const metadata: Metadata = {
   title: "Contact Festive Occasions — Quote & Enquiry",
@@ -45,7 +55,7 @@ export const metadata: Metadata = {
   },
 };
 
-const contactMethods = [
+const contactMethods: ContactMethod[] = [
   {
     icon: FaWhatsapp,
     label: "WhatsApp",
@@ -69,7 +79,6 @@ const contactMethods = [
     icon: FaClock,
     label: "Hours",
     value: siteConfig.hours,
-    detail: siteConfig.hoursDetail,
   },
   {
     icon: FaMapMarkerAlt,
@@ -94,12 +103,11 @@ export default function ContactPage() {
       addressCountry: "AE",
     },
     areaServed: siteConfig.serviceArea,
-    // Client-verified 2026-09-23: enquiries & bookings 24/7 (online);
-    // physical office closed Sat & Sun — weekend replies may be slower.
+    // Client-verified 2026-09-23: enquiries & bookings 24/7 (online).
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       description:
-        "Enquiries and bookings via WhatsApp and email — open 24 hours, 7 days a week. Office closed Saturday & Sunday; weekend replies may be slower.",
+        "Enquiries and bookings via WhatsApp and email — open 24 hours, 7 days a week.",
       dayOfWeek: [
         "Monday",
         "Tuesday",

@@ -84,8 +84,8 @@ export default function GalleryPage() {
         image="hero"
       />
 
-      {/* Full-width marquee gallery — no container wrap so it bleeds edge to edge */}
-      <section id="gallery" className="bg-night py-16 overflow-hidden">
+      {/* Responsive masonry gallery grid */}
+      <section id="gallery" className="bg-night py-16">
         <GalleryGrid />
       </section>
 
