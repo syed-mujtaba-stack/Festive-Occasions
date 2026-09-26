@@ -144,7 +144,11 @@ export function Signature() {
         >
           <FestiveImage
             image="signatureDetails"
-            sizes="100vw"
+            /* Capped at the source's intrinsic width (738px). Requesting
+               100vw made the optimizer upscale to 1920/3840 from a 738px
+               file, which is strictly blurrier than letting the browser
+               scale 1:1. Raise this only when a full-res original lands. */
+            sizes="768px"
           />
         </div>
 

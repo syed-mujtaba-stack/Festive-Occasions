@@ -22,13 +22,14 @@ export const images = {
     src: "/images/client-work/project-42.jpg",
     alt: "Festive Occasions studio styled interior — Christmas decoration in Dubai by our team",
   },
-  /** Signature expanding-frame — full-bleed 100vw, so it needs a genuinely
-   *  large file. `project-35.png` (IMG_5255) was only 1320x1630 and the
-   *  optimizer upscaled it (1.45x at 1920, 2.9x on retina) once the frame
-   *  opened past ~1320px wide. IMG_4652 is 4284x5712 (24MP) — a real
-   *  installation, not a low-res transitional fill. */
+  /** Signature expanding-frame — full-bleed 100vw. Client-selected:
+   *  "WhatsApp Image 2026-09-26 at 3.36.29 PM (2)" -> project-43.jpg.
+   *  NOTE: this original is only 738x538 and no higher-resolution version
+   *  of this shot exists in the library (verified by thumbnail match against
+   *  all 56 raw + 42 converted files). At 100vw it will be soft — the fix is
+   *  a full-res original from the client, not a code change. */
   signatureDetails: {
-    src: "/images/client-work/project-19.jpg",
+    src: "/images/client-work/project-43.jpg",
     alt: "Festive Occasions Christmas decoration installation in Dubai",
   },
   /** Final CTA glow — candlelit Christmas tree and warm holiday entrance. */
