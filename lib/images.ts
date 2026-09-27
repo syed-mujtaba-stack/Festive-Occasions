@@ -17,9 +17,14 @@ export const images = {
     src: "/images/santa-luxury.jpg",
     alt: "Santa Claus festive celebration — Festive Occasions Dubai Christmas decor",
   },
-  /** Home intro media (The Studio) — client-provided styled interior, IMG_2546. */
+  /** Home intro media (The Studio) — client-supplied 2026-09-27.
+   *  Replaces project-42.jpg, which commit a19a792 swapped in without being
+   *  asked (and which was a 16:9 landscape crop forced into a portrait frame).
+   *  Source: WhatsApp Image 2026-09-27 at 3.50.14 PM.jpeg, 960x1280 (3:4) —
+   *  native ratio, so the aspect-[3/4] frame crops nothing.
+   *  See scripts/intro-studio-image.mjs. */
   homeIntro: {
-    src: "/images/client-work/project-42.jpg",
+    src: "/images/client-work/project-46.jpg",
     alt: "Festive Occasions studio styled interior — Christmas decoration in Dubai by our team",
   },
   /** Signature expanding-frame — full-bleed 100vw. Client-selected:
@@ -62,36 +67,73 @@ export const images = {
     src: "/images/client-work/project-34.png",
     alt: "Opulent candy cane and peppermint luxury Christmas tree — Luxe package",
   },
-  /** Services index cards + service page heroes. */
+  /** Services index cards + service page heroes.
+   *  These render inside the fixed aspect-[4/5] stage in
+   *  components/sections/services.tsx, so every one of them is a dedicated
+   *  4:5 master cut by scripts/recut-services.mjs — named svc-*-45.jpg to
+   *  keep them distinct from the gallery's project-NN.jpg photos.
+   *  Do not point these at a project-NN file: those are mixed-ratio cuts and
+   *  the frame would crop them again. */
   svcComplete: {
-    src: "/images/client-work/project-35.jpg",
+    src: "/images/client-work/svc-complete-45.jpg",
     alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVilla: {
-    src: "/images/client-work/project-30.png",
+    src: "/images/client-work/svc-villa-45.jpg",
     alt: "Christmas villa decoration in Dubai — grand entrance archway",
   },
   svcHome: {
-    // Master: IMG_3974 (1).jpg (4284×5712) — landscape-cropped to 2400×1350 for full-width hero
-    src: "/images/client-work/project-42.jpg",
+    src: "/images/client-work/svc-home-45.jpg",
     alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
   },
 
   svcOffice: {
-    src: "/images/client-work/project-01.jpg",
+    src: "/images/client-work/svc-office-45.jpg",
     alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
   },
   svcCorporate: {
-    src: "/images/client-work/project-10.png",
+    src: "/images/client-work/svc-corporate-45.jpg",
     alt: "Corporate Christmas decoration in Dubai — grand atrium tree",
   },
   svcLighting: {
-    // Master: IMG_4722 (1).jpg (4284×5712) — landscape-cropped to 2400×1350 for full-width hero
-    src: "/images/client-work/project-40.jpg",
+    src: "/images/client-work/svc-lighting-45.jpg",
     alt: "Christmas lighting in Dubai — illuminated garland arch at a villa entrance with warm string lights",
   },
   svcOutdoor: {
-    src: "/images/client-work/project-15.jpg",
+    src: "/images/client-work/svc-outdoor-45.jpg",
+    alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
+  },
+
+  /** Service page heroes (PageHero = full-bleed 100vw x 62svh, ~2.6:1).
+   *  Separate 16:9 cuts from the same masters — a 4:5 photo dropped into
+   *  that band keeps only ~28% of its height. Point each service page's
+   *  heroImage at the matching *Hero key, not the svc* stage key. */
+  svcCompleteHero: {
+    src: "/images/client-work/svc-complete-hero.jpg",
+    alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
+  },
+  svcVillaHero: {
+    src: "/images/client-work/svc-villa-hero.jpg",
+    alt: "Christmas villa decoration in Dubai — grand entrance archway",
+  },
+  svcHomeHero: {
+    src: "/images/client-work/svc-home-hero.jpg",
+    alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
+  },
+  svcOfficeHero: {
+    src: "/images/client-work/svc-office-hero.jpg",
+    alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
+  },
+  svcCorporateHero: {
+    src: "/images/client-work/svc-corporate-hero.jpg",
+    alt: "Corporate Christmas decoration in Dubai — grand atrium tree",
+  },
+  svcLightingHero: {
+    src: "/images/client-work/svc-lighting-hero.jpg",
+    alt: "Christmas lighting in Dubai — illuminated garland arch at a villa entrance with warm string lights",
+  },
+  svcOutdoorHero: {
+    src: "/images/client-work/svc-outdoor-hero.jpg",
     alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
   },
   /** Service page detail blocks (unique per service). */
@@ -276,8 +318,6 @@ export const images = {
   client16: { src: "/images/client-work/project-16.jpg", alt: "Festive Occasions installation in Dubai" },
   client17: { src: "/images/client-work/project-17.jpg", alt: "Festive Occasions installation in Dubai" },
   client18: { src: "/images/client-work/project-18.jpg", alt: "Festive Occasions installation in Dubai" },
-  client19: { src: "/images/client-work/project-19.jpg", alt: "Festive Occasions installation in Dubai" },
-  client20: { src: "/images/client-work/project-20.jpg", alt: "Festive Occasions installation in Dubai" },
   client21: { src: "/images/client-work/project-21.jpg", alt: "Festive Occasions installation in Dubai" },
   client22: { src: "/images/client-work/project-22.jpg", alt: "Festive Occasions installation in Dubai" },
   client23: { src: "/images/client-work/project-23.jpg", alt: "Festive Occasions installation in Dubai" },
@@ -300,6 +340,19 @@ export const images = {
   client41: { src: "/images/client-work/project-41.jpg", alt: "Festive Occasions installation in Dubai" },
   client44: { src: "/images/client-work/project-44.jpg", alt: "Grand spiral red bauble and poinsettia tree installation by Festive Occasions Dubai" },
   client45: { src: "/images/client-work/project-45.jpg", alt: "Dramatic bespoke arched doorway garland with cascading red ornaments by Festive Occasions Dubai" },
+
+  /** Gallery replacements for the two client photos the client asked to have
+   *  removed (IMG_4652 / IMG_4682, formerly client20 / client21).
+   *  CC0 / public domain, downloaded via scripts/download-christmas-images.js
+   *  and recorded in .unsplash-cache/openverse/downloads-record.json. */
+  galleryHome2: {
+    src: "/images/christmas/gallery-home-2.jpg",
+    alt: "Festive apartment living room with a decorated Christmas tree and warm seasonal styling",
+  },
+  galleryVillaStair: {
+    src: "/images/christmas/gallery-villa-stair.jpg",
+    alt: "Christmas staircase and foyer decorated with garland, ornaments and warm lighting",
+  },
 } as const;
 
 export type ImageKey = keyof typeof images;

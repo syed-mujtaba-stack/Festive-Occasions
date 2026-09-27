@@ -70,7 +70,12 @@ export function Intro() {
           {/* Media */}
           <ScrollReveal y={24} className="relative">
             <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-card">
+              <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-card">
+                {/* Frame ratio must match the source photo's native ratio
+                    (homeIntro = 960x1280 = 3:4). Mismatching it here makes
+                    object-cover silently crop the photo — that is what made
+                    the previous landscape asset look wrong. If you swap the
+                    image, update this ratio to match. */}
                 <FestiveImage image="homeIntro" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               {/* Offset champagne frame */}

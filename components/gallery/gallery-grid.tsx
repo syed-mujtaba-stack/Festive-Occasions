@@ -36,8 +36,10 @@ export function GalleryGrid() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-10">
-      {/* Uniform responsive grid: no empty holes or column imbalance */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+      {/* Uniform responsive grid: no empty holes or column imbalance.
+          5-6 columns (was 4) so each tile reads smaller and more of the
+          portfolio fits above the fold. */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
         {visible.map((project, i) => (
           <div key={project.id} className="w-full">
             <GalleryCard

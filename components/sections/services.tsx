@@ -128,9 +128,13 @@ export function ServicesSection() {
                 );
 
                 if (img) {
+                  // 1.12 was too aggressive: the photo already fills a 4:5
+                  // frame at 100%, so zooming to 112% magnified an already
+                  // cropped region and read as blur. 1.06 keeps the settle
+                  // without softening the image.
                   tl.fromTo(
                     img,
-                    { scale: 1.12 },
+                    { scale: 1.06 },
                     { scale: 1, duration: zoom, ease: "power2.out" },
                     i === 0 ? 0 : inPos
                   );
@@ -183,7 +187,7 @@ export function ServicesSection() {
               <div
                 key={service.id}
                 data-svc-slide
-                className="absolute inset-0 grid items-center gap-x-16 pl-[6vw] pr-[7vw] lg:grid-cols-[0.92fr_1.08fr]"
+                className="absolute inset-0 grid items-center gap-x-16 pl-[6vw] pr-[7vw] lg:grid-cols-[1.08fr_0.92fr]"
               >
                 {/* Left: copy */}
                 <div data-svc-text className="max-w-xl">
@@ -230,11 +234,13 @@ export function ServicesSection() {
                   </Link>
                 </div>
 
-                {/* Right: image */}
-                <div className="relative">
+                {/* Right: image. Capped at 440px so the copy leads and the
+                    photo reads as a supporting visual rather than filling the
+                    whole stage. `ml-auto` keeps it pinned to the right edge. */}
+                <div className="relative ml-auto w-full max-w-[440px]">
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute -right-14 -top-16 font-display text-[11rem] leading-none text-espresso/[0.06]"
+                    className="pointer-events-none absolute -right-10 -top-12 font-display text-[7rem] leading-none text-espresso/[0.06]"
                   >
                     {service.number}
                   </div>
@@ -242,7 +248,7 @@ export function ServicesSection() {
                     <div data-svc-zoom className="absolute inset-0 will-change-transform">
                       <FestiveImage
                         image={service.image}
-                        sizes="(max-width: 1440px) 44vw, 40vw"
+                        sizes="(max-width: 1440px) 31vw, 440px"
                         priority={service.id === "christmas-decoration"}
                       />
                     </div>
@@ -292,7 +298,7 @@ export function ServicesSection() {
                       <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                     </span>
                   </div>
-                  <div className="grid gap-5 sm:grid-cols-[1fr_0.85fr] sm:items-center">
+                  <div className="grid gap-5 sm:grid-cols-[1fr_0.72fr] sm:items-center">
                     <div>
                       <h3 className="font-display text-3xl leading-tight text-espresso">
                         {service.title}{" "}
@@ -302,9 +308,12 @@ export function ServicesSection() {
                         {service.description}
                       </p>
                     </div>
-                    <div className="relative aspect-[16/11] overflow-hidden rounded-xl">
+                    <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-xl">
                       <div className="absolute inset-0 scale-105 transition-transform duration-700 group-hover:scale-100">
-                        <FestiveImage image={service.image} sizes="480px" />
+                        <FestiveImage
+                          image={service.image}
+                          sizes="(max-width: 640px) 88vw, 300px"
+                        />
                       </div>
                     </div>
                   </div>

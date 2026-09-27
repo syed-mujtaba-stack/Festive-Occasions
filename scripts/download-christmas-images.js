@@ -327,6 +327,20 @@ const SLOTS = [
     alts: ["christmas ornaments baubles", "christmas decorations interior"],
     offset: 0,
   },
+  // Gallery replacements for the two client photos removed at the client's
+  // request (IMG_4652 / IMG_4682). CC0 / public domain via Openverse.
+  {
+    file: "gallery-home-2",
+    query: "christmas apartment living room decorated",
+    alts: ["cozy christmas living room", "christmas home interior festive"],
+    offset: 0,
+  },
+  {
+    file: "gallery-villa-stair",
+    query: "christmas staircase decoration foyer",
+    alts: ["christmas hallway garland entrance", "christmas foyer staircase"],
+    offset: 0,
+  },
 ];
 
 const UA = "FestiveOccasions/1.0 (asset pipeline; contact: hello@festiveoccasions.ae)";

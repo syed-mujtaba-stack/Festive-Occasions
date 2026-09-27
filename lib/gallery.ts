@@ -189,7 +189,7 @@ export const galleryProjects: GalleryProject[] = [
     category: "Home Decoration",
     year: "Recent Work",
     ratio: "portrait",
-    image: "client19",
+    image: "galleryHome2",
     placeholder: false,
   },
   {
@@ -198,7 +198,7 @@ export const galleryProjects: GalleryProject[] = [
     category: "Home Decoration",
     year: "Recent Work",
     ratio: "portrait",
-    image: "client20",
+    image: "galleryVillaStair",
     placeholder: false,
   },
   {

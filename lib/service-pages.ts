@@ -41,7 +41,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Complete Service",
     metaDescription:
       "Christmas decorators in Dubai — bespoke festive decoration for homes, villas, offices and commercial spaces, styled and installed by Festive Occasions.",
-    heroImage: "svcComplete",
+    heroImage: "svcCompleteHero",
     intro: {
       heading: "One studio. Every festive space in Dubai.",
       body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. As professional Christmas decorators we design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation. Every project is composed around the space itself, its architecture, light and character, and matched to the right scale and style for your own setting.",
@@ -120,7 +120,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Full Residence",
     metaDescription:
       "Complete villa Christmas decoration in Dubai — entrance, living spaces, staircase, garden and outdoor lighting composed in one cohesive scheme.",
-    heroImage: "svcVilla",
+    heroImage: "svcVillaHero",
     intro: {
       heading: "A villa dressed as one home.",
       body: "Villas have scale, and scale deserves a designed scheme. We style the entrance, living and dining spaces, staircase, garden and outdoor areas so the whole villa reads as one warm, festive composition.",
@@ -183,7 +183,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Warm Detail",
     metaDescription:
       "Considered home Christmas decoration in Dubai — living rooms, entrances, windows and ambient lighting styled elegantly by Festive Occasions.",
-    heroImage: "svcHome",
+    heroImage: "svcHomeHero",
     intro: {
       heading: "A home that feels festively yours.",
       body: "Home decoration is about warmth and detail. We style living rooms, entrances, windows and mantels with a layered, elegant hand — festive without being heavy, premium without being cold.",
@@ -242,7 +242,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Impressive Workspace",
     metaDescription:
       "Office Christmas decoration in Dubai — lobby, reception, meeting and employee areas styled professionally by Festive Occasions around your working day.",
-    heroImage: "svcOffice",
+    heroImage: "svcOfficeHero",
     intro: {
       heading: "A workspace that welcomes the season.",
       body: "Offices deserve festive styling that impresses clients and lifts the team. We decorate lobbies, receptions, meeting areas and employee spaces — planned and installed around your working day, with minimal disruption.",
@@ -305,7 +305,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Branded Experience",
     metaDescription:
       "Corporate Christmas decoration in Dubai — branded festive installations and large-scale displays for offices, hotels and venues by Festive Occasions.",
-    heroImage: "svcCorporate",
+    heroImage: "svcCorporateHero",
     intro: {
       heading: "Festive, on-brand, impeccably executed.",
       body: "Corporate spaces and events need decoration that is impressive yet on-brand. We deliver large-scale festive installations for offices, hotels, restaurants and commercial venues — designed, built and professionally installed.",
@@ -368,7 +368,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Outdoor Glow",
     metaDescription:
       "Professional Christmas lighting in Dubai — villa facades, gardens, entrances and commercial lighting installed and styled by Festive Occasions.",
-    heroImage: "svcLighting",
+    heroImage: "svcLightingHero",
     intro: {
       heading: "Light your property, brilliantly.",
       body: "Festive lighting transforms a property after dark. We design and install warm, cinematic lighting for villa facades, gardens, entrances and commercial spaces — beautifully composed, safe and energy-conscious.",
@@ -431,7 +431,7 @@ export const servicePages: Record<string, ServicePage> = {
     eyebrow: "The Exterior Story",
     metaDescription:
       "Outdoor Christmas decoration in Dubai — entrances, gardens and outdoor entertaining spaces styled to welcome by Festive Occasions.",
-    heroImage: "svcOutdoor",
+    heroImage: "svcOutdoorHero",
     intro: {
       heading: "Welcome them from the first glance.",
       body: "The exterior is the first scene your guests see. We style entrances, gardens and outdoor entertaining spaces — greenery, lighting and festive moments that make arriving feel like part of the celebration.",
