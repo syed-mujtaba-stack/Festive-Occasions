@@ -171,22 +171,12 @@
     "orientation": "portrait"
   },
   {
-    "original": "IMG_4652 (1).jpg",
-    "clean": "project-19.jpg",
-    "path": "/images/client-work/project-19.jpg",
-    "width": 4284,
-    "height": 5712,
-    "aspect": "0.75",
-    "orientation": "portrait"
+    "removed": "IMG_4652 (1).jpg",
+    "reason": "Removed at the client's request — project-19.jpg, the raw original and all references are gone."
   },
   {
-    "original": "IMG_4682 (1).jpg",
-    "clean": "project-20.jpg",
-    "path": "/images/client-work/project-20.jpg",
-    "width": 4284,
-    "height": 5712,
-    "aspect": "0.75",
-    "orientation": "portrait"
+    "removed": "IMG_4682 (1).jpg",
+    "reason": "Removed at the client's request — project-20.jpg, the raw original and all references are gone."
   },
   {
     "original": "IMG_4684 (1).jpg",
@@ -234,13 +224,8 @@
     "orientation": "portrait"
   },
   {
-    "original": "IMG_5058 (1).jpg",
-    "clean": "project-26.jpg",
-    "path": "/images/client-work/project-26.jpg",
-    "width": 4284,
-    "height": 5712,
-    "aspect": "0.75",
-    "orientation": "portrait"
+    "removed": "IMG_5058 (1).jpg",
+    "reason": "Removed at the client's request — project-26.jpg and the raw original are gone. Gallery slot g26 now uses project-25.jpg (IMG_4910), an unused 4284x5712 portrait that matches the 3:4 tile."
   },
   {
     "original": "IMG_5096.JPG (1).jpeg",
@@ -315,12 +300,12 @@
     "orientation": "portrait"
   },
   {
-    "original": "IMG_5255(1) (1).png",
-    "clean": "project-35.png",
-    "path": "/images/client-work/project-35.png",
-    "width": 1320,
-    "height": 1630,
-    "aspect": "0.81",
+    "original": "WhatsApp Image 2026-09-27 at 12.58.04 AM.jpeg",
+    "clean": "project-35.jpg",
+    "path": "/images/client-work/project-35.jpg",
+    "width": 590,
+    "height": 787,
+    "aspect": "0.75",
     "orientation": "portrait"
   },
   {
@@ -392,6 +377,24 @@
     "path": "/images/client-work/project-45.jpg",
     "width": 1200,
     "height": 1600,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "WhatsApp Image 2026-09-26 at 6.18.40 PM.jpeg",
+    "clean": "project-47.jpg",
+    "path": "/images/client-work/project-47.jpg",
+    "width": 1086,
+    "height": 1448,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "WhatsApp Image 2026-09-26 at 3.36..jpeg",
+    "clean": "project-48.jpg",
+    "path": "/images/client-work/project-48.jpg",
+    "width": 1086,
+    "height": 1448,
     "aspect": "0.75",
     "orientation": "portrait"
   }

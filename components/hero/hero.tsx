@@ -91,14 +91,28 @@ export function Hero() {
             <div className="relative w-full max-w-[340px]">
               {/* Santa Luxury Card */}
               <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] border-2 border-[#dfba73]/50 bg-black/60 backdrop-blur-xl p-3.5 transition-transform duration-500 hover:-translate-y-1">
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden mb-3.5">
+                <div className="relative aspect-square w-full rounded-xl overflow-hidden mb-3.5 bg-night/40">
+                  {/* `object-contain` — this card's frame is square but
+                      project-35 is a portrait 3:4 photo, so `object-cover`
+                      would crop the top and bottom off. The blurred copy
+                      behind it fills the letterbox. See
+                      scripts/project-35-image.mjs. */}
                   <Image
-                    src="/images/client-work/project-35.png"
+                    src="/images/client-work/project-35.jpg"
                     alt="Luxury Christmas tree with all-red ornaments — Festive Occasions Dubai real client work"
                     fill
                     priority
                     sizes="(max-width: 768px) 300px, 340px"
-                    className="object-cover object-top"
+                    aria-hidden
+                    className="scale-125 object-cover blur-2xl brightness-50"
+                  />
+                  <Image
+                    src="/images/client-work/project-35.jpg"
+                    alt="Luxury Christmas tree with all-red ornaments — Festive Occasions Dubai real client work"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 300px, 340px"
+                    className="object-contain"
                   />
 
                 </div>

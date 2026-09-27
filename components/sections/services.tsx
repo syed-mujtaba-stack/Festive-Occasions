@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { services } from "@/lib/services";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { cn } from "@/lib/utils";
 import { FaArrowRight } from "react-icons/fa";
 
 /**
@@ -187,10 +188,18 @@ export function ServicesSection() {
               <div
                 key={service.id}
                 data-svc-slide
-                className="absolute inset-0 grid items-center gap-x-16 pl-[6vw] pr-[7vw] lg:grid-cols-[1.08fr_0.92fr]"
+                className={cn(
+                  "absolute inset-0 grid items-center gap-x-16 pl-[6vw] pr-[7vw]",
+                  // A slide with no photo drops to one centred column instead of
+                  // leaving the right half empty.
+                  service.image ? "lg:grid-cols-[1.08fr_0.92fr]" : "lg:grid-cols-1"
+                )}
               >
                 {/* Left: copy */}
-                <div data-svc-text className="max-w-xl">
+                <div
+                  data-svc-text
+                  className={cn("max-w-xl", !service.image && "mx-auto")}
+                >
                   <p className="flex items-baseline gap-4 text-label text-champagne-deep">
                     <span className="font-display text-6xl leading-none tracking-normal text-espresso/15">
                       {service.number}
@@ -236,29 +245,32 @@ export function ServicesSection() {
 
                 {/* Right: image. Capped at 440px so the copy leads and the
                     photo reads as a supporting visual rather than filling the
-                    whole stage. `ml-auto` keeps it pinned to the right edge. */}
-                <div className="relative ml-auto w-full max-w-[440px]">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -right-10 -top-12 font-display text-[7rem] leading-none text-espresso/[0.06]"
-                  >
-                    {service.number}
-                  </div>
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-card">
-                    <div data-svc-zoom className="absolute inset-0 will-change-transform">
-                      <FestiveImage
-                        image={service.image}
-                        sizes="(max-width: 1440px) 31vw, 440px"
-                        priority={service.id === "christmas-decoration"}
-                      />
-                    </div>
-                    {/* Veil */}
+                    whole stage. `ml-auto` keeps it pinned to the right edge.
+                    Omitted entirely when the service has no photo. */}
+                {service.image && (
+                  <div className="relative ml-auto w-full max-w-[440px]">
                     <div
                       aria-hidden
-                      className="absolute inset-0 bg-gradient-to-t from-night/25 via-transparent to-transparent"
-                    />
+                      className="pointer-events-none absolute -right-10 -top-12 font-display text-[7rem] leading-none text-espresso/[0.06]"
+                    >
+                      {service.number}
+                    </div>
+                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-card">
+                      <div data-svc-zoom className="absolute inset-0 will-change-transform">
+                        <FestiveImage
+                          image={service.image}
+                          sizes="(max-width: 1440px) 31vw, 440px"
+                          priority={service.id === "christmas-decoration"}
+                        />
+                      </div>
+                      {/* Veil */}
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 bg-gradient-to-t from-night/25 via-transparent to-transparent"
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
 
@@ -298,7 +310,14 @@ export function ServicesSection() {
                       <FaArrowRight className="h-[0.9em] w-[0.9em]" />
                     </span>
                   </div>
-                  <div className="grid gap-5 sm:grid-cols-[1fr_0.72fr] sm:items-center">
+                  <div
+                    className={cn(
+                      "grid gap-5 sm:items-center",
+                      service.image
+                        ? "sm:grid-cols-[1fr_0.72fr]"
+                        : "sm:grid-cols-1"
+                    )}
+                  >
                     <div>
                       <h3 className="font-display text-3xl leading-tight text-espresso">
                         {service.title}{" "}
@@ -308,14 +327,16 @@ export function ServicesSection() {
                         {service.description}
                       </p>
                     </div>
-                    <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-xl">
-                      <div className="absolute inset-0 scale-105 transition-transform duration-700 group-hover:scale-100">
-                        <FestiveImage
-                          image={service.image}
-                          sizes="(max-width: 640px) 88vw, 300px"
-                        />
+                    {service.image && (
+                      <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-xl">
+                        <div className="absolute inset-0 scale-105 transition-transform duration-700 group-hover:scale-100">
+                          <FestiveImage
+                            image={service.image}
+                            sizes="(max-width: 640px) 88vw, 300px"
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </Link>
               </ScrollReveal>

@@ -37,15 +37,21 @@ export function GalleryGrid() {
   return (
     <div className="px-4 sm:px-6 lg:px-10">
       {/* Uniform responsive grid: no empty holes or column imbalance.
-          5-6 columns (was 4) so each tile reads smaller and more of the
-          portfolio fits above the fold. */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+          4 columns from lg up (client request — was 5 at lg and 6 at xl).
+          Dropping to 4 makes each tile roughly 50% larger at 1440px, so the
+          portfolio reads as a considered set of large photographs rather than
+          a dense contact sheet. 2 on phones, 3 from sm. */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {visible.map((project, i) => (
           <div key={project.id} className="w-full">
             <GalleryCard
               project={project}
               index={i}
               onSelect={setLightbox}
+              /* Tracks the grid above (2 / 3 / 4 columns). The steps are set so
+               * 2x is covered at each size: a tile is ~170px on a phone, ~240px
+               * on a tablet, ~333px at 1440px and ~453px at 1920px. */
+              sizes="(max-width: 640px) 170px, (max-width: 1024px) 240px, (max-width: 1600px) 340px, 460px"
             />
           </div>
         ))}

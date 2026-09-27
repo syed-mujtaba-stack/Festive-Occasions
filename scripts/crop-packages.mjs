@@ -34,11 +34,9 @@ await cropTo43(
   'Fancy (pkgFancy)'
 );
 
-// Section 01 Complete Transformation (svcComplete) -> project-35.png -> use jpg
-await cropTo43(
-  path.join(base, 'WhatsApp Image 2026-09-27 at 12.58.04 AM.jpeg'),
-  path.join(out, 'project-35.jpg'),
-  'Complete (svcComplete)'
-);
+// Section 01 Complete Transformation (svcComplete) -> project-35
+// Moved to scripts/project-35-image.mjs: this source is near-square (590x609),
+// so the 4:3 `cropTo43` below cut the top and bottom off it. That export is now
+// written at full frame and letterboxed by its containers instead of cropped.
 
 console.log('All done.');

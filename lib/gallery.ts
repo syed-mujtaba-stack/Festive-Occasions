@@ -17,7 +17,7 @@ export type GalleryProject = {
 };
 
 /**
- * Curated Gallery of 39 Real Festive Occasions Projects in Dubai & UAE.
+ * Curated Gallery of 42 Real Festive Occasions Projects in Dubai & UAE.
  * 100% authentic client-supplied installation photography. 
  */
 export const galleryProjects: GalleryProject[] = [
@@ -248,10 +248,12 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g26",
-    title: "Modern Minimalist Christmas Tree",
+    title: "Bespoke Minimalist Christmas Tree Styling",
     category: "Home Decoration",
     year: "Recent Work",
     ratio: "portrait",
+    // project-26.jpg (IMG_5058) was removed at the client's request; this slot
+    // now uses project-25.jpg (IMG_4910), which is portrait 3:4 like the tile.
     image: "client26",
     placeholder: false,
   },
@@ -388,6 +390,31 @@ export const galleryProjects: GalleryProject[] = [
     year: "Recent Work",
     ratio: "portrait",
     image: "client41",
+    placeholder: false,
+  },
+  {
+    id: "g42",
+    // Same photo as the homepage "What We Do" rail, slide 04 (svcOffice) - the
+    // client asked for it here and asked not to touch the rail. See the note on
+    // `client47` in lib/images.ts.
+    title: "Commercial Entrance Candy Cane & Ornament Garland",
+    category: "Office Decoration",
+    year: "Recent Work",
+    ratio: "portrait",
+    image: "client47",
+    placeholder: false,
+  },
+  {
+    id: "g43",
+    // TODO(client): title and category are placeholders. This photo's subject
+    // is not recorded anywhere in the repo or its git history, so the category
+    // is a guess from the fact that it used to feed the 04 Office hero. Both
+    // need replacing once the subject is known - see the note on `client48`.
+    title: "Festive Christmas Installation in Dubai",
+    category: "Office Decoration",
+    year: "Recent Work",
+    ratio: "portrait",
+    image: "client48",
     placeholder: false,
   },
 ];

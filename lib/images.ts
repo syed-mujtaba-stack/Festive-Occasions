@@ -6,6 +6,19 @@
  * plus an ultra-luxury Santa Claus holiday visual for the hero.
  */
 
+/** Shape of a single entry in the `images` manifest below. */
+export type ImageEntry = {
+  src: string;
+  alt: string;
+  /**
+   * `contain` letterboxes the whole photo instead of cropping it to the frame.
+   * Pin this on photos that cannot fill the frames they appear in (the 4:3
+   * service-detail blocks) so no part is ever cut off. Overridden by the `fit`
+   * prop on <FestiveImage>.
+   */
+  fit?: "cover" | "contain";
+};
+
 export const images = {
   /** Homepage + internal hero — grand commercial & luxury atrium Christmas tree. */
   hero: {
@@ -93,7 +106,10 @@ export const images = {
   },
   svcCorporate: {
     src: "/images/client-work/svc-corporate-45.jpg",
-    alt: "Corporate Christmas decoration in Dubai — grand atrium tree",
+    // Cut from IMG_5098 — unused elsewhere on the homepage, and the next frame
+    // in the same commercial shoot as project-27 (`audienceOffice`). The old
+    // alt said "grand atrium tree", which described project-10, not this photo.
+    alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
   },
   svcLighting: {
     src: "/images/client-work/svc-lighting-45.jpg",
@@ -108,33 +124,70 @@ export const images = {
    *  Separate 16:9 cuts from the same masters — a 4:5 photo dropped into
    *  that band keeps only ~28% of its height. Point each service page's
    *  heroImage at the matching *Hero key, not the svc* stage key. */
+  /* Service page PageHero masters (full-bleed, distinct from the svc* rail).
+   *
+   * All seven were re-cut on 2026-09-27 so that no service page hero shares a
+   * photo with its own homepage rail slide — verified 0/7 self-duplicates.
+   * Sources are declared in scripts/recut-services.mjs (`heroRaw`) and
+   * scripts/recut-removed-slots.mjs. The alts below were rewritten at the same
+   * time to describe the NEW photo, not the one the hero used to be cut from.
+   *
+   * Two heroes were re-pointed away from photos the homepage also shows, at the
+   * client's request: svcOutdoorHero (was project-41, the homepage hero
+   * background) and svcOfficeHero (project-27, the Audiences card). Every
+   * conflict-free alternative left in the library is ~1320px, so those two
+   * heroes now take a 1.55x upscale at the 2048px the hero requests. */
   svcCompleteHero: {
+    // project-05.jpg — 5712x4284, the library's only 24.5MP landscape, so the
+    // 16:9 crop keeps 75% of its height instead of the 42% a portrait gives.
     src: "/images/client-work/svc-complete-hero.jpg",
     alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVillaHero: {
+    // IMG_4684 = project-21.jpg, gallery g21 "Villa Staircase & Foyer Decoration".
     src: "/images/client-work/svc-villa-hero.jpg",
-    alt: "Christmas villa decoration in Dubai — grand entrance archway",
+    alt: "Villa staircase and foyer Christmas decoration in Dubai",
   },
   svcHomeHero: {
+    // IMG_3152 = project-11.jpg, gallery g11 "Private Residence — Tree &
+    // Ornaments" [Home Decoration].
     src: "/images/client-work/svc-home-hero.jpg",
-    alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
+    alt: "Christmas home decoration in Dubai — private residence tree styling with ornaments",
   },
   svcOfficeHero: {
+    // IMG_5096 = project-27.jpg, gallery g27 "Commercial Illuminated Wreath
+    // Archway". Native 3000x4000, replacing a 1086px source that was being
+    // upscaled 1.77x — this hero used to be the softest on the site.
     src: "/images/client-work/svc-office-hero.jpg",
-    alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
+    alt: "Commercial and office Christmas decoration in Dubai — illuminated wreath archway installation",
   },
   svcCorporateHero: {
+    // IMG_4633 = project-18.jpg, gallery g18 "Hospitality Lounge Festive
+    // Setting" [Corporate & Hospitality].
     src: "/images/client-work/svc-corporate-hero.jpg",
-    alt: "Corporate Christmas decoration in Dubai — grand atrium tree",
+    alt: "Corporate Christmas decoration in Dubai — hospitality lounge festive setting",
   },
   svcLightingHero: {
+    // IMG_3519 = project-12.jpg, gallery g12 "Luxury Villa Living Room Scheme".
+    // Not IMG_4722, which is what the rail slide above is cut from.
     src: "/images/client-work/svc-lighting-hero.jpg",
-    alt: "Christmas lighting in Dubai — illuminated garland arch at a villa entrance with warm string lights",
+    alt: "Christmas lighting in Dubai — warm festive illumination across a luxury villa living space",
   },
   svcOutdoorHero: {
+    // IMG_5256 = project-36.png, gallery g36 "Illuminated Garden & Facade Tree"
+    // [Lighting & Outdoor] — 1320x1648, the closest subject match to an
+    // outdoor page. The export is capped at the source's own 1320px so nothing
+    // is upscaled on disk.
+    //
+    // This replaced IMG_6394 (project-41.jpg), which is the homepage hero
+    // background — the two heroes were showing the identical photo, and the
+    // client asked for it to be replaced. Because the only conflict-free
+    // lighting/outdoor subjects left are 1320px, this hero now relies on a
+    // 1.55x upscale at the 2048px PageHero requests, softened further by the
+    // hero's own dark gradient. IMG_5257 (g37) and IMG_5251 (g31) are the
+    // remaining alternatives at the same resolution.
     src: "/images/client-work/svc-outdoor-hero.jpg",
-    alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
+    alt: "Outdoor Christmas decoration in Dubai — illuminated garden and facade tree lighting",
   },
   /** Service page detail blocks (unique per service). */
   detailPillar1: {
@@ -146,8 +199,11 @@ export const images = {
     alt: "Rose gold and champagne Christmas tree styling by Festive Occasions",
   },
   detailPillar3: {
-    src: "/images/client-work/project-35.png",
+    src: "/images/client-work/project-35.jpg",
     alt: "Professional Christmas bauble installation in Dubai",
+    // Portrait photo in a landscape aspect-[4/3] block — `cover` would crop the
+    // top and bottom off, so this one is letterboxed in full.
+    fit: "contain",
   },
   detailVilla1: {
     src: "/images/client-work/project-13.jpg",
@@ -194,8 +250,11 @@ export const images = {
     alt: "Large venue Christmas wreath installation in Dubai",
   },
   detailCorporate3: {
-    src: "/images/client-work/project-35.png",
+    src: "/images/client-work/project-35.jpg",
     alt: "Professional corporate festive tree styling in Dubai",
+    // Portrait photo in a landscape aspect-[4/3] block — `cover` would crop the
+    // top and bottom off, so this one is letterboxed in full.
+    fit: "contain",
   },
   detailLighting1: {
     src: "/images/client-work/project-40.jpg",
@@ -254,13 +313,25 @@ export const images = {
     src: "/images/client-work/project-14.jpg",
     alt: "Snow-flocked champagne and white winter wonderland tree styling in Dubai",
   },
+  // These two were the only blog covers still pointing at 738px-wide WhatsApp
+  // exports (project-02 / project-03). The raws are themselves 738px, so there
+  // was nothing to re-cut — the photos had to be swapped. They render at
+  // `sizes="100vw"` in PageHero (Next asks for 2048px) and 50vw on the /blog
+  // card (1080px), so 738px was being upscaled 2.78x and 1.46x respectively:
+  // that upscale was the blur. Both replacements are unused on the homepage and
+  // clear both thresholds outright.
   blog9: {
-    src: "/images/client-work/project-02.jpg",
-    alt: "Luxury Christmas tree styled with deep crimson velvet ribbons in Dubai residence",
+    // project-25.jpg (IMG_4910, 4284x5712) — gallery g26, "Bespoke Minimalist
+    // Christmas Tree Styling". A restrained single-tree scheme is exactly the
+    // argument this post makes about not overcrowding a flat.
+    src: "/images/client-work/project-25.jpg",
+    alt: "Minimalist Christmas tree styling for an apartment in Dubai — restrained festive decor for a smaller space",
   },
   blog10: {
-    src: "/images/client-work/project-03.jpg",
-    alt: "Cascading rich burgundy ornaments and floating taper candles in luxury Dubai villa",
+    // project-21.jpg (IMG_4684, 3024x4032) — gallery g21, "Villa Staircase &
+    // Foyer Decoration". 3024px still clears the 2048px hero request.
+    src: "/images/client-work/project-21.jpg",
+    alt: "Professional Christmas staircase and foyer decoration in a Dubai villa by Festive Occasions",
   },
   blog11: {
     src: "/images/client-work/project-16.jpg",
@@ -319,10 +390,14 @@ export const images = {
   client17: { src: "/images/client-work/project-17.jpg", alt: "Festive Occasions installation in Dubai" },
   client18: { src: "/images/client-work/project-18.jpg", alt: "Festive Occasions installation in Dubai" },
   client21: { src: "/images/client-work/project-21.jpg", alt: "Festive Occasions installation in Dubai" },
-  client22: { src: "/images/client-work/project-22.jpg", alt: "Festive Occasions installation in Dubai" },
+  // Preserve the entire IMG_4722 fireplace photo in the gallery tile.
+  client22: { src: "/images/client-work/project-22.jpg", alt: "Festive Occasions installation in Dubai", fit: "contain" },
   client23: { src: "/images/client-work/project-23.jpg", alt: "Festive Occasions installation in Dubai" },
   client24: { src: "/images/client-work/project-24.jpg", alt: "Festive Occasions installation in Dubai" },
-  client26: { src: "/images/client-work/project-26.jpg", alt: "Festive Occasions installation in Dubai" },
+  // Was project-26.jpg (IMG_5058) — removed at the client's request.
+  // Replaced with project-25.jpg (IMG_4910), an unused 4284x5712 portrait that
+  // matches the 3:4 gallery tile exactly, so nothing is cropped.
+  client26: { src: "/images/client-work/project-25.jpg", alt: "Festive Occasions installation in Dubai" },
   client27: { src: "/images/client-work/project-27.jpg", alt: "Festive Occasions installation in Dubai" },
   client28: { src: "/images/client-work/project-28.jpg", alt: "Festive Occasions installation in Dubai" },
   client29: { src: "/images/client-work/project-29.jpg", alt: "Festive Occasions installation in Dubai" },
@@ -331,7 +406,13 @@ export const images = {
   client32: { src: "/images/client-work/project-32.png", alt: "Festive Occasions installation in Dubai" },
   client33: { src: "/images/client-work/project-33.png", alt: "Festive Occasions installation in Dubai" },
   client34: { src: "/images/client-work/project-34.png", alt: "Festive Occasions installation in Dubai" },
-  client35: { src: "/images/client-work/project-35.png", alt: "Festive Occasions installation in Dubai" },
+  client35: {
+    src: "/images/client-work/project-35.jpg",
+    alt: "Festive Occasions installation in Dubai",
+    // Exported at the same 3:4 as every other gallery photo, so the shared
+    // aspect-[3/4] tile covers it exactly — nothing cropped, no special-casing.
+    // See scripts/project-35-image.mjs.
+  },
   client36: { src: "/images/client-work/project-36.png", alt: "Festive Occasions installation in Dubai" },
   client37: { src: "/images/client-work/project-37.png", alt: "Festive Occasions installation in Dubai" },
   client38: { src: "/images/client-work/project-38.png", alt: "Festive Occasions installation in Dubai" },
@@ -340,6 +421,48 @@ export const images = {
   client41: { src: "/images/client-work/project-41.jpg", alt: "Festive Occasions installation in Dubai" },
   client44: { src: "/images/client-work/project-44.jpg", alt: "Grand spiral red bauble and poinsettia tree installation by Festive Occasions Dubai" },
   client45: { src: "/images/client-work/project-45.jpg", alt: "Dramatic bespoke arched doorway garland with cascading red ornaments by Festive Occasions Dubai" },
+
+  /** Added to the gallery on the client's request.
+   *  "WhatsApp Image 2026-09-26 at 6.18.40 PM.jpeg" -> project-47.jpg
+   *
+   *  KNOWN OVERLAP, kept at the client's instruction: this is the same photo as
+   *  `svcOffice` (the homepage "What We Do" rail, slide 04, Office Christmas) -
+   *  confirmed by reproducing that 4:5 cut and comparing pixels (MAD 0.24, vs a
+   *  known-different control at 72). The client asked for it in the gallery and
+   *  asked not to touch the rail, so this photo now shows twice on the homepage.
+   *  To undo the overlap later, re-point `svcOffice` in
+   *  scripts/recut-removed-slots.mjs to a different original.
+   *
+   *  1086x1448 is already 3:4, the exact shape of the gallery tile, so nothing
+   *  is cropped and nothing is upscaled. See scripts/project-47-image.mjs. */
+  client47: {
+    src: "/images/client-work/project-47.jpg",
+    alt: "Commercial and office entrance Christmas decoration in Dubai - candy cane and ornament garland installation",
+  },
+
+  /** Added to the gallery on the client's request.
+   *  "WhatsApp Image 2026-09-26 at 3.36..jpeg" -> project-48.jpg
+   *
+   *  The double dot in the source filename is real, not a typo.
+   *
+   *  This file is pixel-identical to `img.png` in the same folder (MAD 0.00 on
+   *  3:4 crops, vs a known-different control at 60) — the same photograph saved
+   *  twice under two names. `img.png` is no longer referenced by anything: it
+   *  used to feed `svcOfficeHero`, which scripts/recut-removed-slots.mjs
+   *  re-pointed at IMG_5096 (project-27.jpg) to remove a 1.77x upscale. So this
+   *  photo was visible nowhere on the site and adding it duplicates nothing.
+   *
+   *  1086x1448 is already 3:4, the exact shape of the gallery tile, so nothing
+   *  is cropped and nothing is upscaled. See scripts/project-48-image.mjs.
+   *
+   *  TODO(client): the alt below is a safe generic, not a description of the
+   *  subject — no record of what this photo shows exists anywhere in the repo
+   *  or its git history. Replace it, and give g43 a real title, once the
+   *  subject is known. */
+  client48: {
+    src: "/images/client-work/project-48.jpg",
+    alt: "Festive Occasions Christmas decoration installation in Dubai",
+  },
 
   /** Gallery replacements for the two client photos the client asked to have
    *  removed (IMG_4652 / IMG_4682, formerly client20 / client21).

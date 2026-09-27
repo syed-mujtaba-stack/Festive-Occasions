@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { images, type ImageKey } from "@/lib/images";
+import { images, type ImageEntry, type ImageKey } from "@/lib/images";
 
 /**
  * FestiveImage — ready-to-swap image slot.
@@ -15,7 +15,7 @@ export function FestiveImage({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   priority = false,
   fill = true,
-  fit = "cover",
+  fit,
 }: {
   image: ImageKey | { src: string; alt: string };
   alt?: string;
@@ -25,14 +25,21 @@ export function FestiveImage({
   priority?: boolean;
   fill?: boolean;
   /** `contain` letterboxes the whole photo — required wherever the image
-   *  must be seen uncropped (lightbox / full project view). */
+   *  must be seen uncropped (lightbox / full project view, or a photo that
+   *  cannot fill its frame). Overrides the `fit` pinned in lib/images.ts. */
   fit?: "cover" | "contain";
 }) {
-  const resolved =
-    typeof image === "string" ? images[image] : image;
+  const resolved = (
+    typeof image === "string" ? images[image] : image
+  ) as ImageEntry;
   const altText = alt ?? resolved.alt;
 
-  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
+  // A photo whose shape cannot fill its frame pins `fit: "contain"` in
+  // lib/images.ts so it is never cropped wherever it is reused. An explicit
+  // prop here still wins, so callers can always override.
+  const effectiveFit = fit ?? resolved.fit ?? "cover";
+  const fitClass =
+    effectiveFit === "contain" ? "object-contain" : "object-cover";
 
   if (!fill) {
     return (

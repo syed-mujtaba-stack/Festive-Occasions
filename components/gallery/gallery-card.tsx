@@ -8,23 +8,41 @@ import type { GalleryProject } from "@/lib/gallery";
  * No text overlays, no captions. Just the photograph.
  * Clicking opens the lightbox when `onSelect` is provided; otherwise it
  * renders as a static tile (used on service-page grids).
+ *
+ * `sizes` is a prop because this card is dropped into grids with different
+ * column counts: 4 across on /gallery, but 3 across on the homepage gallery
+ * strip and the service-page gallery (all sharing components/sections/gallery.tsx
+ * and components/services/service-page.tsx). Getting it wrong in either
+ * direction shows: under-declared sizes serve a file smaller than the frame and
+ * the tile renders soft; over-declared ones just waste bandwidth.
  */
 export function GalleryCard({
   project,
   index,
   onSelect,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 460px",
 }: {
   project: GalleryProject;
   index: number;
   onSelect?: (index: number) => void;
+  sizes?: string;
 }) {
+  const showWholePhoto = project.image === "client22";
+
   const tile = (
     <>
       {/* Image */}
-      <div className="absolute inset-0 scale-100 transition-transform duration-700 ease-out group-hover:scale-110">
+      <div
+        className={
+          showWholePhoto
+            ? "absolute inset-0"
+            : "absolute inset-0 scale-100 transition-transform duration-700 ease-out group-hover:scale-110"
+        }
+      >
         <FestiveImage
           image={project.image}
-          sizes="(max-width: 640px) 260px, 300px"
+          fit={showWholePhoto ? "contain" : undefined}
+          sizes={sizes}
         />
       </div>
 

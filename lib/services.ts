@@ -8,7 +8,11 @@ export type Service = {
   description: string;
   items: string[];
   theme: "champagne" | "burgundy" | "evergreen";
-  image:
+  /**
+   * Optional — omit to run the slide as copy only. The rail then drops to a
+   * single centred column instead of leaving the right half empty.
+   */
+  image?:
     | "svcComplete"
     | "svcVilla"
     | "svcHome"
