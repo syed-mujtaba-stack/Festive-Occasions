@@ -16,11 +16,12 @@ const GalleryLightbox = dynamic(
   { ssr: false }
 );
 
-const INITIAL_COUNT = 30;
+const INITIAL_COUNT = 32;
 
 /**
- * GalleryGrid — responsive masonry-style grid.
- * Shows first 30 images by default with a "Load More" button.
+ * GalleryGrid — responsive luxury photo grid.
+ * Displays all photos with uniform aspect ratio, filling every row cleanly
+ * without multi-column vertical collapse or empty slot gaps.
  * Clicking any image opens the full-screen lightbox.
  */
 export function GalleryGrid() {
@@ -35,10 +36,10 @@ export function GalleryGrid() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-10">
-      {/* Masonry-style responsive grid */}
-      <div className="columns-2 gap-3 sm:columns-3 lg:columns-4 xl:columns-5">
+      {/* Uniform responsive grid: no empty holes or column imbalance */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
         {visible.map((project, i) => (
-          <div key={project.id} className="mb-3 break-inside-avoid">
+          <div key={project.id} className="w-full">
             <GalleryCard
               project={project}
               index={i}

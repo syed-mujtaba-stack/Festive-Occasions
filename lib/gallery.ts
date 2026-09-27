@@ -58,6 +58,15 @@ export const galleryProjects: GalleryProject[] = [
     placeholder: false,
   },
   {
+    id: "g05",
+    title: "Grand Spiral Red Bauble & Poinsettia Tree Installation",
+    category: "Villa Decoration",
+    year: "Recent Work",
+    ratio: "portrait",
+    image: "client44",
+    placeholder: false,
+  },
+  {
     id: "g06",
     title: "Grand Champagne Tree Styling & Luxury Gift Boxes",
     category: "Home Decoration",
@@ -226,6 +235,15 @@ export const galleryProjects: GalleryProject[] = [
     year: "Recent Work",
     ratio: "portrait",
     image: "client24",
+    placeholder: false,
+  },
+  {
+    id: "g25",
+    title: "Dramatic Arched Black Doorway Garland Scheme",
+    category: "Villa Decoration",
+    year: "Recent Work",
+    ratio: "portrait",
+    image: "client45",
     placeholder: false,
   },
   {

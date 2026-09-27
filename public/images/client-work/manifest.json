@@ -48,9 +48,9 @@
     "original": "WhatsApp Image 2026-09-26 at 3.36.29 PM (2).jpeg",
     "clean": "project-43.jpg",
     "path": "/images/client-work/project-43.jpg",
-    "width": 738,
-    "height": 538,
-    "aspect": "1.37",
+    "width": 2400,
+    "height": 1792,
+    "aspect": "1.34",
     "orientation": "landscape"
   },
   {
@@ -374,6 +374,24 @@
     "path": "/images/client-work/project-41.jpg",
     "width": 4284,
     "height": 5712,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "WhatsApp Image 2026-09-27 at 12.55.46 AM.jpeg",
+    "clean": "project-44.jpg",
+    "path": "/images/client-work/project-44.jpg",
+    "width": 1200,
+    "height": 1600,
+    "aspect": "0.75",
+    "orientation": "portrait"
+  },
+  {
+    "original": "WhatsApp Image 2026-09-27 at 12.56.35 AM.jpeg",
+    "clean": "project-45.jpg",
+    "path": "/images/client-work/project-45.jpg",
+    "width": 1200,
+    "height": 1600,
     "aspect": "0.75",
     "orientation": "portrait"
   }

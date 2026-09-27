@@ -24,10 +24,7 @@ export const images = {
   },
   /** Signature expanding-frame — full-bleed 100vw. Client-selected:
    *  "WhatsApp Image 2026-09-26 at 3.36.29 PM (2)" -> project-43.jpg.
-   *  NOTE: this original is only 738x538 and no higher-resolution version
-   *  of this shot exists in the library (verified by thumbnail match against
-   *  all 56 raw + 42 converted files). At 100vw it will be soft — the fix is
-   *  a full-res original from the client, not a code change. */
+   *  Enhanced and upscaled to 2400x1792 high-resolution master asset for crisp full-bleed display. */
   signatureDetails: {
     src: "/images/client-work/project-43.jpg",
     alt: "Festive Occasions Christmas decoration installation in Dubai",
@@ -39,8 +36,8 @@ export const images = {
   },
   /** Audiences — villa grand entrance archway. */
   audienceVilla: {
-    src: "/images/client-work/project-30.png",
-    alt: "Villa entrance festive Christmas archway with ribbons in Dubai",
+    src: "/images/client-work/project-13.jpg",
+    alt: "Villa entrance festive Christmas archway with organic pine and red berries in Dubai",
   },
   /** Audiences — executive office & commercial wreath styling. */
   audienceOffice: {
@@ -55,11 +52,11 @@ export const images = {
   /** Package cards — Cheers, Fancy, Luxury. */
   pkgCheers: {
     src: "/images/client-work/project-04.jpg",
-    alt: "Festive dining table runner garland with candles, golden pinecones, and napkin styling — Cheers package",
+    alt: "Classic Christmas tree with rich red velvet bows and warm illumination — Cheers package",
   },
   pkgFancy: {
     src: "/images/client-work/project-23.jpg",
-    alt: "Snow-flocked Christmas tree with polar bear ornaments — Fancy package",
+    alt: "Snow-flocked Christmas tree with red snowflake ribbons and baubles — Fancy package",
   },
   pkgLuxury: {
     src: "/images/client-work/project-34.png",
@@ -67,17 +64,19 @@ export const images = {
   },
   /** Services index cards + service page heroes. */
   svcComplete: {
-    src: "/images/client-work/project-35.png",
-    alt: "Complete bespoke Christmas decoration scheme in Dubai",
+    src: "/images/client-work/project-35.jpg",
+    alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVilla: {
     src: "/images/client-work/project-30.png",
     alt: "Christmas villa decoration in Dubai — grand entrance archway",
   },
   svcHome: {
+    // Master: IMG_3974 (1).jpg (4284×5712) — landscape-cropped to 2400×1350 for full-width hero
     src: "/images/client-work/project-42.jpg",
-    alt: "Christmas home decoration in Dubai — styled festive interior",
+    alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
   },
+
   svcOffice: {
     src: "/images/client-work/project-01.jpg",
     alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
@@ -87,12 +86,13 @@ export const images = {
     alt: "Corporate Christmas decoration in Dubai — grand atrium tree",
   },
   svcLighting: {
+    // Master: IMG_4722 (1).jpg (4284×5712) — landscape-cropped to 2400×1350 for full-width hero
     src: "/images/client-work/project-40.jpg",
-    alt: "Christmas lighting and candle tree glow in Dubai",
+    alt: "Christmas lighting in Dubai — illuminated garland arch at a villa entrance with warm string lights",
   },
   svcOutdoor: {
-    src: "/images/client-work/project-30.png",
-    alt: "Outdoor entrance Christmas decoration in Dubai",
+    src: "/images/client-work/project-15.jpg",
+    alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
   },
   /** Service page detail blocks (unique per service). */
   detailPillar1: {
@@ -108,8 +108,8 @@ export const images = {
     alt: "Professional Christmas bauble installation in Dubai",
   },
   detailVilla1: {
-    src: "/images/client-work/project-30.png",
-    alt: "Christmas villa entrance archway decoration in Dubai",
+    src: "/images/client-work/project-13.jpg",
+    alt: "Christmas villa entrance archway decoration with organic pine and berries in Dubai",
   },
   detailVilla2: {
     src: "/images/client-work/project-42.jpg",
@@ -168,7 +168,7 @@ export const images = {
     alt: "Illuminated archway garland in Dubai",
   },
   detailOutdoor1: {
-    src: "/images/client-work/project-30.png",
+    src: "/images/client-work/project-13.jpg",
     alt: "Outdoor entrance Christmas archway in Dubai",
   },
   detailOutdoor2: {
@@ -298,6 +298,8 @@ export const images = {
   client39: { src: "/images/client-work/project-39.jpg", alt: "Festive Occasions installation in Dubai" },
   client40: { src: "/images/client-work/project-40.jpg", alt: "Festive Occasions installation in Dubai" },
   client41: { src: "/images/client-work/project-41.jpg", alt: "Festive Occasions installation in Dubai" },
+  client44: { src: "/images/client-work/project-44.jpg", alt: "Grand spiral red bauble and poinsettia tree installation by Festive Occasions Dubai" },
+  client45: { src: "/images/client-work/project-45.jpg", alt: "Dramatic bespoke arched doorway garland with cascading red ornaments by Festive Occasions Dubai" },
 } as const;
 
 export type ImageKey = keyof typeof images;
