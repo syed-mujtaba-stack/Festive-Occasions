@@ -92,17 +92,18 @@ export const images = {
     alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVilla: {
-    src: "/images/client-work/svc-villa-45.jpg",
-    alt: "Christmas villa decoration in Dubai — grand entrance archway",
+    src: "/images/client-work/svc-lighting-45.jpg",
+    alt: "Christmas lighting in Dubai — roofline and facade outlined in warm icicle string lights after dark",
   },
   svcHome: {
     src: "/images/client-work/svc-home-45.jpg",
     alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
   },
 
+  // New slide4.png added for Office Christmas Decoration slide (replaces svc-office-45.jpg)
   svcOffice: {
-    src: "/images/client-work/svc-office-45.jpg",
-    alt: "Commercial and office entrance Christmas decoration in Dubai — candy cane and ornament garland installation",
+    src: "/slide4.png",
+    alt: "Office Christmas decoration in Dubai — commercial lobby and reception styling with a tall illuminated tree",
   },
   svcCorporate: {
     src: "/images/client-work/svc-corporate-45.jpg",
@@ -111,12 +112,14 @@ export const images = {
     // alt said "grand atrium tree", which described project-10, not this photo.
     alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
   },
+  // New slide6.png added for Christmas Lighting slide (replaces svc-lighting-45.jpg)
   svcLighting: {
-    src: "/images/client-work/svc-lighting-45.jpg",
-    alt: "Christmas lighting in Dubai — illuminated garland arch at a villa entrance with warm string lights",
+    src: "/slide6.png",
+    alt: "Christmas lighting in Dubai — facade and roofline outlined in warm icicle string lights after dark",
   },
+  // New slide7.png added for Outdoor Christmas Decoration slide (replaces svc-outdoor-45.jpg)
   svcOutdoor: {
-    src: "/images/client-work/svc-outdoor-45.jpg",
+    src: "/slide7.png",
     alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
   },
 
@@ -425,13 +428,13 @@ export const images = {
   /** Added to the gallery on the client's request.
    *  "WhatsApp Image 2026-09-26 at 6.18.40 PM.jpeg" -> project-47.jpg
    *
-   *  KNOWN OVERLAP, kept at the client's instruction: this is the same photo as
-   *  `svcOffice` (the homepage "What We Do" rail, slide 04, Office Christmas) -
-   *  confirmed by reproducing that 4:5 cut and comparing pixels (MAD 0.24, vs a
-   *  known-different control at 72). The client asked for it in the gallery and
-   *  asked not to touch the rail, so this photo now shows twice on the homepage.
-   *  To undo the overlap later, re-point `svcOffice` in
-   *  scripts/recut-removed-slots.mjs to a different original.
+   *  KNOWN OVERLAP: this is the same photo as `svcLighting` (the homepage
+   *  "What We Do" rail, slide 06, Christmas Lighting) - confirmed by reproducing
+   *  that 4:5 cut and comparing pixels (MAD 0.24, vs a known-different control
+   *  at 72). It used to back `svcOffice` (slide 04) instead, but the client asked
+   *  for a real office photo there, so the cut moved to the Lighting slot, which
+   *  is the one this photo actually suits. So it now shows on the homepage once,
+   *  in the correct slot, and once more in the gallery below it.
    *
    *  1086x1448 is already 3:4, the exact shape of the gallery tile, so nothing
    *  is cropped and nothing is upscaled. See scripts/project-47-image.mjs. */

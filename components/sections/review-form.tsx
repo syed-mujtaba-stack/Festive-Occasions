@@ -44,6 +44,7 @@ export function ReviewForm({
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return; // prevent double-submit race condition
     if (honey.trim()) return; // bot trap
 
     if (!name.trim()) return setError("Please add your name.");

@@ -49,15 +49,6 @@ export const galleryProjects: GalleryProject[] = [
     placeholder: false,
   },
   {
-    id: "g04",
-    title: "Festive Dining Table Runner & Candle Styling",
-    category: "Signature Styling",
-    year: "Recent Work",
-    ratio: "portrait",
-    image: "client04",
-    placeholder: false,
-  },
-  {
     id: "g05",
     title: "Grand Spiral Red Bauble & Poinsettia Tree Installation",
     category: "Villa Decoration",
@@ -394,9 +385,9 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g42",
-    // Same photo as the homepage "What We Do" rail, slide 04 (svcOffice) - the
-    // client asked for it here and asked not to touch the rail. See the note on
-    // `client47` in lib/images.ts.
+    // Same photo as the homepage "What We Do" rail, slide 06 (svcLighting) - the
+    // rail cut moved here from slide 04 when the client asked for a real office
+    // photo there. See the note on `client47` in lib/images.ts.
     title: "Commercial Entrance Candy Cane & Ornament Garland",
     category: "Office Decoration",
     year: "Recent Work",
