@@ -385,9 +385,9 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: "g42",
-    // Same photo as the homepage "What We Do" rail, slide 06 (svcLighting) - the
-    // rail cut moved here from slide 04 when the client asked for a real office
-    // photo there. See the note on `client47` in lib/images.ts.
+    // Gallery photo: commercial entrance with candy cane & ornament garland.
+    // Note: this is NOT the same as the current homepage slide 06 (svcLighting),
+    // which now uses a user-supplied Christmas tree image.
     title: "Commercial Entrance Candy Cane & Ornament Garland",
     category: "Office Decoration",
     year: "Recent Work",

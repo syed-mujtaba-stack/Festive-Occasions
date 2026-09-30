@@ -92,18 +92,21 @@ export const images = {
     alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVilla: {
-    src: "/images/client-work/svc-lighting-45.jpg",
-    alt: "Christmas lighting in Dubai — roofline and facade outlined in warm icicle string lights after dark",
+    src: "/images/client-work/svc-villa-45.jpg",
+    alt: "Christmas villa decoration in Dubai — grand entrance archway",
   },
   svcHome: {
     src: "/images/client-work/svc-home-45.jpg",
     alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
   },
 
-  // New slide4.png added for Office Christmas Decoration slide (replaces svc-office-45.jpg)
+  // User-supplied image for slide 04 Office Christmas Decoration.
+  // Shows: indoor office/commercial workspace with hanging red baubles,
+  // glowing snowflake ornaments from ceiling, decorated display counter
+  // and wooden seating with festive greenery and red ornaments.
   svcOffice: {
-    src: "/slide4.png",
-    alt: "Office Christmas decoration in Dubai — commercial lobby and reception styling with a tall illuminated tree",
+    src: "/images/client-work/svc-office-45.jpg",
+    alt: "Office Christmas decoration in Dubai — commercial workspace with hanging red baubles, snowflake ornaments and festive display styling",
   },
   svcCorporate: {
     src: "/images/client-work/svc-corporate-45.jpg",
@@ -112,15 +115,20 @@ export const images = {
     // alt said "grand atrium tree", which described project-10, not this photo.
     alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
   },
-  // New slide6.png added for Christmas Lighting slide (replaces svc-lighting-45.jpg)
+  // User-supplied image for slide 06 Christmas Lighting.
+  // Shows: tall lush Christmas tree heavily adorned with red and gold baubles,
+  // floral picks and warm lighting, surrounded by wrapped gift boxes with red ribbons.
   svcLighting: {
-    src: "/slide6.png",
-    alt: "Christmas lighting in Dubai — facade and roofline outlined in warm icicle string lights after dark",
+    src: "/images/client-work/svc-lighting-45.jpg",
+    alt: "Christmas lighting in Dubai — grand Christmas tree with red and gold baubles, warm lighting and gift boxes",
   },
-  // New slide7.png added for Outdoor Christmas Decoration slide (replaces svc-outdoor-45.jpg)
+  // User-supplied image for slide 07 Outdoor Christmas Decoration.
+  // Shows: outdoor entranceway with arched doorway draped in pine garlands,
+  // red ornaments, twinkling lights, flanked by illuminated gold wire deer
+  // figurines and cone light structures on the patio.
   svcOutdoor: {
-    src: "/slide7.png",
-    alt: "Outdoor Christmas decoration in Dubai — luxury villa exterior with illuminated wrapped palm trees and festive entrance",
+    src: "/images/client-work/svc-outdoor-45.jpg",
+    alt: "Outdoor Christmas decoration in Dubai — arched entrance with pine garlands, red ornaments, twinkling lights and illuminated deer figurines",
   },
 
   /** Service page heroes (PageHero = full-bleed 100vw x 62svh, ~2.6:1).
