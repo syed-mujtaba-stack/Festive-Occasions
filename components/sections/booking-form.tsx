@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { FaTree, FaHome, FaCity, FaBriefcase, FaHotel } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { Section, Container } from "@/components/ui/section";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { Button } from "@/components/ui/button";
 
 const SPACE_TYPES = [
   { id: "villa", label: "Luxury Villa", icon: FaHome },
@@ -31,6 +35,7 @@ export function BookingForm({ initialData }: { initialData: { eventType: string 
   const [spaceType, setSpaceType] = useState(initialData.eventType || "Christmas Decoration");
   const [budget, setBudget] = useState("");
   const [additionalNotes, setAdditionalNotes] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -43,7 +48,7 @@ export function BookingForm({ initialData }: { initialData: { eventType: string 
     if (!phone.trim()) return setError("Please enter your phone number.");
     
     setLoading(true);
-    setError("");
+    setError(null);
     setSent(false);
 
     // Generate WhatsApp message
@@ -192,6 +197,13 @@ Details:
             </p>
           </div>
         </div>
+
+        {/* Error display */}
+        {error && (
+          <div className="mt-4 rounded-md bg-red-50 px-4 py-2 text-sm text-red-700">
+            {error}
+          </div>
+        )}
 
         {/* Success state */}
         {sent && (
