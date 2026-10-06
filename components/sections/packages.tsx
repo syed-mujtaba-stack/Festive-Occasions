@@ -181,7 +181,7 @@ export function PackagesSection({
                   {/* Price + CTA — pt-8 aligns with the h3 package name */}
                   <div className="flex flex-col items-start gap-5 lg:items-end lg:pt-8">
                     <p className="text-right">
-                      <span className="block font-display text-4xl italic text-espresso lg:text-5xl">
+                      <span className="block font-display text-3xl italic text-espresso md:text-5xl">
                         {formatPrice(pkg.fromPrice)}
                       </span>
                       <span className="text-label text-cocoa">
@@ -237,7 +237,7 @@ export function PackagesSection({
               {/* WhatsApp CTA — pt-8 aligns with h3 Custom Package name */}
               <div className="flex flex-col items-start gap-5 lg:items-end lg:pt-8">
                 <p className="text-right">
-                  <span className="block font-display text-4xl italic text-espresso lg:text-5xl">
+                  <span className="block font-display text-3xl italic text-espresso md:text-5xl">
                     Bespoke
                   </span>
                   <span className="text-label text-cocoa">

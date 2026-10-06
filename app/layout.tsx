@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
 import { Preloader } from "@/components/ui/preloader";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#171312",
+};
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -88,7 +95,7 @@ export default function RootLayout({
       lang="en-AE"
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background font-sans text-foreground">
+      <body className="min-h-full bg-background font-sans text-foreground overflow-x-hidden">
         {/* No-JS gate: hide the preloader overlay when scripting is off
             (it is purely decorative, so it must never block content).
             Reduced-motion hide lives in globals.css under a media query. */}

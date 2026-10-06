@@ -96,7 +96,7 @@ export default function PackagesPage() {
         <Container>
           <ScrollReveal>
             <div className="grid gap-10 border-t hairline pt-10 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
-              <h2 className="font-display text-4xl italic leading-tight text-espresso lg:text-5xl">
+              <h2 className="font-display text-3xl italic leading-tight text-espresso md:text-5xl">
                 How packages work.
               </h2>
               <div className="flex max-w-2xl flex-col gap-6">

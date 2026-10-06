@@ -38,7 +38,7 @@ export function Hero() {
           {/* Left Column: Clear, Professional & High-Converting Pitch */}
           <div className="lg:col-span-8 flex flex-col items-start text-left">
             {/* H1 Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-md">
               Magical Christmas <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-[#e8c988] via-[#fff1cf] to-[#dfba73] bg-clip-text text-transparent">
                 Decoration in Dubai

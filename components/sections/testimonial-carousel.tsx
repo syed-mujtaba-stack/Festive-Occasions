@@ -56,7 +56,7 @@ function TestimonialCard({ review, index }: { review: Review; index: number }) {
       <div className="relative flex flex-col h-full z-10">
         {/* Header with quote mark and stars */}
         <div className="flex items-start justify-between gap-4">
-          <span className="font-display text-4xl leading-none text-champagne/30 shrink-0" aria-hidden="true">
+          <span className="font-display text-3xl leading-none text-champagne/30 shrink-0" aria-hidden="true">
             {"\u201C"}
           </span>
           <Stars value={review.rating} size="text-sm" className="shrink-0" />
