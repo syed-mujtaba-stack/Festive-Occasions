@@ -17,6 +17,7 @@ import { WhyUs } from "@/components/sections/why-us";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { RentalPopup } from "@/components/popup/rental-popup";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site";
 import { faqEntries } from "@/lib/faqs";
@@ -89,6 +90,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <FinalCTA />
+        <RentalPopup />
       </main>
       <FloatingActions />
       <CustomCursor />
