@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { publishedReviews, type Review } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  if (!isSupabaseConfigured) {
+    return NextResponse.json(
+      { reviews: publishedReviews },
+      { headers: { "Cache-Control": "no-store" } }
+    );
+  }
+  
+
   // Fetch live reviews from Supabase (newest first)
   const { data: submitted, error } = await supabase
     .from("reviews")

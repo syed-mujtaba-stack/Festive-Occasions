@@ -55,7 +55,7 @@ export function RentalPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-50 [&>._overlay]:fixed [&>._overlay]:inset-0 [&>._overlay]:bg-black/60 [&>._overlay]:backdrop-blur-sm transition-opacity duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300"
       style={{
         opacity: show || autoShow ? 1 : 0,
         pointerEvents: show || autoShow ? "auto" : "none",
@@ -63,7 +63,7 @@ export function RentalPopup() {
     >
       {/* Overlay */}
       <div
-        className="._overlay absolute inset-0 flex items-center justify-center pointer-events-auto z-40"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
         onClick={handleDismiss}
         aria-hidden="true"
       />
@@ -71,9 +71,9 @@ export function RentalPopup() {
       {/* Popup itself */}
       <div
         ref={popupRef}
-        className="relative w-full max-w-[480px] width calc(100% - 32px) max-h-[90vh] overflow-y-auto bg-[#1a1716] rounded-xl border border-white/8 shadow-lg transform overflow-hidden"
+        className="relative z-10 w-full max-w-[480px] max-h-[90vh] overflow-y-auto bg-[#1a1716] rounded-xl border border-white/10 shadow-2xl transition-all duration-300 overflow-hidden"
         style={{
-          transform: show || autoShow ? "scale(1)" : "scale(0.96)",
+          transform: (show || autoShow) && !shouldReduceMotion ? "scale(1)" : "scale(0.96)",
           opacity: show || autoShow ? 1 : 0,
         }}
         role="dialog"
@@ -83,13 +83,10 @@ export function RentalPopup() {
         {/* Close button (X icon) - top right */}
         <button
           onClick={handleDismiss}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/40 hover:text-white hover:bg-white/15 transition-all duration-200 z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-200 z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           aria-label="Close popup"
-          style={{
-            pointerEvents: "auto",
-          }}
         >
-          <span className="line-through text-opacity-60 opacity-30">×</span>
+          <span className="text-xl leading-none">&times;</span>
         </button>
 
         {/* Content */}
@@ -115,19 +112,19 @@ export function RentalPopup() {
           {/* Features list - clean rows with rounded icon boxes */}
           <ul className="space-y-3 mb-8">
             <li className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded.bg-emerald-500/15 p-2">
+              <div className="flex-shrink-0 rounded-lg bg-emerald-500/15 p-2">
                 <FaHome className="h-3.5 w-3.5 text-emerald-400" />
               </div>
               <span className="text-white/60 text-sm">Non-damaging installation for rented properties</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded.bg-emerald-500/15 p-2">
+              <div className="flex-shrink-0 rounded-lg bg-emerald-500/15 p-2">
                 <FaSnowflake className="h-3.5 w-3.5 text-emerald-400" />
               </div>
               <span className="text-white/60 text-sm">Install Oct 25 - Remove Jan 25</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded.bg-emerald-500/15 p-2">
+              <div className="flex-shrink-0 rounded-lg bg-emerald-500/15 p-2">
                 <FaTree className="h-3.5 w-3.5 text-emerald-400" />
               </div>
               <span className="text-white/60 text-sm">Expert styling and professional finish</span>
@@ -140,7 +137,7 @@ export function RentalPopup() {
               href={RENTAL_OFFER.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 rounded-xl bg-emerald-500 px-6 py-3 text-base font-bold text-white shadow-lg transition-all duration-300 hover:bg-emerald-400 hover:shadow-emerald-500/25 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+              className="flex-1 rounded-xl bg-emerald-500 px-6 py-3 text-base font-bold text-white shadow-lg transition-all duration-300 hover:bg-emerald-400 hover:shadow-emerald-500/25 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
             >
               <FaTree className="h-4 w-4 text-night" />
               <span>WhatsApp for a Quote</span>
@@ -155,7 +152,7 @@ export function RentalPopup() {
 
           {/* Offer period badge */}
           <div className="flex items-center gap-2 text-white/50 text-xs">
-            <span className="rounded.bg-emerald-500/15 px-2 py-1">
+            <span className="rounded-md bg-emerald-500/15 px-2 py-1">
               Offer valid: {RENTAL_OFFER.offerPeriod}
             </span>
           </div>
