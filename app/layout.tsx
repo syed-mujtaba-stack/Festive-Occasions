@@ -6,6 +6,13 @@ import { siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
 import { Preloader } from "@/components/ui/preloader";
 
+// favicon using existing logo.png
+const favicon = {
+  href: "/logo.png",
+  rel: "icon",
+  type: "image/png",
+};
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -82,6 +89,16 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+  },
+  // favicon using existing logo.png
+  icons: {
+    icon: [
+      {
+        rel: "icon",
+        url: "/logo.png",
+        type: "image/png",
+      },
+    ],
   },
 };
 

@@ -6,6 +6,7 @@ import { PageShell } from "@/components/layout/page-shell";
 import { FAQ } from "@/components/sections/faq";
 import { PackagesSection } from "@/components/sections/packages";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { BookingForm } from "@/components/sections/booking-form";
 import { BackToHome } from "@/components/ui/back-to-home";
 import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
@@ -394,6 +395,23 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
 
       {/* CTA */}
       <FinalCTA />
+
+      {/* Booking Inquiry Form */}
+      <Section id="booking" tone="cream">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Get a Custom Quote"
+              title={page.slug === "christmas-decoration-dubai" ? "Bespoke Christmas Transformation" : "Christmas Decoration Inquiry"}
+            />
+          </ScrollReveal>
+          <BookingForm
+            initialData={{
+              eventType: page.eyebrow,
+            }}
+          />
+        </Container>
+      </Section>
     </PageShell>
   );
 }

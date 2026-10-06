@@ -21,6 +21,9 @@ interface SnowFallProps {
 }
 
 export function SnowFall({ flakeCount = 42, className = "" }: SnowFallProps) {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const effectiveFlakeCount = isMobile ? Math.max(15, flakeCount - 25) : flakeCount;
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export function SnowFall({ flakeCount = 42, className = "" }: SnowFallProps) {
     window.addEventListener("resize", onResize, { passive: true });
 
     // Initialize snowflakes
-    const flakes: Snowflake[] = Array.from({ length: flakeCount }, () => ({
+    const flakes: Snowflake[] = Array.from({ length: effectiveFlakeCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       radius: Math.random() * 2.2 + 0.8,

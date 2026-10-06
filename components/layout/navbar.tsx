@@ -57,11 +57,13 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
 
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setMenuOpen(false);
+    setDropdownOpen(false);
   }
 
   useEffect(() => {
@@ -116,25 +118,13 @@ export function Navbar() {
             transition: "opacity 500ms, width 120ms linear",
           }}
         />
-        <div className="container-site flex h-[72px] items-center justify-between">
+        <div className="container-site flex h-20 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
             className="group flex items-center gap-3"
           >
             <LogoMark />
-            <span className="flex flex-col leading-none">
-              <span className="flex items-baseline font-display text-[1.3rem] tracking-tight text-ivory">
-                Festive&nbsp;
-                <span className="italic text-champagne-soft transition-colors duration-500 group-hover:text-champagne">
-                  Occasions
-                </span>
-              </span>
-              <span className="text-label mt-1.5 flex items-center gap-2 text-champagne">
-                <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
-                Christmas Decoration · Dubai &amp; UAE
-              </span>
-            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -148,6 +138,7 @@ export function Navbar() {
                 href="/christmas-decoration-dubai"
                 aria-haspopup="true"
                 aria-current={isServicesActive(pathname) ? "page" : undefined}
+                onClick={() => setDropdownOpen(true)}
                 className={cn(
                   "group/link relative flex items-center gap-1.5 text-[0.8rem] font-medium uppercase tracking-[0.08em] transition-colors",
                   "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-champagne after:transition-transform after:duration-500 after:ease-out",
@@ -172,14 +163,17 @@ export function Navbar() {
                 </svg>
               </Link>
 
-              {/* Dropdown panel — visible on hover + focus-within */}
-              <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                <div className="w-[320px] translate-y-2 rounded-xl border hairline-dark bg-night/95 p-2 shadow-2xl backdrop-blur-xl transition-transform duration-300 group-hover:translate-y-0">
+              {/* Dropdown panel — visible on hover + focus-within + dropdownOpen state */}
+              <div
+                className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 dropdown-open:visible dropdown-open:opacity-100"
+              >
+                <div className="w-full max-w-[320px] translate-y-2 rounded-xl border hairline-dark bg-night/95 p-2 shadow-2xl backdrop-blur-xl transition-transform duration-300 group-hover:translate-y-0">
                   {/* Featured — pillar + UAE */}
                   {featuredLinks.map((f) => (
                     <Link
                       key={f.href}
                       href={f.href}
+                      onClick={() => setDropdownOpen(false)}
                       className={cn(
                         "group/item flex items-center justify-between gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-ivory/5",
                         f.href === pathname && "bg-ivory/5"
@@ -209,6 +203,7 @@ export function Navbar() {
                       <Link
                         key={s.id}
                         href={s.href}
+                        onClick={() => setDropdownOpen(false)}
                         className={cn(
                           "group/item flex items-center justify-between gap-3 rounded-lg px-4 py-2 transition-colors hover:bg-ivory/5",
                           s.href === pathname && "bg-ivory/5"
@@ -324,7 +319,7 @@ export function Navbar() {
                 <span className="italic text-champagne-soft">Occasions</span>
               </span>
               <span className="text-label mt-1.5 text-champagne">
-                Christmas Decoration · Dubai &amp; UAE
+                Christmas Decoration · Dubai & UAE
               </span>
             </div>
           </div>

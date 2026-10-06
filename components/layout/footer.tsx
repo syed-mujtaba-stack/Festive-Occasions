@@ -40,18 +40,6 @@ export function Footer() {
               className="group inline-flex items-center gap-3"
             >
               <LogoMark />
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-2xl tracking-tight text-ivory">
-                  Festive&nbsp;
-                  <span className="italic text-champagne-soft transition-colors duration-500 group-hover:text-champagne">
-                    Occasions
-                  </span>
-                </span>
-                <span className="text-label mt-2 flex items-center gap-2 text-champagne">
-                  <span aria-hidden className="inline-block h-[3px] w-[3px] rotate-45 bg-champagne/70" />
-                  Christmas Decoration · Dubai
-                </span>
-              </span>
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/60">
               A premium Christmas &amp; festive decoration studio serving homes,
