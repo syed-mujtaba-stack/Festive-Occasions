@@ -163,7 +163,8 @@ export const images = {
   svcHomeHero: {
     // IMG_3152 = project-11.jpg, gallery g11 "Private Residence — Tree &
     // Ornaments" [Home Decoration].
-    src: "/images/client-work/svc-home-hero.jpg",
+    // Replaced with client-supplied Christmas Home Decoration PNG at client request.
+    src: "/images/client-work/svc-home-hero.png",
     alt: "Christmas home decoration in Dubai — private residence tree styling with ornaments",
   },
   svcOfficeHero: {
