@@ -172,32 +172,22 @@ export const images = {
     alt: "Commercial and office Christmas decoration in Dubai — illuminated wreath archway installation",
   },
   svcCorporateHero: {
-    // IMG_4633 = project-18.jpg, gallery g18 "Hospitality Lounge Festive
-    // Setting" [Corporate & Hospitality].
-    src: "/images/client-work/svc-corporate-hero.jpg",
-    alt: "Corporate Christmas decoration in Dubai — hospitality lounge festive setting",
+    // Corporate-Decoration-img.jpg — same as the homepage "What We Do" rail slide 05
+    // Shows: large-scale festive installation for a commercial venue
+    src: "/images/Corporate-Decoration-img.jpg",
+    alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
   },
   svcLightingHero: {
-    // IMG_3519 = project-12.jpg, gallery g12 "Luxury Villa Living Room Scheme".
-    // Not IMG_4722, which is what the rail slide above is cut from.
-    src: "/images/client-work/svc-lighting-hero.jpg",
-    alt: "Christmas lighting in Dubai — warm festive illumination across a luxury villa living space",
+    // svc-lighting-45.jpg — same as the homepage "What We Do" rail slide 06
+    // Shows: tall lush Christmas tree heavily adorned with red and gold baubles,
+    // floral picks and warm lighting, surrounded by wrapped gift boxes with red ribbons.
+    src: "/images/client-work/svc-lighting-45.jpg",
+    alt: "Christmas lighting in Dubai — grand Christmas tree with red and gold baubles, warm lighting and gift boxes",
   },
   svcOutdoorHero: {
-    // IMG_5256 = project-36.png, gallery g36 "Illuminated Garden & Facade Tree"
-    // [Lighting & Outdoor] — 1320x1648, the closest subject match to an
-    // outdoor page. The export is capped at the source's own 1320px so nothing
-    // is upscaled on disk.
-    //
-    // This replaced IMG_6394 (project-41.jpg), which is the homepage hero
-    // background — the two heroes were showing the identical photo, and the
-    // client asked for it to be replaced. Because the only conflict-free
-    // lighting/outdoor subjects left are 1320px, this hero now relies on a
-    // 1.55x upscale at the 2048px PageHero requests, softened further by the
-    // hero's own dark gradient. IMG_5257 (g37) and IMG_5251 (g31) are the
-    // remaining alternatives at the same resolution.
-    src: "/images/client-work/svc-outdoor-hero.jpg",
-    alt: "Outdoor Christmas decoration in Dubai — illuminated garden and facade tree lighting",
+    // OutdoorChristmasDecoration.jpg — client-supplied outdoor Christmas hero image
+    src: "/images/OutdoorChristmasDecoration.jpg",
+    alt: "Outdoor Christmas decoration in Dubai — illuminated garden, entrance and facade lighting",
   },
   /** Corporate Decoration main showpiece image. */
   CorporateDecoration: {
