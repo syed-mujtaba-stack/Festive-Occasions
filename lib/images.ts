@@ -156,7 +156,8 @@ export const images = {
   },
   svcVillaHero: {
     // IMG_4684 = project-21.jpg, gallery g21 "Villa Staircase & Foyer Decoration".
-    src: "/images/client-work/svc-villa-hero.jpg",
+    // Replaced with client-supplied Christmas Villa Decoration PNG at client request.
+    src: "/images/client-work/svc-villa-hero.png",
     alt: "Villa staircase and foyer Christmas decoration in Dubai",
   },
   svcHomeHero: {
