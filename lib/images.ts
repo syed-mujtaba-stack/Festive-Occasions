@@ -109,10 +109,7 @@ export const images = {
     alt: "Office Christmas decoration in Dubai — commercial workspace with hanging red baubles, snowflake ornaments and festive display styling",
   },
   svcCorporate: {
-    src: "/images/client-work/svc-corporate-45.jpg",
-    // Cut from IMG_5098 — unused elsewhere on the homepage, and the next frame
-    // in the same commercial shoot as project-27 (`audienceOffice`). The old
-    // alt said "grand atrium tree", which described project-10, not this photo.
+    src: "/images/Corporate-Decoration-img.jpg",
     alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
   },
   // User-supplied image for slide 06 Christmas Lighting.
@@ -202,7 +199,13 @@ export const images = {
     src: "/images/client-work/svc-outdoor-hero.jpg",
     alt: "Outdoor Christmas decoration in Dubai — illuminated garden and facade tree lighting",
   },
-  /** Service page detail blocks (unique per service). */
+  /** Corporate Decoration main showpiece image. */
+  CorporateDecoration: {
+    src: "/images/CorporateDecoration.jpg",
+    alt: "Corporate Christmas decoration in Dubai — large-scale festive installation for a commercial venue",
+  },
+
+/** Service page detail blocks (unique per service). */
   detailPillar1: {
     src: "/images/client-work/project-34.png",
     alt: "Bespoke peppermint Christmas tree design in Dubai",
