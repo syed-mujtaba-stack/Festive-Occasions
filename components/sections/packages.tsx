@@ -144,60 +144,61 @@ export function PackagesSection({
               {christmasPackages.map((pkg, i) => (
                 <article
                   key={pkg.id}
-                  className="grid gap-8 border-b hairline py-10 lg:grid-cols-[1.1fr_1.4fr_auto] lg:items-start lg:gap-14"
+                  className="grid gap-6 sm:gap-8 border-b hairline py-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)_auto] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)_auto] xl:gap-12 2xl:gap-14"
                 >
                   {/* Identity */}
-                  <div>
+                  <div className="min-w-0">
                     <p className="flex items-center gap-3 text-label text-champagne-deep">
-                      <span aria-hidden className="h-px w-8 bg-champagne/60" />
-                      {String(i + 1).padStart(2, "0")} · {pkg.tree}
+                      <span aria-hidden className="h-px w-8 bg-champagne/60 shrink-0" />
+                      <span>{String(i + 1).padStart(2, "0")} · {pkg.tree}</span>
                     </p>
-                    <h3 className="mt-4 font-display text-3xl leading-tight text-espresso lg:text-4xl">
+                    <h3 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-tight text-espresso">
                       {pkg.name}
                     </h3>
-                    <p className="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-cocoa">
+                    <p className="mt-2.5 sm:mt-3 max-w-sm text-[0.92rem] sm:text-[0.95rem] leading-relaxed text-cocoa">
                       {pkg.blurb}
                     </p>
                     {pkg.featured && (
-                      <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-champagne/50 px-4 py-1.5 text-label text-champagne-deep">
+                      <p className="mt-3 sm:mt-4 inline-flex items-center gap-2 rounded-full border border-champagne/50 px-3.5 py-1 text-label text-champagne-deep">
                         Most requested
                       </p>
                     )}
                   </div>
 
-                  {/* Inclusions — pt-8 aligns the first item with the h3 package name (eyebrow + mt-4 gap ≈ 2rem) */}
-                  <ul className="grid max-w-xl gap-2.5 lg:pt-8">
+                  {/* Inclusions — pt-8 aligns the first item with the h3 package name */}
+                  <ul className="min-w-0 max-w-xl grid gap-2.5 lg:pt-8">
                     {pkg.items.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-espresso"
+                        className="flex items-start gap-3 text-[0.92rem] sm:text-[0.95rem] leading-relaxed text-espresso"
                       >
                         <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne" aria-hidden />
-                        {item}
+                        <span className="min-w-0">{item}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* Price + CTA — pt-8 aligns with the h3 package name */}
-                  <div className="flex flex-col items-start gap-5 lg:items-end lg:pt-8">
-                    <p className="text-right">
-                      <span className="block font-display text-3xl italic text-espresso md:text-5xl">
+                  <div className="shrink-0 flex flex-col items-start gap-4 lg:items-end lg:pt-8 min-w-[140px] sm:min-w-[160px]">
+                    <p className="text-left lg:text-right">
+                      <span className="block font-display text-3xl italic text-espresso sm:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl leading-none">
                         {formatPrice(pkg.fromPrice)}
                       </span>
-                      <span className="text-label text-cocoa">
+                      <span className="text-label text-cocoa whitespace-nowrap mt-1 block">
                         AED · from · excl. VAT
                       </span>
                     </p>
                     <Button
                       variant={pkg.featured ? "primary" : "whatsapp"}
                       size="md"
+                      className="whitespace-nowrap"
                       href={whatsappLink(
                         `Hi Festive Occasions, I'd like to enquire about the ${pkg.name} (from AED ${formatPrice(pkg.fromPrice)} + VAT). Could you help me plan it for my space?`
                       )}
                       external
                     >
-                      <FaWhatsapp className="h-4 w-4" aria-hidden />
-                      Enquire
+                      <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden />
+                      <span>Enquire</span>
                     </Button>
                   </div>
                 </article>
@@ -207,53 +208,54 @@ export function PackagesSection({
 
           {/* Custom Package row — perfectly aligned with the packages grid above */}
           <ScrollReveal>
-            <article className="grid gap-8 border-b hairline py-10 lg:grid-cols-[1.1fr_1.4fr_auto] lg:items-start lg:gap-14">
+            <article className="grid gap-6 sm:gap-8 border-b hairline py-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)_auto] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)_auto] xl:gap-12 2xl:gap-14">
               {/* Identity */}
-              <div>
+              <div className="min-w-0">
                 <p className="flex items-center gap-3 text-label text-champagne-deep">
-                  <span aria-hidden className="h-px w-8 bg-champagne/60" />
-                  04 · Bespoke
+                  <span aria-hidden className="h-px w-8 bg-champagne/60 shrink-0" />
+                  <span>04 · Bespoke</span>
                 </p>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-espresso lg:text-4xl">
+                <h3 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-tight text-espresso">
                   Custom Package
                 </h3>
-                <p className="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-cocoa">
+                <p className="mt-2.5 sm:mt-3 max-w-sm text-[0.92rem] sm:text-[0.95rem] leading-relaxed text-cocoa">
                   Bespoke festive styling shaped around your space, architecture, tree scale and design direction.
                 </p>
               </div>
 
               {/* Inclusions — pt-8 aligns with h3 Custom Package name */}
-              <ul className="grid max-w-xl gap-2.5 lg:pt-8">
-                <li className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-espresso">
+              <ul className="min-w-0 max-w-xl grid gap-2.5 lg:pt-8">
+                <li className="flex items-start gap-3 text-[0.92rem] sm:text-[0.95rem] leading-relaxed text-espresso">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne" aria-hidden />
-                  Full villa, penthouse or commercial scheme
+                  <span className="min-w-0">Full villa, penthouse or commercial scheme</span>
                 </li>
-                <li className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-espresso">
+                <li className="flex items-start gap-3 text-[0.92rem] sm:text-[0.95rem] leading-relaxed text-espresso">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne" aria-hidden />
-                  Custom tree heights (up to 15+ ft) & bespoke colour palette
+                  <span className="min-w-0">Custom tree heights (up to 15+ ft) & bespoke colour palette</span>
                 </li>
               </ul>
 
               {/* WhatsApp CTA — pt-8 aligns with h3 Custom Package name */}
-              <div className="flex flex-col items-start gap-5 lg:items-end lg:pt-8">
-                <p className="text-right">
-                  <span className="block font-display text-3xl italic text-espresso md:text-5xl">
+              <div className="shrink-0 flex flex-col items-start gap-4 lg:items-end lg:pt-8 min-w-[140px] sm:min-w-[160px]">
+                <p className="text-left lg:text-right">
+                  <span className="block font-display text-3xl italic text-espresso sm:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl leading-none">
                     Bespoke
                   </span>
-                  <span className="text-label text-cocoa">
+                  <span className="text-label text-cocoa whitespace-nowrap mt-1 block">
                     Quoted on request
                   </span>
                 </p>
                 <Button
                   variant="whatsapp"
                   size="md"
+                  className="whitespace-nowrap"
                   href={whatsappLink(
                     "Hi Festive Occasions, I'd like a custom Christmas decoration package. Can we discuss my space, style and budget?"
                   )}
                   external
                 >
-                  <FaWhatsapp className="h-4 w-4" aria-hidden />
-                  Enquire
+                  <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden />
+                  <span>Enquire</span>
                 </Button>
               </div>
             </article>

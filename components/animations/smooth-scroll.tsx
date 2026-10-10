@@ -29,6 +29,10 @@ export function SmoothScroll() {
           smoothWheel: true,
         });
 
+        if (typeof window !== "undefined") {
+          (window as unknown as { __lenis?: Lenis | null }).__lenis = lenis;
+        }
+
         const raf = (time: number) => {
           lenis?.raf(time);
           rafId = requestAnimationFrame(raf);
@@ -42,6 +46,9 @@ export function SmoothScroll() {
     return () => {
       disposed = true;
       cancelAnimationFrame(rafId);
+      if (typeof window !== "undefined") {
+        (window as unknown as { __lenis?: Lenis | null }).__lenis = null;
+      }
       lenis?.destroy();
     };
   }, []);

@@ -129,7 +129,7 @@ export function Navbar() {
 
           {/* Desktop nav */}
           <nav
-            className="hidden items-center gap-6 lg:flex xl:gap-8"
+            className="hidden items-center gap-4 lg:flex xl:gap-7"
             aria-label="Primary"
           >
             {/* Services — dropdown */}

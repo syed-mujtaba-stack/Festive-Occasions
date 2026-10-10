@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { FaTree } from "react-icons/fa";
+import { FaCheckCircle, FaStar } from "react-icons/fa";
 import { StarInput } from "@/components/ui/star-rating";
 import type { Review } from "@/lib/reviews";
 
@@ -12,19 +12,25 @@ const SERVICES = [
   "Office Decoration",
   "Corporate Decoration",
   "Outdoor / Lighting",
+  "Rental Christmas Decoration",
   "Other",
 ];
 
-const inputCls =
-  "w-full rounded-md border hairline bg-background px-3 py-2 text-sm text-espresso placeholder:text-warm-gray-deep " +
-  "focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne transition-colors";
+const RATING_LABELS: Record<number, string> = {
+  1: "Needs Improvement",
+  2: "Fair",
+  3: "Good",
+  4: "Very Good",
+  5: "Exceptional ★★★★★",
+};
 
-/**
- * Review form (lives inside the Rate-Us modal). Sends the review to
- * /api/reviews; on success the new review object is handed straight up
- * via `onPosted` so it appears in the testimonials grid instantly —
- * no page reload, no window events.
- */
+const inputCls =
+  "w-full rounded-xl border border-white/15 bg-white/[0.06] px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-white placeholder:text-white/35 " +
+  "focus:outline-none focus:border-[#dfba73] focus:ring-2 focus:ring-[#dfba73]/25 transition-all " +
+  "hover:border-white/30 shadow-inner";
+
+const labelCls = "block text-xs font-semibold uppercase tracking-wider text-white/80 mb-1";
+
 export function ReviewForm({
   onClose,
   onPosted,
@@ -34,7 +40,7 @@ export function ReviewForm({
 }) {
   const [name, setName] = useState("");
   const [service, setService] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5); // Pre-selected 5 stars for positive sentiment
   const [hover, setHover] = useState(0);
   const [review, setReview] = useState("");
   const [honey, setHoney] = useState("");
@@ -42,17 +48,29 @@ export function ReviewForm({
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const displayRating = hover || rating;
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (sending) return; // prevent double-submit race condition
-    if (honey.trim()) return; // bot trap
+    if (sending) return;
+    if (honey.trim()) return;
 
-    if (!name.trim()) return setError("Please add your name.");
-    if (!rating) return setError("Please choose a star rating (1–5).");
-    if (!review.trim()) return setError("Please write a few words about your experience.");
+    if (!name.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!rating || rating < 1) {
+      setError("Please select a star rating (1–5).");
+      return;
+    }
+    if (!review.trim()) {
+      setError("Please write a few words about your experience.");
+      return;
+    }
 
     setSending(true);
     setError(null);
+
     try {
       const res = await fetch("/api/reviews", {
         method: "POST",
@@ -65,21 +83,19 @@ export function ReviewForm({
           honey,
         }),
       });
-      const data = (await res.json().catch(() => null)) as
-        | { ok?: boolean; review?: Review }
-        | null;
-      if (!res.ok || !data?.review) throw new Error("submit failed");
 
-      // Hand the published review to the grid immediately — no reload needed.
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; review?: Review; error?: string }
+        | null;
+
+      if (!res.ok || !data?.review) {
+        throw new Error(data?.error || "Submit failed");
+      }
+
       onPosted(data.review);
       setSent(true);
-      setName("");
-      setService("");
-      setRating(0);
-      setHover(0);
-      setReview("");
     } catch {
-      setError("Something went wrong — please try again.");
+      setError("Something went wrong — please check your connection and try again.");
     } finally {
       setSending(false);
     }
@@ -87,27 +103,39 @@ export function ReviewForm({
 
   if (sent) {
     return (
-      <div className="mt-6 flex flex-1 flex-col items-start justify-center gap-3 rounded-md border border-champagne/40 bg-champagne/10 p-6">
-        <p className="text-lg font-semibold text-espresso">
-          Thank you! Your review is now live.{" "}
-          <FaTree aria-hidden className="inline-block h-5 w-5 text-emerald-600" />
-        </p>
-        <p className="text-sm leading-relaxed text-cocoa">
-          It appears in our testimonials section for everyone to see.
-        </p>
+      <div className="flex flex-col items-center justify-center gap-4 text-center py-6 animate-fade-in">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-lg">
+          <FaCheckCircle className="h-8 w-8 text-emerald-400" aria-hidden />
+        </div>
+        <div>
+          <h4 className="text-2xl font-serif font-bold text-white">
+            Thank you, {name || "valued client"}!
+          </h4>
+          <p className="mt-1.5 text-sm leading-relaxed text-white/70 max-w-sm">
+            Your review is now live and featured in our Dubai client testimonials.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-1.5 my-2">
+          {[...Array(rating)].map((_, i) => (
+            <FaStar key={i} className="h-4 w-4 text-amber-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.4)]" />
+          ))}
+        </div>
+
         <button
           type="button"
           onClick={onClose}
-          className="mt-1 rounded-md border hairline px-5 py-2.5 text-sm font-semibold text-espresso transition-colors hover:bg-espresso/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne"
+          className="mt-3 rounded-xl bg-gradient-to-r from-[#dfba73] via-[#f5e4bf] to-[#c6a15b] px-8 py-3 text-sm font-bold text-[#171312] shadow-lg transition-all hover:brightness-105 active:scale-95"
         >
-          Close
+          Done
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate>
+      {/* Bot spam protection */}
       <div className="sr-only" aria-hidden>
         <label htmlFor="hp-company">Company</label>
         <input
@@ -120,9 +148,10 @@ export function ReviewForm({
         />
       </div>
 
+      {/* Name Input */}
       <div>
-        <label htmlFor="rv-name" className="text-sm font-semibold text-espresso">
-          Name <span aria-hidden className="text-red-700">*</span>
+        <label htmlFor="rv-name" className={labelCls}>
+          Your Name <span aria-hidden className="text-amber-400 ml-0.5">*</span>
         </label>
         <input
           id="rv-name"
@@ -130,23 +159,27 @@ export function ReviewForm({
           required
           autoComplete="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          className={`${inputCls} mt-1.5`}
+          onChange={(e) => {
+            setName(e.target.value);
+            if (error) setError(null);
+          }}
+          placeholder="e.g. Sarah Jenkins or The Al-Maktoum Family"
+          className={inputCls}
         />
       </div>
 
+      {/* Service Selection */}
       <div>
-        <label htmlFor="rv-service" className="text-sm font-semibold text-espresso">
-          Service (optional)
+        <label htmlFor="rv-service" className={labelCls}>
+          Service Provided <span className="text-[10px] font-normal text-white/50 normal-case">(Optional)</span>
         </label>
         <select
           id="rv-service"
           value={service}
           onChange={(e) => setService(e.target.value)}
-          className={`${inputCls} mt-1.5`}
+          className={`${inputCls} cursor-pointer [&>option]:bg-[#1e1b19] [&>option]:text-white`}
         >
-          <option value="">Select a service…</option>
+          <option value="">Select your service type…</option>
           {SERVICES.map((s) => (
             <option key={s} value={s}>
               {s}
@@ -155,46 +188,78 @@ export function ReviewForm({
         </select>
       </div>
 
-      <div>
-        <span className="text-sm font-semibold text-espresso">Your rating</span>
-        <div className="mt-1.5">
+      {/* Rating Picker Card */}
+      <div className="rounded-2xl border border-[#c6a15b]/30 bg-[#c6a15b]/[0.08] p-3.5 sm:p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
+            Your Rating <span aria-hidden className="text-amber-400 ml-0.5">*</span>
+          </span>
+          {displayRating > 0 && (
+            <span className="text-xs font-semibold text-[#dfba73] bg-[#c6a15b]/20 px-2.5 py-0.5 rounded-full border border-[#c6a15b]/30">
+              {RATING_LABELS[displayRating] || `${displayRating} Stars`}
+            </span>
+          )}
+        </div>
+        <div className="flex items-center justify-start">
           <StarInput value={rating} onChange={setRating} hover={hover} onHover={setHover} />
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="rv-review" className="text-sm font-semibold text-espresso">
-          Your review <span aria-hidden className="text-red-700">*</span>
+      {/* Review Textarea */}
+      <div>
+        <label htmlFor="rv-review" className={labelCls}>
+          Your Review <span aria-hidden className="text-amber-400 ml-0.5">*</span>
         </label>
         <textarea
           id="rv-review"
           required
-          rows={4}
-          maxLength={400}
+          rows={3}
+          maxLength={500}
           value={review}
-          onChange={(e) => setReview(e.target.value)}
-          placeholder="Tell us about your experience…"
-          className={`${inputCls} mt-1.5 resize-none`}
+          onChange={(e) => {
+            setReview(e.target.value);
+            if (error) setError(null);
+          }}
+          placeholder="Share your experience — styling quality, installation team, or how the space looked..."
+          className={`${inputCls} resize-none min-h-[95px] leading-relaxed`}
         />
-        <p className="mt-1 text-right text-xs text-warm-gray-deep">{review.length}/400</p>
+        <div className="mt-1 flex items-center justify-between text-[11px] text-white/45">
+          <span>Honest feedback helps others decide</span>
+          <span>{review.length}/500</span>
+        </div>
       </div>
 
+      {/* Error Message */}
       {error && (
-        <p role="alert" className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
-          {error}
-        </p>
+        <div role="alert" className="rounded-xl bg-red-950/60 border border-red-500/40 px-4 py-3 text-xs sm:text-sm text-red-200 flex items-center gap-2.5 animate-fade-in">
+          <svg className="h-4 w-4 shrink-0 text-red-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+          </svg>
+          <span className="font-medium">{error}</span>
+        </div>
       )}
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={sending}
-        className="rounded-md bg-espresso px-5 py-3 text-sm font-semibold text-ivory transition-colors hover:bg-espresso/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne disabled:opacity-60"
+        className="w-full rounded-xl bg-gradient-to-r from-[#dfba73] via-[#f5e4bf] to-[#c6a15b] px-6 py-3.5 text-sm font-bold text-[#171312] tracking-wide transition-all duration-300 hover:brightness-105 hover:shadow-[0_6px_25px_rgba(223,186,115,0.4)] disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.99] shadow-[0_4px_20px_rgba(223,186,115,0.25)] flex items-center justify-center gap-2 cursor-pointer"
       >
-        {sending ? "Posting…" : "Post Review"}
+        {sending ? (
+          <span className="flex items-center justify-center gap-2">
+            <svg className="animate-spin h-4 w-4 text-[#171312]" viewBox="0 0 24 24" aria-hidden>
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Submitting Your Review…
+          </span>
+        ) : (
+          "Post Review"
+        )}
       </button>
-      <p className="text-xs leading-relaxed text-warm-gray-deep">
-        Your review appears publicly after a quick spam check. We never invent
-        reviews — every one here is from a real submission.
+
+      <p className="text-[11px] leading-relaxed text-white/50 text-center">
+        Your review appears immediately on our live carousel.
       </p>
     </form>
   );

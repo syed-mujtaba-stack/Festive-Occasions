@@ -44,7 +44,7 @@ export function StarInput({
   onChange,
   hover = 0,
   onHover,
-  size = "text-2xl",
+  size = "text-3xl",
 }: {
   value: number;
   onChange: (v: number) => void;
@@ -53,7 +53,7 @@ export function StarInput({
   size?: string;
 }) {
   return (
-    <div className="flex items-center gap-1" role="radiogroup" aria-label="Your rating">
+    <div className="flex items-center gap-1.5 py-1" role="radiogroup" aria-label="Your rating">
       {[1, 2, 3, 4, 5].map((i) => {
         const active = i <= (hover || value);
         return (
@@ -67,9 +67,11 @@ export function StarInput({
             onMouseLeave={() => onHover?.(0)}
             onClick={() => onChange(i)}
             className={cn(
-              "leading-none transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne",
+              "leading-none transition-all duration-150 transform hover:scale-125 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne rounded-sm p-0.5",
               size,
-              active ? "text-champagne-deep" : "text-espresso/20 hover:text-champagne/70"
+              active
+                ? "text-amber-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.35)]"
+                : "text-espresso/20 hover:text-amber-300"
             )}
           >
             {active ? (

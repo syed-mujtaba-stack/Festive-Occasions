@@ -111,7 +111,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-AE"
-      className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${manrope.variable} h-full antialiased overflow-x-hidden`}
     >
       <body className="min-h-full bg-background font-sans text-foreground overflow-x-hidden">
         {/* No-JS gate: hide the preloader overlay when scripting is off

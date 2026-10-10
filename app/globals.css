@@ -200,6 +200,10 @@ html.lenis body {
   padding-inline: 1.25rem;
 
   @media (min-width: 1024px) {
+    padding-inline: 1.75rem;
+  }
+
+  @media (min-width: 1280px) {
     padding-inline: 2.5rem;
   }
 }
@@ -464,12 +468,21 @@ html.lenis body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slide-up {
+  0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .animate-fade-in {
   animation: fade-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Staggered reveal for grid cards */
@@ -513,4 +526,126 @@ html.lenis body {
 }
 .testimonial-carousel-track::-webkit-scrollbar-thumb:hover {
   opacity: 0.6;
+}
+
+/* ============================================================
+   REVIEW MODAL - Safety styles to ensure proper rendering
+   ============================================================ */
+
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 100vh;
+  max-height: 100dvh;
+}
+
+.review-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+.review-modal-dialog {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  max-width: 32rem; /* max-w-lg */
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow: hidden;
+  border-radius: 1rem; /* rounded-2xl */
+  border: 1px solid rgba(38, 32, 32, 0.1);
+  background-color: #fbf8f3;
+  box-shadow: 0 25px 80px -15px rgba(0, 0, 0, 0.4);
+  outline: none;
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(38, 32, 32, 0.1);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: linear-gradient(to right, rgba(38, 32, 32, 0.05), transparent);
+  flex-shrink: 0;
+}
+
+.review-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  color: var(--color-warm-gray-deep);
+  transition: all 0.2s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.review-modal-close:hover {
+  background-color: rgba(38, 32, 32, 0.05);
+  color: var(--color-espresso);
+}
+
+.review-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 2rem;
+  padding-bottom: 0;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(90vh - 140px);
+  max-height: calc(90dvh - 140px);
+}
+
+.review-modal-footer {
+  padding: 1.5rem 2rem;
+  padding-bottom: 2rem;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-modal-dialog {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .review-modal-backdrop {
+    transition: none !important;
+  }
+}
+
+/* Touch scrolling fix for modal content */
+.review-modal-content {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Ensure modal content can scroll when taller than viewport */
+.review-modal-overlay {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent navbar interference */
+nav.fixed,
+header.fixed,
+[class*="navbar"],
+[class*="Navbar"] {
+  z-index: 9990 !important;
 }

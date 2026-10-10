@@ -43,8 +43,8 @@ export async function POST(req: Request) {
     }
 
     const name = String(body.name ?? "").trim().slice(0, 60);
-    const quote = String(body.quote ?? "").trim().slice(0, 400);
-    const detail = String(body.detail ?? "").trim().slice(0, 80);
+    const quote = String(body.quote ?? "").trim().slice(0, 500);
+    const detail = String(body.detail ?? "").trim().slice(0, 100);
     const rating = Number(body.rating);
 
     if (!name || !quote) {
@@ -52,6 +52,11 @@ export async function POST(req: Request) {
     }
     if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
       return NextResponse.json({ error: "Rating must be an integer 1–5." }, { status: 400 });
+    }
+
+    if (!isSupabaseConfigured) {
+      const review: Review = { quote, name, detail, rating };
+      return NextResponse.json({ ok: true, review }, { status: 201 });
     }
 
     // Insert into Supabase
