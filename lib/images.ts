@@ -146,10 +146,8 @@ export const images = {
    * conflict-free alternative left in the library is ~1320px, so those two
    * heroes now take a 1.55x upscale at the 2048px the hero requests. */
   svcCompleteHero: {
-    // project-05.jpg — 5712x4284, the library's only 24.5MP landscape, so the
-    // 16:9 crop keeps 75% of its height instead of the 42% a portrait gives.
-    src: "/images/client-work/svc-complete-hero.jpg",
-    alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
+    src: "/images/hero-luxury-dubai.jpg",
+    alt: "Luxury Christmas decoration in Dubai — grand illuminated tree, fireplace and festive holiday styling overlooking Dubai skyline",
   },
   svcVillaHero: {
     // svc-villa-45.jpg — 4:5 landscape cut, matches homepage rail slide 02
@@ -479,6 +477,48 @@ export const images = {
   galleryVillaStair: {
     src: "/images/christmas/gallery-villa-stair.jpg",
     alt: "Christmas staircase and foyer decorated with garland, ornaments and warm lighting",
+  },
+
+  /** Added to gallery on client request */
+  galleryNew7: {
+    src: "/images/new7.PNG",
+    alt: "Luxury Christmas staircase garland styling with red velvet bows and festive tree in Dubai",
+  },
+  galleryNew6: {
+    src: "/images/new6.PNG",
+    alt: "Outdoor Christmas grand entrance archway with illuminated deer and festive lighting in Dubai",
+  },
+  galleryNew5: {
+    src: "/images/new5.PNG",
+    alt: "Luxury crimson and gold Christmas tree styling and holiday fireplace decor in Dubai",
+  },
+  galleryNew3: {
+    src: "/images/new3.jpeg",
+    alt: "Bespoke holiday hearth and Christmas tree styling by Festive Occasions Dubai",
+  },
+  galleryNew2: {
+    src: "/images/new2.PNG",
+    alt: "Opulent villa festive living room and illuminated Christmas tree in Dubai",
+  },
+  galleryNew1: {
+    src: "/images/new1.PNG",
+    alt: "Warm amber illumination and grand festive Christmas tree installation in Dubai",
+  },
+  galleryImageCopy: {
+    src: "/images/image copy.png",
+    alt: "Cozy fireside garland decoration and warm festive holiday hearth in Dubai",
+  },
+  galleryChristmasVilla: {
+    src: "/images/Christmas-Villa-Decoration.png",
+    alt: "Grand Christmas villa interior styling and festive tree decoration in Dubai",
+  },
+  galleryCorporate: {
+    src: "/images/Corporate-Decoration-img.jpg",
+    alt: "Commercial venue festive holiday showcase and corporate Christmas tree installation in Dubai",
+  },
+  galleryHeroLuxury: {
+    src: "/images/hero-luxury-dubai.jpg",
+    alt: "Ultra-luxury Dubai festive living and Christmas holiday styling",
   },
 } as const;
 
