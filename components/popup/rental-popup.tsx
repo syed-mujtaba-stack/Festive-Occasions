@@ -13,10 +13,20 @@ const RENTAL_OFFER = {
 };
 
 export function RentalPopup() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const dismissedRef = useRef(false);
   const popupRef = useRef<HTMLDivElement>(null);
+
+  // Show popup after 15 seconds delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!dismissedRef.current) {
+        setIsOpen(true);
+      }
+    }, 15000); // 15 seconds delay
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleDismiss = useCallback((e?: React.MouseEvent) => {
     if (e) {

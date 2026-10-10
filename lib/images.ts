@@ -152,24 +152,24 @@ export const images = {
     alt: "Grand luxury Christmas doorway archway installation with lush red ornament garland",
   },
   svcVillaHero: {
-    // IMG_4684 = project-21.jpg, gallery g21 "Villa Staircase & Foyer Decoration".
-    // Replaced with client-supplied Christmas Villa Decoration PNG at client request.
-    src: "/images/client-work/svc-villa-hero.png",
-    alt: "Villa staircase and foyer Christmas decoration in Dubai",
+    // svc-villa-45.jpg — 4:5 landscape cut, matches homepage rail slide 02
+    // Shows: grand villa entrance archway with festive garland and ornament styling
+    src: "/images/client-work/svc-villa-45.jpg",
+    alt: "Villa Christmas decoration in Dubai — grand entrance archway with festive garland and ornaments",
   },
   svcHomeHero: {
-    // IMG_3152 = project-11.jpg, gallery g11 "Private Residence — Tree &
-    // Ornaments" [Home Decoration].
-    // Replaced with client-supplied Christmas Home Decoration PNG at client request.
-    src: "/images/client-work/svc-home-hero.png",
-    alt: "Christmas home decoration in Dubai — private residence tree styling with ornaments",
+    // svc-home-45.jpg — 4:5 landscape cut, matches homepage rail slide 03
+    // Shows: festive living room with lit tree, garlands and warm ambient styling
+    src: "/images/client-work/svc-home-45.jpg",
+    alt: "Home Christmas decoration in Dubai — festive living room with lit tree and garlands",
   },
   svcOfficeHero: {
-    // IMG_5096 = project-27.jpg, gallery g27 "Commercial Illuminated Wreath
-    // Archway". Native 3000x4000, replacing a 1086px source that was being
-    // upscaled 1.77x — this hero used to be the softest on the site.
-    src: "/images/client-work/svc-office-hero.jpg",
-    alt: "Commercial and office Christmas decoration in Dubai — illuminated wreath archway installation",
+    // svc-office-45.jpg — 4:5 landscape cut, matches homepage rail slide 04
+    // Shows: indoor office/commercial workspace with hanging red baubles,
+    // glowing snowflake ornaments from ceiling, decorated display counter
+    // and wooden seating with festive greenery and red ornaments.
+    src: "/images/client-work/svc-office-45.jpg",
+    alt: "Office Christmas decoration in Dubai — commercial workspace with hanging baubles, snowflake ornaments and festive display styling",
   },
   svcCorporateHero: {
     // Corporate-Decoration-img.jpg — same as the homepage "What We Do" rail slide 05

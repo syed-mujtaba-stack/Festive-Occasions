@@ -169,52 +169,79 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
       {/* Structured data — Service + FAQPage + BreadcrumbList */}
       <JsonLd data={servicePageJsonLd(page)} />
 
-      {/* Hero */}
-      <section className="relative flex min-h-[72svh] items-end overflow-hidden bg-night">
+      {/* Hero — matches home page hero height & vertical centering */}
+      <section className="relative flex min-h-[95vh] sm:min-h-screen items-center justify-center overflow-hidden bg-night pt-28 pb-16 sm:pt-36 sm:pb-24">
         <div className="absolute inset-0">
-          <FestiveImage image={page.heroImage} priority sizes="100vw" />
+          <FestiveImage
+            image={page.heroImage}
+            priority
+            sizes="100vw"
+            imgClassName="object-cover object-top scale-105 transition-transform duration-1000 ease-out"
+          />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#171312] via-[#171312]/45 to-[#171312]/20" />
-        <Container className="relative z-10 pb-20 pt-40">
-          <BackToHome className="mb-7" />
-          <nav aria-label="Breadcrumb" className="mb-7">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-ivory/60">
-              <li>
-                <Link
-                  href="/"
-                  className="transition-colors hover:text-champagne"
-                >
-                  Home
-                </Link>
-              </li>
-              {page.slug !== "christmas-decoration-dubai" && (
-                <>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0c] via-transparent to-black/50" />
+        <Container className="relative z-10 w-full">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column: Content */}
+            <div className="lg:col-span-8 flex flex-col items-start text-left">
+              <BackToHome className="mb-7" />
+              <nav aria-label="Breadcrumb" className="mb-7 w-full">
+                <ol className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-white/60">
+                  <li>
+                    <Link
+                      href="/"
+                      className="transition-colors hover:text-champagne"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  {page.slug !== "christmas-decoration-dubai" && (
+                    <>
+                      <li aria-hidden="true" className="text-champagne/60">
+                        /
+                      </li>
+                      <li>
+                        <Link
+                          href="/christmas-decoration-dubai"
+                          className="transition-colors hover:text-champagne"
+                        >
+                          Christmas Decoration
+                        </Link>
+                      </li>
+                    </>
+                  )}
                   <li aria-hidden="true" className="text-champagne/60">
                     /
                   </li>
-                  <li>
-                    <Link
-                      href="/christmas-decoration-dubai"
-                      className="transition-colors hover:text-champagne"
-                    >
-                      Christmas Decoration
-                    </Link>
+                  <li aria-current="page" className="text-champagne">
+                    {page.title}
                   </li>
-                </>
-              )}
-              <li aria-hidden="true" className="text-champagne/60">
-                /
-              </li>
-              <li aria-current="page" className="text-champagne">
+                </ol>
+              </nav>
+              <p className="text-label mb-5 flex items-center gap-4 text-champagne">
+                <span className="h-px w-10 bg-champagne" aria-hidden />
+                Festive Occasions · {page.eyebrow}
+              </p>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-md max-w-4xl">
                 {page.title}
-              </li>
-            </ol>
-          </nav>
-          <p className="text-label mb-5 flex items-center gap-4 text-champagne">
-            <span className="h-px w-10 bg-champagne" aria-hidden />
-            Festive Occasions · {page.eyebrow}
-          </p>
-          <h1 className="text-h1 max-w-4xl text-ivory">{page.title}</h1>
+              </h1>
+            </div>
+
+            {/* Right Column: Service Icon/Visual (optional) */}
+            <div className="lg:col-span-4 relative mt-4 lg:mt-0 flex justify-center lg:justify-end hidden lg:block">
+              <div className="relative w-full sm:max-w-[340px]">
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] border-2 border-[#dfba73]/50 bg-black/60 backdrop-blur-xl p-3.5">
+                  <FestiveImage
+                    image={page.heroImage}
+                    sizes="(max-width: 768px) 300px, 340px"
+                    className="object-contain"
+                    alt={images[page.heroImage].alt}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </Container>
       </section>
 
