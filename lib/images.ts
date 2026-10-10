@@ -47,10 +47,10 @@ export const images = {
     src: "/images/client-work/project-43.jpg",
     alt: "Festive Occasions Christmas decoration installation in Dubai",
   },
-  /** Final CTA glow — candlelit Christmas tree and warm holiday entrance. */
+  /** Final CTA glow — fireplace garland and warm holiday fireplace. */
   finalCtaGlow: {
-    src: "/images/client-work/project-40.jpg",
-    alt: "Warm candlelit Christmas tree and garland — Festive Occasions Dubai",
+    src: "/images/image copy.png",
+    alt: "Warm festive fireplace garland decoration in Dubai — Festive Occasions",
   },
   /** Audiences — villa grand entrance archway. */
   audienceVilla: {
@@ -96,8 +96,8 @@ export const images = {
     alt: "Christmas villa decoration in Dubai — grand entrance archway",
   },
   svcHome: {
-    src: "/images/client-work/svc-home-45.jpg",
-    alt: "Christmas home decoration in Dubai — festive living room with lit tree and garlands",
+    src: "/images/new7.PNG",
+    alt: "Home Christmas decoration in Dubai — elegant villa staircase garland styling with red velvet bows and festive ornaments",
   },
 
   // User-supplied image for slide 04 Office Christmas Decoration.
@@ -124,8 +124,8 @@ export const images = {
   // red ornaments, twinkling lights, flanked by illuminated gold wire deer
   // figurines and cone light structures on the patio.
   svcOutdoor: {
-    src: "/images/client-work/svc-outdoor-45.jpg",
-    alt: "Outdoor Christmas decoration in Dubai — arched entrance with pine garlands, red ornaments, twinkling lights and illuminated deer figurines",
+    src: "/images/new6.PNG",
+    alt: "Outdoor Christmas decoration in Dubai — grand entrance archway with festive garland, illuminated deer, lanterns and balcony decoration",
   },
 
   /** Service page heroes (PageHero = full-bleed 100vw x 62svh, ~2.6:1).
@@ -205,10 +205,8 @@ export const images = {
     alt: "Rose gold and champagne Christmas tree styling by Festive Occasions",
   },
   detailPillar3: {
-    src: "/images/client-work/project-35.jpg",
-    alt: "Professional Christmas bauble installation in Dubai",
-    // Portrait photo in a landscape aspect-[4/3] block — `cover` would crop the
-    // top and bottom off, so this one is letterboxed in full.
+    src: "/images/new1.PNG",
+    alt: "Professional Christmas entrance garland and wreath installation in Dubai",
     fit: "contain",
   },
   detailVilla1: {

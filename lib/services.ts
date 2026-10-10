@@ -8,6 +8,8 @@ export type Service = {
   description: string;
   items: string[];
   theme: "champagne" | "burgundy" | "evergreen";
+  ctaText?: string;
+  ctaHref?: string;
   /**
    * Optional — omit to run the slide as copy only. The rail then drops to a
    * single centred column instead of leaving the right half empty.
@@ -32,9 +34,10 @@ export const services: Service[] = [
     section: "THE COMPLETE TRANSFORMATION",
     href: "/christmas-decoration-dubai",
     description:
-      "End-to-end Christmas decoration designed around your space — from a single statement piece to a full property transformation.",
+      "We provide Christmas decorations, Especially in Palm Jumeirah, Tilal Al Ghaf, Al Barari, DAMAC Hills, Al Furjan, Arabian Ranches 1, Dubai Hills Estate, Jumeirah Lakes, Jumeirah Village Circle, Mudon, Arabian Ranches 2, Arabian Ranches 3, Jumeirah Island, Jumeirah Golf Estates, The Springs, and The Meadows and all over Dubai.\n\nBook your decoration today and make this Christmas truly magical!",
     items: ["Homes", "Villas", "Offices", "Commercial spaces"],
     theme: "champagne",
+    ctaText: "Book your decoration today and make this Christmas truly magical!",
     image: "svcComplete",
   },
   {

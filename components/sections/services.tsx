@@ -210,25 +210,27 @@ export function ServicesSection() {
                     {service.title}{" "}
                     <em className="italic text-cocoa">{service.subtitle}</em>
                   </h3>
-                  <p className="mt-6 max-w-md text-lead text-cocoa">
-                    {service.description}
-                  </p>
-                  <ul className="mt-8 flex max-w-md flex-wrap gap-2">
+                  <div className="mt-4 max-w-xl space-y-2.5 text-[0.95rem] sm:text-base text-cocoa leading-relaxed">
+                    {service.description.split("\n\n").map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+                  <ul className="mt-5 flex max-w-md flex-wrap gap-2">
                     {service.items.map((item) => (
                       <li
                         key={item}
-                        className="rounded-full border hairline px-4 py-1.5 text-xs text-cocoa"
+                        className="rounded-full border hairline px-3.5 py-1 text-xs text-cocoa"
                       >
                         {item}
                       </li>
                     ))}
                   </ul>
                   <Link
-                    href={service.href}
-                    className="group mt-10 inline-flex items-center gap-3 text-label text-espresso"
+                    href={service.ctaHref || service.href}
+                    className="group mt-6 inline-flex items-center gap-3 text-label text-espresso"
                   >
                     <span className="relative">
-                      Explore this service
+                      {service.ctaText || "Explore this service"}
                       <span
                         aria-hidden
                         className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-champagne transition-transform duration-500 group-hover:scale-x-100"
@@ -323,9 +325,11 @@ export function ServicesSection() {
                         {service.title}{" "}
                         <em className="italic text-cocoa">{service.subtitle}</em>
                       </h3>
-                      <p className="mt-3 text-[0.95rem] leading-relaxed text-cocoa">
-                        {service.description}
-                      </p>
+                      <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-cocoa">
+                        {service.description.split("\n\n").map((para, idx) => (
+                          <p key={idx}>{para}</p>
+                        ))}
+                      </div>
                     </div>
                     {service.image && (
                       <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-xl">

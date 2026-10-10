@@ -5,7 +5,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
-import { Preloader } from "@/components/ui/preloader";
 
 // favicon using existing logo.png
 const favicon = {
@@ -114,14 +113,6 @@ export default function RootLayout({
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased overflow-x-hidden`}
     >
       <body className="min-h-full bg-background font-sans text-foreground overflow-x-hidden">
-        {/* No-JS gate: hide the preloader overlay when scripting is off
-            (it is purely decorative, so it must never block content).
-            Reduced-motion hide lives in globals.css under a media query. */}
-        <noscript>
-          <style>{`.fo-preloader{display:none !important}`}</style>
-        </noscript>
-        {/* First-impression preloader (SSR-rendered, client-driven) */}
-        <Preloader />
         {/* Cinematic film grain — subtle texture overlay (decorative) */}
         <div aria-hidden className="grain" />
         <a
