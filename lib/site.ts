@@ -12,7 +12,27 @@ export const siteConfig = {
   email: "info@festiveoccasions.ae", // client-verified
   addressLine:
     "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates",
-  serviceArea: ["Dubai", "Sharjah", "UAE"],
+  serviceArea: [
+    "Dubai",
+    "Sharjah",
+    "UAE",
+    "Palm Jumeirah",
+    "Tilal Al Ghaf",
+    "Al Barari",
+    "DAMAC Hills",
+    "Al Furjan",
+    "Arabian Ranches 1",
+    "Dubai Hills Estate",
+    "Jumeirah Lakes",
+    "Jumeirah Village Circle",
+    "Mudon",
+    "Arabian Ranches 2",
+    "Arabian Ranches 3",
+    "Jumeirah Islands",
+    "Jumeirah Golf Estates",
+    "The Springs",
+    "The Meadows",
+  ],
   hours: "Open 24/7 — enquiries via WhatsApp & email",
 
   social: {
@@ -25,6 +45,25 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+export const dubaiCommunities = [
+  "Palm Jumeirah",
+  "Tilal Al Ghaf",
+  "Al Barari",
+  "DAMAC Hills",
+  "Al Furjan",
+  "Arabian Ranches 1",
+  "Dubai Hills Estate",
+  "Jumeirah Lakes",
+  "Jumeirah Village Circle",
+  "Mudon",
+  "Arabian Ranches 2",
+  "Arabian Ranches 3",
+  "Jumeirah Islands",
+  "Jumeirah Golf Estates",
+  "The Springs",
+  "The Meadows",
+] as const;
 
 export function whatsappLink(message?: string) {
   const text = encodeURIComponent(message ?? siteConfig.whatsappMessage);

@@ -205,7 +205,6 @@ export const images = {
   detailPillar3: {
     src: "/images/new1.PNG",
     alt: "Professional Christmas entrance garland and wreath installation in Dubai",
-    fit: "contain",
   },
   detailVilla1: {
     src: "/images/client-work/project-13.jpg",

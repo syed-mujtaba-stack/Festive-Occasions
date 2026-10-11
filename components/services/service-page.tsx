@@ -11,7 +11,7 @@ import { BackToHome } from "@/components/ui/back-to-home";
 import { GalleryCard } from "@/components/gallery/gallery-card";
 import { galleryProjects } from "@/lib/gallery";
 import type { ServicePage } from "@/lib/service-pages";
-import { siteConfig, whatsappLink } from "@/lib/site";
+import { siteConfig, whatsappLink, dubaiCommunities } from "@/lib/site";
 import { images } from "@/lib/images";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { FaWhatsapp, FaArrowRight } from "react-icons/fa";
@@ -29,36 +29,72 @@ const pageKeywords: Record<string, string[]> = {
     "Christmas Decoration Company Dubai",
     "Christmas Decoration Services Dubai",
     "Professional Christmas Decorators Dubai",
+    "Christmas Decoration Palm Jumeirah",
+    "Christmas Decoration Dubai Hills Estate",
+    "Christmas Decorators Arabian Ranches",
+    "Christmas Decoration Tilal Al Ghaf",
+    "Christmas Villa Decoration Al Barari",
+    "Christmas Decorators DAMAC Hills",
+    "Christmas Decoration Al Furjan",
+    "Christmas Decoration Jumeirah Golf Estates",
+    "Christmas Decoration Jumeirah Islands",
+    "Christmas Decoration The Springs",
+    "Christmas Decoration The Meadows",
+    "Christmas Decorators JVC",
+    "Christmas Decorators Mudon",
+    "Christmas Decoration Jumeirah Lakes Towers",
   ],
   "christmas-villa-decoration-dubai": [
     "Villa Christmas Decorators Dubai",
     "Villa Christmas Decoration Dubai",
     "Villa Christmas Decoration Services",
+    "Christmas Villa Decoration Palm Jumeirah",
+    "Christmas Villa Decoration Dubai Hills Estate",
+    "Christmas Villa Decoration Arabian Ranches",
+    "Christmas Villa Decorators Al Barari",
+    "Christmas Villa Decoration DAMAC Hills",
+    "Christmas Villa Decoration Tilal Al Ghaf",
+    "Christmas Villa Decoration Jumeirah Golf Estates",
+    "Christmas Villa Decoration Jumeirah Islands",
   ],
   "christmas-home-decoration-dubai": [
     "Home Christmas Decoration Dubai",
     "Christmas Home Decorators Dubai",
     "Christmas Decorators near me",
+    "Christmas Home Decoration The Springs",
+    "Christmas Home Decoration The Meadows",
+    "Christmas Home Decoration Al Furjan",
+    "Christmas Home Decoration Mudon",
+    "Christmas Home Decoration JVC",
   ],
   "christmas-office-decoration-dubai": [
     "Office Christmas Decorators Dubai",
     "Office Christmas Decoration Dubai",
     "Corporate Christmas Decoration Dubai",
+    "Office Christmas Decoration JLT",
+    "Commercial Christmas Decorators Dubai",
   ],
   "christmas-corporate-decoration-dubai": [
     "Corporate Christmas Decorators Dubai",
     "Corporate Christmas Decoration Dubai",
     "Christmas Decoration Company Dubai",
+    "Commercial Christmas Tree Dubai",
   ],
   "christmas-lighting-dubai": [
     "Christmas Lighting Dubai",
     "Christmas Lights Decoration Dubai",
     "Outdoor Christmas Lights Dubai",
+    "Christmas Villa Lighting Palm Jumeirah",
+    "Christmas Outdoor Lights Dubai Hills",
+    "Christmas Tree Lights Arabian Ranches",
   ],
   "outdoor-christmas-decoration-dubai": [
     "Outdoor Christmas Decoration Dubai",
     "Outdoor Christmas Decorators Dubai",
     "Christmas Decorators near me",
+    "Outdoor Christmas Decor Palm Jumeirah",
+    "Outdoor Christmas Villa Decoration Al Barari",
+    "Outdoor Christmas Lighting Tilal Al Ghaf",
   ],
 };
 
@@ -135,7 +171,15 @@ function servicePageJsonLd(page: ServicePage): Record<string, unknown> {
           name: siteConfig.name,
           url: siteConfig.url,
         },
-        areaServed: { "@type": "City", name: "Dubai" },
+        areaServed: [
+          { "@type": "City", name: "Dubai" },
+          { "@type": "City", name: "Sharjah" },
+          { "@type": "Country", name: "United Arab Emirates" },
+          ...dubaiCommunities.map((area) => ({
+            "@type": "AdministrativeArea",
+            name: area,
+          })),
+        ],
         audience: {
           "@type": "Audience",
           audienceType: "Homes, villas, offices and commercial spaces",
@@ -290,6 +334,34 @@ export function ServicePageTemplate({ page }: { page: ServicePage }) {
                 </li>
               ))}
             </ul>
+          </ScrollReveal>
+        </Container>
+      </Section>
+
+      {/* Prime Dubai Communities We Serve */}
+      <Section id="communities" tone="light">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Coverage"
+              title="Dubai communities we decorate."
+              description="Festive Occasions provides luxury bespoke Christmas decorations and professional styling across Dubai's most prestigious residential communities and estates."
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="mt-10 flex flex-wrap gap-2.5">
+              {dubaiCommunities.map((community) => (
+                <span
+                  key={community}
+                  className="rounded-full border border-champagne/40 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-espresso shadow-xs transition-colors hover:border-champagne hover:bg-champagne/10"
+                >
+                  {community}
+                </span>
+              ))}
+            </div>
+            <p className="mt-6 text-sm leading-relaxed text-cocoa">
+              We provide Christmas decorations, especially in Palm Jumeirah, Tilal Al Ghaf, Al Barari, DAMAC Hills, Al Furjan, Arabian Ranches 1, Dubai Hills Estate, Jumeirah Lakes, Jumeirah Village Circle, Mudon, Arabian Ranches 2, Arabian Ranches 3, Jumeirah Islands, Jumeirah Golf Estates, The Springs, and The Meadows, and all over Dubai.
+            </p>
           </ScrollReveal>
         </Container>
       </Section>

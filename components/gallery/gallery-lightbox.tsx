@@ -1,15 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
-import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import Link from "next/link";
+import {
+  FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
+  FaArrowLeft,
+  FaHome,
+} from "react-icons/fa";
 import { FestiveImage } from "@/components/ui/festive-image";
 import type { GalleryProject } from "@/lib/gallery";
 
 /**
  * GalleryLightbox — full-screen editorial project view.
- * Keyboard: Esc closes, ←/→ navigate. Body scroll is locked while open.
- * Reduces gracefully: content still appears instantly; overlay is night +
- * soft blur, honest metadata only.
+ * Portaled to document.body to ensure it appears on top of all headers and navbars.
+ * Provides clear "Close", "Back to Gallery", and "Back to Home" navigation.
  */
 export function GalleryLightbox({
   items,
@@ -22,7 +29,12 @@ export function GalleryLightbox({
   onClose: () => void;
   onNavigate: (index: number) => void;
 }) {
+  const [mounted, setMounted] = useState(false);
   const project = items[index];
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Lock body scroll + keyboard controls while open.
   useEffect(() => {
@@ -41,101 +53,138 @@ export function GalleryLightbox({
     };
   }, [index, items.length, onClose, onNavigate]);
 
-  if (!project) return null;
+  if (!mounted || !project) return null;
 
-  return (
+  const content = (
     <div
       role="dialog"
       aria-modal="true"
       aria-label={`${project.title} — full project view`}
-      className="fixed inset-0 z-[95] flex flex-col bg-night/95 backdrop-blur-md"
+      className="fixed inset-0 z-[99999] flex flex-col bg-night/98 backdrop-blur-xl text-ivory overflow-y-auto"
     >
-      {/* Header: counter + close */}
-      <div className="flex items-center justify-between px-6 py-5 lg:px-10">
-        <p className="text-label text-champagne">
-          {String(index + 1).padStart(2, "0")} /{" "}
-          {String(items.length).padStart(2, "0")}
+      {/* Top Header Bar */}
+      <header className="sticky top-0 z-20 flex items-center justify-between border-b border-ivory/10 bg-night/90 px-4 py-3.5 backdrop-blur-md sm:px-8 sm:py-4">
+        {/* Back / Home Controls */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-champagne transition-all duration-200 hover:border-champagne hover:bg-champagne hover:text-night"
+            aria-label="Back to gallery"
+          >
+            <FaArrowLeft className="h-3 w-3" />
+            <span>Back to Gallery</span>
+          </button>
+
+          <Link
+            href="/"
+            onClick={onClose}
+            className="inline-flex items-center gap-1.5 rounded-full border border-ivory/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-ivory/80 transition-all duration-200 hover:border-champagne hover:text-champagne"
+            aria-label="Go to homepage"
+          >
+            <FaHome className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Home</span>
+          </Link>
+        </div>
+
+        {/* Counter */}
+        <p className="text-xs font-semibold uppercase tracking-widest text-champagne/90">
+          {String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
         </p>
+
+        {/* Prominent Close Button */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close project view"
-          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne"
+          className="inline-flex items-center gap-1.5 rounded-full border border-ivory/25 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-ivory transition-all duration-200 hover:border-red-400 hover:bg-red-500/20 hover:text-white"
         >
-          <span aria-hidden className="text-lg leading-none">
-            <FaTimes className="h-4 w-4" />
-          </span>
+          <FaTimes className="h-3.5 w-3.5" />
+          <span>Close</span>
         </button>
-      </div>
+      </header>
 
-      {/* Stage */}
-      <div className="flex flex-1 items-center gap-4 overflow-hidden px-6 pb-6 lg:px-10">
-        <button
-          type="button"
-          onClick={() => onNavigate((index - 1 + items.length) % items.length)}
-          aria-label="Previous project"
-          className="hidden h-12 w-12 shrink-0 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne lg:grid"
-        >
-          <FaChevronLeft aria-hidden className="h-5 w-5" />
-        </button>
+      {/* Main Content Stage */}
+      <main className="relative flex flex-1 flex-col items-center justify-center px-4 py-4 sm:px-8 sm:py-6">
+        {/* Stage Wrapper */}
+        <div className="relative flex w-full max-w-5xl flex-1 items-center justify-center">
+          {/* Desktop Prev Button */}
+          <button
+            type="button"
+            onClick={() => onNavigate((index - 1 + items.length) % items.length)}
+            aria-label="Previous project"
+            className="hidden lg:grid absolute left-0 z-10 h-12 w-12 place-items-center rounded-full border border-ivory/20 bg-night/80 text-ivory shadow-lg transition-all duration-300 hover:border-champagne hover:bg-champagne hover:text-night"
+          >
+            <FaChevronLeft className="h-4 w-4" />
+          </button>
 
-        <figure className="relative mx-auto h-full w-full max-w-5xl">
-          {/* `fit="contain"` — this is the full project view, so the photo must
-              be letterboxed in full, never cropped. `object-cover` was cutting
-              the top and bottom off every portrait shot. */}
-          <div className="relative h-full w-full">
-            <FestiveImage
-              image={project.image}
-              fill
-              fit="contain"
-              sizes="(max-width: 1024px) 92vw, 64rem"
-            />
-          </div>
-        </figure>
+          {/* Large Image Frame */}
+          <figure className="relative mx-auto flex h-[62vh] w-full max-w-3xl items-center justify-center sm:h-[68vh] lg:h-[72vh]">
+            <div className="relative h-full w-full rounded-lg overflow-hidden shadow-2xl">
+              <FestiveImage
+                image={project.image}
+                fill
+                fit="contain"
+                priority
+                sizes="(max-width: 768px) 96vw, (max-width: 1200px) 85vw, 1200px"
+              />
+            </div>
+          </figure>
 
-        <button
-          type="button"
-          onClick={() => onNavigate((index + 1) % items.length)}
-          aria-label="Next project"
-          className="hidden h-12 w-12 shrink-0 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors duration-300 hover:border-champagne hover:text-champagne lg:grid"
-        >
-          <FaChevronRight aria-hidden className="h-5 w-5" />
-        </button>
-      </div>
+          {/* Desktop Next Button */}
+          <button
+            type="button"
+            onClick={() => onNavigate((index + 1) % items.length)}
+            aria-label="Next project"
+            className="hidden lg:grid absolute right-0 z-10 h-12 w-12 place-items-center rounded-full border border-ivory/20 bg-night/80 text-ivory shadow-lg transition-all duration-300 hover:border-champagne hover:bg-champagne hover:text-night"
+          >
+            <FaChevronRight className="h-4 w-4" />
+          </button>
+        </div>
 
-      {/* Meta */}
-      <div className="px-6 pb-10 lg:px-10">
-        <p className="flex items-center gap-3 text-label text-champagne">
-          <span aria-hidden className="h-px w-8 bg-champagne/60" />
-          {project.category}
-        </p>
-        <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-          <h3 className="font-display text-3xl leading-tight text-ivory">
+        {/* Project Metadata */}
+        <div className="mt-4 w-full max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-champagne">
+            {project.category}
+          </p>
+          <h3 className="mt-1 font-display text-xl sm:text-2xl lg:text-3xl font-medium text-ivory">
             {project.title}
           </h3>
-          <p className="text-sm text-ivory/50">{project.year}</p>
+          <p className="mt-0.5 text-xs text-ivory/50">{project.year}</p>
         </div>
-      </div>
 
-      {/* Mobile prev/next */}
-      <div className="flex justify-center gap-3 pb-8 lg:hidden">
-        <button
-          type="button"
-          onClick={() => onNavigate((index - 1 + items.length) % items.length)}
-          className="border hairline-dark rounded-full px-6 py-3 text-sm text-ivory transition-colors hover:text-champagne"
-        >
-          <FaChevronLeft aria-hidden className="mr-1.5 inline-block h-3 w-3" />
-          Previous
-        </button>
-        <button
-          type="button"
-          onClick={() => onNavigate((index + 1) % items.length)}
-          className="border hairline-dark rounded-full px-6 py-3 text-sm text-ivory transition-colors hover:text-champagne"
-        >
-          Next
-          <FaChevronRight aria-hidden className="ml-1.5 inline-block h-3 w-3" />
-        </button>
-      </div>
+        {/* Navigation & Action Controls for Mobile / Tablet */}
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-3 pb-4">
+          <button
+            type="button"
+            onClick={() => onNavigate((index - 1 + items.length) % items.length)}
+            className="inline-flex items-center gap-2 rounded-full border border-ivory/20 bg-white/5 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-ivory transition-colors hover:border-champagne hover:text-champagne"
+          >
+            <FaChevronLeft className="h-3 w-3" />
+            Previous
+          </button>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center gap-1.5 rounded-full border border-champagne/40 bg-champagne/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-champagne transition-colors hover:bg-champagne hover:text-night"
+          >
+            <FaTimes className="h-3 w-3" />
+            Close View
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onNavigate((index + 1) % items.length)}
+            className="inline-flex items-center gap-2 rounded-full border border-ivory/20 bg-white/5 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-ivory transition-colors hover:border-champagne hover:text-champagne"
+          >
+            Next
+            <FaChevronRight className="h-3 w-3" />
+          </button>
+        </div>
+      </main>
     </div>
   );
+
+  return createPortal(content, document.body);
 }

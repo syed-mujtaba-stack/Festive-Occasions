@@ -44,7 +44,7 @@ export const servicePages: Record<string, ServicePage> = {
     heroImage: "svcCompleteHero",
     intro: {
       heading: "One studio. Every festive space in Dubai.",
-      body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. As professional Christmas decorators we design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation. Every project is composed around the space itself, its architecture, light and character, and matched to the right scale and style for your own setting.",
+      body: "Festive Occasions is a premium Christmas decoration studio serving Dubai and the UAE. We provide Christmas decorations, especially in Palm Jumeirah, Tilal Al Ghaf, Al Barari, DAMAC Hills, Al Furjan, Arabian Ranches 1, Dubai Hills Estate, Jumeirah Lakes, Jumeirah Village Circle, Mudon, Arabian Ranches 2, Arabian Ranches 3, Jumeirah Island, Jumeirah Golf Estates, The Springs, and The Meadows, and all over Dubai. As professional Christmas decorators we design and install complete festive schemes — from a single statement tree to a full villa, office or commercial transformation.",
     },
     whatWeDecorate: {
       heading: "What we decorate",
@@ -111,6 +111,10 @@ export const servicePages: Record<string, ServicePage> = {
         q: "How do I get a quote for my space?",
         a: "Send us photos and your preferred dates on WhatsApp or by email, and we will confirm the right scale and a clear quote for your property before you commit.",
       },
+      {
+        q: "Which areas in Dubai do you provide Christmas decoration in?",
+        a: "We provide Christmas decorations especially in Palm Jumeirah, Tilal Al Ghaf, Al Barari, DAMAC Hills, Al Furjan, Arabian Ranches 1, Dubai Hills Estate, Jumeirah Lakes, Jumeirah Village Circle (JVC), Mudon, Arabian Ranches 2, Arabian Ranches 3, Jumeirah Island, Jumeirah Golf Estates, The Springs, and The Meadows, and all over Dubai.",
+      },
     ],
   },
 
@@ -172,7 +176,7 @@ export const servicePages: Record<string, ServicePage> = {
       },
       {
         q: "Do you cover villa communities across Dubai?",
-        a: "We serve Dubai and surrounding UAE areas. Share your community and we will confirm coverage.",
+        a: "Yes! We regularly provide luxury villa Christmas decoration across Palm Jumeirah, Tilal Al Ghaf, Al Barari, DAMAC Hills, Al Furjan, Arabian Ranches 1, 2 & 3, Dubai Hills Estate, Jumeirah Lakes, JVC, Mudon, Jumeirah Islands, Jumeirah Golf Estates, The Springs, The Meadows, and all over Dubai.",
       },
     ],
   },
