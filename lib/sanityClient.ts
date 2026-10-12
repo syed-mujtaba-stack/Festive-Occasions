@@ -1,8 +1,7 @@
 /**
  * Sanity Client — configured for the Festive Occasions blog migration.
  * 
- * Provides a unified way to fetch blog posts from Sanity,
- * with a fallback to the local lib/blog.ts data during transition.
+ * Provides the server-side Sanity client and blog post queries.
  */
 
 import { createClient } from "@sanity/client";
@@ -13,6 +12,7 @@ export const sanityClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   token: process.env.SANITY_API_TOKEN,
+  useCdn: false,
 });
 
 // Type definitions matching the Sanity post schema
@@ -47,7 +47,7 @@ export interface SanityPost {
 
 /**
  * Fetch a single blog post by slug from Sanity.
- * Falls back to the local lib/blog.ts if not found in Sanity.
+ * Returns null when no published Sanity post matches the requested slug.
  */
 export async function getSanityPost(slug: string): Promise<SanityPost | null> {
   const query = `
@@ -86,7 +86,7 @@ export async function getSanityPost(slug: string): Promise<SanityPost | null> {
 
 /**
  * Fetch all blog posts from Sanity, ordered by published date (newest first).
- * Falls back to the local lib/blogPosts array if Sanity is unavailable.
+ * Fetch all published blog posts from Sanity, ordered by published date.
  */
 export async function getAllSanityPosts(): Promise<SanityPost[]> {
   const query = `
