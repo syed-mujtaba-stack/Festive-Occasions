@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Container, Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
@@ -7,10 +8,12 @@ import { PageShell } from "@/components/layout/page-shell";
 import { PageHero } from "@/components/ui/page-hero";
 import { PageBreadcrumbSchema } from "@/components/seo/page-breadcrumb";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { Button } from "@/components/ui/button";
+import { FaWhatsapp } from "react-icons/fa";
 import { FestiveImage } from "@/components/ui/festive-image";
 import { FaArrowRight } from "react-icons/fa";
-import { blogPosts } from "@/lib/blog";
-import { images } from "@/lib/images";
+import { getAllSanityPosts } from "@/lib/sanityClient";
+import { images, type ImageKey } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -32,8 +35,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}${images.pageBlog.src}`,
-        alt: images.pageBlog.alt,
+        url: `${siteConfig.url}${images.hero.src}`,
+        alt: images.hero.alt,
         width: 1200,
         height: 630,
       },
@@ -44,11 +47,17 @@ export const metadata: Metadata = {
     title: "Christmas Decoration Guides | Festive Occasions",
     description:
       "Practical, honest guides to Christmas decoration in Dubai — packages, villas, trees, offices and lighting.",
-    images: [`${siteConfig.url}${images.pageBlog.src}`],
+    images: [`${siteConfig.url}${images.hero.src}`],
   },
 };
 
-export default function BlogIndexPage() {
+export default async function BlogIndexPage() {
+  const posts = await getAllSanityPosts();
+
+  const getHeroImageKey = (key: string | null | undefined): ImageKey => {
+    return key && key in images ? (key as ImageKey) : "hero";
+  };
+
   return (
     <PageShell>
       <PageBreadcrumbSchema name="Blog" path="/blog" />
@@ -56,7 +65,7 @@ export default function BlogIndexPage() {
         eyebrow="Journal"
         title="Christmas decoration, explained."
         lead="Practical guides on packages and pricing, villa schemes, trees, office styling, outdoor lighting and when to book — written around how we actually work."
-        image="pageBlog"
+        image={getHeroImageKey(posts[0]?.heroImageKey)}
       />
 
       <Section id="blog">
@@ -70,45 +79,60 @@ export default function BlogIndexPage() {
           </ScrollReveal>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16">
-            {blogPosts.map((post, i) => (
-              <ScrollReveal key={post.slug} delay={i * 0.04}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group flex flex-col"
+            {posts.map((post, i) => {
+              const slugValue = post.slug;
+              const heroImageKey = getHeroImageKey(post.heroImageKey);
+
+              return (
+                <ScrollReveal
+                  key={slugValue}
+                  delay={i * 0.04}
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-cream">
-                    <FestiveImage
-                      image={post.heroImage}
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      imgClassName="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full bg-night/80 px-3.5 py-1.5 text-label text-ivory backdrop-blur-sm">
-                      {post.category}
-                    </span>
-                  </div>
-                  <div className="mt-6 flex flex-col gap-3">
-                    <p className="text-label text-cocoa">
-                      {post.published} · {post.readingMinutes} min read
-                    </p>
-                    <h2 className="font-display text-2xl leading-snug text-espresso transition-colors group-hover:text-champagne lg:text-[1.7rem]">
-                      {post.title}
-                    </h2>
-                    <p className="max-w-prose text-[0.95rem] leading-relaxed text-cocoa">
-                      {post.metaDescription}
-                    </p>
-                    <span className="mt-2 inline-flex items-center gap-2 text-label text-champagne-deep">
-                      Read guide
+                  <Link
+                    href={`/blog/${slugValue}`}
+                    className="group flex flex-col"
+                  >
+                    <div
+                      className="relative aspect-[16/10] overflow-hidden rounded-sm bg-cream"
+                    >
+                      <FestiveImage
+                        image={heroImageKey}
+                        alt={images[heroImageKey].alt}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        imgClassName="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
                       <span
-                        aria-hidden
-                        className="transition-transform duration-300 group-hover:translate-x-1"
+                        className="absolute left-4 top-4 rounded-full bg-night/80 px-3.5 py-1.5 text-label text-ivory backdrop-blur-sm"
                       >
-                        <FaArrowRight className="h-[0.9em] w-[0.9em]" />
+                        {post.category}
                       </span>
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+                    </div>
+                    <div className="mt-6 flex flex-col gap-3">
+                      <p className="text-label text-cocoa">
+                        {post.published} · {post.readingMinutes} min read
+                      </p>
+                      <h2
+                        className="font-display text-2xl leading-snug text-espresso transition-colors group-hover:text-champagne lg:text-[1.7rem]"
+                      >
+                        {post.title}
+                      </h2>
+                      <p className="max-w-prose text-[0.95rem] leading-relaxed text-cocoa">
+                        {post.metaDescription}
+                      </p>
+                      <span className="mt-2 inline-flex items-center gap-2 text-label text-champagne-deep">
+                        Read guide
+                        <span
+                          aria-hidden
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        >
+                          <FaArrowRight className="h-[0.9em] w-[0.9em]" />
+                        </span>
+                      </span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </Container>
       </Section>

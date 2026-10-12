@@ -9,14 +9,23 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
-import { blogPosts, getBlogPost, type BlogSection } from "@/lib/blog";
+import {
+  getSanityPost,
+  getSanityPostSlugs,
+  type SanityPost,
+} from "@/lib/sanityClient";
 import { siteConfig, whatsappLink } from "@/lib/site";
-import { images } from "@/lib/images";
+import { images, type ImageKey } from "@/lib/images";
 
-export const dynamicParams = false;
+function getImageKey(key: string | null | undefined): ImageKey {
+  return key && key in images ? (key as ImageKey) : "hero";
+}
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const slugs = await getSanityPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -25,24 +34,32 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getSanityPost(slug);
+
   if (!post) return {};
+
+  const slugString = post.slug || slug;
+
+  const heroImage = images[getImageKey(post.heroImageKey)];
+  const heroImageSrc = heroImage.src;
+  const heroImageAlt = heroImage.alt;
+
   return {
     title: post.title,
     description: post.metaDescription,
-    keywords: post.keywords,
-    alternates: { canonical: `/blog/${post.slug}` },
+    keywords: post.keywords ?? [],
+    alternates: { canonical: `/blog/${slugString}` },
     openGraph: {
       title: post.title,
       description: post.metaDescription,
-      url: `/blog/${post.slug}`,
+      url: `/blog/${slugString}`,
       type: "article",
       publishedTime: post.published,
       ...(post.updated ? { modifiedTime: post.updated } : {}),
       images: [
         {
-          url: `${siteConfig.url}${images[post.heroImage].src}`,
-          alt: images[post.heroImage].alt,
+          url: `${siteConfig.url}${heroImageSrc}`,
+          alt: heroImageAlt,
           width: 1200,
           height: 630,
         },
@@ -52,12 +69,14 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.metaDescription,
-      images: [`${siteConfig.url}${images[post.heroImage].src}`],
+      images: [`${siteConfig.url}${heroImageSrc}`],
     },
   };
 }
 
-function renderSection(section: BlogSection, key: number) {
+type SanitySection = NonNullable<SanityPost["sections"]>[number];
+
+function renderSection(section: SanitySection, key: number) {
   switch (section.type) {
     case "h2":
       return (
@@ -71,7 +90,7 @@ function renderSection(section: BlogSection, key: number) {
     case "ul":
       return (
         <ul key={key} className="mt-6 flex flex-col gap-3">
-          {section.items.map((item) => (
+          {section.items?.map((item) => (
             <li
               key={item}
               className="flex items-start gap-3 text-[1.02rem] leading-relaxed text-cocoa"
@@ -98,13 +117,17 @@ function renderSection(section: BlogSection, key: number) {
   }
 }
 
-function articleJsonLd(post: (typeof blogPosts)[number]) {
+function articleJsonLd(post: SanityPost, slugString: string) {
+  const heroImage = images[getImageKey(post.heroImageKey)];
+  const heroImageSrc = heroImage.src;
+  const heroImageAlt = heroImage.alt;
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: `${siteConfig.url}${images[post.heroImage].src}`,
+    image: `${siteConfig.url}${heroImageSrc}`,
     datePublished: post.published,
     ...(post.updated ? { dateModified: post.updated } : {}),
     author: {
@@ -121,15 +144,17 @@ function articleJsonLd(post: (typeof blogPosts)[number]) {
         url: `${siteConfig.url}/icon.svg`,
       },
     },
-    mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,
+    mainEntityOfPage: `${siteConfig.url}/blog/${slugString}`,
   };
 }
 
-function faqJsonLd(post: (typeof blogPosts)[number]) {
+function faqJsonLd(post: SanityPost) {
+  const faqs = post.faqs ?? [];
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: post.faqs.map((f) => ({
+    mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -143,20 +168,25 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getSanityPost(slug);
+
+  // Handle null post - show 404 if not found
   if (!post) notFound();
+  const faqs = post.faqs ?? [];
+
+  const slugString = post.slug || slug;
 
   return (
     <PageShell>
-      <PageBreadcrumbSchema name={post.title} path={`/blog/${post.slug}`} />
-      <JsonLd data={articleJsonLd(post)} />
+      <PageBreadcrumbSchema name={post.title} path={`/blog/${slugString}`} />
+      <JsonLd data={articleJsonLd(post, slugString)} />
       <JsonLd data={faqJsonLd(post)} />
 
       <PageHero
         eyebrow={post.category}
         title={post.title}
         lead={post.lead}
-        image={post.heroImage}
+        image={getImageKey(post.heroImageKey)}
       />
 
       <Section>
@@ -172,35 +202,36 @@ export default async function BlogPostPage({
           </div>
 
           <article className="mt-10">
-            {post.sections.map((section, i) => renderSection(section, i))}
+            {(post.sections ?? []).map((section, i) => renderSection(section, i))}
           </article>
 
           {/* Related internal links */}
-          <div className="mt-12 border-t hairline pt-8">
-            <p className="text-label text-cocoa">Keep reading</p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {post.related.map((link) => (
-                <Button key={link.href} variant="outline" size="md" href={link.href}>
-                  {link.label}
-                </Button>
-              ))}
-            </div>
-          </div>
+          {/* Related internal links */}
+          {/* <div className="mt-12 border-t hairline pt-8"> */}
+            {/* <p className="text-label text-cocoa">Keep reading</p> */}
+            {/* <div className="mt-4 flex flex-wrap gap-3"> */}
+              {/* {post.related.map((link) => ( */}
+                {/* <Button key={link.href} variant="outline" size="md" href={link.href}> */}
+                  {/* {link.label} */}
+                {/* </Button> */}
+              {/* )} */}
+            {/* </div> */}
+          {/* </div> */}
 
           {/* Post FAQ — matches FAQPage schema above */}
-          {post.faqs.length > 0 && (
+          {faqs.length > 0 && (
             <div className="mt-14 border-t hairline pt-8">
               <h2 className="font-display text-2xl text-espresso">
                 Frequently asked questions
               </h2>
               <div className="mt-6">
-                {post.faqs.map((f, i) => (
+                {faqs.map((f, i) => (
                   <details
                     key={f.q}
                     className="group border-b hairline py-5"
                     {...(i === 0 ? { open: true } : {})}
                   >
-                    <summary className="flex cursor-pointer list-none items-start justify-between gap-6 [&::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer list-none items-start justify-between gap-6">
                       <h3 className="font-display text-lg text-espresso">{f.q}</h3>
                       <span
                         aria-hidden
@@ -213,7 +244,8 @@ export default async function BlogPostPage({
                       {f.a}
                     </p>
                   </details>
-                ))}
+                ))
+                }
               </div>
             </div>
           )}
@@ -227,7 +259,7 @@ export default async function BlogPostPage({
               </h2>
               <p className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-ivory/70">
                 Send photos of your space and your preferred dates on WhatsApp —
-                we&apos;ll confirm the right package or shape a bespoke quote.
+                we'll confirm the right package or shape a bespoke quote.
               </p>
             </div>
             <Button
@@ -236,8 +268,7 @@ export default async function BlogPostPage({
               href={whatsappLink(
                 `Hi Festive Occasions, I read the guide "${post.title}" and I'd like to plan Christmas decoration for my space.`
               )}
-              external
-            >
+              external>
               <FaWhatsapp className="h-4 w-4" aria-hidden />
               Start on WhatsApp
             </Button>

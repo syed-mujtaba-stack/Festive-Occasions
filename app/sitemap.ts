@@ -1,8 +1,8 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { blogPosts } from "@/lib/blog";
+import { getBlogPostSummaries } from "@/lib/sanityClient";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
   const now = new Date();
 
@@ -129,12 +129,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic Blog Posts
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updated || post.published),
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
-  }));
+  const blogPosts = await getBlogPostSummaries();
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts
+    .filter((post) => post.slug)
+    .map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updated || post.published),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    }));
 
   return [...primaryServiceRoutes, ...secondaryRoutes, ...blogRoutes];
-}
+}
