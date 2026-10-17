@@ -5,17 +5,6 @@ import { FaCheckCircle, FaStar } from "react-icons/fa";
 import { StarInput } from "@/components/ui/star-rating";
 import type { Review } from "@/lib/reviews";
 
-const SERVICES = [
-  "Christmas Decoration",
-  "Villa Decoration",
-  "Home Decoration",
-  "Office Decoration",
-  "Corporate Decoration",
-  "Outdoor / Lighting",
-  "Rental Christmas Decoration",
-  "Other",
-];
-
 const RATING_LABELS: Record<number, string> = {
   1: "Needs Improvement",
   2: "Fair",
@@ -39,7 +28,6 @@ export function ReviewForm({
   onPosted: (review: Review) => void;
 }) {
   const [name, setName] = useState("");
-  const [service, setService] = useState("");
   const [rating, setRating] = useState(5); // Pre-selected 5 stars for positive sentiment
   const [hover, setHover] = useState(0);
   const [review, setReview] = useState("");
@@ -79,7 +67,7 @@ export function ReviewForm({
           name: name.trim(),
           rating,
           quote: review.trim(),
-          detail: service,
+          detail: "",
           honey,
         }),
       });
@@ -166,26 +154,6 @@ export function ReviewForm({
           placeholder="e.g. Sarah Jenkins or The Al-Maktoum Family"
           className={inputCls}
         />
-      </div>
-
-      {/* Service Selection */}
-      <div>
-        <label htmlFor="rv-service" className={labelCls}>
-          Service Provided <span className="text-[10px] font-normal text-white/50 normal-case">(Optional)</span>
-        </label>
-        <select
-          id="rv-service"
-          value={service}
-          onChange={(e) => setService(e.target.value)}
-          className={`${inputCls} cursor-pointer [&>option]:bg-[#1e1b19] [&>option]:text-white`}
-        >
-          <option value="">Select your service type…</option>
-          {SERVICES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
       </div>
 
       {/* Rating Picker Card */}

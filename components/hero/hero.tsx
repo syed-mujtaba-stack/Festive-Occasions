@@ -2,10 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaPhoneAlt, FaBolt } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaBolt,
+  FaStar,
+  FaArrowDown,
+} from "react-icons/fa";
 import { SnowFall } from "@/components/animations/snow-fall";
 import { FestiveSparkles } from "@/components/animations/festive-sparkles";
 import { siteConfig, whatsappLink, telLink } from "@/lib/site";
+
+interface LenisGlobal {
+  __lenis?: {
+    scrollTo: (target: HTMLElement) => void;
+  } | null;
+}
 
 
 export function Hero() {
@@ -84,6 +96,51 @@ export function Hero() {
               <FaBolt aria-hidden className="mr-1.5 inline-block h-3.5 w-3.5 text-champagne" />
               Instant response via WhatsApp · Free site visit & custom design proposal
             </p>
+
+            <Link
+              href="#testimonials"
+              aria-label="Click here to see our client reviews"
+              onClick={(event) => {
+                event.preventDefault();
+                const target = document.getElementById("testimonials");
+                if (!target) return;
+
+                const lenis = (window as unknown as LenisGlobal).__lenis;
+                if (lenis) {
+                  lenis.scrollTo(target);
+                } else {
+                  target.scrollIntoView({
+                    behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                      .matches
+                      ? "auto"
+                      : "smooth",
+                    block: "start",
+                  });
+                }
+
+                window.history.replaceState(null, "", "#testimonials");
+              }}
+              className="group mt-5 inline-flex max-w-full items-center gap-3 rounded-xl border border-[#dfba73]/50 bg-black/50 px-3.5 py-3 text-left shadow-lg backdrop-blur-md transition-colors hover:border-[#f5e4bf] hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfba73]"
+            >
+              <span className="relative grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#dfba73]/15 text-[#f5e4bf]">
+                <FaStar aria-hidden className="h-4 w-4" />
+                <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-[#171312] bg-emerald-400">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-emerald-300 opacity-70" />
+                </span>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-semibold text-white">
+                  Client reviews
+                </span>
+                <span className="block text-xs leading-snug text-white/70">
+                  Click here to see our reviews
+                </span>
+              </span>
+              <FaArrowDown
+                aria-hidden
+                className="ml-1 h-3.5 w-3.5 shrink-0 text-champagne transition-transform group-hover:translate-y-0.5"
+              />
+            </Link>
           </div>
 
           {/* Right Column: Luxury Santa Showcase Card with Real Work Badge */}
