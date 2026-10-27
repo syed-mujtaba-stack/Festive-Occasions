@@ -11,7 +11,7 @@ import {
   FaHome,
 } from "react-icons/fa";
 import { FestiveImage } from "@/components/ui/festive-image";
-import { useMounted } from "@/lib/utils";
+import { useMounted } from "@/lib/use-mounted";
 import type { GalleryProject } from "@/lib/gallery";
 
 /**

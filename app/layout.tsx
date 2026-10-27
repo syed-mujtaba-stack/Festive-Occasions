@@ -26,7 +26,8 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500"],
   style: ["normal", "italic"],
   display: "swap",
-  preload: true,
+  preload: false,
+  adjustFontFallback: false,
 });
 
 const manrope = Manrope({
@@ -34,7 +35,8 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
-  preload: true,
+  preload: false,
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

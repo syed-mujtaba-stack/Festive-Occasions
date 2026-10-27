@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaStar, FaTimes } from "react-icons/fa";
 import { ReviewForm } from "@/components/sections/review-form";
-import { useMounted } from "@/lib/utils";
+import { useMounted } from "@/lib/use-mounted";
 import type { Review } from "@/lib/reviews";
 
 interface LenisGlobal {

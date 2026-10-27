@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaTree, FaWhatsapp, FaTimes } from "react-icons/fa";
-import { useMounted } from "@/lib/utils";
+import { useMounted } from "@/lib/use-mounted";
 
 const RENTAL_OFFER = {
   title: "Rental Christmas Decoration",
