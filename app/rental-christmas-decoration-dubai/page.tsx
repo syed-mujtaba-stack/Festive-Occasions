@@ -55,7 +55,7 @@ export default function RentalChristmasDecorationDubaiPage() {
             <span className="text-emerald-400">Rented Properties</span>
           </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            Don't let a rented property stop you from enjoying the festive season. We specialize in beautiful, non-damaging Christmas decoration for apartments, villas, and homes on rental — installed carefully and removed on your dates.
+            Don&apos;t let a rented property stop you from enjoying the festive season. We specialize in beautiful, non-damaging Christmas decoration for apartments, villas, and homes on rental — installed carefully and removed on your dates.
           </p>
 
           {/* 5 Steps */}

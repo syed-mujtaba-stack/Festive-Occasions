@@ -259,7 +259,7 @@ export default async function BlogPostPage({
               </h2>
               <p className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-ivory/70">
                 Send photos of your space and your preferred dates on WhatsApp —
-                we'll confirm the right package or shape a bespoke quote.
+                we&apos;ll confirm the right package or shape a bespoke quote.
               </p>
             </div>
             <Button

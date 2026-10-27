@@ -341,6 +341,36 @@ html.lenis body {
   }
 }
 
+/* Reviews auto-scrolling marquee — continuous smooth loop, pauses on hover */
+@keyframes reviews-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.reviews-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: reviews-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.reviews-marquee-track:hover,
+.reviews-marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
 /* Cinematic film grain — subtle texture over everything, like a print finish. */
 .grain {
   position: fixed;

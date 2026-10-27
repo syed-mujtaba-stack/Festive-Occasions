@@ -210,7 +210,7 @@ Details:
           <div className="mt-10 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-6 py-4 text-sm font-semibold text-espresso">
               <FaTree aria-hidden className="inline-block h-5 w-5 text-emerald-600" />
-              <span>Thank you! Your inquiry has been sent. We'll contact you shortly on WhatsApp.</span>
+              <span>Thank you! Your inquiry has been sent. We&apos;ll contact you shortly on WhatsApp.</span>
             </div>
             <p className="mt-3 text-sm text-warm-gray-deep">
               A member of our team will get back to you within 24 hours to discuss your festive decoration project.

@@ -108,7 +108,7 @@ export function SnowFall({ flakeCount = 42, className = "" }: SnowFallProps) {
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
-  }, [flakeCount]);
+  }, [effectiveFlakeCount]);
 
   return (
     <canvas

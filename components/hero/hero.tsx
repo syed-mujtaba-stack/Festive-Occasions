@@ -11,11 +11,7 @@ import { SnowFall } from "@/components/animations/snow-fall";
 import { FestiveSparkles } from "@/components/animations/festive-sparkles";
 import { siteConfig, whatsappLink, telLink } from "@/lib/site";
 
-interface LenisGlobal {
-  __lenis?: {
-    scrollTo: (target: HTMLElement) => void;
-  } | null;
-}
+
 
 
 export function Hero() {

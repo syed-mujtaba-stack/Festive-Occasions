@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaStar, FaTimes } from "react-icons/fa";
 import { ReviewForm } from "@/components/sections/review-form";
+import { useMounted } from "@/lib/utils";
 import type { Review } from "@/lib/reviews";
 
 interface LenisGlobal {
@@ -27,12 +28,8 @@ export function ReviewModal({
   onPosted: (review: Review) => void;
 }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const dialogRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const openModal = useCallback(() => {
     document.body.style.overflow = "hidden";

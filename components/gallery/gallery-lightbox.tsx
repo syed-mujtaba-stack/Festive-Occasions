@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
@@ -11,6 +11,7 @@ import {
   FaHome,
 } from "react-icons/fa";
 import { FestiveImage } from "@/components/ui/festive-image";
+import { useMounted } from "@/lib/utils";
 import type { GalleryProject } from "@/lib/gallery";
 
 /**
@@ -29,12 +30,8 @@ export function GalleryLightbox({
   onClose: () => void;
   onNavigate: (index: number) => void;
 }) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const project = items[index];
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Lock body scroll + keyboard controls while open.
   useEffect(() => {

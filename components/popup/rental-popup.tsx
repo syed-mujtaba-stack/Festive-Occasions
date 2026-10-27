@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { FaTree, FaWhatsapp, FaTimes } from "react-icons/fa";
+import { useMounted } from "@/lib/utils";
 
 const RENTAL_OFFER = {
   title: "Rental Christmas Decoration",
@@ -39,13 +40,9 @@ const RENTAL_OFFER = {
 export function RentalPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const dismissedRef = useRef(false);
   const popupRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Show popup after 15 seconds delay
   useEffect(() => {
